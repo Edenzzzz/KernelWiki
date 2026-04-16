@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Validate YAML frontmatter in all source and wiki pages against schemas."""
 
-import os
 import re
 import sys
 import yaml
@@ -31,6 +30,16 @@ def extract_frontmatter(filepath):
         return yaml.safe_load(match.group(1))
     except yaml.YAMLError as e:
         return {"_parse_error": str(e)}
+
+
+def read_body(filepath):
+    """Read the body (post-frontmatter) of a markdown file."""
+    with open(filepath) as f:
+        content = f.read()
+    match = re.match(r'^---\s*\n.*?\n---\s*\n', content, re.DOTALL)
+    if match:
+        return content[match.end():]
+    return content
 
 
 def detect_page_type(filepath, fm):
@@ -65,13 +74,17 @@ def detect_page_type(filepath, fm):
 
 
 def repro_at_least(level, minimum):
-    """Check if reproducibility level meets minimum."""
     if level not in REPRO_ORDER or minimum not in REPRO_ORDER:
         return False
     return REPRO_ORDER.index(level) >= REPRO_ORDER.index(minimum)
 
 
-def validate_file(filepath, schemas, valid_tags):
+def has_fenced_code(body):
+    """Check if body contains at least one fenced code block."""
+    return bool(re.search(r'^```\w*\s*\n.*?\n```', body, re.MULTILINE | re.DOTALL))
+
+
+def validate_file(filepath, schemas, valid_tags, all_source_ids):
     """Validate a single file. Returns list of error strings."""
     errors = []
     rel = filepath.relative_to(REPO_ROOT)
@@ -94,14 +107,18 @@ def validate_file(filepath, schemas, valid_tags):
         errors.append(f"{rel}: no schema defined for type '{page_type}'")
         return errors
 
+    constraints = schema.get("constraints", {})
+
     # Check required fields
     for field in schema.get("required", []):
         if field not in fm or fm[field] is None:
             errors.append(f"{rel}: missing required field '{field}'")
 
-    # Check id exists
-    if "id" in fm:
-        pass  # id presence checked above via required
+    # Validate id_prefix
+    id_prefix = constraints.get("id_prefix")
+    if id_prefix and "id" in fm:
+        if not str(fm["id"]).startswith(id_prefix):
+            errors.append(f"{rel}: id '{fm['id']}' must start with '{id_prefix}'")
 
     # Validate tags against controlled vocabulary
     all_valid = set()
@@ -133,8 +150,7 @@ def validate_file(filepath, schemas, valid_tags):
         if fm["reproducibility"] not in valid_repro:
             errors.append(f"{rel}: invalid reproducibility '{fm['reproducibility']}'")
 
-    # Check reproducibility minimum constraints
-    constraints = schema.get("constraints", {})
+    # Check reproducibility minimum
     repro_min = constraints.get("reproducibility_minimum")
     if repro_min and "reproducibility" in fm:
         if not repro_at_least(fm["reproducibility"], repro_min):
@@ -143,10 +159,30 @@ def validate_file(filepath, schemas, valid_tags):
                 f"minimum '{repro_min}' for {page_type}"
             )
 
-    # Check source_category
+    # Validate source_category against schema constraints
     valid_cats = set(valid_tags.get("source_categories", []))
-    if "source_category" in fm and fm["source_category"] not in valid_cats:
-        errors.append(f"{rel}: invalid source_category '{fm['source_category']}'")
+    if "source_category" in fm:
+        cat = fm["source_category"]
+        if cat not in valid_cats:
+            errors.append(f"{rel}: invalid source_category '{cat}'")
+        # Check schema-specific category constraints
+        cat_constraint = constraints.get("source_category")
+        if cat_constraint:
+            allowed = cat_constraint if isinstance(cat_constraint, list) else [cat_constraint]
+            if cat not in allowed:
+                errors.append(f"{rel}: source_category '{cat}' not in allowed {allowed}")
+
+    # Validate status enum
+    status_constraint = constraints.get("status")
+    if status_constraint and "status" in fm:
+        allowed = status_constraint if isinstance(status_constraint, list) else [status_constraint]
+        if fm["status"] not in allowed:
+            errors.append(f"{rel}: status '{fm['status']}' not in {allowed}")
+
+    # Check merge_sha_required_when
+    if constraints.get("merge_sha_required_when") == "status == merged":
+        if fm.get("status") == "merged" and not fm.get("merge_sha"):
+            errors.append(f"{rel}: merge_sha required when status is 'merged'")
 
     # Check type field matches constraint
     if "type" in constraints and "type" in fm:
@@ -160,15 +196,25 @@ def validate_file(filepath, schemas, valid_tags):
     if page_type == "wiki-migration" and "blackwell_relevance" not in fm:
         errors.append(f"{rel}: migration page missing 'blackwell_relevance'")
 
-    # Check performance_claims structure
+    # Check performance_claims structure (including shape)
     if "performance_claims" in fm and isinstance(fm["performance_claims"], list):
         for i, claim in enumerate(fm["performance_claims"]):
             if isinstance(claim, dict):
-                for req in ["gpu", "dtype", "metric", "value", "source_id"]:
+                for req in ["gpu", "dtype", "shape", "metric", "value", "source_id"]:
                     if req not in claim:
-                        errors.append(
-                            f"{rel}: performance_claims[{i}] missing '{req}'"
-                        )
+                        errors.append(f"{rel}: performance_claims[{i}] missing '{req}'")
+
+    # Check wiki sources reference existing source ids
+    if page_type.startswith("wiki-") and "sources" in fm and isinstance(fm["sources"], list):
+        for src_id in fm["sources"]:
+            if all_source_ids and src_id not in all_source_ids:
+                errors.append(f"{rel}: references unknown source id '{src_id}'")
+
+    # Check technique/kernel/language pages have fenced code
+    if page_type in ("wiki-technique", "wiki-kernel", "wiki-language"):
+        body = read_body(filepath)
+        if not has_fenced_code(body):
+            errors.append(f"{rel}: {page_type} page must contain fenced code block (reproducibility >= snippet)")
 
     return errors
 
@@ -181,6 +227,14 @@ def main():
     file_count = 0
     ids_seen = {}
 
+    # First pass: collect all source IDs
+    all_source_ids = set()
+    for md_file in sorted(SOURCES_DIR.rglob("*.md")) if SOURCES_DIR.exists() else []:
+        fm = extract_frontmatter(md_file)
+        if fm and isinstance(fm, dict) and "id" in fm:
+            all_source_ids.add(fm["id"])
+
+    # Second pass: validate everything
     for search_dir in [SOURCES_DIR, WIKI_DIR]:
         if not search_dir.exists():
             continue
@@ -199,11 +253,10 @@ def main():
                 else:
                     ids_seen[fid] = str(md_file.relative_to(REPO_ROOT))
 
-            errors = validate_file(md_file, schemas, tags)
+            errors = validate_file(md_file, schemas, tags, all_source_ids)
             all_errors.extend(errors)
 
-    # Summary
-    print(f"Validated {file_count} files")
+    print(f"Validated {file_count} files ({len(all_source_ids)} source IDs collected)")
     if all_errors:
         print(f"\n{len(all_errors)} errors found:\n")
         for err in all_errors:

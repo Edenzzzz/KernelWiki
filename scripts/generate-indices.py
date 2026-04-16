@@ -83,17 +83,18 @@ def generate_by_technique(pages):
         lines.append("*No technique pages found.*")
         return "\n".join(lines) + "\n"
 
-    lines.append("| Technique | Architectures | Confidence | Reproducibility | Sources |")
-    lines.append("|-----------|--------------|------------|-----------------|---------|")
+    lines.append("| Technique | Tags | Architectures | Confidence | Reproducibility | Sources |")
+    lines.append("|-----------|------|--------------|------------|-----------------|---------|")
 
     for t in sorted(techniques, key=lambda x: x.get("title", "")):
         title = t.get("title", "Untitled")
         path = t.get("_path", "")
+        tags = ", ".join(t.get("tags", [])[:4])
         archs = ", ".join(t.get("architectures", []))
         conf = t.get("confidence", "")
         repro = t.get("reproducibility", "")
         src_count = len(t.get("sources", []))
-        lines.append(f"| [{title}]({path}) | {archs} | {conf} | {repro} | {src_count} |")
+        lines.append(f"| [{title}]({path}) | {tags} | {archs} | {conf} | {repro} | {src_count} |")
 
     return "\n".join(lines) + "\n"
 
@@ -107,12 +108,23 @@ def generate_by_hardware_feature(pages):
         "",
     ]
 
-    # Collect hardware features from all wiki pages
+    # Load valid hardware feature tags
+    tags_path = REPO_ROOT / "data" / "tags.yaml"
+    hw_tag_set = set()
+    if tags_path.exists():
+        with open(tags_path) as f:
+            tag_data = yaml.safe_load(f)
+        hw_tag_set = set(tag_data.get("hardware_features", []))
+
+    # Collect hardware features from all pages (only actual hardware tags)
     feature_pages = defaultdict(list)
     for p in pages:
-        if p.get("_dir") == "wiki":
-            for feat in p.get("hardware_features", []) + p.get("tags", []):
-                feature_pages[feat].append(p)
+        for feat in p.get("hardware_features", []):
+            feature_pages[feat].append(p)
+        # Also check tags, but only if they're actual hardware features
+        for tag in p.get("tags", []):
+            if tag in hw_tag_set:
+                feature_pages[tag].append(p)
 
     # Also add dedicated hardware pages
     hw_pages = [p for p in pages if p.get("type") == "hardware"]
