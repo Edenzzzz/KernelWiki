@@ -17,7 +17,13 @@ gh version 2.90.0 (2026-04-16)
   `asset_mode: extracted` bundles added in Round 20 for
   `amandeep-nvfp4-attempts`, `modular-blackwell-matmul`,
   `nvfp4-format-details`, and `vllm-deepseek-v3-sparse-attention`
-  after the extractor stopped dropping unlabeled fenced blocks)
+  after the extractor stopped dropping unlabeled fenced blocks; Round
+  26 tightened the unlabeled-fence filter with a bullet-ratio
+  heuristic, which dropped four prose-only fences from amandeep but
+  kept the four blog bundles. Two `kernels/*/full/` bundles had their
+  top-level `asset_mode` corrected from `verbatim` to `extracted`
+  since they combine an upstream-patch with an extracted blog snippet
+  rather than a verbatim upstream file.)
 - 312 files with `mode: verbatim` or `mode: upstream-patch` and no `size_cap_truncated` marker
 
 ## stdout

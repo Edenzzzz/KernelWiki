@@ -55,17 +55,49 @@ def slugify(s):
 def is_extractable_block(lang, body):
     """Return True iff a fenced block should be extracted.
 
-    Accepts any fence with a non-empty body regardless of language tag.
-    The script docstring already promises that unknown languages fall
-    back to `.txt` (see `_derive_filename` which uses
-    `EXT_MAP.get(lang, "txt")`), so the filter must not reject
-    unlabeled or unfamiliar fences. The previous `lang in EXT_MAP`
-    gate silently dropped unlabeled blocks in blogs like
-    `amandeep-nvfp4-attempts` and `modular-blackwell-matmul`, emitting
-    `code_present: false` manifests and losing code evidence that was
-    present in the source markdown (Codex R20 P2).
+    - Empty body: reject.
+    - Known language (in EXT_MAP): accept unconditionally — the author
+      declared it as code.
+    - Unlabeled / unknown language: apply a cheap code-likeness heuristic
+      so prose fences (bullet lists, paragraphs, attempt write-ups) are
+      NOT misclassified as code. Blogs like `amandeep-nvfp4-attempts`
+      use unlabeled fences for formatted notes; without this check the
+      extractor would ship `01-attempts-1-3-getting-the-basics-right.txt`
+      as a `.txt` "code" file and pollute `query.py --has-code`
+      (Codex R26 P2).
     """
-    return bool(body.strip())
+    if not body.strip():
+        return False
+    if lang and lang in EXT_MAP:
+        return True
+    return _looks_like_code_fence(body)
+
+
+_BULLET_RE = re.compile(r"^\s*([-*•]|\d+[.)])\s+\S")
+
+
+def _looks_like_code_fence(body):
+    """Heuristic: an unlabeled fence is treated as code unless its body
+    is dominantly bullet / numbered prose.
+
+    A fence whose non-blank lines are >50% bullets or numbered-list
+    items is rejected. Short fences (1-3 non-blank lines) are accepted
+    to preserve formulas and config snippets (`x_hat = s * deq(q)`,
+    `DP=8, EP=8, TP=1`). Fences with code-ish punctuation (`//`, `{}`,
+    `(...)`, `=`, CLI flags `--foo`) are accepted even when short.
+
+    This matches every case in the shipped corpus: the four
+    attempt-writeup fences (75%+ bullets) are rejected; the nsight /
+    modular / formula / config fences (no bullets) are accepted.
+    """
+    lines = [ln for ln in body.strip().splitlines() if ln.strip()]
+    if not lines:
+        return False
+    bullet_lines = sum(1 for ln in lines if _BULLET_RE.match(ln))
+    bullet_ratio = bullet_lines / len(lines)
+    if bullet_ratio > 0.5:
+        return False
+    return True
 
 
 def parse_markdown(md_path):

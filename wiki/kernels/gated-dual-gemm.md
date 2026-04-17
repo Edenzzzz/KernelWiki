@@ -117,7 +117,7 @@ __global__ void gated_dual_gemm_nvfp4(
 
 ## Full Reference Implementation
 
-Verbatim upstream code lives in [`artifacts/kernels/gated-dual-gemm/full/`](../../artifacts/kernels/gated-dual-gemm/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/gated-dual-gemm/variants/`](../../artifacts/kernels/gated-dual-gemm/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+The reference bundle lives in [`artifacts/kernels/gated-dual-gemm/full/`](../../artifacts/kernels/gated-dual-gemm/full/) and combines the upstream vLLM PR-23696 diff (`vllm-PR-23696-gated-dual-gemm.patch`, `mode: upstream-patch`) with an extracted CUTLASS-schedule snippet from the `tflops-gap-fp4-moe` blog (`blackwell-cutlass-schedules-and-tma.cu`, `mode: extracted`). Labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/gated-dual-gemm/variants/`](../../artifacts/kernels/gated-dual-gemm/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
 
 Query via:
 

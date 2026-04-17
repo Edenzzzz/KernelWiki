@@ -3,7 +3,7 @@ upstream_repo: NVIDIA/cutlass
 upstream_sha: ca4fdbea
 license: inherits-from-upstream
 retrieved_at: '2026-04-17'
-asset_mode: verbatim
+asset_mode: extracted
 size_cap_truncated: false
 generated_by: Phase 3 Round 3 task12 (nvfp4-gemm anchor)
 source_pr_id: pr-cutlass-2139

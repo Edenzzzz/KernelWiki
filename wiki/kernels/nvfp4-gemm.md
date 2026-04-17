@@ -243,7 +243,7 @@ Problem 2 top performers (geometric mean across benchmark configs):
 
 ## Full Reference Implementation
 
-Verbatim upstream code lives in [`artifacts/kernels/nvfp4-gemm/full/`](../../artifacts/kernels/nvfp4-gemm/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/nvfp4-gemm/variants/`](../../artifacts/kernels/nvfp4-gemm/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+The reference bundle lives in [`artifacts/kernels/nvfp4-gemm/full/`](../../artifacts/kernels/nvfp4-gemm/full/) and combines the upstream PR-2139 diff (`PR-2139-blockwise-groupwise-gemm.patch`, `mode: upstream-patch`, SHA-pinned to `ca4fdbea` on NVIDIA/cutlass) with an extracted CUTLASS-schedule / TMA snippet from the `tflops-gap-fp4-moe` blog (`blackwell-cutlass-schedules-and-tma.cu`, `mode: extracted`). Labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/nvfp4-gemm/variants/`](../../artifacts/kernels/nvfp4-gemm/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
 
 Query via:
 
