@@ -122,17 +122,17 @@ def generate_by_hardware_feature(pages):
         with open(tags_path) as f:
             hw_tag_set = set(yaml.safe_load(f).get("hardware_features", []))
 
+    # Merge explicit hardware_features AND supplemental hw tags (deduplicated)
     feature_pages = defaultdict(list)
     for p in pages:
-        explicit = p.get("hardware_features", [])
-        if explicit:
-            for feat in explicit:
-                feature_pages[feat].append(p)
-        else:
-            # Tag fallback only when hardware_features is absent
-            for tag in p.get("tags", []):
-                if tag in hw_tag_set:
-                    feature_pages[tag].append(p)
+        indexed = set()
+        for feat in p.get("hardware_features", []):
+            feature_pages[feat].append(p)
+            indexed.add(feat)
+        for tag in p.get("tags", []):
+            if tag in hw_tag_set and tag not in indexed:
+                feature_pages[tag].append(p)
+                indexed.add(tag)
 
     # Add dedicated hardware pages under their canonical tags (from tags field)
     hw_pages = [p for p in pages if p.get("type") == "hardware"]
@@ -207,20 +207,21 @@ def generate_by_kernel_type(pages):
         with open(tags_path) as f:
             kt_tag_set = set(yaml.safe_load(f).get("kernel_types", []))
 
-    # Only index kernel-bearing pages: sources and wiki/kernels (not technique/language pages)
-    kernel_bearing_types = {"kernel", None}  # None = source pages (no type field)
+    # Merge explicit kernel_types AND supplemental kt tags (deduplicated)
+    # Only source pages and wiki/kernels contribute via tags (not technique/language)
+    kernel_bearing_types = {"kernel", None}
     type_pages = defaultdict(list)
     for p in pages:
-        explicit_kts = p.get("kernel_types", [])
-        for kt in explicit_kts:
+        indexed = set()
+        for kt in p.get("kernel_types", []):
             type_pages[kt].append(p)
-        # Tag fallback ONLY when kernel_types is absent or empty
-        if not explicit_kts:
-            page_type = p.get("type")
-            if page_type in kernel_bearing_types:
-                for tag in p.get("tags", []):
-                    if tag in kt_tag_set:
-                        type_pages[tag].append(p)
+            indexed.add(kt)
+        page_type = p.get("type")
+        if page_type in kernel_bearing_types:
+            for tag in p.get("tags", []):
+                if tag in kt_tag_set and tag not in indexed:
+                    type_pages[tag].append(p)
+                    indexed.add(tag)
 
     for kt in sorted(type_pages.keys()):
         page_links = []
@@ -270,18 +271,18 @@ def generate_by_language(pages):
             if primary_lang and primary_lang in lang_data:
                 lang_data[primary_lang]["guide"] = p
 
-    # Find consumer pages: trust languages field when present, fall back to tags only when absent
+    # Merge explicit languages AND supplemental language tags (deduplicated)
     for p in pages:
         if p.get("type") != "language":
-            explicit = p.get("languages", [])
-            if explicit:
-                for lang in explicit:
-                    if lang in lang_data:
-                        lang_data[lang]["consumers"].append(p)
-            else:
-                for tag in p.get("tags", []):
-                    if tag in valid_langs:
-                        lang_data[tag]["consumers"].append(p)
+            indexed = set()
+            for lang in p.get("languages", []):
+                if lang in lang_data:
+                    lang_data[lang]["consumers"].append(p)
+                    indexed.add(lang)
+            for tag in p.get("tags", []):
+                if tag in valid_langs and tag not in indexed:
+                    lang_data[tag]["consumers"].append(p)
+                    indexed.add(tag)
 
     lines.append("| Language | Guide | Related Pages |")
     lines.append("|----------|-------|--------------|")
