@@ -1,5 +1,5 @@
 origin_url: https://veitner.bearblog.dev/nvfp4-gemv/
-upstream_repo: blog/yue-nvfp4-hackathon
+upstream_repo: blog/simon-nvfp4-gemv
 upstream_sha: none
 license: inherits-from-source-blog
 retrieved_at: '2026-04-17'
@@ -8,10 +8,24 @@ size_cap_truncated: false
 generated_by: scripts/collect_contest_code.py
 source_contest_id: contest-gpu-mode-nvfp4-problem-1-gemv
 files:
-- local_path: 04-step-4-ptx-assembly-27us.ptx
+- local_path: 01-reference-core-computation-part-1.cpp
   role: extracted-block
   mode: extracted
-  upstream_path: sources/blogs/yue-nvfp4-hackathon.md
-  heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
-    Steps > ### Step 4: PTX Assembly (~27us)'
-  sha256: 8d6773986bc2e6e3b586a06a4118637ba4a52a1b348a02d73d6865b1a252d155
+  upstream_path: sources/blogs/simon-nvfp4-gemv.md
+  heading_path: '# NVFP4 GEMV and Improved NVFP4 GEMV (Simon Veitner) > ## Key Code
+    > ### Reference core computation (Part 1)'
+  sha256: 4f99f3b107aecbf9a3c315ff515c128ec56ef792b5580b115e934c30bf1bff51
+- local_path: 02-strategy-1-k-parallel-grid-with-atomic-accumulation.cpp
+  role: extracted-block
+  mode: extracted
+  upstream_path: sources/blogs/simon-nvfp4-gemv.md
+  heading_path: '# NVFP4 GEMV and Improved NVFP4 GEMV (Simon Veitner) > ## Key Code
+    > ### Strategy 1 — K-parallel grid with atomic accumulation'
+  sha256: 2948c8a162e6e99ea1a4233cdc5efd241b48029befa0aa68871e42d48df09e48
+- local_path: 03-strategy-3-atomic-free-shared-memory-reduction.cpp
+  role: extracted-block
+  mode: extracted
+  upstream_path: sources/blogs/simon-nvfp4-gemv.md
+  heading_path: '# NVFP4 GEMV and Improved NVFP4 GEMV (Simon Veitner) > ## Key Code
+    > ### Strategy 3 — Atomic-free shared-memory reduction'
+  sha256: 600c7e88c6d5dc01fc4619e405e01a3bd540e1c28122c1e5a59f7d9189740430

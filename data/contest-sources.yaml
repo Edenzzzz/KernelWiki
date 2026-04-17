@@ -11,9 +11,11 @@ gpu-mode-nvfp4:
   problem-1-gemv:
     rank-1-simon-veitner:
       kind: inline-from-blog
-      blog_slug: yue-nvfp4-hackathon
+      blog_slug: simon-nvfp4-gemv
       files:
-        - "04-step-4-ptx-assembly-27us.ptx"
+        - "01-reference-core-computation-part-1.cpp"
+        - "02-strategy-1-k-parallel-grid-with-atomic-accumulation.cpp"
+        - "03-strategy-3-atomic-free-shared-memory-reduction.cpp"
       origin_url: "https://veitner.bearblog.dev/nvfp4-gemv/"
     rank-2-yue:
       kind: inline-from-blog

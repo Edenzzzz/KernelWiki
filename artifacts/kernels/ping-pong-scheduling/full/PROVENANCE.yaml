@@ -18,4 +18,4 @@ files:
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/flash-attention-4.md
-  heading_path: (inherited from artifacts/blogs/flash-attention-4/MANIFEST.yaml)
+  heading_path: '## Key Code > ### Ping-pong scheduling'

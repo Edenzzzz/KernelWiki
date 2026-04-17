@@ -33,21 +33,21 @@ url: https://github.com/gpu-mode/reference-kernels
 submissions:
 - rank: 1
   participant: Simon (veitner)
-  score: ~18.5us geomean
+  score: ~22.4us geomean
   technique: Full PTX assembly with cache policy differentiation, byte unpacking,
     and aggressive register budgeting (maxrregcount=32)
   submission_truth: reconstructed-from-blog
-  code_path: artifacts/contests/gpu-mode-nvfp4/problem-1-gemv/submissions/rank-1-simon-veitner/04-step-4-ptx-assembly-27us.ptx
+  code_path: artifacts/contests/gpu-mode-nvfp4/problem-1-gemv/submissions/rank-1-simon-veitner/01-reference-core-computation-part-1.cpp
 - rank: 2
   participant: yue
-  score: ~18.5us geomean
+  score: ~23.0us geomean
   technique: Shared B vector reads across BLOCK_M rows, PTX load/decode path, ILP
     optimization
   submission_truth: reconstructed-from-blog
   code_path: artifacts/contests/gpu-mode-nvfp4/problem-1-gemv/submissions/rank-2-yue/01-step-1-cute-dsl-baseline-100us.cpp
 - rank: 3
   participant: Amandeep
-  score: ~18.5us geomean
+  score: ~24.0us geomean
   technique: PTX assembly with per-K specialization, vectorized 256-bit loads, cache
     bypass for streamed matrix A
   submission_truth: unavailable

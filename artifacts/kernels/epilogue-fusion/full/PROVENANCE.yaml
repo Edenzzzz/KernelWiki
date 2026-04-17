@@ -20,4 +20,4 @@ files:
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/colfax-cutlass-blackwell.md
-  heading_path: (inherited from artifacts/blogs/colfax-cutlass-blackwell/MANIFEST.yaml)
+  heading_path: '## Key Code > ### TMEM load into registers for epilogue'

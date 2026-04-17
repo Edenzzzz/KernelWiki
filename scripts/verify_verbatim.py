@@ -57,9 +57,33 @@ def fetch_verbatim(upstream_repo, upstream_sha, upstream_path):
     return base64.b64decode(data["content"])
 
 
-def fetch_upstream_patch(upstream_repo, pr_number):
-    """Fetch the PR's diff via gh pr diff."""
-    # Format: gh pr diff <N> -R owner/repo
+def fetch_upstream_patch(upstream_repo, pr_number, expected_sha=None):
+    """Fetch the PR's diff at the declared upstream_sha.
+
+    Strategy:
+      1. GET /repos/{repo}/pulls/{N} to read merge_commit_sha and head.sha.
+      2. If expected_sha is provided, it must prefix-match merge_commit_sha
+         (our stored SHAs are often 8-char shortcuts, so we accept prefix match).
+         Mismatch -> hard error: the PR has been amended upstream and the patch
+         we shipped no longer corresponds to the state at our pinned SHA.
+      3. Return the stable diff via `gh pr diff`; for merged PRs the diff is
+         frozen at merge_commit_sha, so this byte-matches what we shipped.
+    """
+    if expected_sha:
+        pr_json = run_gh(["api", f"/repos/{upstream_repo}/pulls/{pr_number}"])
+        pr_data = json.loads(pr_json)
+        merge_sha = pr_data.get("merge_commit_sha") or ""
+        head_sha = (pr_data.get("head") or {}).get("sha") or ""
+        ok = any(
+            upstream and upstream.startswith(expected_sha)
+            for upstream in (merge_sha, head_sha)
+        )
+        if not ok:
+            raise RuntimeError(
+                f"upstream_sha {expected_sha!r} does not match upstream "
+                f"merge_commit_sha={merge_sha[:12]}... or head.sha={head_sha[:12]}... "
+                f"for {upstream_repo}#{pr_number}; the PR was amended upstream"
+            )
     out = run_gh(["pr", "diff", str(pr_number), "-R", upstream_repo])
     return out
 
@@ -161,7 +185,14 @@ def verify_bundle(bundle_root):
                         f"patch filename, or bundle directory name"
                     )
                     continue
-                upstream_bytes = fetch_upstream_patch(file_upstream_repo, pr_num)
+                if not file_upstream_sha:
+                    errors.append(
+                        f"{bundle_root.relative_to(REPO_ROOT)}/{lp}: upstream-patch mode "
+                        f"requires upstream_sha (bundle-level or per-file) to pin the "
+                        f"verification to the exact upstream state"
+                    )
+                    continue
+                upstream_bytes = fetch_upstream_patch(file_upstream_repo, pr_num, file_upstream_sha)
         except RuntimeError as e:
             errors.append(f"{bundle_root.relative_to(REPO_ROOT)}/{lp}: upstream fetch failed: {e}")
             continue
