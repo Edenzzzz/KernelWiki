@@ -1,321 +1,122 @@
-# Blackwell Kernel Wiki — 大规模扩展计划 (Phase 2)
+# Phase 2 Completion Plan (Draft)
 
-## 现状
+## Status: INCOMPLETE (per Codex review 2026-04-17)
 
-Phase 1 建立了知识库骨架（91 files），但PR覆盖严重不足：
-- CUTLASS: 7/~41+ Blackwell PRs
-- SGLang: 5/~194+ sm100 PRs (466 提到blackwell)
-- vLLM: 6/~254+ sm100 PRs (574 提到blackwell, 555 nvfp4)
-- FlashInfer: 6/~300+ sm100 PRs (247 提到blackwell)
-- PyTorch: 7/~141+ sm100 PRs (159 提到blackwell)
-- 比赛: 仅7个概述页，无具体提交方案
+Total files: 475 / target 540+. Remaining gap: ~65 files.
 
-注意：上述数字包含大量仅mention关键词的PR（如CI/doc/依赖更新），实际kernel相关PR需要过滤。
+## Remaining Work
 
-## 目标
+### [P0] PyTorch PR coverage (AC-2.5)
+- **Current**: 12 pages
+- **Target**: 50+ pages
+- **Gap**: +38 pages minimum
+- **Root cause**: candidate ledger only has 31 PRs because original keyword set was too narrow
 
-从2025-01-01至今，完整覆盖每个仓库中**与Blackwell/Hopper kernel编程直接相关**的PR。同时收录比赛的具体提交方案和排名。
+**Plan**:
+1. Re-collect PyTorch candidate ledger with expanded keywords:
+   - Existing: blackwell, sm100, sm_100, nvfp4, B200, cuda+13
+   - Add: tensor_core, wgmma, tcgen05, cute, CUTLASS, TMA, inductor, triton,
+         flash_attention, sdpa, flashattention, quantization, fp8, fp4,
+         scaled_mm, block_scale, compute_10, launch_bounds, vec128,
+         mxfp4, "sm_100a", bf16, autocast, compile, gemm
+   - Include Hopper keywords that often touch same kernel paths: wgmma, sm90, hopper
+2. Update candidates/pytorch.yaml (should grow from 31 to 100+ PRs)
+3. Run generate-pr-pages.py candidates/pytorch.yaml --max=60
+4. Validate and commit
 
-## 过滤标准
+### [P0] Wiki expansion (AC-6)
+- **Current**: 37 wiki pages (same as before Phase 2)
+- **Target**: +10 new wiki pages supported by 3+ sources each
+- **Gap**: +10 pages minimum
 
-PR必须满足以下至少一条才收录：
-1. **新增/修改kernel代码**（CUDA C++, CuTe DSL, Triton, PTX, TileLang）
-2. **kernel性能优化**（tile size tuning, schedule改进, 新的pipeline策略）
-3. **新增硬件特性支持**（tcgen05, TMEM, CLC, 2-SM, NVFP4, FP8 block scale）
-4. **kernel算法创新**（新的attention variant, MoE routing, sparse pattern）
-5. **重要bug fix影响kernel正确性**（sync issues, precision bugs, launch bounds）
+**Plan**: Create new wiki pages covering concepts now supported by 3+ new sources:
 
-不收录的PR类型：
-- 纯CI/CD改动
-- 文档/README更新（除非包含kernel技术细节）
-- 依赖版本bump
-- 代码格式化/lint
-- 纯Python binding（无kernel逻辑改动）
+1. **wiki/techniques/ping-pong-scheduling.md** — FlashAttention-4, 3+ FlashInfer PRs
+2. **wiki/techniques/software-exp.md** — Already exists, expand with FA4 blog + papers
+3. **wiki/techniques/kernel-fusion.md** — dual GEMM, fused MoE, SwiGLU (3+ contest+kernel sources)
+4. **wiki/techniques/chunk-parallelism.md** — GatedDeltaNet, TFLA, NSA (3+ sources)
+5. **wiki/techniques/cache-policy.md** — NVFP4 GEMV (Yue, Amandeep, Simon blogs + PTX doc)
+6. **wiki/techniques/register-budgeting.md** — NVFP4 GEMV (3 blog sources)
+7. **wiki/techniques/ld-evict-policy.md** — L1::evict_last patterns (3+ PTX/GEMV sources)
 
-## 搜索策略
+8. **wiki/kernels/gated-dual-gemm.md** — GPU Mode Problem 3 + vLLM fused gate-up + SGLang dual gemm
+9. **wiki/kernels/sparse-mla.md** — FlashMLA sparse, DeepSeek V3.2 + 3+ FlashInfer/SGLang/vLLM PRs
+10. **wiki/kernels/fp8-block-scale-gemm.md** — CUTLASS SM100 + vLLM FP8 GEMM + DeepGEMM
 
-### NVIDIA/cutlass（预计收录 30-50 PRs）
+11. **wiki/hardware/green-context.md** — CUTLASS changelog + cuTile + CLC docs
+12. **wiki/hardware/mbarrier.md** — pervasive in all kernel pages, needs dedicated page
 
-GitHub API显示 ~41 PRs提到"blackwell"。CUTLASS是Blackwell kernel的核心实现。
+13. **wiki/patterns/pipeline-stalls.md** — compute-bound + 3+ PR fixes
+14. **wiki/patterns/moe-load-imbalance.md** — grouped GEMM, EPLB analysis
 
-**搜索关键词**（每个单独搜索，去重合并）：
-```
-blackwell, sm100, sm_100, sm_100a, tcgen05, tmem, tensor_memory,
-nvfp4, fp4, mxfp4, block_scale, 2sm, cta_group, clc,
-cluster_launch, umma, persistent, warp_special, fmha, mla,
-epilogue, tile_scheduler, grouped_gemm, sub_byte
-```
+15. **wiki/kernels/flash-attention-hopper.md** (migration reference) — FA3 → FA4 progression
 
-**按时间段分批搜索**（避免API限制）：
-- 2025-01 ~ 2025-03（早期Blackwell支持）
-- 2025-04 ~ 2025-06（CUTLASS 4.0发布期）
-- 2025-07 ~ 2025-09（SM100 attention kernel）
-- 2025-10 ~ 2025-12（sub-byte GEMM, NVFP4）
-- 2026-01 ~ 2026-04（CuTe-DSL, bugfix）
+### [P0] FlashInfer contest submissions (AC-4 completion)
+- **Current**: 4 GPU Mode pages have submissions, 3 FlashInfer track pages do NOT
+- **Gap**: 3 FlashInfer track pages need submissions field
 
-**重点关注**：
-- examples/cute/tutorial/blackwell/ 相关PR
-- SM100 FMHA forward/backward
-- Grouped GEMM / MoE support
-- CuTe-DSL SM100 atoms
-- Block-scale GEMM (NVFP4, MXFP4)
-- PersistentTileSchedulerSm100
-- 2-CTA cooperative MMA
+**Plan**: Update 3 FlashInfer MLSys 2026 track pages with `submissions:` frontmatter:
+- track-a-fused-moe.md: FlashInfer-Bench leaderboard entries (Gemini 2.5 Pro, GPT-5, Claude Opus 4.1)
+- track-b-sparse-attention.md: Same leaderboard for sparse attention
+- track-c-gated-delta-net.md: Already updated by earlier agent (verify)
 
-### sgl-project/sglang（预计收录 20-30 PRs）
+### [P1] Link integrity check (AC-7)
+- Run the link integrity check script from Phase 1
+- Ensure 0 broken links across queries/, wiki/, sources/, index.md
 
-SGLang有大量Blackwell集成工作。~194 PRs提到sm100。
-
-**搜索关键词**：
-```
-blackwell, sm100, cutlass, deepgemm, flashmla, fp8, nvfp4,
-mla, flashinfer, triton, attention, moe, sparse, gated_delta,
-sgl-kernel, trtllm, decode, prefill, quantiz
-```
-
-**重点关注**：
-- DeepGEMM集成（FP8 GEMM, grouped GEMM）
-- FlashMLA集成（dense/sparse MLA decode）
-- CUTLASS MLA backend
-- FP8 blockwise quantization
-- NSA (Native Sparse Attention) 支持
-- GatedDeltaNet 支持
-- Blackwell-specific kernel选择逻辑
-
-### vllm-project/vllm（预计收录 25-40 PRs）
-
-vLLM有最多的Blackwell适配PR。~254 PRs提到sm100。
-
-**搜索关键词**：
-```
-blackwell, sm100, cutlass, fp8, nvfp4, mxfp4, B200,
-mla, deepseek, flashmla, attention, moe, fused_moe,
-sparse_attention, gated_delta, quantiz, block_scale,
-triton, flashinfer, grouped_gemm, decode, prefill
+**Plan**:
+```python
+# Link integrity check - already proven in Phase 1
+import re
+from pathlib import Path
+# Scan all markdown links in queries/, wiki/, index.md
+# Verify each relative link resolves to an existing file
 ```
 
-**重点关注**：
-- CUTLASS FP8 GEMM on SM100
-- NVFP4/MXFP4 GEMM和fused MoE
-- CUTLASS MLA for Blackwell
-- DeepSeek V3.2 sparse attention支持
-- GatedDeltaNet/Qwen3-Next支持
-- FP8 block-scale quantization kernels
-- Attention backend selection for SM100
+### [P1] Total file target (540+)
+- **Current**: 475
+- **Target**: 540+
+- **Gap**: +65 files
 
-### flashinfer-ai/flashinfer（预计收录 25-35 PRs）
+**Distribution of gap**:
+- +38 PyTorch pages → 513
+- +10 wiki pages → 523
+- +3 FlashInfer contest updates (no new files, just edits)
+- Need +17 more files from:
+  - Bulk-generate more FlashInfer/vLLM/SGLang pages (raise --max limits)
+  - Or: add candidate PRs that got deferred after file-based re-triage
 
-FlashInfer是Blackwell attention kernel的核心库。~300 PRs提到sm100。
+### [P2] Plan internal consistency
+Fix contradictions in plan-phase2.md:
+- Line 23: PyTorch AC is "≥ 50 pages"
+- Line 397: PyTorch target is "15-25"
+- Line 553: PyTorch target is "70+"
 
-**搜索关键词**：
-```
-blackwell, sm100, sm_100, tcgen05, tmem, cutlass, cute_dsl,
-fmha, mla, attention, moe, fp8, fp4, nvfp4, block_scale,
-trtllm, decode, prefill, sparse, gated_delta, splitk,
-allreduce, head_dim, gemm, gemv
-```
+Resolution: standardize on "50+" per AC-2.5 (already committed).
 
-**重点关注**：
-- CuTe-DSL FMHA kernels for SM100
-- SM100 MLA kernels (forward/backward)
-- FP4/FP8 fused MoE on Blackwell
-- FlashInfer-Bench kernel definitions
-- TGV GEMM和alternative backends
-- head_dim variants for SM100
-- GEMM+allreduce fusion
+## Execution Order
 
-### pytorch/pytorch（预计收录 15-25 PRs）
+### Round N (this round)
+1. Re-collect PyTorch candidates with expanded keywords (P0)
+2. Generate PyTorch PR pages to hit 50+ (P0)
+3. Update 3 FlashInfer contest pages with submissions (P0)
+4. Create 10 new wiki pages (P0)
+5. Run link integrity check (P1)
+6. Validate + regenerate indices
+7. Total should be ≥540 files
 
-PyTorch的Blackwell支持更侧重build/runtime层面，但也有kernel相关改动。
+### Completion Gate
+- All 8 ACs met
+- 540+ files total
+- 0 validation errors
+- 0 broken links
+- Codex confirms STATUS: complete
 
-**搜索关键词**：
-```
-blackwell, sm100, sm_100, sm_100a, cuda_13, nvfp4,
-B200, inductor, triton, cutlass, flash_attention,
-vec128, launch_bounds, sm120, compute_10
-```
+## Estimated Effort
+- PyTorch re-collect + generate: ~10 min
+- Wiki pages (10): ~20 min (can use batch script to template)
+- Contest submissions: ~5 min
+- Link check + validation: ~5 min
+- **Total**: ~40 min of focused work
 
-**重点关注**：
-- TorchInductor SM100 code generation
-- Triton kernel templates for Blackwell
-- CUTLASS integration for SM100
-- NVFP4 support in torch
-- Flash attention Blackwell path
-- Launch bounds fixes for SM100/SM120
-- 新的vectorized ops (vec128)
-
-## 比赛数据扩展
-
-### GPU Mode NVFP4 Blackwell Hackathon
-
-**当前**：4个problem概述页
-**需要新增**：
-1. **排名数据**：每个problem的完整leaderboard（top 10+排名、用户名、成绩）
-2. **获奖方案分析**：
-   - Problem 1 (GEMV): Top 3方案的具体实现策略和代码模式
-   - Problem 2 (GEMM): Simon/yue/currybab的kernel设计
-   - Problem 3 (Gated Dual GEMM): 前几名的fusion策略
-   - Problem 4 (Grouped GEMM): 前几名的CLC/tile策略
-3. **参赛者博客和代码**：
-   - 搜索GitHub repos: `nvfp4 hackathon`, `gpu-mode blackwell`
-   - 搜索博客: GPU Mode Discord讨论摘要
-4. **Reward hack分析**：已有概述，扩展技术细节
-
-**搜索方法**：
-```
-# GitHub repos
-curl "https://api.github.com/search/repositories?q=nvfp4+hackathon"
-curl "https://api.github.com/search/repositories?q=gpu-mode+blackwell+kernel"
-
-# GPU Mode leaderboard API (if available)
-# https://www.gpumode.com/leaderboard/595 (GEMV)
-# https://www.gpumode.com/leaderboard/597 (GEMM)
-
-# Participant blogs
-WebSearch: "blackwell nvfp4 hackathon solution"
-WebSearch: "gpu mode hackathon blackwell winner"
-WebSearch: "nvfp4 kernel optimization blog"
-```
-
-### FlashInfer AI Kernel Generation Contest (MLSys 2026)
-
-**当前**：3个track概述页
-**需要新增**：
-1. **提交方案仓库**：搜索所有flashinfer-bench-starter-kit的forks（17个fork）
-2. **每个fork的solution分析**：
-   - Track A (Fused MoE): 参赛者的kernel实现
-   - Track B (Sparse Attention): 参赛者的indexer+attention kernel
-   - Track C (GatedDeltaNet): 参赛者的prefill/decode kernel
-3. **Agent baseline分析**：
-   - flashinfer-ai/mlsys26-agent-baseline 的evolve/iterative agent策略
-   - K-Search论文的co-evolving world model方法
-4. **FlashInfer-Bench leaderboard数据**：
-   - bench.flashinfer.ai 的AI-generated kernel排名
-   - 每个model (Gemini, GPT-5, Claude) 的per-kernel性能
-
-**搜索方法**：
-```
-# Contest forks
-curl "https://api.github.com/repos/flashinfer-ai/flashinfer-bench-starter-kit/forks?per_page=100"
-
-# Contest submissions tagged on GitHub
-curl "https://api.github.com/search/repositories?q=flashinfer+mlsys+2026"
-curl "https://api.github.com/search/repositories?q=flashinfer-bench"
-
-# Leaderboard
-WebFetch: https://bench.flashinfer.ai/
-WebSearch: "flashinfer mlsys 2026 contest results"
-WebSearch: "flashinfer bench leaderboard kernel"
-```
-
-## 执行策略
-
-### 并行度
-
-大仓库需要更多sub-agent，每个agent负责一个时间段内50-80个PR的搜索+过滤+创建：
-
-**CUTLASS**（41 PRs, 小规模）：2 agents
-- Agent: 2025-01 ~ 2025-09
-- Agent: 2025-10 ~ 2026-04
-
-**SGLang**（194 PRs）：4 agents
-- Agent: 2025-01 ~ 2025-03
-- Agent: 2025-04 ~ 2025-06
-- Agent: 2025-07 ~ 2025-09
-- Agent: 2025-10 ~ 2026-04
-
-**vLLM**（254 PRs）：5 agents
-- Agent: 2025-01 ~ 2025-03
-- Agent: 2025-04 ~ 2025-06
-- Agent: 2025-07 ~ 2025-09
-- Agent: 2025-10 ~ 2025-12
-- Agent: 2026-01 ~ 2026-04
-
-**FlashInfer**（300 PRs）：5 agents
-- Agent: 2025-01 ~ 2025-03
-- Agent: 2025-04 ~ 2025-06
-- Agent: 2025-07 ~ 2025-09
-- Agent: 2025-10 ~ 2025-12
-- Agent: 2026-01 ~ 2026-04
-
-**PyTorch**（141 PRs）：3 agents
-- Agent: 2025-01 ~ 2025-06
-- Agent: 2025-07 ~ 2025-12
-- Agent: 2026-01 ~ 2026-04
-
-**比赛**：3 agents
-- Agent: GPU Mode hackathon leaderboards + solutions
-- Agent: FlashInfer contest forks + submissions
-- Agent: Additional blogs + docs
-
-总共：**2 + 4 + 5 + 5 + 3 + 3 = 22 个并行 sub-agents**
-
-每批可发6个并行agent，需要 4 批执行。
-
-### 每个sub-agent的工作流
-
-```
-1. 用多个关键词搜索GitHub API，收集所有匹配PR的number和title
-2. 去重合并
-3. 对每个PR：
-   a. 获取PR描述（gh api repos/{repo}/pulls/{number}）
-   b. 根据过滤标准判断是否收录
-   c. 如果收录：提取metadata，创建sources/prs/{repo}/PR-{N}.md
-4. 使用严格的controlled vocabulary（从data/tags.yaml）
-5. 确保frontmatter完整且validate.py通过
-```
-
-### 质量保证
-
-1. 每个sub-agent完成后立即运行 `python3 scripts/validate.py`
-2. 不合格的文件立即修复
-3. 最终运行 `python3 scripts/generate-indices.py` 重建所有索引
-4. 运行link integrity check
-
-### 预期结果（收录至少一半匹配PR）
-
-| 来源 | API匹配数 | 目标（≥50%） | 当前 | 新增 |
-|------|----------|-------------|------|------|
-| CUTLASS PRs | 41 (blackwell) | **20+** | 7 | 13+ |
-| SGLang PRs | 194 (sm100) | **100+** | 5 | 95+ |
-| vLLM PRs | 254 (sm100) | **130+** | 6 | 124+ |
-| FlashInfer PRs | 300 (sm100) | **150+** | 6 | 144+ |
-| PyTorch PRs | 141 (sm100) | **70+** | 7 | 63+ |
-| GPU Mode 比赛 | leaderboards + solutions | **20+** | 4 | 16+ |
-| FlashInfer 比赛 | 17 forks + leaderboard | **15+** | 3 | 12+ |
-| Blogs | identified | **25+** | 10 | 15+ |
-| Docs | identified | **12+** | 6 | 6+ |
-| **Total sources** | **~930+** | **540+** | **54** | **~490+ new** |
-
-加上现有37 wiki pages + 大量新增wiki pages → **总计 600-700+ files**
-
-### 过滤策略说明
-
-GitHub API匹配数中有大量重复（多个关键词匹配同一PR）和低相关PR。实际唯一PR数约为匹配数的60-70%。过滤掉纯CI/doc/bump后，目标是保留**至少50%的唯一匹配PR**。
-
-对于大仓库（SGLang 194, vLLM 254, FlashInfer 300），需要：
-1. 先用API获取全部匹配PR列表（number + title）
-2. 按title快速过滤掉明显无关的（`[CI]`, `[Doc]`, `bump`, `typo`, `format`）
-3. 对剩余PR获取详情并创建source page
-4. 每个sub-agent处理50-100个PR，需要拆更多时间段
-
-## 额外博客和文档待收录
-
-### 博客（新增 10-15 篇）
-- Simon's NVFP4 GEMV Blog (Part 1 + Part 2)
-- TFLOPS Gap: FP4 MoE Kernel Engineering on Blackwell (HuggingFace)
-- NVFP4 Format Details (Harold Benoit)
-- JAX Pallas Blackwell Matmul tutorial
-- Tilus ASPLOS paper summary
-- Blackwell Microbenchmarking papers (arxiv 2512.02189, 2507.10789)
-- vLLM DeepSeek V3.2 Sparse Attention blog
-- Qwen3-Next architecture blog (NVIDIA, Alibaba)
-- K-Search automated kernel generation (arxiv 2602.19128)
-- GPU Mode "Anatomy of a Reward Hack" full analysis
-
-### 文档（新增 4-6 篇）
-- CUTLASS Changelog (SM100 entries)
-- CUTLASS CLC documentation
-- Blackwell Compatibility Guide
-- NVIDIA cuTile Python DSL reference
-- Tilus documentation
+All work in this round is `coding` tag — no Codex analysis needed until final audit.
