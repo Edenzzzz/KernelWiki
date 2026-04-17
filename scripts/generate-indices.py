@@ -185,10 +185,23 @@ def generate_by_kernel_type(pages):
         "| Kernel Type | Pages |",
         "|-------------|-------|",
     ]
+    # Load valid kernel type tags to filter tags field
+    tags_path = REPO_ROOT / "data" / "tags.yaml"
+    kt_tag_set = set()
+    if tags_path.exists():
+        with open(tags_path) as f:
+            kt_tag_set = set(yaml.safe_load(f).get("kernel_types", []))
+
     type_pages = defaultdict(list)
     for p in pages:
+        seen_kts = set()
         for kt in p.get("kernel_types", []):
             type_pages[kt].append(p)
+            seen_kts.add(kt)
+        # Fall back to tags for pages without kernel_types field
+        for tag in p.get("tags", []):
+            if tag in kt_tag_set and tag not in seen_kts:
+                type_pages[tag].append(p)
 
     for kt in sorted(type_pages.keys()):
         page_links = []
@@ -226,12 +239,18 @@ def generate_by_language(pages):
             if lang_tag in lang_data:
                 lang_data[lang_tag]["guide"] = p
 
-    # Find consumer pages (pages that use each language)
+    # Find consumer pages (pages that use each language via languages field or tags)
     for p in pages:
         if p.get("type") != "language":
+            seen_langs = set()
             for lang in p.get("languages", []):
                 if lang in lang_data:
                     lang_data[lang]["consumers"].append(p)
+                    seen_langs.add(lang)
+            # Fall back to tags for pages without languages field
+            for tag in p.get("tags", []):
+                if tag in valid_langs and tag not in seen_langs:
+                    lang_data[tag]["consumers"].append(p)
 
     lines.append("| Language | Guide | Related Pages |")
     lines.append("|----------|-------|--------------|")
