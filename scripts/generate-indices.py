@@ -183,7 +183,7 @@ def generate_by_repo(pages):
             repos[p["repo"]].append(p)
 
     for repo in sorted(repos.keys()):
-        prs = sorted(repos[repo], key=lambda x: x.get("date", ""), reverse=True)
+        prs = sorted(repos[repo], key=lambda x: str(x.get("date", "")), reverse=True)
         # Real HTML anchor so index.md fragment links work in any renderer
         slug = repo.lower().replace("/", "")
         lines.append(f'<a id="{slug}"></a>')

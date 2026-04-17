@@ -260,12 +260,21 @@ def generate_page(repo, pr_data, files, inclusion_reason):
     return content
 
 
-def process_ledger(ledger_path):
+def process_ledger(ledger_path, max_pages=None):
     """Process a candidate ledger and generate PR pages."""
     with open(ledger_path, encoding="utf-8") as f:
         ledger = yaml.safe_load(f)
 
-    repo = ledger["repo"]
+    # Handle both formats (repo field or inferred from filename)
+    repo = ledger.get("repo")
+    if not repo:
+        slug = Path(ledger_path).stem
+        repo_map = {
+            "cutlass": "NVIDIA/cutlass", "sglang": "sgl-project/sglang",
+            "vllm": "vllm-project/vllm", "flashinfer": "flashinfer-ai/flashinfer",
+            "pytorch": "pytorch/pytorch",
+        }
+        repo = repo_map.get(slug, f"unknown/{slug}")
     repo_slug = repo.split("/")[1]
     outdir = REPO_ROOT / "sources" / "prs" / repo_slug
     outdir.mkdir(parents=True, exist_ok=True)
@@ -278,7 +287,7 @@ def process_ledger(ledger_path):
         except (ValueError, IndexError):
             pass
 
-    # Get included candidates
+    # Get included candidates (handle both 'prs' and 'candidates' keys, both cases)
     prs_key = "prs" if "prs" in ledger else "candidates"
     candidates = ledger.get(prs_key, [])
 
@@ -290,25 +299,26 @@ def process_ledger(ledger_path):
             if num not in existing:
                 included.append(c)
 
-    print(f"\n{repo}: {len(included)} new PRs to generate ({len(existing)} already exist)")
+    print(f"\n{repo}: {len(included)} new PRs to process ({len(existing)} already exist)")
+    if max_pages:
+        print(f"  Target: stop after generating {max_pages} pages")
 
     generated = 0
     skipped = 0
 
     for i, candidate in enumerate(included):
+        if max_pages and generated >= max_pages:
+            print(f"  Reached target of {max_pages} generated pages")
+            break
         number = candidate["number"]
         title = candidate.get("title", "")
 
-        # Fetch PR details
+        # Fetch PR details (gh CLI with auth = 5000/hour limit)
         pr_data = fetch_pr(repo, number)
-        time.sleep(1)
-
         if not pr_data:
             skipped += 1
             continue
-
         files = fetch_pr_files(repo, number)
-        time.sleep(1)
 
         # Re-triage with file data
         is_kernel, reason = is_kernel_related(title, files)
@@ -326,25 +336,30 @@ def process_ledger(ledger_path):
         if generated % 10 == 0:
             print(f"  Generated {generated} pages so far...")
 
-        # Rate limit
-        if (i + 1) % 20 == 0:
-            print(f"  Rate limit pause at {i+1}...")
-            time.sleep(30)
+        # Progress marker (gh auth supports 5000/hour)
+        if (i + 1) % 50 == 0:
+            print(f"  Progress: {i+1}/{len(included)}")
 
     print(f"  Done: {generated} generated, {skipped} skipped, {len(existing)} pre-existing")
     return generated
 
 
 def main():
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    max_pages = None
+    for a in sys.argv[1:]:
+        if a.startswith("--max="):
+            max_pages = int(a.split("=")[1])
+
     if "--all" in sys.argv:
         ledger_dir = REPO_ROOT / "candidates"
         for ledger_file in sorted(ledger_dir.glob("*.yaml")):
-            process_ledger(ledger_file)
-    elif len(sys.argv) > 1:
-        process_ledger(sys.argv[1])
+            process_ledger(ledger_file, max_pages)
+    elif args:
+        process_ledger(args[0], max_pages)
     else:
-        print("Usage: python3 scripts/generate-pr-pages.py candidates/cutlass.yaml")
-        print("       python3 scripts/generate-pr-pages.py --all")
+        print("Usage: python3 scripts/generate-pr-pages.py candidates/cutlass.yaml [--max=N]")
+        print("       python3 scripts/generate-pr-pages.py --all [--max=N]")
 
 
 if __name__ == "__main__":
