@@ -23,7 +23,7 @@ def extract_frontmatter(filepath):
     """Extract YAML frontmatter from a markdown file."""
     with open(filepath, encoding="utf-8") as f:
         content = f.read()
-    match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
+    match = re.match(r'^---\s*\r?\n(.*?)\r?\n---\s*\r?\n', content, re.DOTALL)
     if not match:
         return None
     try:
@@ -36,7 +36,7 @@ def read_body(filepath):
     """Read the body (post-frontmatter) of a markdown file."""
     with open(filepath, encoding="utf-8") as f:
         content = f.read()
-    match = re.match(r'^---\s*\n.*?\n---\s*\n', content, re.DOTALL)
+    match = re.match(r'^---\s*\r?\n.*?\r?\n---\s*\r?\n', content, re.DOTALL)
     if match:
         return content[match.end():]
     return content

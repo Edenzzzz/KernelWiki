@@ -16,7 +16,7 @@ QUERIES_DIR = REPO_ROOT / "queries"
 def extract_frontmatter(filepath):
     with open(filepath, encoding="utf-8") as f:
         content = f.read()
-    match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
+    match = re.match(r'^---\s*\r?\n(.*?)\r?\n---\s*\r?\n', content, re.DOTALL)
     if not match:
         return None
     try:
@@ -47,9 +47,12 @@ def collect_all_pages():
             continue
         for md_file in sorted(search_dir.rglob("*.md")):
             fm = extract_frontmatter(md_file)
+            rel = str(md_file.relative_to(REPO_ROOT))
             if fm is None:
-                errors.append(str(md_file.relative_to(REPO_ROOT)))
-            elif isinstance(fm, dict):
+                errors.append(f"{rel}: missing or unparseable frontmatter")
+            elif not isinstance(fm, dict):
+                errors.append(f"{rel}: frontmatter is {type(fm).__name__}, not a mapping")
+            else:
                 fm["_path"] = md_file.relative_to(REPO_ROOT).as_posix()
                 fm["_dir"] = search_dir.relative_to(REPO_ROOT).as_posix()
                 pages.append(fm)
