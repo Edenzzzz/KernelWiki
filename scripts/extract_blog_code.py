@@ -263,8 +263,30 @@ def check_one_blog(slug):
     bundle = OUT_DIR / slug
     manifest_path = bundle / "MANIFEST.yaml"
     code_dir = bundle / "code"
+    blog_md = BLOGS_DIR / f"{slug}.md"
+
+    # Pre-scan the source markdown for extractable fenced blocks so we can
+    # distinguish "legitimately no extraction needed" (pure-text blog) from
+    # "source has code but bundle never generated" (drift that must fail).
+    source_has_code = False
+    if blog_md.is_file():
+        for (_hp, lang, body) in parse_markdown(blog_md):
+            if lang in EXT_MAP and body.strip():
+                source_has_code = True
+                break
+
     if not manifest_path.is_file():
-        return [f"{slug}: MANIFEST.yaml not found"]
+        if not blog_md.is_file():
+            return [f"{slug}: neither source markdown nor extraction bundle exists"]
+        if source_has_code:
+            return [
+                f"{slug}: source blog has fenced code but "
+                f"artifacts/blogs/{slug}/ bundle is missing — "
+                f"run scripts/extract_blog_code.py to generate it"
+            ]
+        # Source markdown exists with no extractable code; absence of a
+        # bundle is the expected state and is not a drift.
+        return []
     try:
         manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
     except yaml.YAMLError as e:
@@ -272,11 +294,15 @@ def check_one_blog(slug):
 
     errors = []
     if not manifest.get("code_present"):
-        # Nothing to check
-        return []
+        # Manifest says no code; but if the source markdown has grown new
+        # fenced code blocks we must flag that drift instead of returning OK.
+        if source_has_code:
+            errors.append(
+                f"{slug}: manifest code_present=false but source markdown "
+                f"has fenced code — re-run scripts/extract_blog_code.py"
+            )
+        return errors
 
-    # Recompute blocks from source blog
-    blog_md = BLOGS_DIR / f"{slug}.md"
     if not blog_md.is_file():
         errors.append(f"{slug}: source blog not found at {blog_md.relative_to(REPO_ROOT)}")
         return errors
@@ -381,9 +407,21 @@ def main():
     if args.check or args.check_all:
         all_errors = []
         if args.check_all:
-            for bundle in sorted(OUT_DIR.iterdir()) if OUT_DIR.is_dir() else []:
-                if bundle.is_dir():
-                    all_errors.extend(check_one_blog(bundle.name))
+            # Iterate sources/blogs/*.md first so that a newly-added blog
+            # whose bundle hasn't been generated is detected as drift.
+            # Previous revisions iterated artifacts/blogs/ which silently
+            # skipped any source blog that lacked a bundle.
+            checked = set()
+            for blog_md in sorted(BLOGS_DIR.glob("*.md")) if BLOGS_DIR.is_dir() else []:
+                slug = blog_md.stem
+                checked.add(slug)
+                all_errors.extend(check_one_blog(slug))
+            # Also surface orphan bundles (bundle present, source markdown
+            # deleted) — check_one_blog will report the missing-source error.
+            if OUT_DIR.is_dir():
+                for bundle in sorted(OUT_DIR.iterdir()):
+                    if bundle.is_dir() and bundle.name not in checked:
+                        all_errors.extend(check_one_blog(bundle.name))
         elif args.check:
             all_errors.extend(check_one_blog(args.check))
         if all_errors:

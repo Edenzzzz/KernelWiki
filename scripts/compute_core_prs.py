@@ -383,10 +383,16 @@ def main():
         sys.exit(2)
 
     if args.stdout:
+        # Markers and payloads both go to the underlying binary buffer so
+        # their ordering is deterministic when stdout is piped. Mixing
+        # print() (text layer, buffered separately) with buffer.write()
+        # (bytes layer) reorders output under pipes — each FILE marker
+        # would land after its payload instead of before it.
         for name, payload in manifests.items():
-            print(f"### FILE: {name}")
+            sys.stdout.buffer.write(f"### FILE: {name}\n".encode("utf-8"))
             sys.stdout.buffer.write(payload)
-            print()
+            sys.stdout.buffer.write(b"\n")
+        sys.stdout.buffer.flush()
         return
 
     out_dir = Path(args.output_dir).resolve()

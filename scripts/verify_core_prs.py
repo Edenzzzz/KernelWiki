@@ -82,11 +82,23 @@ def main():
     fresh = yaml.safe_load(fresh_bytes["core-prs.yaml"].decode("utf-8"))
 
     if not all_tracked:
-        # First run: no committed version for at least one generated file yet.
-        print(f"No committed version found for at least one generated file under data/.")
-        print(f"Fresh derivation: {fresh.get('total_captured', 0)} PRs, "
-              f"checksum {fresh.get('checksum_sha256', '')[:12]}...")
-        print("(skip reproducibility comparison; commit the files first, then re-run)")
+        # Any generated file missing from data/ is a real failure in CI:
+        # either the generator was never run, or a committed file was
+        # deleted. Silently exiting 0 would let an empty data/ slip past
+        # AC-1 regression guards, so we fail loudly and point at the fix.
+        missing = [n for n, b in committed_bytes.items() if b is None]
+        print(
+            f"FAIL: generated file(s) missing from data/: {missing}",
+            file=sys.stderr,
+        )
+        print(
+            f"Fresh derivation would produce {fresh.get('total_captured', 0)} PRs "
+            f"(checksum {fresh.get('checksum_sha256', '')[:12]}...). "
+            f"Run scripts/compute_core_prs.py and commit the regenerated files, "
+            f"then re-run this verifier.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
     else:
         # Byte-for-byte comparison: compute_core_prs.py guarantees
         # byte-identical output for unchanged inputs (no timestamp stamping),
