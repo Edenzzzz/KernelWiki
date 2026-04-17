@@ -4,7 +4,7 @@ title: "Two-SM Cooperative MMA"
 type: hardware
 architectures: [sm100, sm100a]
 tags: [2sm-cooperative, tcgen05, cluster]
-confidence: verified
+confidence: source-reported
 related: [hw-tcgen05-mma, hw-tmem, technique-warp-specialization]
 sources: [doc-nvidia-tuning-guide, blog-colfax-cutlass, blog-modular-blackwell]
 aliases: ["2-SM cooperative", "dual CTA", "2CTA", "cta_group::2"]

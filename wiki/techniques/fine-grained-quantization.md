@@ -4,10 +4,10 @@ title: "Fine-Grained FP8/FP4 Quantization"
 type: technique
 architectures: [sm100, sm90]
 tags: [fine-grained-quantization, fp8, fp4, nvfp4, block-scale]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-nvfp4]
-related: [hw-nvfp4, kernel-deepgemm, technique-cuda-core-promotion]
+related: [hw-nvfp4, kernel-deepgemm, technique-fine-grained-quantization]
 sources: [blog-deepgemm, doc-nvidia-tuning-guide]
 ---
 

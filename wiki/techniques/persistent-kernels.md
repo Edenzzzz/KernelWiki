@@ -4,7 +4,7 @@ title: "Persistent Kernels with CLC"
 type: technique
 architectures: [sm100]
 tags: [persistent-kernel, clc, tile-scheduling]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-clc]
 related: [hw-clc, technique-tile-scheduling, pattern-tail-effect]

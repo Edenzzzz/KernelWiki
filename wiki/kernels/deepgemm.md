@@ -4,7 +4,7 @@ title: "DeepGEMM — FP8 GEMM with Fine-Grained Scaling"
 type: kernel
 architectures: [sm100, sm90]
 tags: [gemm, fp8, fine-grained-quantization, block-scale]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 kernel_types: [gemm, grouped-gemm]
 languages: [cuda-cpp, ptx]

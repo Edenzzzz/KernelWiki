@@ -4,7 +4,7 @@ title: "Programmatic Dependent Launch / Grid Dependency Control"
 type: hardware
 architectures: [sm100, sm100a, sm90]
 tags: [pdl, gdc]
-confidence: verified
+confidence: source-reported
 related: [technique-persistent-kernels, hw-clc]
 sources: [doc-nvidia-tuning-guide]
 aliases: [PDL, GDC, "programmatic dependent launch", "grid dependency control"]

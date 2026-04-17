@@ -4,7 +4,7 @@ title: "Tile Scheduling Strategies"
 type: technique
 architectures: [sm100, sm90]
 tags: [tile-scheduling, clc, persistent-kernel]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-clc]
 related: [hw-clc, technique-persistent-kernels, pattern-low-sm-utilization]

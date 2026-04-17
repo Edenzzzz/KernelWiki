@@ -238,28 +238,50 @@ def generate_by_language(pages):
     ]
 
     lang_pages = defaultdict(list)
+
+    # Include dedicated language pages first (wiki/languages/)
     for p in pages:
-        for lang in p.get("languages", []):
-            lang_pages[lang].append(p)
+        if p.get("type") == "language":
+            # Map language page to its language tag based on id
+            lang_id = p.get("id", "")
+            # e.g. lang-cute-dsl -> cute-dsl, lang-cuda-cpp -> cuda-cpp
+            lang_tag = lang_id.replace("lang-", "") if lang_id.startswith("lang-") else ""
+            if lang_tag:
+                lang_pages[lang_tag].insert(0, p)  # first-class page first
+            # Also use tags
+            for tag in p.get("tags", []):
+                if tag not in lang_pages or p not in lang_pages[tag]:
+                    lang_pages[tag].append(p)
+
+    # Then include all pages that use each language
+    for p in pages:
+        if p.get("type") != "language":  # avoid double-counting
+            for lang in p.get("languages", []):
+                lang_pages[lang].append(p)
 
     if not lang_pages:
         lines.append("*No language references found.*")
         return "\n".join(lines) + "\n"
 
-    lines.append("| Language | Pages |")
-    lines.append("|----------|-------|")
+    lines.append("| Language | Guide | Related Pages |")
+    lines.append("|----------|-------|--------------|")
 
     for lang in sorted(lang_pages.keys()):
-        page_links = []
+        guide_link = ""
+        related_links = []
         seen = set()
         for p in lang_pages[lang]:
             pid = p.get("id", p.get("_path", ""))
-            if pid not in seen:
-                seen.add(pid)
-                title = p.get("title", pid)
-                path = p.get("_path", "")
-                page_links.append(f"[{title}]({path})")
-        lines.append(f"| `{lang}` | {', '.join(page_links[:8])} |")
+            if pid in seen:
+                continue
+            seen.add(pid)
+            title = p.get("title", pid)
+            path = p.get("_path", "")
+            if p.get("type") == "language":
+                guide_link = f"[{title}]({path})"
+            else:
+                related_links.append(f"[{title}]({path})")
+        lines.append(f"| `{lang}` | {guide_link} | {', '.join(related_links[:6])} |")
 
     return "\n".join(lines) + "\n"
 

@@ -4,7 +4,7 @@ title: "Cluster Launch Control (CLC)"
 type: hardware
 architectures: [sm100, sm100a]
 tags: [clc, persistent-kernel, tile-scheduling]
-confidence: verified
+confidence: source-reported
 related: [technique-persistent-kernels, technique-tile-scheduling, pattern-tail-effect]
 sources: [doc-nvidia-tuning-guide, doc-cutlass-blackwell]
 aliases: [CLC, "cluster launch control"]

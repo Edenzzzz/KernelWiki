@@ -4,7 +4,7 @@ title: "Grouped GEMM for MoE"
 type: kernel
 architectures: [sm100, sm100a, sm90]
 tags: [grouped-gemm, moe, gemm, fp8, nvfp4, tcgen05, persistent-kernel, tile-scheduling]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 kernel_types: [grouped-gemm, gemm, moe]
 languages: [cuda-cpp, cute-dsl]

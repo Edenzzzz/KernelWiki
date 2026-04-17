@@ -4,7 +4,7 @@ title: "FlashAttention-4"
 type: kernel
 architectures: [sm100]
 tags: [attention, flash-attention, tcgen05, tmem, 2sm-cooperative, software-exp]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 kernel_types: [attention, flash-attention]
 languages: [cute-dsl]

@@ -4,7 +4,7 @@ title: "NVFP4 GEMM — 4-bit Floating Point Matrix Multiply"
 type: kernel
 architectures: [sm100, sm100a]
 tags: [gemm, nvfp4, fp4, block-scale, tcgen05, tmem, warp-specialization]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 kernel_types: [gemm]
 languages: [cuda-cpp, cute-dsl, ptx]

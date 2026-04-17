@@ -8,7 +8,7 @@ confidence: source-reported
 reproducibility: snippet
 kernel_types: [gated-delta-net, linear-attention, decode, prefill]
 languages: [triton, cuda-cpp]
-related: [technique-chunk-parallelism]
+related: [technique-pipeline-stages]
 sources: [blog-gated-delta-net, doc-tfla]
 performance_claims:
   - gpu: H100

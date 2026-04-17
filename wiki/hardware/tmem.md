@@ -6,7 +6,7 @@ architectures: [sm100, sm100a]
 tags: [tmem, tensor-memory, tcgen05]
 confidence: verified
 related: [hw-tcgen05-mma, technique-double-buffering, pattern-register-pressure]
-sources: [doc-nvidia-tuning-guide, blog-tcgen05-tutorial, blog-colfax-cutlass]
+sources: [pr-cutlass-2139, doc-nvidia-tuning-guide, blog-tcgen05-tutorial, blog-colfax-cutlass]
 aliases: [TMEM, "tensor memory", "Tensor Memory"]
 ---
 

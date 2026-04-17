@@ -4,7 +4,7 @@ title: "Warp Specialization on Blackwell"
 type: technique
 architectures: [sm100, sm90]
 tags: [warp-specialization, tcgen05, tmem]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-tmem, hw-tcgen05-mma]
 related: [technique-persistent-kernels, technique-pipeline-stages, hw-tcgen05-mma]

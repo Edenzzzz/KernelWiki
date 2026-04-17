@@ -4,8 +4,8 @@ title: "Tensor Memory Accelerator (TMA)"
 type: hardware
 architectures: [sm100, sm100a, sm90, sm90a]
 tags: [tma, mbarrier]
-confidence: verified
-related: [hw-tcgen05-mma, technique-pipeline-stages, technique-tma-multicast]
+confidence: source-reported
+related: [hw-tcgen05-mma, technique-pipeline-stages, technique-swizzling]
 sources: [doc-nvidia-tuning-guide, blog-tcgen05-tutorial]
 aliases: [TMA, "tensor memory accelerator", "cp.async.bulk"]
 blackwell_relevance: "TMA is shared with Hopper but enhanced on Blackwell. 128-byte swizzling mandatory for tcgen05 inputs."

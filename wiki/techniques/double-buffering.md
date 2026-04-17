@@ -4,7 +4,7 @@ title: "Double/Multi-Buffering Patterns"
 type: technique
 architectures: [sm100, sm90]
 tags: [double-buffering, tmem, pipeline-stages]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-tmem]
 related: [hw-tmem, technique-pipeline-stages, technique-epilogue-fusion]

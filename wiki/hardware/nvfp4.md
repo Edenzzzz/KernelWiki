@@ -4,7 +4,7 @@ title: "NVFP4 and Block-Scaled Narrow Precision"
 type: hardware
 architectures: [sm100, sm100a]
 tags: [nvfp4, fp4, block-scale, fp8, fp6]
-confidence: verified
+confidence: source-reported
 related: [technique-fine-grained-quantization, kernel-nvfp4-gemm, kernel-nvfp4-gemv, hw-tcgen05-mma]
 sources: [doc-nvidia-tuning-guide, contest-gpumode-p1, contest-gpumode-p2, blog-yue-nvfp4]
 aliases: [NVFP4, E2M1, "FP4 E2M1", "nv_float4"]

@@ -4,7 +4,7 @@ title: "Shared Memory Swizzling"
 type: technique
 architectures: [sm100, sm90]
 tags: [swizzling, shared-memory-optimization, tma]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-tma]
 related: [hw-tma, technique-pipeline-stages, pattern-memory-bound]

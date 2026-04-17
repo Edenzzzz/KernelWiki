@@ -6,7 +6,7 @@ architectures: [sm100, sm100a]
 tags: [tcgen05, tensor-memory, mbarrier]
 confidence: verified
 related: [hw-tmem, hw-2sm-cooperative, technique-warp-specialization]
-sources: [doc-nvidia-tuning-guide, blog-tcgen05-tutorial, blog-colfax-cutlass]
+sources: [pr-cutlass-2139, doc-nvidia-tuning-guide, blog-tcgen05-tutorial, blog-colfax-cutlass]
 aliases: [UMMA, tcgen05, "tensor core gen 05"]
 ---
 

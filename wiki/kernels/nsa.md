@@ -8,7 +8,7 @@ confidence: source-reported
 reproducibility: snippet
 kernel_types: [sparse-attention, attention]
 languages: [triton]
-related: [kernel-flashmla, technique-chunk-parallelism]
+related: [kernel-flashmla, technique-pipeline-stages]
 sources: [blog-nsa]
 performance_claims:
   - gpu: H100

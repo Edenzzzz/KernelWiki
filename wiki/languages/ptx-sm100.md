@@ -7,7 +7,7 @@ related: [hw-tcgen05-mma, hw-tmem, hw-clc, lang-cuda-cpp]
 sources: [doc-ptx-isa-sm100, doc-nvidia-tuning-guide, blog-yue-nvfp4]
 reproducibility: snippet
 architectures: [sm100, sm100a]
-confidence: verified
+confidence: source-reported
 ---
 
 ## Overview

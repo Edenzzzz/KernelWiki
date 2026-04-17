@@ -7,7 +7,7 @@ related: [hw-tcgen05-mma, hw-tmem, kernel-flash-attention-4, doc-cutlass-blackwe
 sources: [doc-cutlass-blackwell, blog-colfax-cutlass, blog-flash-attention-4]
 reproducibility: snippet
 architectures: [sm100, sm100a]
-confidence: verified
+confidence: source-reported
 ---
 
 ## Overview

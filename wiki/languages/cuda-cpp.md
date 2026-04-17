@@ -7,7 +7,7 @@ related: [lang-ptx, hw-tcgen05-mma, hw-tmem, blog-tcgen05-tutorial]
 sources: [blog-tcgen05-tutorial, doc-nvidia-tuning-guide, blog-yue-nvfp4]
 reproducibility: snippet
 architectures: [sm100, sm100a]
-confidence: verified
+confidence: source-reported
 ---
 
 ## Overview

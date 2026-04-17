@@ -4,7 +4,7 @@ title: "Software Pipelining and Multi-Stage Buffering"
 type: technique
 architectures: [sm100, sm90]
 tags: [pipeline-stages, double-buffering, tma, mbarrier]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-tma, hw-tmem]
 related: [technique-warp-specialization, technique-double-buffering, hw-tma]

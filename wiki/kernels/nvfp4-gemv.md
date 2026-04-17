@@ -4,7 +4,7 @@ title: "NVFP4 Batched GEMV"
 type: kernel
 architectures: [sm100, sm100a]
 tags: [gemv, nvfp4, fp4, block-scale, cache-policy, register-budgeting, vectorized-loads]
-confidence: verified
+confidence: source-reported
 reproducibility: snippet
 kernel_types: [gemv, batched-gemv]
 languages: [cuda-cpp, ptx]

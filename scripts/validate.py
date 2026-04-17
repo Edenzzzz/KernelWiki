@@ -210,6 +210,31 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
             if all_source_ids and src_id not in all_source_ids:
                 errors.append(f"{rel}: references unknown source id '{src_id}'")
 
+    # AC-9: Enforce evidence_basis for verified wiki pages
+    if page_type.startswith("wiki-") and fm.get("confidence") == "verified":
+        eb = fm.get("evidence_basis")
+        if not eb or not isinstance(eb, list) or len(eb) == 0:
+            # Alternative: check if sources include both official-doc and upstream-code
+            src_ids = fm.get("sources", [])
+            src_categories = set()
+            for sid in src_ids:
+                if sid.startswith("doc-"):
+                    src_categories.add("official-doc")
+                elif sid.startswith("pr-"):
+                    src_categories.add("upstream-code")
+                elif sid.startswith("blog-"):
+                    src_categories.add("community-note")
+                elif sid.startswith("contest-"):
+                    src_categories.add("contest-report")
+            has_official = "official-doc" in src_categories
+            has_upstream = "upstream-code" in src_categories
+            if not (has_official and has_upstream):
+                errors.append(
+                    f"{rel}: confidence 'verified' requires evidence_basis or "
+                    f"sources citing both official-doc and upstream-code "
+                    f"(found: {src_categories})"
+                )
+
     # Check technique/kernel/language pages have fenced code
     if page_type in ("wiki-technique", "wiki-kernel", "wiki-language"):
         body = read_body(filepath)
