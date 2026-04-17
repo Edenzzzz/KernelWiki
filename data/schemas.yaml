@@ -23,6 +23,8 @@ source-pr:
   optional:
     - merge_sha
     - description
+    - inclusion_reason
+    - changed_paths
   constraints:
     source_category: upstream-code
     status: [open, merged, closed]
@@ -70,6 +72,7 @@ source-contest:
     - description
     - problem_number
     - track
+    - submissions
   constraints:
     source_category: contest-report
 
