@@ -339,10 +339,12 @@ def main():
     checksum_body = yaml.dump(prs_list, allow_unicode=True, sort_keys=False, default_flow_style=False)
     checksum = compute_sha256_of_text(checksum_body)
 
-    from datetime import date
+    # Note: intentionally no `generated_at` field. The module docstring
+    # promises byte-identical regeneration for unchanged inputs, which a
+    # date.today() stamp would break. If a reviewer wants a timestamp, git
+    # log on data/core-prs.yaml is the canonical answer.
     core_payload = {
         "generated_by": "scripts/compute_core_prs.py",
-        "generated_at": date.today().isoformat(),
         "sources": ["wiki-graph-closure", "contest-reference", "cute-dsl-tutorial", "triton-in-policy", "allowlist"],
         "total_captured": len(prs_list),
         "checksum_sha256": checksum,

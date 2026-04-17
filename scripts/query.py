@@ -191,7 +191,13 @@ def filter_pages(pages, args):
                 continue
 
         if args.has_code:
-            exts = {".cu", ".cuh", ".ptx", ".py", ".cpp", ".h", ".hpp", ".patch"}
+            # NOTE: `.patch` is deliberately excluded. --has-code is documented
+            # as "at least one source file", so a PR bundle that only shipped
+            # diff.patch (no captured key-files/) should NOT surface here —
+            # a raw diff is not browsable source. See: get_page.py --include-code
+            # still prints diff.patch for bundles that have one.
+            exts = {".cu", ".cuh", ".ptx", ".py", ".cpp", ".h", ".hpp", ".inl",
+                    ".pyx", ".cxx", ".cc"}
             candidate_dirs = []
 
             # Primary: explicit page-level artifact_dir.

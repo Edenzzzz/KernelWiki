@@ -163,24 +163,12 @@ def main():
               f"checksum {fresh.get('checksum_sha256', '')[:12]}...")
         print("(skip reproducibility comparison; commit the files first, then re-run)")
     else:
-        # Semantic comparison: parse both sides as YAML, strip timestamp-style
-        # fields that change between runs for benign reasons (generated_at,
-        # retrieved_at), then compare the structured dicts. This lets us emit
-        # a schema-required generated_at field from compute_core_prs.py
-        # without breaking reproducibility on cross-day re-runs.
-        def _normalize(doc):
-            if isinstance(doc, dict):
-                return {k: _normalize(v) for k, v in doc.items()
-                        if k not in ("generated_at", "retrieved_at")}
-            if isinstance(doc, list):
-                return [_normalize(v) for v in doc]
-            return doc
-
+        # Byte-for-byte comparison: compute_core_prs.py guarantees
+        # byte-identical output for unchanged inputs (no timestamp stamping),
+        # so any difference at this level is a real regeneration divergence.
         drift = []
         for name in generated_names:
-            committed_doc = yaml.safe_load(committed_bytes[name].decode("utf-8"))
-            fresh_doc = yaml.safe_load(fresh_bytes[name].decode("utf-8"))
-            if _normalize(committed_doc) != _normalize(fresh_doc):
+            if committed_bytes[name] != fresh_bytes[name]:
                 drift.append(Path("data") / name)
         if drift:
             print("FAIL: fresh regeneration does not match the committed generated files:",
