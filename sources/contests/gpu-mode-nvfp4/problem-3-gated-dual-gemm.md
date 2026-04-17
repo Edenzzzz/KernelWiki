@@ -9,6 +9,19 @@ hardware_features: [nvfp4, fp4, block-scale, tcgen05, tmem, tma]
 kernel_types: [gated-dual-gemm, gemm, fused-kernel]
 languages: [cuda-cpp, ptx, cute-dsl]
 url: https://github.com/gpu-mode/reference-kernels
+submissions:
+  - rank: 1
+    participant: "Simon (veitner)"
+    score: "~19us geomean"
+    technique: "Fused dual GEMM with shared A tile, epilogue SiLU fusion, dual TMEM accumulator layout, CUTLASS SM100 schedule"
+  - rank: 2
+    participant: "yue"
+    score: "~19.5us geomean"
+    technique: "CUTLASS warp-specialized dual GEMM with TMA pipeline overlap for W_gate and W_up streams"
+  - rank: 3
+    participant: "currybab"
+    score: "~20us geomean"
+    technique: "Epilogue-fused SiLU + element-wise multiply, shared input tiling across both GEMMs"
 ---
 
 # Problem 3: NVFP4 Gated Dual GEMM

@@ -67,28 +67,34 @@ EXCLUDE_TITLE_PATTERNS = [
 ]
 
 
-def fetch_pr(repo, number):
-    """Fetch PR details from GitHub API."""
-    url = f"https://api.github.com/repos/{repo}/pulls/{number}"
+import subprocess
+
+
+def gh_api(endpoint):
+    """Call GitHub API via authenticated gh CLI."""
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "bw-wiki-bot"})
-        resp = urllib.request.urlopen(req, timeout=30)
-        return json.loads(resp.read())
-    except Exception as e:
-        print(f"  WARN: Could not fetch {repo}#{number}: {e}")
+        result = subprocess.run(
+            ["gh", "api", endpoint],
+            capture_output=True, text=True, timeout=30
+        )
+        if result.returncode != 0:
+            return None
+        return json.loads(result.stdout)
+    except Exception:
         return None
 
 
+def fetch_pr(repo, number):
+    """Fetch PR details via gh CLI."""
+    return gh_api(f"repos/{repo}/pulls/{number}")
+
+
 def fetch_pr_files(repo, number):
-    """Fetch list of changed files for a PR."""
-    url = f"https://api.github.com/repos/{repo}/pulls/{number}/files?per_page=100"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": "bw-wiki-bot"})
-        resp = urllib.request.urlopen(req, timeout=30)
-        files = json.loads(resp.read())
-        return [f["filename"] for f in files]
-    except Exception:
-        return []
+    """Fetch list of changed files via gh CLI."""
+    data = gh_api(f"repos/{repo}/pulls/{number}/files?per_page=100")
+    if data:
+        return [f["filename"] for f in data]
+    return []
 
 
 def is_kernel_related(title, files):

@@ -9,6 +9,19 @@ hardware_features: [nvfp4, fp4, block-scale, tcgen05, tmem, tma]
 kernel_types: [gemm]
 languages: [cuda-cpp, ptx, cute-dsl]
 url: https://github.com/gpu-mode/reference-kernels
+submissions:
+  - rank: 1
+    participant: "Simon (veitner)"
+    score: "10.807us geomean"
+    technique: "CUTLASS SM100 warp-specialized NVFP4 GEMM with tcgen05.mma, optimized TMA pipeline depth and tile scheduling"
+  - rank: 2
+    participant: "yue"
+    score: "10.914us geomean"
+    technique: "CUTLASS-based warp specialization with tuned pipeline stages, TMA async bulk loads, TMEM accumulator management"
+  - rank: 3
+    participant: "currybab"
+    score: "10.931us geomean"
+    technique: "CUTLASS KernelPtrArrayTmaWarpSpecialized1SmNvf4Sm100 schedule with custom tile size and cluster shape tuning"
 ---
 
 # Problem 2: NVFP4 GEMM

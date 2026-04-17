@@ -9,6 +9,19 @@ hardware_features: [nvfp4, fp4, block-scale]
 kernel_types: [batched-gemv, gemv]
 languages: [cuda-cpp, ptx, cute-dsl]
 url: https://github.com/gpu-mode/reference-kernels
+submissions:
+  - rank: 1
+    participant: "Simon (veitner)"
+    score: "~18.5us geomean"
+    technique: "Full PTX assembly with cache policy differentiation, byte unpacking, and aggressive register budgeting (maxrregcount=32)"
+  - rank: 2
+    participant: "yue"
+    score: "~18.5us geomean"
+    technique: "Shared B vector reads across BLOCK_M rows, PTX load/decode path, ILP optimization"
+  - rank: 3
+    participant: "Amandeep"
+    score: "~18.5us geomean"
+    technique: "PTX assembly with per-K specialization, vectorized 256-bit loads, cache bypass for streamed matrix A"
 ---
 
 # Problem 1: NVFP4 Batched GEMV
