@@ -1,0 +1,22 @@
+origin_url: https://github.com/NVIDIA/cutlass/pull/2139
+upstream_repo: NVIDIA/cutlass
+upstream_sha: ca4fdbe0
+license: inherits-from-upstream
+retrieved_at: '2026-04-17'
+asset_mode: verbatim
+size_cap_truncated: false
+generated_by: Phase 3 Round 3 task12 (nvfp4-gemm anchor)
+source_pr_id: pr-cutlass-2139
+files:
+- local_path: PR-2139-blockwise-groupwise-gemm.patch
+  sha256: e6c54c39519ee3ac609efdef6f8a9b23a56deaed34153e69ae75cf5892d93fc1
+  role: pr-diff
+  mode: upstream-patch
+  upstream_repo: NVIDIA/cutlass
+  upstream_sha: ca4fdbe0
+- local_path: blackwell-cutlass-schedules-and-tma.cu
+  sha256: fc0e5d9f024cdcd5548b907073e28ca708fbde831b653dcf972e4c20eca1c410
+  role: extracted-block
+  mode: extracted
+  upstream_path: sources/blogs/tflops-gap-fp4-moe.md
+  heading_path: (inherited from artifacts/blogs/tflops-gap-fp4-moe/MANIFEST.yaml)

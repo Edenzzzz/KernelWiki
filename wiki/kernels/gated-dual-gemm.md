@@ -1,24 +1,46 @@
 ---
 id: kernel-gated-dual-gemm
-title: "Gated Dual GEMM (Gate-Up + SwiGLU Fusion)"
+title: Gated Dual GEMM (Gate-Up + SwiGLU Fusion)
 type: kernel
-architectures: [sm100, sm90]
-tags: [gated-dual-gemm, gemm, fused-kernel, kernel-fusion, nvfp4, tmem]
+architectures:
+- sm100
+- sm90
+tags:
+- gated-dual-gemm
+- gemm
+- fused-kernel
+- kernel-fusion
+- nvfp4
+- tmem
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [gated-dual-gemm, gemm, fused-kernel]
-languages: [cuda-cpp, cute-dsl]
-related: [kernel-nvfp4-gemm, kernel-fused-moe, technique-kernel-fusion, technique-epilogue-fusion]
-sources: [contest-gpumode-p3, blog-deepgemm, blog-tflops-gap-fp4-moe]
+kernel_types:
+- gated-dual-gemm
+- gemm
+- fused-kernel
+languages:
+- cuda-cpp
+- cute-dsl
+related:
+- kernel-nvfp4-gemm
+- kernel-fused-moe
+- technique-kernel-fusion
+- technique-epilogue-fusion
+sources:
+- contest-gpumode-p3
+- blog-deepgemm
+- blog-tflops-gap-fp4-moe
 performance_claims:
-  - gpu: B200
-    dtype: nvfp4
-    shape: "M=1024 N=2*2048 K=7168 (gate-up MLP)"
-    metric: latency_us
-    value: 18.5
-    utilization: "compute-bound"
-    source_id: contest-gpumode-p3
-blackwell_relevance: "TMEM holds two accumulators simultaneously (gate, up), enabling single-kernel fusion that Hopper register file could not handle efficiently."
+- gpu: B200
+  dtype: nvfp4
+  shape: M=1024 N=2*2048 K=7168 (gate-up MLP)
+  metric: latency_us
+  value: 18.5
+  utilization: compute-bound
+  source_id: contest-gpumode-p3
+blackwell_relevance: TMEM holds two accumulators simultaneously (gate, up), enabling
+  single-kernel fusion that Hopper register file could not handle efficiently.
+artifact_dir: artifacts/kernels/gated-dual-gemm
 ---
 
 # Gated Dual GEMM
@@ -92,3 +114,13 @@ __global__ void gated_dual_gemm_nvfp4(
 - MLP layers in modern LLMs (LLaMA, Qwen, DeepSeek, Mistral)
 - Any dual-output operation sharing one input
 - MoE expert computations (expand to per-expert fused kernels)
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/gated-dual-gemm/full/`](../../artifacts/kernels/gated-dual-gemm/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/gated-dual-gemm/variants/`](../../artifacts/kernels/gated-dual-gemm/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-gated-dual-gemm --include-code
+```

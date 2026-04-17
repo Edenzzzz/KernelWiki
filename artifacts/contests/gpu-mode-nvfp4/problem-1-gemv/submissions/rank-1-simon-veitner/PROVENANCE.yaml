@@ -12,5 +12,6 @@ files:
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/yue-nvfp4-hackathon.md
-  heading_path: (inherited from artifacts/blogs/yue-nvfp4-hackathon/MANIFEST.yaml)
+  heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
+    Steps > ### Step 4: PTX Assembly (~27us)'
   sha256: 8d6773986bc2e6e3b586a06a4118637ba4a52a1b348a02d73d6865b1a252d155

@@ -12,23 +12,27 @@ files:
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/yue-nvfp4-hackathon.md
-  heading_path: (inherited from artifacts/blogs/yue-nvfp4-hackathon/MANIFEST.yaml)
+  heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
+    Steps > ### Step 1: CuTe DSL Baseline (~100us)'
   sha256: 75fbfef2b58f432ec1b768c2fc5a108eea1e50b4f97e157f75a39126666a0767
 - local_path: 02-step-2-coalesced-memory-access-443us-then-improved.cpp
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/yue-nvfp4-hackathon.md
-  heading_path: (inherited from artifacts/blogs/yue-nvfp4-hackathon/MANIFEST.yaml)
+  heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
+    Steps > ### Step 2: Coalesced Memory Access (~443us, then improved)'
   sha256: fc836eebfd49d99e3624670cad48f0d283a361b6f5e0b6eb3c3d6a6eac5e1354
 - local_path: 03-step-3-hardware-intrinsics-39us.cpp
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/yue-nvfp4-hackathon.md
-  heading_path: (inherited from artifacts/blogs/yue-nvfp4-hackathon/MANIFEST.yaml)
+  heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
+    Steps > ### Step 3: Hardware Intrinsics (~39us)'
   sha256: 4ede62cead50f0b2a785cf5d63b777293fb15f35083a5fd9661a4181be32b4d6
 - local_path: 05-step-5-ilp-optimization-22-9us.cpp
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/yue-nvfp4-hackathon.md
-  heading_path: (inherited from artifacts/blogs/yue-nvfp4-hackathon/MANIFEST.yaml)
+  heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
+    Steps > ### Step 5: ILP Optimization (~22.9us)'
   sha256: 0f74fd191687fd4c69f06c1b7231e72d1db7a3681faf732a154a6ac5c83028b9

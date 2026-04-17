@@ -41,24 +41,24 @@ submissions:
   technique: Fused dual GEMM with shared A tile, epilogue SiLU fusion, dual TMEM accumulator
     layout, CUTLASS SM100 schedule
   submission_truth: unavailable
-  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
-    add an entry if a public URL becomes available.
+  code_unavailable_reason: Simon's gated-dual-GEMM winning submission posted in the
+    GPU Mode Discord problem-3 thread; not republished publicly
 - rank: 2
   participant: yue
   score: ~19.5us geomean
   technique: CUTLASS warp-specialized dual GEMM with TMA pipeline overlap for W_gate
     and W_up streams
   submission_truth: unavailable
-  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
-    add an entry if a public URL becomes available.
+  code_unavailable_reason: Yue's gated-dual-GEMM submission posted in the GPU Mode
+    Discord problem-3 thread; blog covers problem-1 progression, not this problem
 - rank: 3
   participant: currybab
   score: ~20us geomean
   technique: Epilogue-fused SiLU + element-wise multiply, shared input tiling across
     both GEMMs
   submission_truth: unavailable
-  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
-    add an entry if a public URL becomes available.
+  code_unavailable_reason: currybab's gated-dual-GEMM submission posted in the GPU
+    Mode Discord problem-3 thread; no public republish at collection time
 ---
 
 # Problem 3: NVFP4 Gated Dual GEMM

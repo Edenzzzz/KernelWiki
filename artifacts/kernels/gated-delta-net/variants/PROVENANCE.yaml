@@ -1,0 +1,20 @@
+origin_url: derived
+upstream_repo: derived
+license: MIT-style-inherited-from-kernelwiki-tooling
+retrieved_at: '2026-04-17'
+asset_mode: derived
+derived_from:
+- blog-gated-delta-net
+- pr-sglang-21019
+- kernel-gated-delta-net
+size_cap_truncated: false
+generated_by: Phase 3 Round 3 task12 (gated-delta-net variants)
+files:
+- local_path: 01-chunk-parallel-prefill-reference-pytorch.py
+  role: derived-source
+  mode: derived
+  sha256: bf5f5124bbfdeba959755fa3b683372ee82d1d3bd410dc4811dcc8949358c53f
+- local_path: 02-triton-decode-step-kernel-streaming.py
+  role: derived-source
+  mode: derived
+  sha256: 098f389db86975693a01087fac5abb163e44623480e4e58ba95be982994a56df

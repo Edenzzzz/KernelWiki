@@ -1,23 +1,45 @@
 ---
 id: kernel-nvfp4-gemm
-title: "NVFP4 GEMM — 4-bit Floating Point Matrix Multiply"
+title: NVFP4 GEMM — 4-bit Floating Point Matrix Multiply
 type: kernel
-architectures: [sm100, sm100a]
-tags: [gemm, nvfp4, fp4, block-scale, tcgen05, tmem, warp-specialization]
+architectures:
+- sm100
+- sm100a
+tags:
+- gemm
+- nvfp4
+- fp4
+- block-scale
+- tcgen05
+- tmem
+- warp-specialization
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [gemm]
-languages: [cuda-cpp, cute-dsl, ptx]
-related: [hw-nvfp4, hw-tcgen05-mma, hw-tmem, kernel-nvfp4-gemv, technique-warp-specialization]
-sources: [contest-gpumode-p2, doc-cutlass-blackwell, pr-cutlass-2139]
+kernel_types:
+- gemm
+languages:
+- cuda-cpp
+- cute-dsl
+- ptx
+related:
+- hw-nvfp4
+- hw-tcgen05-mma
+- hw-tmem
+- kernel-nvfp4-gemv
+- technique-warp-specialization
+sources:
+- contest-gpumode-p2
+- doc-cutlass-blackwell
+- pr-cutlass-2139
 performance_claims:
-  - gpu: B200
-    dtype: nvfp4
-    shape: "standard GEMM configs"
-    metric: latency_us
-    value: 10.807
-    utilization: "near cuBLAS"
-    source_id: contest-gpumode-p2
+- gpu: B200
+  dtype: nvfp4
+  shape: standard GEMM configs
+  metric: latency_us
+  value: 10.807
+  utilization: near cuBLAS
+  source_id: contest-gpumode-p2
+artifact_dir: artifacts/kernels/nvfp4-gemm
 ---
 
 # NVFP4 GEMM -- 4-bit Floating Point Matrix Multiply
@@ -218,3 +240,13 @@ Problem 2 top performers (geometric mean across benchmark configs):
 - [NVIDIA NVFP4 Blog](https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/)
 - [NVFP4 Format Details](https://haroldbenoit.com/notes/ml/engineering/precision/nvfp4-format)
 - [CUTLASS SM100 documentation](https://docs.nvidia.com/cutlass/latest/CHANGELOG.html)
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/nvfp4-gemm/full/`](../../artifacts/kernels/nvfp4-gemm/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/nvfp4-gemm/variants/`](../../artifacts/kernels/nvfp4-gemm/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-nvfp4-gemm --include-code
+```

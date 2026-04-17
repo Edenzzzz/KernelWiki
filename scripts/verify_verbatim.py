@@ -18,6 +18,7 @@ Usage:
 
 import argparse
 import hashlib
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -63,6 +64,38 @@ def fetch_upstream_patch(upstream_repo, pr_number):
     return out
 
 
+PR_URL_RE = re.compile(r"github\.com/[^/]+/[^/]+/pull/(\d+)")
+PR_ID_RE = re.compile(r"pr-[a-z0-9\-]+-(\d+)")
+PR_FILENAME_RE = re.compile(r"PR[_-](\d+)", re.IGNORECASE)
+PR_DIR_RE = re.compile(r"PR-(\d+)")
+
+
+def _resolve_pr_number(bundle_root, prov, local_path):
+    """Resolve the upstream PR number for an upstream-patch file.
+
+    Resolution order (all lowered to a number string):
+      1. bundle directory name matches PR-<N>
+      2. PROVENANCE.yaml source_pr_id ends in -<N>
+      3. PROVENANCE.yaml origin_url matches github.com/.../pull/<N>
+      4. local_path filename contains PR-<N> or PR_<N>
+    """
+    m = PR_DIR_RE.fullmatch(bundle_root.name)
+    if m:
+        return m.group(1)
+    src_id = (prov or {}).get("source_pr_id") or ""
+    m = PR_ID_RE.fullmatch(src_id)
+    if m:
+        return m.group(1)
+    origin_url = (prov or {}).get("origin_url") or ""
+    m = PR_URL_RE.search(origin_url)
+    if m:
+        return m.group(1)
+    m = PR_FILENAME_RE.search(local_path)
+    if m:
+        return m.group(1)
+    return None
+
+
 def iter_bundles(scope):
     if scope:
         yield Path(scope).resolve()
@@ -103,27 +136,32 @@ def verify_bundle(bundle_root):
             continue
         local_bytes = local_path.read_bytes()
 
+        # Per-file overrides beat bundle-level defaults so mixed-source bundles
+        # (e.g. DeepGEMM verbatim upstream files + a sglang integration PR
+        # patch) can cite the right upstream per file.
+        file_upstream_repo = entry.get("upstream_repo") or upstream_repo
+        file_upstream_sha = entry.get("upstream_sha") or upstream_sha
+
         try:
             if mode == "verbatim":
                 upstream_path = entry.get("upstream_path")
-                if not (upstream_repo and upstream_sha and upstream_path):
+                if not (file_upstream_repo and file_upstream_sha and upstream_path):
                     errors.append(
                         f"{bundle_root.relative_to(REPO_ROOT)}/{lp}: verbatim mode requires "
                         f"upstream_repo + upstream_sha + upstream_path"
                     )
                     continue
-                upstream_bytes = fetch_verbatim(upstream_repo, upstream_sha, upstream_path)
+                upstream_bytes = fetch_verbatim(file_upstream_repo, file_upstream_sha, upstream_path)
             else:  # upstream-patch
-                # derive PR number from bundle path: artifacts/prs/<repo>/PR-<N>/
-                parts = bundle_root.parts
-                if "PR-" not in bundle_root.name:
+                pr_num = _resolve_pr_number(bundle_root, prov, lp)
+                if not pr_num:
                     errors.append(
-                        f"{bundle_root.relative_to(REPO_ROOT)}/{lp}: upstream-patch mode requires "
-                        f"bundle name like PR-<N>"
+                        f"{bundle_root.relative_to(REPO_ROOT)}/{lp}: upstream-patch mode "
+                        f"could not resolve a PR number from source_pr_id, origin_url, "
+                        f"patch filename, or bundle directory name"
                     )
                     continue
-                pr_num = bundle_root.name.replace("PR-", "")
-                upstream_bytes = fetch_upstream_patch(upstream_repo, pr_num)
+                upstream_bytes = fetch_upstream_patch(file_upstream_repo, pr_num)
         except RuntimeError as e:
             errors.append(f"{bundle_root.relative_to(REPO_ROOT)}/{lp}: upstream fetch failed: {e}")
             continue

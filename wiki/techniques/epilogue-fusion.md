@@ -1,15 +1,30 @@
 ---
 id: technique-epilogue-fusion
-title: "Epilogue Fusion"
+title: Epilogue Fusion
 type: technique
-architectures: [sm100, sm90]
-tags: [epilogue-fusion, tmem, warp-specialization]
+architectures:
+- sm100
+- sm90
+tags:
+- epilogue-fusion
+- tmem
+- warp-specialization
 confidence: source-reported
 reproducibility: snippet
-prerequisites: [hw-tmem, technique-warp-specialization]
-related: [technique-warp-specialization, hw-tmem, technique-double-buffering]
-sources: [doc-cutlass-blackwell, blog-colfax-cutlass, pr-vllm-16032]
-blackwell_relevance: "TMEM-based epilogue fusion is new to Blackwell; Hopper pattern provides conceptual foundation."
+prerequisites:
+- hw-tmem
+- technique-warp-specialization
+related:
+- technique-warp-specialization
+- hw-tmem
+- technique-double-buffering
+sources:
+- doc-cutlass-blackwell
+- blog-colfax-cutlass
+- pr-vllm-16032
+blackwell_relevance: TMEM-based epilogue fusion is new to Blackwell; Hopper pattern
+  provides conceptual foundation.
+artifact_dir: artifacts/kernels/epilogue-fusion
 ---
 
 ## Overview
@@ -194,3 +209,13 @@ using CollectiveEpilogue = cutlass::epilogue::collective::Sm100EpilogueTmaWarpSp
 - The epilogue can only read TMEM after the MMA for that tile is complete. The double-buffer synchronization is mandatory to prevent reading partial results.
 - TMEM-to-register bandwidth is not unlimited. With 14 warps simultaneously reading TMEM, each warp gets a proportional share. Very wide output tiles (large TILE_N) may bottleneck on TMEM read bandwidth.
 - Simple epilogues (just store) waste the 14 epilogue warps. For such cases, consider reducing the CTA size or assigning epilogue warps to other work (e.g., next-tile TMA prefetch).
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/epilogue-fusion/full/`](../../artifacts/kernels/epilogue-fusion/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/epilogue-fusion/variants/`](../../artifacts/kernels/epilogue-fusion/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py technique-epilogue-fusion --include-code
+```

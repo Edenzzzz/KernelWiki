@@ -165,9 +165,24 @@ def collect_one(contest_page, sub_idx, sub, manifest):
 
         elif kind == "inline-from-blog":
             blog_slug = entry["blog_slug"]
-            blog_code_dir = REPO / "artifacts" / "blogs" / blog_slug / "code"
+            blog_bundle = REPO / "artifacts" / "blogs" / blog_slug
+            blog_code_dir = blog_bundle / "code"
             if not blog_code_dir.is_dir():
                 return new_sub, False, f"blog code bundle {blog_slug} not extracted yet"
+            # Load the blog's MANIFEST.yaml so we can copy the real heading_path
+            # for each file into the contest bundle's PROVENANCE.yaml (instead of
+            # writing a placeholder inheritance string).
+            blog_manifest_path = blog_bundle / "MANIFEST.yaml"
+            blog_manifest_files = {}
+            if blog_manifest_path.is_file():
+                try:
+                    bm = yaml.safe_load(blog_manifest_path.read_text(encoding="utf-8")) or {}
+                    for e in (bm.get("files") or []):
+                        lp = e.get("local_path")
+                        if lp and lp.startswith("code/"):
+                            blog_manifest_files[lp[len("code/"):]] = e
+                except yaml.YAMLError:
+                    pass
             # Copy each named file into the submission bundle
             want = set(entry.get("files") or [])
             for f in sorted(blog_code_dir.iterdir()):
@@ -177,12 +192,13 @@ def collect_one(contest_page, sub_idx, sub, manifest):
                     continue
                 dst = bundle_dir / f.name
                 shutil.copy(f, dst)
+                heading = blog_manifest_files.get(f.name, {}).get("heading_path") or f"(heading not recorded in {blog_slug}/MANIFEST.yaml)"
                 files_list.append({
                     "local_path": f.name,
                     "role": "extracted-block",
                     "mode": "extracted",
                     "upstream_path": f"sources/blogs/{blog_slug}.md",
-                    "heading_path": f"(inherited from artifacts/blogs/{blog_slug}/MANIFEST.yaml)",
+                    "heading_path": heading,
                     "sha256": sha256_of(dst),
                 })
             if not files_list:

@@ -1,24 +1,42 @@
 ---
 id: kernel-gated-delta-net
-title: "Gated Delta Net — Linear Attention"
+title: Gated Delta Net — Linear Attention
 type: kernel
-architectures: [sm100, sm90]
-tags: [gated-delta-net, linear-attention, attention]
+architectures:
+- sm100
+- sm90
+tags:
+- gated-delta-net
+- linear-attention
+- attention
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [gated-delta-net, linear-attention, decode, prefill, attention]
-languages: [triton, cuda-cpp]
-related: [technique-pipeline-stages]
-sources: [blog-gated-delta-net, doc-tfla, pr-vllm-37303]
+kernel_types:
+- gated-delta-net
+- linear-attention
+- decode
+- prefill
+- attention
+languages:
+- triton
+- cuda-cpp
+related:
+- technique-pipeline-stages
+sources:
+- blog-gated-delta-net
+- doc-tfla
+- pr-vllm-37303
 performance_claims:
-  - gpu: H100
-    dtype: bf16
-    shape: "seqlen=8192, qk_dim=4, v_dim=8, d=128"
-    metric: speedup
-    value: 10
-    utilization: "vs Qwen3-32B at 32K+ context, O(n) linear complexity"
-    source_id: blog-gated-delta-net
-blackwell_relevance: "Blackwell prefill kernel in progress; decode done for both SM90/SM100. TFLA uses tcgen05 PTX on Blackwell."
+- gpu: H100
+  dtype: bf16
+  shape: seqlen=8192, qk_dim=4, v_dim=8, d=128
+  metric: speedup
+  value: 10
+  utilization: vs Qwen3-32B at 32K+ context, O(n) linear complexity
+  source_id: blog-gated-delta-net
+blackwell_relevance: Blackwell prefill kernel in progress; decode done for both SM90/SM100.
+  TFLA uses tcgen05 PTX on Blackwell.
+artifact_dir: artifacts/kernels/gated-delta-net
 ---
 
 # Gated Delta Net -- Linear Attention
@@ -241,3 +259,13 @@ GatedDeltaNet is Track C of the FlashInfer MLSys 2026 contest:
 - [TFLA paper](https://arxiv.org/abs/2503.14376)
 - [Qwen3-Next NVIDIA blog](https://developer.nvidia.com/blog/new-open-source-qwen3-next-models-preview-hybrid-moe-architecture-delivering-improved-accuracy-and-accelerated-parallel-processing-across-nvidia-platform/)
 - [FlashInfer MLSys 2026 Contest](https://mlsys26.flashinfer.ai/)
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/gated-delta-net/full/`](../../artifacts/kernels/gated-delta-net/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/gated-delta-net/variants/`](../../artifacts/kernels/gated-delta-net/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-gated-delta-net --include-code
+```

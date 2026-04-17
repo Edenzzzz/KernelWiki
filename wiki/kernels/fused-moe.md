@@ -1,24 +1,51 @@
 ---
 id: kernel-fused-moe
-title: "Fused MoE — FP8 Block-Scale Routing + Dual GEMM"
+title: Fused MoE — FP8 Block-Scale Routing + Dual GEMM
 type: kernel
-architectures: [sm100, sm100a, sm90]
-tags: [moe, fused-kernel, fp8, block-scale, kernel-fusion, warp-specialization, grouped-gemm, gated-dual-gemm]
+architectures:
+- sm100
+- sm100a
+- sm90
+tags:
+- moe
+- fused-kernel
+- fp8
+- block-scale
+- kernel-fusion
+- warp-specialization
+- grouped-gemm
+- gated-dual-gemm
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [moe, fused-kernel, grouped-gemm, gated-dual-gemm]
-languages: [cuda-cpp, cute-dsl, triton]
-related: [kernel-grouped-gemm, kernel-deepgemm, technique-fine-grained-quantization, technique-tile-scheduling]
-sources: [contest-flashinfer-track-a, blog-deepgemm, pr-vllm-23696]
+kernel_types:
+- moe
+- fused-kernel
+- grouped-gemm
+- gated-dual-gemm
+languages:
+- cuda-cpp
+- cute-dsl
+- triton
+related:
+- kernel-grouped-gemm
+- kernel-deepgemm
+- technique-fine-grained-quantization
+- technique-tile-scheduling
+sources:
+- contest-flashinfer-track-a
+- blog-deepgemm
+- pr-vllm-23696
 performance_claims:
-  - gpu: B200
-    dtype: fp8
-    shape: "topk=8, experts=32, hidden=7168, intermediate=2048, batch=4096"
-    metric: TFLOPS
-    value: 1262
-    utilization: "~56%"
-    source_id: contest-flashinfer-track-a
-blackwell_relevance: "SM100 enables native FP8 block-scale MoE via tcgen05 with higher throughput; technique transfers from Hopper FP8 MoE."
+- gpu: B200
+  dtype: fp8
+  shape: topk=8, experts=32, hidden=7168, intermediate=2048, batch=4096
+  metric: TFLOPS
+  value: 1262
+  utilization: ~56%
+  source_id: contest-flashinfer-track-a
+blackwell_relevance: SM100 enables native FP8 block-scale MoE via tcgen05 with higher
+  throughput; technique transfers from Hopper FP8 MoE.
+artifact_dir: artifacts/kernels/fused-moe
 ---
 
 # Fused MoE -- FP8 Block-Scale Routing + Dual GEMM
@@ -255,3 +282,13 @@ def fused_moe_gate_up_triton(
 - [GPU Mode NVFP4 Hackathon Problem 3](https://github.com/gpu-mode/reference-kernels)
 - [DeepGEMM MoE](https://github.com/deepseek-ai/DeepGEMM)
 - [SGLang Fused MoE](https://github.com/sgl-project/sglang)
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/fused-moe/full/`](../../artifacts/kernels/fused-moe/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/fused-moe/variants/`](../../artifacts/kernels/fused-moe/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-fused-moe --include-code
+```

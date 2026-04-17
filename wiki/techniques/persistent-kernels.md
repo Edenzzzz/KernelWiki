@@ -1,14 +1,26 @@
 ---
 id: technique-persistent-kernels
-title: "Persistent Kernels with CLC"
+title: Persistent Kernels with CLC
 type: technique
-architectures: [sm100]
-tags: [persistent-kernel, clc, tile-scheduling]
+architectures:
+- sm100
+tags:
+- persistent-kernel
+- clc
+- tile-scheduling
 confidence: source-reported
 reproducibility: snippet
-prerequisites: [hw-clc]
-related: [hw-clc, technique-tile-scheduling, pattern-tail-effect]
-sources: [doc-nvidia-tuning-guide, blog-tcgen05-tutorial, doc-cutlass-blackwell]
+prerequisites:
+- hw-clc
+related:
+- hw-clc
+- technique-tile-scheduling
+- pattern-tail-effect
+sources:
+- doc-nvidia-tuning-guide
+- blog-tcgen05-tutorial
+- doc-cutlass-blackwell
+artifact_dir: artifacts/kernels/persistent-kernels
 ---
 
 ## Overview
@@ -205,3 +217,13 @@ The 57% improvement comes from:
 - CLC is SM100-only; Hopper kernels must use software-based scheduling.
 - The `try_cancel` pattern introduces a potential race that must be handled with a retry loop.
 - For very small problems (fewer tiles than SMs), CLC overhead may not justify the complexity. A simple single-wave grid launch suffices.
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/persistent-kernels/full/`](../../artifacts/kernels/persistent-kernels/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/persistent-kernels/variants/`](../../artifacts/kernels/persistent-kernels/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py technique-persistent-kernels --include-code
+```

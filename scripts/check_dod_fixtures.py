@@ -34,8 +34,8 @@ def find_bundle_root_for(path):
 
 
 def load_modes_for_file(file_path):
-    """Return the `mode` string declared in the enclosing bundle's files[*] manifest,
-    or None if not found."""
+    """Return the per-file `mode` declared in the enclosing bundle's files[*]
+    manifest, or None if not found."""
     root = find_bundle_root_for(file_path)
     if not root:
         return None
@@ -54,6 +54,23 @@ def load_modes_for_file(file_path):
     return None
 
 
+def load_bundle_mode_for_file(file_path):
+    """Return the bundle-level `asset_mode` default for the enclosing bundle,
+    or None if no PROVENANCE.yaml is found. This is distinct from the per-file
+    mode: a bundle can carry `asset_mode: verbatim` (all files are verbatim
+    upstream) or `asset_mode: derived` (all files are derived), and some DoD
+    fixtures need to enforce the bundle-level contract rather than file-level."""
+    root = find_bundle_root_for(file_path)
+    if not root:
+        return None
+    prov_path = root / "PROVENANCE.yaml"
+    try:
+        prov = yaml.safe_load(prov_path.read_text(encoding="utf-8")) or {}
+    except yaml.YAMLError:
+        return None
+    return prov.get("asset_mode")
+
+
 def check_entry(entry):
     """Per-glob-independent fixture check.
 
@@ -69,14 +86,28 @@ def check_entry(entry):
     required_assets = entry.get("required_assets") or []
     required_min_lines = entry.get("required_min_lines", 100)
     required_modes = set(entry.get("required_provenance_modes") or [])
+    required_bundle_modes = set(entry.get("required_bundle_asset_mode") or [])
     required_patterns = entry.get("required_content_patterns") or []
 
+    # Each entry in required_assets can be either:
+    #   - a string: a glob applied with the fixture-level required_min_lines
+    #   - a dict {glob, min_lines?}: a glob with its own min_lines override
     # Resolve each glob independently so that a missing glob fails the fixture
     # even if other globs matched files.
     per_glob_matches = {}
-    for glob in required_assets:
+    per_glob_min_lines = {}
+    for a in required_assets:
+        if isinstance(a, dict):
+            glob = a.get("glob")
+            min_lines = a.get("min_lines", required_min_lines)
+        else:
+            glob = a
+            min_lines = required_min_lines
+        if not glob:
+            continue
         hits = [p for p in REPO_ROOT.glob(glob) if p.is_file()]
         per_glob_matches[glob] = hits
+        per_glob_min_lines[glob] = min_lines
         if not hits:
             errors.append(f"{question!r}: required_assets glob {glob!r} matched no files")
 
@@ -84,15 +115,16 @@ def check_entry(entry):
         return errors
 
     # Per-glob line-count gate: at least one matched file per glob must reach
-    # required_min_lines. This is stronger than "any matched file in the
-    # union" because each asset group represents a distinct required piece of
-    # evidence for the question.
+    # that glob's min_lines (either the fixture-level required_min_lines or
+    # the glob's own override). Each asset group represents a distinct
+    # required piece of evidence for the question.
     for glob, hits in per_glob_matches.items():
+        floor = per_glob_min_lines[glob]
         long_enough = False
         for p in hits:
             try:
                 lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
-                if len(lines) >= required_min_lines:
+                if len(lines) >= floor:
                     long_enough = True
                     break
             except OSError:
@@ -100,12 +132,12 @@ def check_entry(entry):
         if not long_enough:
             errors.append(
                 f"{question!r}: no file matching {glob!r} reached "
-                f"required_min_lines={required_min_lines}"
+                f"required_min_lines={floor}"
             )
 
-    # Mode restriction: every glob must have at least one file whose bundle mode
-    # is in the allowed set. A fixture cannot pass by borrowing mode evidence
-    # from a different glob's match.
+    # Per-file mode restriction: every glob must have at least one file whose
+    # file-level mode is in the allowed set. A fixture cannot pass by borrowing
+    # mode evidence from a different glob's match.
     if required_modes:
         for glob, hits in per_glob_matches.items():
             ok = False
@@ -116,8 +148,27 @@ def check_entry(entry):
                     break
             if not ok:
                 errors.append(
-                    f"{question!r}: no file matching {glob!r} has provenance mode "
-                    f"in {sorted(required_modes)}"
+                    f"{question!r}: no file matching {glob!r} has per-file provenance "
+                    f"mode in {sorted(required_modes)}"
+                )
+
+    # Bundle-level mode restriction: every glob must have at least one file
+    # whose ENCLOSING BUNDLE declares asset_mode in the allowed set. This is
+    # what lets a fixture demand e.g. "this question must be backed by at least
+    # one verbatim-bundle asset" even when the bundle is mixed at the per-file
+    # level.
+    if required_bundle_modes:
+        for glob, hits in per_glob_matches.items():
+            ok = False
+            for p in hits:
+                bm = load_bundle_mode_for_file(p)
+                if bm in required_bundle_modes:
+                    ok = True
+                    break
+            if not ok:
+                errors.append(
+                    f"{question!r}: no file matching {glob!r} lives in a bundle with "
+                    f"asset_mode in {sorted(required_bundle_modes)}"
                 )
 
     # Content regexes must match across the full matched set. Aggregating is

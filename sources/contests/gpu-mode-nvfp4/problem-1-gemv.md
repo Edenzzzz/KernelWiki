@@ -51,8 +51,9 @@ submissions:
   technique: PTX assembly with per-K specialization, vectorized 256-bit loads, cache
     bypass for streamed matrix A
   submission_truth: unavailable
-  code_unavailable_reason: Amandeep shared the PTX-level per-K specialization kernel
-    on the GPU Mode Discord; no public author republish found at collection time
+  code_unavailable_reason: Amandeep's PTX-level per-K specialization kernel was shared
+    in the GPU Mode Discord problem-1 thread; author has not republished to a public
+    platform at collection time
 ---
 
 # Problem 1: NVFP4 Batched GEMV

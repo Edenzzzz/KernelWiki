@@ -9,7 +9,7 @@ sources:
 - triton-in-policy
 - allowlist
 total_captured: 41
-checksum_sha256: 538728846793f65c6f5a9b9946ef20d069a46b7cc78fa81d11029cf5a8289d77
+checksum_sha256: a1a1e21608f8bf48360955a352b41b548def7efa9cb0f16f352661623a8ff50e
 prs:
 - id: pr-cutlass-2139
   source_of_inclusion: wiki-graph-closure
@@ -64,11 +64,11 @@ prs:
 - id: pr-sglang-21203
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-sglang-21239
-  source_of_inclusion: cute-dsl-tutorial
+  source_of_inclusion: contest-reference
 - id: pr-sglang-21325
   source_of_inclusion: triton-in-policy
 - id: pr-sglang-21339
-  source_of_inclusion: cute-dsl-tutorial
+  source_of_inclusion: contest-reference
 - id: pr-sglang-21428
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-vllm-16032

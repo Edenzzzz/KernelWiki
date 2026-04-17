@@ -1,14 +1,27 @@
 ---
 id: technique-ping-pong-scheduling
-title: "Ping-Pong Scheduling"
+title: Ping-Pong Scheduling
 type: technique
-architectures: [sm100]
-tags: [ping-pong-scheduling, warp-specialization, tmem, pipeline-stages]
+architectures:
+- sm100
+tags:
+- ping-pong-scheduling
+- warp-specialization
+- tmem
+- pipeline-stages
 confidence: source-reported
 reproducibility: snippet
-prerequisites: [hw-tmem, technique-warp-specialization]
-related: [kernel-flash-attention-4, technique-double-buffering]
-sources: [blog-flash-attention-4, doc-flash-attention-4, blog-tcgen05-tutorial]
+prerequisites:
+- hw-tmem
+- technique-warp-specialization
+related:
+- kernel-flash-attention-4
+- technique-double-buffering
+sources:
+- blog-flash-attention-4
+- doc-flash-attention-4
+- blog-tcgen05-tutorial
+artifact_dir: artifacts/kernels/ping-pong-scheduling
 ---
 
 # Ping-Pong Scheduling
@@ -59,3 +72,13 @@ __global__ void fa4_ping_pong_attn(...) {
 - Compute-bound attention kernels on Blackwell
 - Kernels where softmax/epilogue is SFU-heavy
 - Not useful on Hopper (balance is different)
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/ping-pong-scheduling/full/`](../../artifacts/kernels/ping-pong-scheduling/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/ping-pong-scheduling/variants/`](../../artifacts/kernels/ping-pong-scheduling/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py technique-ping-pong-scheduling --include-code
+```

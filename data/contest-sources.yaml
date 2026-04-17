@@ -1,25 +1,11 @@
 ## Contest submission sources manifest
 ## Consumed by scripts/collect_contest_code.py
 ##
-## Structure:
-##   <contest-slug>:
-##     <problem-slug>:
-##       <rank-N-participant-slug>:
-##         kind: github-file | inline-from-blog | discord-only | unavailable-public
-##         origin_url: <URL the user should visit for context>
-##         upstream_repo: owner/name           # for kind=github-file
-##         upstream_sha: <40-char SHA>          # for kind=github-file
-##         files:                                # for kind=github-file or inline-from-blog
-##           - upstream_path: path/in/upstream.cu
-##             local_name: (optional; defaults to basename)
-##         blog_slug: <slug>                     # for kind=inline-from-blog
-##         official: true|false                  # for kind=github-file (true => official-submission)
-##         license: <SPDX or inherits-...>        # optional, for verbatim
-##         reason: <string>                      # for kind=discord-only / unavailable-public
+## Keys use the exact slug format that the collector derives:
+##   rank-<rank>-<lowercased participant with non-alphanumeric runs → "-">
+## e.g. "Simon (veitner)" → rank-1-simon-veitner
 ##
-## The <rank-N-participant-slug> is computed as:
-##   rank-<rank>-<lowercased participant with non-alphanumeric → hyphen>
-## E.g., rank 1 "Simon (veitner)" → rank-1-simon-veitner
+## kind ∈ { github-file, inline-from-blog, discord-only, unavailable-public }
 
 gpu-mode-nvfp4:
   problem-1-gemv:
@@ -29,7 +15,6 @@ gpu-mode-nvfp4:
       files:
         - "04-step-4-ptx-assembly-27us.ptx"
       origin_url: "https://veitner.bearblog.dev/nvfp4-gemv/"
-      reason: "Simon's PTX-assembly kernel is documented both in his own blog and reflected in the hackathon progression blog by Yue Zhang; the PTX file in the yue-nvfp4 extracted bundle is the closest public representation"
     rank-2-yue:
       kind: inline-from-blog
       blog_slug: yue-nvfp4-hackathon
@@ -42,73 +27,95 @@ gpu-mode-nvfp4:
     rank-3-amandeep:
       kind: discord-only
       origin_url: "https://discord.gg/gpumode"
-      reason: "Amandeep shared the PTX-level per-K specialization kernel on the GPU Mode Discord; no public author republish found at collection time"
+      reason: "Amandeep's PTX-level per-K specialization kernel was shared in the GPU Mode Discord problem-1 thread; author has not republished to a public platform at collection time"
 
   problem-2-gemm:
-    rank-1-anon:
+    rank-1-simon-veitner:
       kind: discord-only
-      origin_url: "https://github.com/gpu-mode/reference-kernels"
-      reason: "Top-ranked problem-2 submission not yet published outside the gpu-mode Discord server"
-    rank-2-anon:
+      origin_url: "https://discord.gg/gpumode"
+      reason: "Simon's NVFP4 GEMM winning submission posted in the GPU Mode Discord problem-2 thread; author has not republished the GEMM variant on a public platform"
+    rank-2-yue:
       kind: discord-only
-      reason: "Problem-2 rank-2 submission not yet published outside the gpu-mode Discord server"
-    rank-3-anon:
+      origin_url: "https://discord.gg/gpumode"
+      reason: "Yue's NVFP4 GEMM submission posted in the GPU Mode Discord problem-2 thread; the public hackathon blog covers GEMV (problem 1), not problem-2 GEMM"
+    rank-3-currybab:
       kind: discord-only
-      reason: "Problem-2 rank-3 submission not yet published outside the gpu-mode Discord server"
+      origin_url: "https://discord.gg/gpumode"
+      reason: "currybab's submission posted in the GPU Mode Discord problem-2 thread; no public author republish at collection time"
 
   problem-3-gated-dual-gemm:
-    rank-1-anon:
+    rank-1-simon-veitner:
       kind: discord-only
-      origin_url: "https://github.com/gpu-mode/reference-kernels"
-      reason: "Problem-3 leaderboard kernels not yet published outside the gpu-mode Discord"
-    rank-2-anon:
+      origin_url: "https://discord.gg/gpumode"
+      reason: "Simon's gated-dual-GEMM winning submission posted in the GPU Mode Discord problem-3 thread; not republished publicly"
+    rank-2-yue:
       kind: discord-only
-      reason: "Problem-3 rank-2 submission not yet published outside the gpu-mode Discord"
-    rank-3-anon:
+      origin_url: "https://discord.gg/gpumode"
+      reason: "Yue's gated-dual-GEMM submission posted in the GPU Mode Discord problem-3 thread; blog covers problem-1 progression, not this problem"
+    rank-3-currybab:
       kind: discord-only
-      reason: "Problem-3 rank-3 submission not yet published outside the gpu-mode Discord"
+      origin_url: "https://discord.gg/gpumode"
+      reason: "currybab's gated-dual-GEMM submission posted in the GPU Mode Discord problem-3 thread; no public republish at collection time"
 
   problem-4-grouped-gemm:
-    rank-1-anon:
+    rank-1-reward-hack-invalidated:
+      kind: unavailable-public
+      origin_url: "https://discord.gg/gpumode"
+      reason: "Problem-4 rank-1 slot was invalidated after a reward-hacking incident; no legitimate kernel was archived, so there is no code to collect"
+    rank-2-simon-veitner:
       kind: discord-only
-      origin_url: "https://github.com/gpu-mode/reference-kernels"
-      reason: "Problem-4 leaderboard kernels not yet published outside the gpu-mode Discord"
-    rank-2-anon:
+      origin_url: "https://discord.gg/gpumode"
+      reason: "Simon's grouped-GEMM submission posted in the GPU Mode Discord problem-4 thread; not republished publicly"
+    rank-3-currybab:
       kind: discord-only
-      reason: "Problem-4 rank-2 submission not yet published outside the gpu-mode Discord"
-    rank-3-anon:
-      kind: discord-only
-      reason: "Problem-4 rank-3 submission not yet published outside the gpu-mode Discord"
+      origin_url: "https://discord.gg/gpumode"
+      reason: "currybab's grouped-GEMM submission posted in the GPU Mode Discord problem-4 thread; no public republish at collection time"
 
 flashinfer-mlsys26:
   track-a-fused-moe:
-    rank-1-anon:
+    rank-1-gemini-2-5-pro-ai-baseline:
       kind: unavailable-public
       origin_url: "https://flashinfer.ai/mlsys26-contest"
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code; re-check after the contest closes"
-    rank-2-anon:
+      reason: "AI-baseline submission generated by Gemini 2.5 Pro; the FlashInfer MLSys 2026 contest organizers have not released the generated code to the public repository"
+    rank-2-gpt-5-2025-08-07:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
-    rank-3-anon:
+      origin_url: "https://flashinfer.ai/mlsys26-contest"
+      reason: "AI-baseline submission generated by GPT-5 (2025-08-07 snapshot); organizers have not released generated code publicly"
+    rank-3-claude-opus-4-1:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
+      origin_url: "https://flashinfer.ai/mlsys26-contest"
+      reason: "AI-baseline submission generated by Claude Opus 4.1; organizers have not released generated code publicly"
+    rank-notable-sglang-baseline:
+      kind: unavailable-public
+      origin_url: "https://github.com/sgl-project/sglang"
+      reason: "SGLang baseline fused-MoE kernel for reference comparison; sglang's public fused-MoE code lives in the main repo and is captured via pr-sglang-21239 / pr-sglang-21339 rather than as a contest submission bundle"
+
   track-b-sparse-attention:
-    rank-1-anon:
+    rank-1-gemini-2-5-pro-ai-baseline:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
-    rank-2-anon:
+      reason: "AI-baseline submission generated by Gemini 2.5 Pro for the Sparse Attention track; organizers have not released generated code publicly"
+    rank-2-gpt-5-2025-08-07:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
-    rank-3-anon:
+      reason: "AI-baseline submission generated by GPT-5 (2025-08-07 snapshot) for the Sparse Attention track; organizers have not released generated code publicly"
+    rank-3-claude-opus-4-1:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
+      reason: "AI-baseline submission generated by Claude Opus 4.1 for the Sparse Attention track; organizers have not released generated code publicly"
+    rank-notable-flashmla-deepseek:
+      kind: unavailable-public
+      origin_url: "https://github.com/deepseek-ai/FlashMLA"
+      reason: "FlashMLA (DeepSeek) referenced as the Sparse Attention notable baseline; its code lives in deepseek-ai/FlashMLA and is summarized by sources/blogs/flashmla.md + artifacts/blogs/flashmla/code/ rather than as a contest submission bundle"
+
   track-c-gated-delta-net:
-    rank-1-anon:
+    rank-1-gemini-2-5-pro-ai-baseline:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
-    rank-2-anon:
+      reason: "AI-baseline submission generated by Gemini 2.5 Pro for the Gated Delta Net track; organizers have not released generated code publicly"
+    rank-2-gpt-5:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
-    rank-3-anon:
+      reason: "AI-baseline submission generated by GPT-5 for the Gated Delta Net track; organizers have not released generated code publicly"
+    rank-3-claude-opus-4-1:
       kind: unavailable-public
-      reason: "FlashInfer MLSys 2026 leaderboard has not yet published participant code"
+      reason: "AI-baseline submission generated by Claude Opus 4.1 for the Gated Delta Net track; organizers have not released generated code publicly"
+    rank-notable-fla-flash-linear-attention:
+      kind: unavailable-public
+      origin_url: "https://github.com/fla-org/flash-linear-attention"
+      reason: "FLA (Flash Linear Attention) referenced as the Gated Delta Net notable baseline; its code lives in fla-org/flash-linear-attention and is summarized by sources/blogs/gated-delta-net.md + artifacts/blogs/gated-delta-net/code/ rather than as a contest submission bundle"

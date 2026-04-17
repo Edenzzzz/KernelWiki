@@ -1,31 +1,53 @@
 ---
 id: kernel-flashmla
-title: "FlashMLA — Multi-head Latent Attention"
+title: FlashMLA — Multi-head Latent Attention
 type: kernel
-architectures: [sm100, sm90]
-tags: [mla, attention, decode, prefill, fp8, sparse-attention]
+architectures:
+- sm100
+- sm90
+tags:
+- mla
+- attention
+- decode
+- prefill
+- fp8
+- sparse-attention
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [mla, attention, decode, prefill, sparse-attention]
-languages: [cuda-cpp]
-related: [hw-tcgen05-mma, hw-tmem, kernel-nsa]
-sources: [blog-flashmla, pr-flashinfer-1117, pr-vllm-39752]
+kernel_types:
+- mla
+- attention
+- decode
+- prefill
+- sparse-attention
+languages:
+- cuda-cpp
+related:
+- hw-tcgen05-mma
+- hw-tmem
+- kernel-nsa
+sources:
+- blog-flashmla
+- pr-flashinfer-1117
+- pr-vllm-39752
 performance_claims:
-  - gpu: B200
-    dtype: bf16
-    shape: "dense prefill, variable seqlen"
-    metric: TFLOPS
-    value: 1460
-    utilization: "~65%"
-    source_id: blog-flashmla
-  - gpu: B200
-    dtype: fp8
-    shape: "sparse prefill"
-    metric: TFLOPS
-    value: 1450
-    utilization: "~65%"
-    source_id: blog-flashmla
-blackwell_relevance: "SM100 dense prefill achieves 1460 TFLOPS (vs 660 on SM90); Blackwell tcgen05 enables higher MLA throughput."
+- gpu: B200
+  dtype: bf16
+  shape: dense prefill, variable seqlen
+  metric: TFLOPS
+  value: 1460
+  utilization: ~65%
+  source_id: blog-flashmla
+- gpu: B200
+  dtype: fp8
+  shape: sparse prefill
+  metric: TFLOPS
+  value: 1450
+  utilization: ~65%
+  source_id: blog-flashmla
+blackwell_relevance: SM100 dense prefill achieves 1460 TFLOPS (vs 660 on SM90); Blackwell
+  tcgen05 enables higher MLA throughput.
+artifact_dir: artifacts/kernels/flashmla
 ---
 
 # FlashMLA -- Multi-head Latent Attention
@@ -202,3 +224,13 @@ FlashMLA is deployed in production for DeepSeek-V3 and V3.2 inference:
 - [FlashMLA GitHub](https://github.com/deepseek-ai/FlashMLA)
 - [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)
 - [CUTLASS SM100 Attention Changelog](https://docs.nvidia.com/cutlass/latest/CHANGELOG.html)
+
+## Full Reference Implementation
+
+Verbatim upstream code lives in [`artifacts/kernels/flashmla/full/`](../../artifacts/kernels/flashmla/full/); labeled derived variants (each with the required `// provenance: derived from ...; not upstream code` header) live in [`artifacts/kernels/flashmla/variants/`](../../artifacts/kernels/flashmla/variants/). Every file's SHA-256 and upstream-pinning metadata is in `PROVENANCE.yaml` inside each bundle.
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-flashmla --include-code
+```
