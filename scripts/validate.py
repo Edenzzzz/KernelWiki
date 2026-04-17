@@ -15,13 +15,13 @@ REPRO_ORDER = ["concept", "pseudocode", "snippet", "runnable", "benchmarked"]
 
 
 def load_yaml_file(path):
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def extract_frontmatter(filepath):
     """Extract YAML frontmatter from a markdown file."""
-    with open(filepath) as f:
+    with open(filepath, encoding="utf-8") as f:
         content = f.read()
     match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
     if not match:
@@ -34,7 +34,7 @@ def extract_frontmatter(filepath):
 
 def read_body(filepath):
     """Read the body (post-frontmatter) of a markdown file."""
-    with open(filepath) as f:
+    with open(filepath, encoding="utf-8") as f:
         content = f.read()
     match = re.match(r'^---\s*\n.*?\n---\s*\n', content, re.DOTALL)
     if match:
@@ -79,22 +79,34 @@ def repro_at_least(level, minimum):
     return REPRO_ORDER.index(level) >= REPRO_ORDER.index(minimum)
 
 
-CODE_LANGS = {
+# Base code languages + all DSLs from data/tags.yaml languages category
+_BASE_CODE_LANGS = {
     "cuda", "c", "c++", "cpp", "python", "py", "ptx", "asm",
     "cuda-cpp", "cu", "rust", "shell", "bash", "yaml", "json",
 }
 
 
-def has_fenced_code(body):
+def _load_code_langs():
+    """Load recognized code fence languages: base set + all from data/tags.yaml."""
+    langs = set(_BASE_CODE_LANGS)
+    tags_path = DATA_DIR / "tags.yaml"
+    if tags_path.exists():
+        with open(tags_path, encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+        langs.update(data.get("languages", []))
+    return langs
+
+
+def has_fenced_code(body, code_langs):
     """Check if body contains a fenced code block with a known programming language."""
     for m in re.finditer(r'^```(\S*)\s*\n.*?\n```', body, re.MULTILINE | re.DOTALL):
         info = m.group(1).lower()
-        if info in CODE_LANGS:
+        if info in code_langs:
             return True
     return False
 
 
-def validate_file(filepath, schemas, valid_tags, all_source_ids):
+def validate_file(filepath, schemas, valid_tags, all_source_ids, code_langs):
     """Validate a single file. Returns list of error strings."""
     errors = []
     rel = filepath.relative_to(REPO_ROOT)
@@ -317,7 +329,7 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
     # Check technique/kernel/language pages have fenced code
     if page_type in ("wiki-technique", "wiki-kernel", "wiki-language"):
         body = read_body(filepath)
-        if not has_fenced_code(body):
+        if not has_fenced_code(body, code_langs):
             errors.append(f"{rel}: {page_type} page must contain fenced code block (reproducibility >= snippet)")
 
     return errors
@@ -330,6 +342,8 @@ def main():
     all_errors = []
     file_count = 0
     ids_seen = {}
+
+    code_langs = _load_code_langs()
 
     # First pass: collect all source IDs
     all_source_ids = set()
@@ -357,7 +371,7 @@ def main():
                 else:
                     ids_seen[fid] = str(md_file.relative_to(REPO_ROOT))
 
-            errors = validate_file(md_file, schemas, tags, all_source_ids)
+            errors = validate_file(md_file, schemas, tags, all_source_ids, code_langs)
             all_errors.extend(errors)
 
     print(f"Validated {file_count} files ({len(all_source_ids)} source IDs collected)")

@@ -13,7 +13,7 @@ QUERIES_DIR = REPO_ROOT / "queries"
 
 
 def extract_frontmatter(filepath):
-    with open(filepath) as f:
+    with open(filepath, encoding="utf-8") as f:
         content = f.read()
     match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
     if not match:
@@ -33,7 +33,7 @@ def load_valid_languages():
     """Load valid language tags from data/tags.yaml."""
     tags_path = REPO_ROOT / "data" / "tags.yaml"
     if tags_path.exists():
-        with open(tags_path) as f:
+        with open(tags_path, encoding='utf-8') as f:
             return set(yaml.safe_load(f).get("languages", []))
     return set()
 
@@ -119,7 +119,7 @@ def generate_by_hardware_feature(pages):
     tags_path = REPO_ROOT / "data" / "tags.yaml"
     hw_tag_set = set()
     if tags_path.exists():
-        with open(tags_path) as f:
+        with open(tags_path, encoding='utf-8') as f:
             hw_tag_set = set(yaml.safe_load(f).get("hardware_features", []))
 
     # Merge explicit hardware_features AND supplemental hw tags (deduplicated)
@@ -204,7 +204,7 @@ def generate_by_kernel_type(pages):
     tags_path = REPO_ROOT / "data" / "tags.yaml"
     kt_tag_set = set()
     if tags_path.exists():
-        with open(tags_path) as f:
+        with open(tags_path, encoding='utf-8') as f:
             kt_tag_set = set(yaml.safe_load(f).get("kernel_types", []))
 
     # Merge explicit kernel_types AND supplemental kt tags (deduplicated)
@@ -324,7 +324,7 @@ def main():
     for filename, gen_func in generators.items():
         content = gen_func(pages)
         outpath = QUERIES_DIR / filename
-        outpath.write_text(content)
+        outpath.write_text(content, encoding="utf-8")
         print(f"  Generated {outpath.relative_to(REPO_ROOT)}")
 
     print("Done.")
