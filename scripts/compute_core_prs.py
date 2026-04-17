@@ -116,52 +116,22 @@ _FETCH_SKIP_GLOBS = (
 )
 
 
-def _pr_bundle_has_key_files(pr_id):
-    """Return True iff artifacts/prs/<repo>/PR-<N>/key-files/ exists and
-    contains at least one file. Used as a safety override for the
-    empty-bundle skip heuristic: if a bundle already has captured key
-    files, the source page's changed_paths is almost certainly
-    incomplete (the curator listed only a subset) and trusting the
-    bundle is the correct behavior. Without this override, stale source
-    pages like pr-cutlass-2378 (source page lists only 1 test file but
-    the PR actually changes 2 kernel .hpp files) would get falsely
-    skipped by the all-paths-are-tests rule.
-    """
-    if not pr_id or not pr_id.startswith("pr-"):
-        return False
-    parts = pr_id[3:].rsplit("-", 1)
-    if len(parts) != 2:
-        return False
-    repo_short, num = parts
-    bundle = REPO_ROOT / "artifacts" / "prs" / repo_short / f"PR-{num}"
-    key_dir = bundle / "key-files"
-    if not key_dir.is_dir():
-        return False
-    try:
-        return any(key_dir.rglob("*"))
-    except OSError:
-        return False
-
-
-def all_paths_would_be_skipped_by_fetch(paths, pr_id=None):
+def all_paths_would_be_skipped_by_fetch(paths):
     """Return True iff every path in `paths` matches fetch_pr_diff's
     SKIP_GLOBS (tests / benchmarks / docs / ci). Such a PR would ship
     only diff.patch — no key-files/ — so capturing it just pollutes the
     corpus. Empty `paths` returns False (no evidence of a noise PR).
 
-    Safety override: if `pr_id` is provided and a bundle already exists
-    under artifacts/prs/ with captured key files, the source page's
-    changed_paths is treated as incomplete and the PR is NOT skipped.
+    Trusts the source page's `changed_paths` as ground truth. Any stale
+    or incomplete source pages must be backfilled from GitHub (see
+    Round 24's one-shot backfill) so this helper stays self-contained:
+    compute_manifests() must not depend on `artifacts/` state, which
+    would break regeneration in sparse clones.
     """
     if not paths:
         return False
     from fnmatch import fnmatch
-    all_skip = all(any(fnmatch(p, g) for g in _FETCH_SKIP_GLOBS) for p in paths)
-    if not all_skip:
-        return False
-    if pr_id and _pr_bundle_has_key_files(pr_id):
-        return False
-    return True
+    return all(any(fnmatch(p, g) for g in _FETCH_SKIP_GLOBS) for p in paths)
 
 
 def apply_cute_dsl_policy(policy, pr):
@@ -198,10 +168,10 @@ def apply_cute_dsl_policy(policy, pr):
     # benchmarks, docs, ci). Such PRs end up with diff.patch-only
     # bundles and contaminate the captured core set. Concrete example:
     # pr-vllm-39644 is tagged `cute-dsl` but its only changed_path is
-    # `tests/kernels/moe/test_cutedsl_moe.py`. Pass pr_id so the helper
-    # can consult the committed bundle state and avoid false-positive
-    # skips when the source page's changed_paths is incomplete.
-    if all_paths_would_be_skipped_by_fetch(changed_paths, pr.get("id")):
+    # `tests/kernels/moe/test_cutedsl_moe.py`. The helper trusts the
+    # source page's changed_paths; R24 backfilled every stale source
+    # page from GitHub so the decision is now self-contained.
+    if all_paths_would_be_skipped_by_fetch(changed_paths):
         return False, (
             "all changed_paths are tests/benchmarks/docs "
             "(empty bundle after fetch_pr_diff.SKIP_GLOBS)"
@@ -237,9 +207,8 @@ def apply_triton_policy(policy, pr):
     # basename patterns like benchmark_*_triton.py even when every path
     # lives under benchmark/, emitting a diff.patch-only bundle.
     # Concrete case: pr-sglang-20305, where all 30+ paths are under
-    # benchmark/kernels/. Pass pr_id so the helper can consult the
-    # committed bundle state before skipping.
-    if all_paths_would_be_skipped_by_fetch(changed_paths, pr.get("id")):
+    # benchmark/kernels/.
+    if all_paths_would_be_skipped_by_fetch(changed_paths):
         return False, (
             "all changed_paths are tests/benchmarks/docs "
             "(empty bundle after fetch_pr_diff.SKIP_GLOBS)"

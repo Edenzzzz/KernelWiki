@@ -483,6 +483,8 @@ def main():
     parser.add_argument("--all", action="store_true", help="Fetch every PR in data/core-prs.yaml")
     parser.add_argument("--ids", nargs="+", metavar="PR_ID", help="Fetch only these PR IDs")
     parser.add_argument("--dry-run", action="store_true", help="Print intent, do not call gh or write files")
+    parser.add_argument("--dry-run-live", action="store_true",
+                        help="Like --dry-run but fetch the real PR file list from GitHub instead of using the source page's changed_paths. Use this when a source page's changed_paths may be incomplete and you want the preview to reflect exactly what a real fetch would capture.")
     parser.add_argument("--max-pr", type=int, default=None, help="Stop after N PRs (safety gate)")
     args = parser.parse_args()
 
@@ -531,18 +533,34 @@ def main():
             continue
 
         print(f"[{i}/{len(targets)}] {pid}  ({repo}#{pr_num} @ {merge_sha[:10]})")
+        if args.dry_run_live:
+            # Accurate preview: fetch the PR's real file list from GitHub
+            # and run select_captured_files against it. Use this when the
+            # source page's changed_paths may be incomplete — previews
+            # then match exactly what a real fetch would capture. Costs
+            # one gh-api call per PR (paginated) and requires network +
+            # auth, but avoids the false-negative class that plain
+            # --dry-run reports for stale source pages.
+            try:
+                file_list = fetch_pr_file_list(repo, pr_num)
+            except RuntimeError as e:
+                print(f"    WARN: file-list fetch failed: {e}", file=sys.stderr)
+                continue
+            emit_bundle(repo, pr_num, pid, merge_sha, file_list, None, dry_run=True)
+            continue
         if args.dry_run:
             # Run the preview logic without hitting GitHub: use the
-            # `changed_paths` stored in the source page frontmatter as the
-            # file list and call emit_bundle in dry-run mode so it reports
-            # what would be captured under the current allowlist (including
-            # the strict -> relaxed fallback). Previously --dry-run skipped
-            # emit_bundle entirely and printed nothing beyond this header.
+            # `changed_paths` stored in the source page frontmatter as
+            # the file list and call emit_bundle in dry-run mode so it
+            # reports what would be captured under the current allowlist
+            # (including the strict -> relaxed fallback). Hermetic: no
+            # network call. If you suspect the source page's
+            # changed_paths is incomplete, use --dry-run-live instead.
             stored_paths = fm.get("changed_paths") or []
             synth_file_list = [{"filename": p} for p in stored_paths]
             if not stored_paths:
                 print(f"    DRY-RUN {pid}: source page has no changed_paths; "
-                      f"nothing to preview without a GitHub call")
+                      f"use --dry-run-live to preview from the real PR file list")
                 continue
             emit_bundle(repo, pr_num, pid, merge_sha, synth_file_list, None, dry_run=True)
             continue

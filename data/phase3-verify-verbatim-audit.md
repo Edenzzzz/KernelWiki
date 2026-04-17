@@ -1,6 +1,6 @@
 # Phase 3 SHA-pinned strict verify audit log
 
-Captured: 2026-04-17T21:29:28Z (refreshed after Round 17 bundle backfill; Round 19 dropped 2 diff.patch-only bundles and refetched pr-sglang-21780 via the relaxed allowlist)
+Captured: 2026-04-17T23:14:33Z (R24 refresh: refetched 7 pytorch PRs whose diff.patch had drifted due to stale gh abbreviation cache; 9 source pages backfilled with real changed_paths from GitHub so compute_core_prs regeneration is self-contained)
 Command : `python3 scripts/verify_verbatim.py --strict`
 Exit    : 0 (documented contract: 0 = full-corpus upstream byte-match; 1 = --strict content mismatch; 2 = env failure)
 
