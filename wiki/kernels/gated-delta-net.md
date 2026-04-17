@@ -6,7 +6,7 @@ architectures: [sm100, sm90]
 tags: [gated-delta-net, linear-attention, attention]
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [gated-delta-net, linear-attention, decode, prefill]
+kernel_types: [gated-delta-net, linear-attention, decode, prefill, attention]
 languages: [triton, cuda-cpp]
 related: [technique-pipeline-stages]
 sources: [blog-gated-delta-net, doc-tfla]

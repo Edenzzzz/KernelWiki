@@ -6,7 +6,7 @@ architectures: [sm100, sm90]
 tags: [mla, attention, decode, prefill, fp8, sparse-attention]
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [mla, attention, decode, prefill]
+kernel_types: [mla, attention, decode, prefill, sparse-attention]
 languages: [cuda-cpp]
 related: [hw-tcgen05-mma, hw-tmem, kernel-nsa]
 sources: [blog-flashmla]
