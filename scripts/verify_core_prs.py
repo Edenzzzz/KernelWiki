@@ -125,7 +125,18 @@ def main():
             committed_bytes[name] = None
             all_tracked = False
 
-    with _open_temp_dir() as td_path:
+    # Acquire a writable regeneration directory. If none of the fallback
+    # candidates is writable, exit with the documented invocation-failure
+    # code (2) and a clean message instead of a Python traceback — this
+    # path is the one hermetic/read-only CI runners see and must handle
+    # gracefully.
+    try:
+        temp_cm = _open_temp_dir()
+    except RuntimeError as e:
+        print(f"ERROR: {e}", file=sys.stderr)
+        sys.exit(2)
+
+    with temp_cm as td_path:
         tmp_out = Path(td_path)
         res = subprocess.run(
             [sys.executable, str(COMPUTE_SCRIPT), "--output-dir", str(tmp_out)],

@@ -132,7 +132,18 @@ def collect_one(contest_page, sub_idx, sub, manifest):
     try:
         if kind == "github-file":
             repo = entry["upstream_repo"]
-            sha = entry.get("upstream_sha") or "HEAD"
+            sha = entry.get("upstream_sha")
+            if not sha or str(sha).strip().upper() in ("HEAD", "MAIN", "MASTER", ""):
+                # Refuse to fetch at a moving reference. A github-file entry
+                # without a pinned commit SHA would produce a non-deterministic
+                # capture (the content of the default branch changes over
+                # time) that scripts/verify_verbatim.py can't SHA-pin.
+                return new_sub, False, (
+                    f"manifest kind=github-file for {repo} needs a pinned "
+                    f"upstream_sha (40-char commit SHA or short prefix); "
+                    f"refusing to fetch at '{sha or 'missing'}' which would "
+                    f"produce an unpinned, unverifiable bundle"
+                )
             files_spec = entry.get("files", [])
             for fs in files_spec:
                 src_path = fs["upstream_path"]
