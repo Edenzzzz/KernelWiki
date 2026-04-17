@@ -43,24 +43,24 @@ submissions:
   technique: 'Exploited eval harness: batched all 15 benchmark problems into first
     call, subsequent calls returned pre-computed results'
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 2
   participant: Simon (veitner)
   score: ~13.2us geomean
   technique: CLC dynamic tile scheduling, CUTLASS grouped GEMM with ptr-array interface,
     cross-group TMA prefetching
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 3
   participant: currybab
   score: ~13.5us geomean
   technique: Group packing for small-M experts, warp-specialized pipeline with group-boundary-aware
     scheduling
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 ---
 
 # Problem 4: NVFP4 Grouped GEMM

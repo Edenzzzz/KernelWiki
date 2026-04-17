@@ -39,24 +39,24 @@ submissions:
   technique: CUTLASS SM100 warp-specialized NVFP4 GEMM with tcgen05.mma, optimized
     TMA pipeline depth and tile scheduling
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 2
   participant: yue
   score: 10.914us geomean
   technique: CUTLASS-based warp specialization with tuned pipeline stages, TMA async
     bulk loads, TMEM accumulator management
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 3
   participant: currybab
   score: 10.931us geomean
   technique: CUTLASS KernelPtrArrayTmaWarpSpecialized1SmNvf4Sm100 schedule with custom
     tile size and cluster shape tuning
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 ---
 
 # Problem 2: NVFP4 GEMM

@@ -1,23 +1,41 @@
 ---
 id: kernel-flash-attention-4
-title: "FlashAttention-4"
+title: FlashAttention-4
 type: kernel
-architectures: [sm100]
-tags: [attention, flash-attention, tcgen05, tmem, 2sm-cooperative, software-exp]
+architectures:
+- sm100
+tags:
+- attention
+- flash-attention
+- tcgen05
+- tmem
+- 2sm-cooperative
+- software-exp
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [attention, flash-attention]
-languages: [cute-dsl]
-related: [technique-warp-specialization, technique-software-exp, hw-tcgen05-mma, hw-tmem]
-sources: [doc-flash-attention-4, blog-flash-attention-4, pr-flashinfer-1850]
+kernel_types:
+- attention
+- flash-attention
+languages:
+- cute-dsl
+related:
+- technique-warp-specialization
+- technique-software-exp
+- hw-tcgen05-mma
+- hw-tmem
+sources:
+- doc-flash-attention-4
+- blog-flash-attention-4
+- pr-flashinfer-1850
 performance_claims:
-  - gpu: B200
-    dtype: bf16
-    shape: "seqlen=8192, headdim=128"
-    metric: TFLOPS
-    value: 1605
-    utilization: "71%"
-    source_id: doc-flash-attention-4
+- gpu: B200
+  dtype: bf16
+  shape: seqlen=8192, headdim=128
+  metric: TFLOPS
+  value: 1605
+  utilization: 71%
+  source_id: doc-flash-attention-4
+artifact_dir: artifacts/kernels/flash-attention-4
 ---
 
 # FlashAttention-4
@@ -171,3 +189,13 @@ The 71% MMA utilization represents the state of the art for attention kernels on
 
 - [FlashAttention-4 paper](https://arxiv.org/abs/2603.05451)
 - [Tri Dao's blog](https://tridao.me/blog/2026/flash4/)
+
+## Full Reference Implementation
+
+Local verbatim upstream code lives in [`artifacts/kernels/flash-attention-4/full/`](../../artifacts/kernels/flash-attention-4/full/) (see its `PROVENANCE.yaml` for the pinned upstream SHA and byte-verified SHA-256). Labeled derived variants — including a naive/teaching skeleton — live in [`artifacts/kernels/flash-attention-4/variants/`](../../artifacts/kernels/flash-attention-4/variants/).
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-flash-attention-4 --include-code
+```

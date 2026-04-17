@@ -1,0 +1,27 @@
+origin_url: https://tridao.me/blog/2026/flash4/
+upstream_repo: blog
+upstream_sha: none
+license: inherits-from-source-blog
+retrieved_at: 2026-04-16
+asset_mode: extracted
+generated_by: scripts/extract_blog_code.py
+size_cap_truncated: false
+files:
+- local_path: 01-software-exp-cody-waite-horner.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### Software exp (Cody-Waite + Horner)'
+  sha256: a6d9b0432a149f0b08e3e8ed1f7556e8b5dc64912829def5de5aca3538d71e7e
+- local_path: 02-ping-pong-scheduling.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### Ping-pong scheduling'
+  sha256: a86b900f1fa503d94e66f4c11074499d7a7b2f21cc8a8d3c5d894b836259e36a
+- local_path: 03-2-cta-cooperative-backward.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### 2-CTA cooperative backward'
+  sha256: bcaed793775c7667af95851584f91782130e1f2689a07dc81aaf29656dd73669

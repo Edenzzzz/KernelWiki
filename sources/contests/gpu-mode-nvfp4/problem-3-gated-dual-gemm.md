@@ -41,24 +41,24 @@ submissions:
   technique: Fused dual GEMM with shared A tile, epilogue SiLU fusion, dual TMEM accumulator
     layout, CUTLASS SM100 schedule
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 2
   participant: yue
   score: ~19.5us geomean
   technique: CUTLASS warp-specialized dual GEMM with TMA pipeline overlap for W_gate
     and W_up streams
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 3
   participant: currybab
   score: ~20us geomean
   technique: Epilogue-fused SiLU + element-wise multiply, shared input tiling across
     both GEMMs
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 ---
 
 # Problem 3: NVFP4 Gated Dual GEMM

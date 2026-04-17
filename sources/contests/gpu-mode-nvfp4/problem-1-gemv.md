@@ -36,25 +36,23 @@ submissions:
   score: ~18.5us geomean
   technique: Full PTX assembly with cache policy differentiation, byte unpacking,
     and aggressive register budgeting (maxrregcount=32)
-  submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  submission_truth: reconstructed-from-blog
+  code_path: artifacts/contests/gpu-mode-nvfp4/problem-1-gemv/submissions/rank-1-simon-veitner/04-step-4-ptx-assembly-27us.ptx
 - rank: 2
   participant: yue
   score: ~18.5us geomean
   technique: Shared B vector reads across BLOCK_M rows, PTX load/decode path, ILP
     optimization
-  submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  submission_truth: reconstructed-from-blog
+  code_path: artifacts/contests/gpu-mode-nvfp4/problem-1-gemv/submissions/rank-2-yue/01-step-1-cute-dsl-baseline-100us.cpp
 - rank: 3
   participant: Amandeep
   score: ~18.5us geomean
   technique: PTX assembly with per-K specialization, vectorized 256-bit loads, cache
     bypass for streamed matrix A
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: Amandeep shared the PTX-level per-K specialization kernel
+    on the GPU Mode Discord; no public author republish found at collection time
 ---
 
 # Problem 1: NVFP4 Batched GEMV

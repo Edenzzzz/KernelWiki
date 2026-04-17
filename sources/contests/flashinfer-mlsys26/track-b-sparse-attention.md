@@ -39,30 +39,30 @@ submissions:
   score: 0.628x avg speedup vs FlashInfer
   technique: evolve agent approach; sparse indexer + attention kernel generation
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 2
   participant: GPT-5 (2025-08-07)
   score: 0.467x avg speedup
   technique: iterative refinement targeting two-stage sparse attention
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 3
   participant: Claude Opus 4.1
   score: 0.456x avg speedup
   technique: code generation with FlashMLA sparse as reference
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: notable
   participant: FlashMLA (DeepSeek)
   score: 1450 TFLOPS on B200 (sparse prefill)
   technique: FP8 KV cache with token-level sparsity; 656 bytes/token (512 FP8 + 16
     scales + 128 RoPE)
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 ---
 
 # Track B: DeepSeek V3.2 Sparse Attention

@@ -1,4 +1,14 @@
 slug: gated-delta-net
 origin_url: https://github.com/NVlabs/GatedDeltaNet
-code_present: false
+code_present: true
+total_blocks: 2
 generated_by: scripts/extract_blog_code.py
+files:
+- local_path: code/01-chunk-parallel-prefill-reference-pytorch.py
+  heading_path: '## Key Code > ### Chunk-parallel prefill reference (PyTorch)'
+  fence_lang: python
+  sha256: 7d982658221a2f6720fb5882535c2ae35cfd68f72bb479d5520440e1fcdec811
+- local_path: code/02-triton-decode-step-kernel-streaming.py
+  heading_path: '## Key Code > ### Triton decode-step kernel (streaming)'
+  fence_lang: python
+  sha256: 61e56ec921a9481ed5500817408b47cafd0457be06e8b3c59595ef85430422b6

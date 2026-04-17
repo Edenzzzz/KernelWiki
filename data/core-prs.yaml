@@ -8,22 +8,28 @@ sources:
 - cute-dsl-tutorial
 - triton-in-policy
 - allowlist
-total_captured: 38
-checksum_sha256: fb7f847a7d320adf21d4be68ca7fe80cada71b25eb336010a02ac5ade8987eb7
+total_captured: 41
+checksum_sha256: 538728846793f65c6f5a9b9946ef20d069a46b7cc78fa81d11029cf5a8289d77
 prs:
 - id: pr-cutlass-2139
   source_of_inclusion: wiki-graph-closure
 - id: pr-cutlass-2161
   source_of_inclusion: wiki-graph-closure
+- id: pr-cutlass-2378
+  source_of_inclusion: cute-dsl-tutorial
 - id: pr-cutlass-2466
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-cutlass-2472
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-cutlass-2492
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-cutlass-2599
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-cutlass-2750
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-cutlass-2881
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-cutlass-2921
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-cutlass-2995
   source_of_inclusion: cute-dsl-tutorial

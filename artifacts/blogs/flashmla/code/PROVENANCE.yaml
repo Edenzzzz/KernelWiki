@@ -1,0 +1,21 @@
+origin_url: https://github.com/deepseek-ai/FlashMLA
+upstream_repo: blog
+upstream_sha: none
+license: inherits-from-source-blog
+retrieved_at: 2026-04-16
+asset_mode: extracted
+generated_by: scripts/extract_blog_code.py
+size_cap_truncated: false
+files:
+- local_path: 01-mla-decode-inner-loop.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### MLA decode inner loop'
+  sha256: 5b1c29b3cc24ffe097ad7dcc3eea1386b76dbbaf966eb9945a709b7a43228718
+- local_path: 02-sparse-mla-kv-retrieval-kernel-v3-2.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### Sparse-MLA KV-retrieval kernel (V3.2)'
+  sha256: 2fd2ddec791edcdca378a396b11b18c805f6445e315b5984efeb6bd3b40e1b2c

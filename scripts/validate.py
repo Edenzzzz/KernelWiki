@@ -427,7 +427,9 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids, code_langs):
 
 
 def validate_contest_submissions(fm, filepath, schemas):
-    """AC-3: enforce truth-model enum and conditional code_path / reason requirements."""
+    """AC-3: enforce truth-model enum, conditional code_path / reason, and
+    contest-bundle containment (code_path must resolve inside the page's own
+    implicit submission bundle, not just anywhere under artifacts/contests/)."""
     rel = filepath.relative_to(REPO_ROOT)
     errors = []
     subs = fm.get("submissions") or []
@@ -435,6 +437,14 @@ def validate_contest_submissions(fm, filepath, schemas):
     required = sub_schema.get("required", [])
     optional = sub_schema.get("optional", [])
     allowed_truths = (sub_schema.get("constraints") or {}).get("submission_truth") or []
+
+    # Implicit submission bundle root: artifacts/contests/<contest>/<problem>/submissions/
+    # where <contest> is the page's parent directory name and <problem> is the
+    # page's filename stem.
+    contest_slug = filepath.parent.name
+    problem_slug = filepath.stem
+    expected_prefix = f"artifacts/contests/{contest_slug}/{problem_slug}/submissions/"
+
     for i, entry in enumerate(subs):
         if not isinstance(entry, dict):
             errors.append(f"{rel}: submissions[{i}] must be a mapping, got {type(entry).__name__}")
@@ -460,15 +470,16 @@ def validate_contest_submissions(fm, filepath, schemas):
                     f"{rel}: submissions[{i}] has submission_truth='{truth}' but no 'code_path'"
                 )
             else:
-                # code_path must resolve under artifacts/contests/
                 target = REPO_ROOT / cp
                 if not target.exists():
                     errors.append(
                         f"{rel}: submissions[{i}].code_path '{cp}' does not exist"
                     )
-                elif not cp.startswith("artifacts/contests/"):
+                elif not cp.startswith(expected_prefix):
                     errors.append(
-                        f"{rel}: submissions[{i}].code_path '{cp}' must live under artifacts/contests/"
+                        f"{rel}: submissions[{i}].code_path '{cp}' must live under "
+                        f"'{expected_prefix}' (the page's own implicit submission bundle), "
+                        f"not an arbitrary location inside artifacts/contests/"
                     )
         # Reject unknown fields strictly
         allowed_fields = set(required) | set(optional)
@@ -695,12 +706,20 @@ def main():
 
     code_langs = _load_code_langs()
 
-    # First pass: collect all source IDs
+    # First pass: collect all source IDs (for cross-referencing wiki->source).
+    # Also collect all known page IDs (source + wiki) for provenance
+    # derived_from checks (wiki-hardware/wiki-technique IDs like hw-tcgen05-mma
+    # and technique-warp-specialization are legitimate provenance citations).
     all_source_ids = set()
     for md_file in sorted(SOURCES_DIR.rglob("*.md")) if SOURCES_DIR.exists() else []:
         fm = extract_frontmatter(md_file)
         if fm and isinstance(fm, dict) and "id" in fm:
             all_source_ids.add(fm["id"])
+    all_known_ids = set(all_source_ids)
+    for md_file in sorted(WIKI_DIR.rglob("*.md")) if WIKI_DIR.exists() else []:
+        fm = extract_frontmatter(md_file)
+        if fm and isinstance(fm, dict) and "id" in fm:
+            all_known_ids.add(fm["id"])
 
     # Second pass: validate everything
     for search_dir in [SOURCES_DIR, WIKI_DIR]:
@@ -732,7 +751,7 @@ def main():
     derived_count = 0
     for bundle_root in discover_bundle_roots():
         bundle_count += 1
-        berrs = validate_bundle(bundle_root, all_source_ids)
+        berrs = validate_bundle(bundle_root, all_known_ids)
         if berrs:
             bundle_errors += 1
         all_errors.extend(berrs)

@@ -1,0 +1,27 @@
+origin_url: https://gau-nernst.github.io/tcgen05/
+upstream_repo: blog
+upstream_sha: none
+license: inherits-from-source-blog
+retrieved_at: 2026-04-16
+asset_mode: extracted
+generated_by: scripts/extract_blog_code.py
+size_cap_truncated: false
+files:
+- local_path: 01-basic-tcgen05-mma-kernel-17-of-peak.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### Basic tcgen05.mma kernel (17% of peak)'
+  sha256: 7937934d1ea86757ba2b6f49f2a9c601a2d91d2725ab4fdf6422d2b6eaf9c6db
+- local_path: 02-128b-swizzling-46-of-peak.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### 128B swizzling (46% of peak)'
+  sha256: 2f368f28192dc1986c79a7ab29a52b7218a351a3b72a91db5021d041809994a9
+- local_path: 03-pipelining-mbarrier-phases-62-of-peak.cu
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
+  heading_path: '## Key Code > ### Pipelining + mbarrier phases (62% of peak)'
+  sha256: eb000ffc06e98a55af048aaa9bf81fcd72c6880c54917af8dd1b4eb413c1827f

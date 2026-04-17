@@ -36,30 +36,30 @@ submissions:
   technique: evolve agent generating GatedDeltaNet chunk-parallel prefill + recurrent
     decode
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 2
   participant: GPT-5
   score: 0.467x avg speedup
   technique: iterative Triton kernel generation targeting linear attention delta rule
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 3
   participant: Claude Opus 4.1
   score: 0.456x avg speedup
   technique: code generation referencing NVlabs/GatedDeltaNet and FLA kernels
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: notable
   participant: FLA (Flash Linear Attention)
   score: 10x+ throughput vs Qwen3-32B at 32K+
   technique: optimized Triton kernels for gated delta rule; variable-length support;
     chunk-based parallel prefill
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 ---
 
 # Track C: Gated Delta Net (Qwen3-Next)

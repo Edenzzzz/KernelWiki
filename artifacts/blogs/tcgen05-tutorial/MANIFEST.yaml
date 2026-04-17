@@ -1,4 +1,18 @@
 slug: tcgen05-tutorial
 origin_url: https://gau-nernst.github.io/tcgen05/
-code_present: false
+code_present: true
+total_blocks: 3
 generated_by: scripts/extract_blog_code.py
+files:
+- local_path: code/01-basic-tcgen05-mma-kernel-17-of-peak.cu
+  heading_path: '## Key Code > ### Basic tcgen05.mma kernel (17% of peak)'
+  fence_lang: cuda
+  sha256: 7937934d1ea86757ba2b6f49f2a9c601a2d91d2725ab4fdf6422d2b6eaf9c6db
+- local_path: code/02-128b-swizzling-46-of-peak.cu
+  heading_path: '## Key Code > ### 128B swizzling (46% of peak)'
+  fence_lang: cuda
+  sha256: 2f368f28192dc1986c79a7ab29a52b7218a351a3b72a91db5021d041809994a9
+- local_path: code/03-pipelining-mbarrier-phases-62-of-peak.cu
+  heading_path: '## Key Code > ### Pipelining + mbarrier phases (62% of peak)'
+  fence_lang: cuda
+  sha256: eb000ffc06e98a55af048aaa9bf81fcd72c6880c54917af8dd1b4eb413c1827f

@@ -191,6 +191,39 @@ def build_universe(policy, all_prs, apply_fn):
     return entries
 
 
+def build_cute_universe(policy, all_prs):
+    """CuTe lane universe: iterate the full PR corpus (no prefilter) and record
+    every PR that the policy has an opinion on.
+
+    A PR belongs to the CuTe universe iff at least one of the capture criteria
+    matches (language tag, tag, or changed_paths glob). We record whether the
+    policy captured it or explicitly skipped it (e.g., docs-only). PRs that
+    match no CuTe entry condition at all are NOT included in the universe —
+    recording every one of the 460 PRs would dilute the lane's meaning.
+    """
+    entries = []
+    rules = (policy.get("cute-dsl") or {})
+    cute_globs = []
+    for crit in rules.get("capture_criteria", []):
+        if isinstance(crit, dict) and "changed_paths_match" in crit:
+            cute_globs.extend(crit["changed_paths_match"])
+
+    for pid in sorted(all_prs.keys()):
+        pr = all_prs[pid]
+        langs = set(pr.get("languages") or [])
+        tags = set(pr.get("tags") or [])
+        changed_paths = pr.get("changed_paths") or []
+        path_match = path_matches_any(changed_paths, cute_globs) if cute_globs else False
+        if not ("cute-dsl" in langs or "cute-dsl" in tags or path_match):
+            continue  # not a CuTe candidate at all
+        captured, reason = apply_cute_dsl_policy(policy, pr)
+        if captured:
+            entries.append({"id": pid, "captured": True})
+        else:
+            entries.append({"id": pid, "captured": False, "skipped_reason": reason})
+    return entries
+
+
 def filter_candidates(universe, predicate):
     """Return list of universe entries where predicate(pr) is True."""
     return [e for e in universe if predicate(e)]
@@ -227,13 +260,20 @@ def main():
 
     all_prs = load_all_prs()
 
-    # Per-lane universes (keyed on language/tag membership + policy filters)
-    cute_candidates = {pid: pr for pid, pr in all_prs.items()
-                       if "cute-dsl" in (pr.get("languages") or []) or "cute-dsl" in (pr.get("tags") or [])}
+    # Per-lane universes.
+    # CuTe lane: the policy admits three alternative entry conditions
+    # (languages contains cute-dsl, tags contains cute-dsl, or changed_paths
+    # match a CuTe glob). We therefore evaluate the full PR corpus against
+    # the policy rather than prefiltering by tag/language — otherwise PRs
+    # that only touch examples/cute/... tutorial paths would be invisible to
+    # the lane even though the declared policy captures them.
+    cute_entries = build_cute_universe(policy, all_prs)
+
+    # Triton lane: still prefilter by language/tag since the policy's match
+    # criteria are all gated on languages_contains triton. Triton PRs without
+    # the language tag are not candidates.
     triton_candidates = {pid: pr for pid, pr in all_prs.items()
                          if "triton" in (pr.get("languages") or []) or "triton" in (pr.get("tags") or [])}
-
-    cute_entries = build_universe(policy, cute_candidates, apply_cute_dsl_policy)
     triton_entries = build_universe(policy, triton_candidates, apply_triton_policy)
 
     cute_captured = {e["id"] for e in cute_entries if e["captured"]}

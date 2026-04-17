@@ -1,0 +1,16 @@
+origin_url: https://veitner.bearblog.dev/nvfp4-gemv/
+upstream_repo: blog/yue-nvfp4-hackathon
+upstream_sha: none
+license: inherits-from-source-blog
+retrieved_at: '2026-04-17'
+asset_mode: extracted
+size_cap_truncated: false
+generated_by: scripts/collect_contest_code.py
+source_contest_id: contest-gpu-mode-nvfp4-problem-1-gemv
+files:
+- local_path: 04-step-4-ptx-assembly-27us.ptx
+  role: extracted-block
+  mode: extracted
+  upstream_path: sources/blogs/yue-nvfp4-hackathon.md
+  heading_path: (inherited from artifacts/blogs/yue-nvfp4-hackathon/MANIFEST.yaml)
+  sha256: 8d6773986bc2e6e3b586a06a4118637ba4a52a1b348a02d73d6865b1a252d155

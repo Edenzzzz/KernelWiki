@@ -39,31 +39,31 @@ submissions:
   technique: iterative refinement with evolve agent, leverages FP8 block-scale MoE
     baseline
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 2
   participant: GPT-5 (2025-08-07)
   score: 0.467x avg speedup, 92.3% resolve rate
   technique: code generation with str_replace iteration; high resolve rate but modest
     speedup
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: 3
   participant: Claude Opus 4.1
   score: 0.456x avg speedup, 73.1% resolve rate
   technique: iterative kernel refinement; strong on structured kernels
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 - rank: notable
   participant: SGLang baseline
   score: 1262 TFLOPS at batch 4096, 206.9us at batch 1
   technique: 5-fused-launch MoE (vs vLLM 7 launches); CUTLASS SM100 warp-specialized
     schedule
   submission_truth: unavailable
-  code_unavailable_reason: Phase 3 task9/task10 not yet executed; will be reclassified
-    when scripts/collect_contest_code.py runs
+  code_unavailable_reason: No public author-republished source declared in data/contest-sources.yaml;
+    add an entry if a public URL becomes available.
 ---
 
 # Track A: Fused MoE (FP8 Block Scale)

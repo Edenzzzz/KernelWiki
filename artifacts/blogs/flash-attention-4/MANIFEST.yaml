@@ -1,4 +1,18 @@
 slug: flash-attention-4
 origin_url: https://tridao.me/blog/2026/flash4/
-code_present: false
+code_present: true
+total_blocks: 3
 generated_by: scripts/extract_blog_code.py
+files:
+- local_path: code/01-software-exp-cody-waite-horner.cu
+  heading_path: '## Key Code > ### Software exp (Cody-Waite + Horner)'
+  fence_lang: cuda
+  sha256: a6d9b0432a149f0b08e3e8ed1f7556e8b5dc64912829def5de5aca3538d71e7e
+- local_path: code/02-ping-pong-scheduling.cu
+  heading_path: '## Key Code > ### Ping-pong scheduling'
+  fence_lang: cuda
+  sha256: a86b900f1fa503d94e66f4c11074499d7a7b2f21cc8a8d3c5d894b836259e36a
+- local_path: code/03-2-cta-cooperative-backward.cu
+  heading_path: '## Key Code > ### 2-CTA cooperative backward'
+  fence_lang: cuda
+  sha256: bcaed793775c7667af95851584f91782130e1f2689a07dc81aaf29656dd73669

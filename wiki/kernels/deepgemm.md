@@ -1,24 +1,42 @@
 ---
 id: kernel-deepgemm
-title: "DeepGEMM — FP8 GEMM with Fine-Grained Scaling"
+title: DeepGEMM — FP8 GEMM with Fine-Grained Scaling
 type: kernel
-architectures: [sm100, sm90]
-tags: [gemm, fp8, fine-grained-quantization, block-scale]
+architectures:
+- sm100
+- sm90
+tags:
+- gemm
+- fp8
+- fine-grained-quantization
+- block-scale
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [gemm, grouped-gemm]
-languages: [cuda-cpp, ptx]
-related: [technique-fine-grained-quantization, hw-tcgen05-mma, hw-nvfp4]
-sources: [blog-deepgemm, pr-cutlass-2139, pr-vllm-23696]
+kernel_types:
+- gemm
+- grouped-gemm
+languages:
+- cuda-cpp
+- ptx
+related:
+- technique-fine-grained-quantization
+- hw-tcgen05-mma
+- hw-nvfp4
+sources:
+- blog-deepgemm
+- pr-cutlass-2139
+- pr-vllm-23696
 performance_claims:
-  - gpu: H800
-    dtype: fp8
-    shape: "M=4096, N=4096, K=4096"
-    metric: TFLOPS
-    value: 1550
-    utilization: "~90%"
-    source_id: blog-deepgemm
-blackwell_relevance: "SM100 kernel uses tcgen05.mma with TMEM and native UE8M0 block scaling; SM90 kernel provides baseline FP8 GEMM comparison."
+- gpu: H800
+  dtype: fp8
+  shape: M=4096, N=4096, K=4096
+  metric: TFLOPS
+  value: 1550
+  utilization: ~90%
+  source_id: blog-deepgemm
+blackwell_relevance: SM100 kernel uses tcgen05.mma with TMEM and native UE8M0 block
+  scaling; SM90 kernel provides baseline FP8 GEMM comparison.
+artifact_dir: artifacts/kernels/deepgemm
 ---
 
 # DeepGEMM -- FP8 GEMM with Fine-Grained Scaling
@@ -183,3 +201,13 @@ SM90 kernels use NT (non-transposed A, transposed B) layout exclusively. SM100 k
 
 - [DeepGEMM GitHub](https://github.com/deepseek-ai/DeepGEMM)
 - [DeepSeek-V3 Technical Report](https://arxiv.org/abs/2412.19437)
+
+## Full Reference Implementation
+
+Local verbatim upstream code lives in [`artifacts/kernels/deepgemm/full/`](../../artifacts/kernels/deepgemm/full/) (see its `PROVENANCE.yaml` for the pinned upstream SHA and byte-verified SHA-256). Labeled derived variants — including a naive/teaching skeleton — live in [`artifacts/kernels/deepgemm/variants/`](../../artifacts/kernels/deepgemm/variants/).
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-deepgemm --include-code
+```

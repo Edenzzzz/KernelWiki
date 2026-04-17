@@ -55,6 +55,15 @@ def load_modes_for_file(file_path):
 
 
 def check_entry(entry):
+    """Per-glob-independent fixture check.
+
+    Every glob in `required_assets` must independently match at least one file.
+    `required_min_lines` must be reached by at least one file matched by each
+    glob (so the line-count requirement is enforced against the intended set,
+    not just the union). `required_provenance_modes` and
+    `required_content_patterns` are enforced against the overall matched set
+    with the same per-glob coverage requirement.
+    """
     errors = []
     question = entry.get("question", "<unnamed>")
     required_assets = entry.get("required_assets") or []
@@ -62,54 +71,66 @@ def check_entry(entry):
     required_modes = set(entry.get("required_provenance_modes") or [])
     required_patterns = entry.get("required_content_patterns") or []
 
-    matched = []
+    # Resolve each glob independently so that a missing glob fails the fixture
+    # even if other globs matched files.
+    per_glob_matches = {}
     for glob in required_assets:
-        # Resolve glob relative to repo root
-        for p in REPO_ROOT.glob(glob):
-            if p.is_file():
-                matched.append(p)
+        hits = [p for p in REPO_ROOT.glob(glob) if p.is_file()]
+        per_glob_matches[glob] = hits
+        if not hits:
+            errors.append(f"{question!r}: required_assets glob {glob!r} matched no files")
 
-    if not matched:
-        errors.append(
-            f"{question!r}: required_assets {required_assets} matched no files"
-        )
+    if errors:
         return errors
 
-    # At least one matched file must meet min_lines
-    long_enough = []
-    for p in matched:
-        try:
-            lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
-            if len(lines) >= required_min_lines:
-                long_enough.append(p)
-        except OSError:
-            pass
-    if not long_enough:
-        errors.append(
-            f"{question!r}: no matched file reached required_min_lines={required_min_lines}"
-        )
-
-    # Mode restriction: at least one matched file's bundle-mode must be in the allowed set
-    if required_modes:
-        allowed = False
-        for p in matched:
-            m = load_modes_for_file(p)
-            if m in required_modes:
-                allowed = True
-                break
-        if not allowed:
+    # Per-glob line-count gate: at least one matched file per glob must reach
+    # required_min_lines. This is stronger than "any matched file in the
+    # union" because each asset group represents a distinct required piece of
+    # evidence for the question.
+    for glob, hits in per_glob_matches.items():
+        long_enough = False
+        for p in hits:
+            try:
+                lines = p.read_text(encoding="utf-8", errors="replace").splitlines()
+                if len(lines) >= required_min_lines:
+                    long_enough = True
+                    break
+            except OSError:
+                pass
+        if not long_enough:
             errors.append(
-                f"{question!r}: no matched file has provenance mode in {sorted(required_modes)}"
+                f"{question!r}: no file matching {glob!r} reached "
+                f"required_min_lines={required_min_lines}"
             )
 
-    # Content regexes must match across aggregate of matched files
+    # Mode restriction: every glob must have at least one file whose bundle mode
+    # is in the allowed set. A fixture cannot pass by borrowing mode evidence
+    # from a different glob's match.
+    if required_modes:
+        for glob, hits in per_glob_matches.items():
+            ok = False
+            for p in hits:
+                m = load_modes_for_file(p)
+                if m in required_modes:
+                    ok = True
+                    break
+            if not ok:
+                errors.append(
+                    f"{question!r}: no file matching {glob!r} has provenance mode "
+                    f"in {sorted(required_modes)}"
+                )
+
+    # Content regexes must match across the full matched set. Aggregating is
+    # still appropriate here because the content pattern is a statement about
+    # the combined evidence, not per-glob.
     if required_patterns:
         aggregate = ""
-        for p in matched:
-            try:
-                aggregate += p.read_text(encoding="utf-8", errors="replace") + "\n"
-            except OSError:
-                continue
+        for hits in per_glob_matches.values():
+            for p in hits:
+                try:
+                    aggregate += p.read_text(encoding="utf-8", errors="replace") + "\n"
+                except OSError:
+                    continue
         for pat in required_patterns:
             try:
                 if not re.search(pat, aggregate, re.IGNORECASE):

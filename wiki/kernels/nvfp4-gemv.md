@@ -1,23 +1,43 @@
 ---
 id: kernel-nvfp4-gemv
-title: "NVFP4 Batched GEMV"
+title: NVFP4 Batched GEMV
 type: kernel
-architectures: [sm100, sm100a]
-tags: [gemv, nvfp4, fp4, block-scale, cache-policy, register-budgeting, vectorized-loads]
+architectures:
+- sm100
+- sm100a
+tags:
+- gemv
+- nvfp4
+- fp4
+- block-scale
+- cache-policy
+- register-budgeting
+- vectorized-loads
 confidence: source-reported
 reproducibility: snippet
-kernel_types: [gemv, batched-gemv]
-languages: [cuda-cpp, ptx]
-related: [hw-nvfp4, kernel-nvfp4-gemm, pattern-memory-bound]
-sources: [contest-gpumode-p1, blog-yue-nvfp4, blog-amandeep-nvfp4]
+kernel_types:
+- gemv
+- batched-gemv
+languages:
+- cuda-cpp
+- ptx
+related:
+- hw-nvfp4
+- kernel-nvfp4-gemm
+- pattern-memory-bound
+sources:
+- contest-gpumode-p1
+- blog-yue-nvfp4
+- blog-amandeep-nvfp4
 performance_claims:
-  - gpu: B200
-    dtype: nvfp4
-    shape: "M=7168, K=16384, L=1"
-    metric: latency_us
-    value: 22.4
-    utilization: "~2.6x of SOL (8.6us)"
-    source_id: contest-gpumode-p1
+- gpu: B200
+  dtype: nvfp4
+  shape: M=7168, K=16384, L=1
+  metric: latency_us
+  value: 22.4
+  utilization: ~2.6x of SOL (8.6us)
+  source_id: contest-gpumode-p1
+artifact_dir: artifacts/kernels/nvfp4-gemv
 ---
 
 # NVFP4 Batched GEMV
@@ -237,3 +257,13 @@ Documented progression from Yue's hackathon blog:
 - [Yue's Hackathon Journey](https://yue-zhang-2025.github.io/2025/12/02/blackwell-nvfp4-kernel-hackathon-journey.html)
 - [Twelve Attempts (Amandeep)](https://amandeepsp.github.io/blog/nvfp4-blackwell-gemv/)
 - [Simon's NVFP4 GEMV Blog](https://veitner.bearblog.dev/nvfp4-gemv/)
+
+## Full Reference Implementation
+
+Local verbatim upstream code lives in [`artifacts/kernels/nvfp4-gemv/full/`](../../artifacts/kernels/nvfp4-gemv/full/) (see its `PROVENANCE.yaml` for the pinned upstream SHA and byte-verified SHA-256). Labeled derived variants — including a naive/teaching skeleton — live in [`artifacts/kernels/nvfp4-gemv/variants/`](../../artifacts/kernels/nvfp4-gemv/variants/).
+
+Query via:
+
+```bash
+python3 scripts/get_page.py kernel-nvfp4-gemv --include-code
+```

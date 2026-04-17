@@ -1,15 +1,30 @@
 ---
 id: technique-warp-specialization
-title: "Warp Specialization on Blackwell"
+title: Warp Specialization on Blackwell
 type: technique
-architectures: [sm100, sm90]
-tags: [warp-specialization, tcgen05, tmem]
+architectures:
+- sm100
+- sm90
+tags:
+- warp-specialization
+- tcgen05
+- tmem
 confidence: source-reported
 reproducibility: snippet
-prerequisites: [hw-tmem, hw-tcgen05-mma]
-related: [technique-persistent-kernels, technique-pipeline-stages, hw-tcgen05-mma]
-sources: [doc-nvidia-tuning-guide, blog-tcgen05-tutorial, blog-colfax-cutlass]
-blackwell_relevance: "Blackwell uses 16-warp single-thread MMA model (vs Hopper's 4-warp warp-group); fundamentally different structure."
+prerequisites:
+- hw-tmem
+- hw-tcgen05-mma
+related:
+- technique-persistent-kernels
+- technique-pipeline-stages
+- hw-tcgen05-mma
+sources:
+- doc-nvidia-tuning-guide
+- blog-tcgen05-tutorial
+- blog-colfax-cutlass
+blackwell_relevance: Blackwell uses 16-warp single-thread MMA model (vs Hopper's 4-warp
+  warp-group); fundamentally different structure.
+artifact_dir: artifacts/kernels/warp-specialization
 ---
 
 ## Overview
@@ -235,3 +250,13 @@ struct CollectiveMma_1SM {
 - The 14 epilogue warps may be underutilized for simple epilogues (e.g., pure store). Complex epilogues (scale, bias, activation, quantization) benefit more.
 - The single MMA warp means the kernel cannot overlap multiple independent MMA streams within a CTA. Use 2-SM cooperative mode for larger tiles instead.
 - mbarrier initialization must happen before any warp tries to wait; use `__syncthreads()` after init if needed.
+
+## Full Reference Implementation
+
+Local verbatim upstream code lives in [`artifacts/kernels/warp-specialization/full/`](../../artifacts/kernels/warp-specialization/full/) (see its `PROVENANCE.yaml` for the pinned upstream SHA and byte-verified SHA-256). Labeled derived variants — including a naive/teaching skeleton — live in [`artifacts/kernels/warp-specialization/variants/`](../../artifacts/kernels/warp-specialization/variants/).
+
+Query via:
+
+```bash
+python3 scripts/get_page.py technique-warp-specialization --include-code
+```

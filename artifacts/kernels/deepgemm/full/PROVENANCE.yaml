@@ -1,0 +1,14 @@
+origin_url: https://github.com/sgl-project/sglang/pull/21239
+upstream_repo: sgl-project/sglang
+upstream_sha: 260abe1f
+license: inherits-from-upstream
+retrieved_at: '2026-04-17'
+asset_mode: verbatim
+size_cap_truncated: false
+generated_by: Phase 3 Round 2 task11 anchor bundle
+source_pr_id: pr-sglang-21239
+files:
+  - local_path: sglang-PR-21239-deepgemm-integration.patch
+    role: pr-diff
+    mode: upstream-patch
+    sha256: 0ea1b5b0ad1d923c1fd5006c98c80a390c09d9b9d908be14386c4350a4f44443
