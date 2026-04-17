@@ -26,8 +26,10 @@ __device__ void tmem_alloc(uint32_t* addr, uint32_t num_cols) {
 }
 
 // Issue MMA (single thread, typically warp 1 lane 0)
+// idesc_c/idesc_d: immediate descriptors for accumulator C and output D
 __device__ void tcgen05_mma(uint32_t tmem_addr,
-                             uint64_t desc_a, uint64_t desc_b) {
+                             uint64_t desc_a, uint64_t desc_b,
+                             uint32_t idesc_c, uint32_t idesc_d) {
     asm volatile(
         "tcgen05.mma.cta_group::1.kind::f16"
         " %0, %1, %2, %3, %4;"
@@ -57,7 +59,8 @@ __device__ void tmem_dealloc(uint32_t addr, uint32_t num_cols) {
 
 ```cuda
 // TMA-MMA synchronization via mbarrier
-__device__ void mbarrier_arrive(uint64_t* mbar) {
+// expected_bytes: total bytes the TMA will deliver to this stage
+__device__ void mbarrier_arrive(uint64_t* mbar, uint32_t expected_bytes) {
     asm volatile(
         "mbarrier.arrive.expect_tx.shared.b64 _, [%0], %1;"
         :: "r"((uint32_t)__cvta_generic_to_shared(mbar)),

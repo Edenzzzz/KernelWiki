@@ -71,7 +71,11 @@ blackwell_gemm_warp_specialized(
                 mbarrier_init(&mbar_buffer_free[s], 1);    // MMA arrival count
             }
         }
-        __syncwarp();
+    }
+    // CTA-wide barrier: all warps must see initialized mbarriers
+    __syncthreads();
+
+    if (warp_id == 0) {
 
         for (int k_tile = 0; k_tile < num_k_tiles; k_tile++) {
             int stage = k_tile % NUM_STAGES;
@@ -117,8 +121,9 @@ blackwell_gemm_warp_specialized(
 
     } else {
         // === EPILOGUE WARPS (2-15) ===
-        // Wait for MMA completion (simplified; real code uses barrier)
-        __syncthreads();
+        // Wait for MMA completion via dedicated mbarrier (not __syncthreads,
+        // which would deadlock since producer/MMA warps don't reach it)
+        mbarrier_wait(&mbar_acc_complete);
 
         // Each epilogue warp handles a partition of the TMEM output
         int rows_per_warp = TILE_M / 14;
