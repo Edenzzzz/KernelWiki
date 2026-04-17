@@ -171,6 +171,12 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
             if arch not in valid_archs:
                 errors.append(f"{rel}: unknown architecture '{arch}'")
 
+    # Validate from_arch / to_arch on migration pages
+    for arch_field in ["from_arch", "to_arch"]:
+        if arch_field in fm:
+            if fm[arch_field] not in valid_archs:
+                errors.append(f"{rel}: {arch_field} '{fm[arch_field]}' is not a known architecture")
+
     # Validate confidence
     valid_conf = set(valid_tags.get("confidence", []))
     if "confidence" in fm and fm["confidence"] not in valid_conf:
@@ -253,6 +259,13 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
                     errors.append(
                         f"{rel}: performance_claims[{i}].value must be numeric, "
                         f"got {type(claim['value']).__name__}: {claim['value']}"
+                    )
+                # Cross-check source_id against known source IDs
+                sid = claim.get("source_id", "")
+                if sid and all_source_ids and sid not in all_source_ids:
+                    errors.append(
+                        f"{rel}: performance_claims[{i}].source_id '{sid}' "
+                        f"not found in source corpus"
                     )
 
     # Check wiki sources reference existing source ids
