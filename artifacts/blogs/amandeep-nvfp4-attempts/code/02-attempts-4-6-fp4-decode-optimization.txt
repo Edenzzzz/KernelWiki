@@ -1,0 +1,18 @@
+# Extracted from sources/blogs/amandeep-nvfp4-attempts.md by scripts/extract_blog_code.py
+# Heading: # Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## The 12 Attempts > ### Attempts 4-6: FP4 Decode Optimization
+# Original fence language: 
+# See artifacts/blogs/amandeep-nvfp4-attempts/code/PROVENANCE.yaml for origin + license metadata.
+
+Attempt 4: Hardware FP4 intrinsics
+- __cvt_fp4x2_to_halfx2 for type conversion
+- Result: ~80us
+- Big improvement from hardware-accelerated decode
+
+Attempt 5: PTX byte unpacking
+- mov.b32 {a,b,c,d} instead of shift/mask
+- Result: ~50us
+- Eliminates bitwise extraction overhead
+
+Attempt 6: Combined PTX for load + decode
+- Inline PTX for entire load-decode pipeline
+- Result: ~40us

@@ -52,6 +52,22 @@ def slugify(s):
     return s.strip("-")[:60] or "section"
 
 
+def is_extractable_block(lang, body):
+    """Return True iff a fenced block should be extracted.
+
+    Accepts any fence with a non-empty body regardless of language tag.
+    The script docstring already promises that unknown languages fall
+    back to `.txt` (see `_derive_filename` which uses
+    `EXT_MAP.get(lang, "txt")`), so the filter must not reject
+    unlabeled or unfamiliar fences. The previous `lang in EXT_MAP`
+    gate silently dropped unlabeled blocks in blogs like
+    `amandeep-nvfp4-attempts` and `modular-blackwell-matmul`, emitting
+    `code_present: false` manifests and losing code evidence that was
+    present in the source markdown (Codex R20 P2).
+    """
+    return bool(body.strip())
+
+
 def parse_markdown(md_path):
     """Yield (heading_path, fence_lang, fence_body) for every fenced code block.
 
@@ -177,9 +193,11 @@ def extract_one_blog(blog_md, force=False):
     author = fm.get("author", "") if isinstance(fm, dict) else ""
     retrieved = fm.get("retrieved_at", "") if isinstance(fm, dict) else ""
 
-    # Filter out trivial or non-code blocks
+    # Filter out trivial blocks (empty body). Unknown / unlabeled
+    # fences pass through — _derive_filename's EXT_MAP.get(lang, "txt")
+    # handles the extension fallback.
     code_blocks = [(hp, lang, body) for (hp, lang, body) in blocks
-                   if lang in EXT_MAP and body.strip()]
+                   if is_extractable_block(lang, body)]
 
     if not code_blocks:
         # Blog has no supported fenced code. If a previous extraction left a
@@ -271,7 +289,7 @@ def check_one_blog(slug):
     source_has_code = False
     if blog_md.is_file():
         for (_hp, lang, body) in parse_markdown(blog_md):
-            if lang in EXT_MAP and body.strip():
+            if is_extractable_block(lang, body):
                 source_has_code = True
                 break
 
@@ -308,7 +326,7 @@ def check_one_blog(slug):
         return errors
 
     fresh_blocks = [(hp, lang, body) for (hp, lang, body) in parse_markdown(blog_md)
-                    if lang in EXT_MAP and body.strip()]
+                    if is_extractable_block(lang, body)]
 
     manifest_count = len(manifest.get("files", []))
     if len(fresh_blocks) != manifest_count:

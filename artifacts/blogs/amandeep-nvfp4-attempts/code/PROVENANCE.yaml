@@ -1,36 +1,51 @@
-slug: amandeep-nvfp4-attempts
 origin_url: https://amandeepsp.github.io/blog/nvfp4-blackwell-gemv/
-code_present: true
-total_blocks: 6
+upstream_repo: blog
+upstream_sha: none
+license: inherits-from-source-blog
+retrieved_at: 2026-04-16
+asset_mode: extracted
 generated_by: scripts/extract_blog_code.py
+size_cap_truncated: false
 files:
-- local_path: code/01-attempts-1-3-getting-the-basics-right.txt
+- local_path: 01-attempts-1-3-getting-the-basics-right.txt
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
   heading_path: '# Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## The
     12 Attempts > ### Attempts 1-3: Getting the Basics Right'
-  fence_lang: ''
   sha256: b0cd1426d282f9d798e50fbaa5c4f1c900af175049834e6bf07cddbfef327b69
-- local_path: code/02-attempts-4-6-fp4-decode-optimization.txt
+- local_path: 02-attempts-4-6-fp4-decode-optimization.txt
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
   heading_path: '# Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## The
     12 Attempts > ### Attempts 4-6: FP4 Decode Optimization'
-  fence_lang: ''
   sha256: f2bf3e3a8f54346b7c4dfd1bc27da940ab16c8c7531a3cf91ff4cf67196773ba
-- local_path: code/03-attempts-7-9-memory-system-optimization.txt
+- local_path: 03-attempts-7-9-memory-system-optimization.txt
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
   heading_path: '# Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## The
     12 Attempts > ### Attempts 7-9: Memory System Optimization'
-  fence_lang: ''
   sha256: c2cce4fab7402fc8b25a0797cd1829b8f3375834531670585e2c53b06a1e69ae
-- local_path: code/04-attempts-10-12-fine-tuning.txt
+- local_path: 04-attempts-10-12-fine-tuning.txt
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
   heading_path: '# Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## The
     12 Attempts > ### Attempts 10-12: Fine-Tuning'
-  fence_lang: ''
   sha256: bbfeafcadc1d929f7af502be0899a04747bf83a8e3f2a4c36256a86c3bc1a201
-- local_path: code/05-nsight-compute-analysis.txt
+- local_path: 05-nsight-compute-analysis.txt
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
   heading_path: '# Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## Key
     Debugging Methodology > ### Nsight Compute Analysis'
-  fence_lang: ''
   sha256: 5bb9c5f50e5460554bf710cfe9793f050464d093c31b5901bb685131ef82af6b
-- local_path: code/06-performance-model.txt
+- local_path: 06-performance-model.txt
+  role: extracted-block
+  mode: extracted
+  upstream_path: inline-in-blog-markdown
   heading_path: '# Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## Key
     Debugging Methodology > ### Performance Model'
-  fence_lang: ''
   sha256: f749dcdd03973d04df5a123d17170ee45940d8685905d1aa75c06f752574f73c

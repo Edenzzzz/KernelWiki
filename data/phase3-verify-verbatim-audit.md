@@ -13,18 +13,17 @@ gh version 2.90.0 (2026-04-16)
 
 ## Scope
 
-- 91 asset bundles under `artifacts/` (76 pre-R17 + 17 Triton-universe
-  PRs fetched in Round 17 + 1 Round-18 key-file backfill for
-  pr-vllm-22738 − 2 bundles dropped in Round 19 after the
-  tests/benchmarks skip tightening removed pr-sglang-20305 and
-  pr-vllm-39644 from the core set; pr-sglang-21780 refetched with
-  key-files via the R18 relaxed allowlist)
+- 95 asset bundles under `artifacts/` (91 post-R19 + 4 new blog
+  `asset_mode: extracted` bundles added in Round 20 for
+  `amandeep-nvfp4-attempts`, `modular-blackwell-matmul`,
+  `nvfp4-format-details`, and `vllm-deepseek-v3-sparse-attention`
+  after the extractor stopped dropping unlabeled fenced blocks)
 - 312 files with `mode: verbatim` or `mode: upstream-patch` and no `size_cap_truncated` marker
 
 ## stdout
 
 ```
-Verified 91 bundle(s).
+Verified 95 bundle(s).
 All verbatim/upstream-patch assets match upstream.
 ```
 

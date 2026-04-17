@@ -1,0 +1,20 @@
+# Extracted from sources/blogs/amandeep-nvfp4-attempts.md by scripts/extract_blog_code.py
+# Heading: # Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## The 12 Attempts > ### Attempts 7-9: Memory System Optimization
+# Original fence language: 
+# See artifacts/blogs/amandeep-nvfp4-attempts/code/PROVENANCE.yaml for origin + license metadata.
+
+Attempt 7: Cache policy differentiation
+- L1::no_allocate for matrix A (streamed)
+- L1::evict_last for vector B (reused)
+- Result: ~35us
+- B vector stays hot in L1 across rows
+
+Attempt 8: Wider loads (v4.u64 = 256-bit)
+- Maximum vector width for global loads
+- Result: ~30us
+- Better memory transaction efficiency
+
+Attempt 9: Register budgeting (-maxrregcount)
+- Tested 32, 40, 48, 56 max registers
+- Result: ~28us with -maxrregcount=40
+- More warps per SM -> better latency hiding

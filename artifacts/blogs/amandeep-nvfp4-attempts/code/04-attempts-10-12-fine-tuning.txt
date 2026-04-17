@@ -1,0 +1,19 @@
+# Extracted from sources/blogs/amandeep-nvfp4-attempts.md by scripts/extract_blog_code.py
+# Heading: # Twelve Attempts at NVFP4 Batched GEMV (Amandeep Singh) > ## The 12 Attempts > ### Attempts 10-12: Fine-Tuning
+# Original fence language: 
+# See artifacts/blogs/amandeep-nvfp4-attempts/code/PROVENANCE.yaml for origin + license metadata.
+
+Attempt 10: Block size tuning
+- Tested BLOCK_M = 1, 2, 4, 8
+- Result: ~27.5us with BLOCK_M=4
+- B vector amortized across more rows
+
+Attempt 11: K-dimension unrolling
+- #pragma unroll for inner K loop
+- Result: ~27us
+- Marginal improvement from reduced loop overhead
+
+Attempt 12: Per-K specialization
+- Separate kernels for different K values
+- Result: ~26.7us (final)
+- Each K variant fully unrolled
