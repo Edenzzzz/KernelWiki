@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/tcgen05-tutorial.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### 128B swizzling (46% of peak)
 // Original fence language: cuda
-// See artifacts/blogs/tcgen05-tutorial/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/tcgen05-tutorial/code/PROVENANCE.yaml for origin + license metadata.
 
 // XOR-swizzled SMEM layout eliminates bank conflicts on MMA load;
 // 128-byte granularity gives 2.7x speedup on its own.

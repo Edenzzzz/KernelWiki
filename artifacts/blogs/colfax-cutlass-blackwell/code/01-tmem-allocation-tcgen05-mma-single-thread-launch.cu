@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/colfax-cutlass-blackwell.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### TMEM allocation + tcgen05.mma (single-thread launch)
 // Original fence language: cuda
-// See artifacts/blogs/colfax-cutlass-blackwell/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/colfax-cutlass-blackwell/code/PROVENANCE.yaml for origin + license metadata.
 
 // UMMA on Blackwell: one thread drives the MMA for the whole CTA.
 // Accumulator lives in TMEM, not registers.

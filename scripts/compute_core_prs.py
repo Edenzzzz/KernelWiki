@@ -247,6 +247,20 @@ def write_universe_file(path, entries, lane_name, captured_count, skipped_count)
 
 
 def main():
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser.add_argument(
+        "--output-dir",
+        default=str(DATA),
+        help="Directory to write core-prs.yaml, cute-dsl-universe.yaml, and "
+             "triton-universe.yaml into. Defaults to ./data. Used by "
+             "scripts/verify_core_prs.py to regenerate into a temp dir "
+             "without dirtying the working tree.",
+    )
+    args = parser.parse_args()
+    out_dir = Path(args.output_dir).resolve()
+    out_dir.mkdir(parents=True, exist_ok=True)
+
     policy_path = DATA / "inclusion-policy.yaml"
     if not policy_path.is_file():
         print("ERROR: data/inclusion-policy.yaml not found", file=sys.stderr)
@@ -337,18 +351,18 @@ def main():
         "## Use data/core-prs-allowlist.yaml to add or exclude PRs; then re-run the script.\n\n"
         + yaml.dump(core_payload, allow_unicode=True, sort_keys=False, default_flow_style=False)
     )
-    (DATA / "core-prs.yaml").write_text(core_text, encoding="utf-8")
+    (out_dir / "core-prs.yaml").write_text(core_text, encoding="utf-8")
 
     # Universe files
     write_universe_file(
-        DATA / "cute-dsl-universe.yaml",
+        out_dir / "cute-dsl-universe.yaml",
         cute_entries,
         "cute-dsl",
         sum(1 for e in cute_entries if e["captured"]),
         sum(1 for e in cute_entries if not e["captured"]),
     )
     write_universe_file(
-        DATA / "triton-universe.yaml",
+        out_dir / "triton-universe.yaml",
         triton_entries,
         "triton",
         sum(1 for e in triton_entries if e["captured"]),

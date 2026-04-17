@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/tcgen05-tutorial.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### Basic tcgen05.mma kernel (17% of peak)
 // Original fence language: cuda
-// See artifacts/blogs/tcgen05-tutorial/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/tcgen05-tutorial/code/PROVENANCE.yaml for origin + license metadata.
 
 // The naive building block: one-thread-launched tcgen05.mma into TMEM.
 // ~255 TFLOPS on B200 (17% of peak).

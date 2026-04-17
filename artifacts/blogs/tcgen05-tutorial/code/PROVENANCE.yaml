@@ -12,16 +12,16 @@ files:
   mode: extracted
   upstream_path: inline-in-blog-markdown
   heading_path: '## Key Code > ### Basic tcgen05.mma kernel (17% of peak)'
-  sha256: 7937934d1ea86757ba2b6f49f2a9c601a2d91d2725ab4fdf6422d2b6eaf9c6db
+  sha256: 028acc063243a5ddc88f364fc27a8afd3c06ccf507bfdf90e95f71fab9b044fd
 - local_path: 02-128b-swizzling-46-of-peak.cu
   role: extracted-block
   mode: extracted
   upstream_path: inline-in-blog-markdown
   heading_path: '## Key Code > ### 128B swizzling (46% of peak)'
-  sha256: 2f368f28192dc1986c79a7ab29a52b7218a351a3b72a91db5021d041809994a9
+  sha256: 336dda93b8b59b6509c70f0ec330918f0cd4767e9d474c89c84fd76be93f1256
 - local_path: 03-pipelining-mbarrier-phases-62-of-peak.cu
   role: extracted-block
   mode: extracted
   upstream_path: inline-in-blog-markdown
   heading_path: '## Key Code > ### Pipelining + mbarrier phases (62% of peak)'
-  sha256: eb000ffc06e98a55af048aaa9bf81fcd72c6880c54917af8dd1b4eb413c1827f
+  sha256: 21343d5672cff259ce82dba7a3d426bb40c3628db3946c3a789cc5d7348fc1bc

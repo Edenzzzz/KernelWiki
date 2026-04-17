@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/simon-nvfp4-gemv.md by scripts/extract_blog_code.py
 // Heading: # NVFP4 GEMV and Improved NVFP4 GEMV (Simon Veitner) > ## Key Code > ### Reference core computation (Part 1)
 // Original fence language: cpp
-// See artifacts/blogs/simon-nvfp4-gemv/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/simon-nvfp4-gemv/code/PROVENANCE.yaml for origin + license metadata.
 
 // NVFP4 GEMV: FP4 values are decoded to FP32 via their per-block FP8 scale,
 // then multiplied against a decoded B element + its FP8 scale. Accumulation

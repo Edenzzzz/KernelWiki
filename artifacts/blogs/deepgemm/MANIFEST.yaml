@@ -7,13 +7,13 @@ files:
 - local_path: code/01-nc-128-cuda-core-promotion-hopper-sm90.cpp
   heading_path: '## Key Code > ### Nc=128 CUDA-core promotion (Hopper SM90)'
   fence_lang: cpp
-  sha256: 8d2a7af0d76a3ae06a9168db4c8e351f995ccac0ac02ff64c7d86ef0e16a7eae
+  sha256: ac97802177a5eebbb92a82fa27afc556fccf523635b0a67392d2ba9cdae18deb
 - local_path: code/02-sm100-path-tcgen05-mma-with-ue8m0-block-scaling.cpp
   heading_path: "## Key Code > ### SM100 path \u2014 tcgen05.mma with UE8M0 block\
     \ scaling"
   fence_lang: cpp
-  sha256: e372a7d9a396409328d1d706332c4563b23dad80a3b98646fb9bf649e71e67de
+  sha256: c0361a1bc706b1967de7ad057ddfa4abf1834992599085b0a649ac6f7a77d4b8
 - local_path: code/03-moe-grouped-gemm-launch.cpp
   heading_path: '## Key Code > ### MoE grouped-GEMM launch'
   fence_lang: cpp
-  sha256: 77cc294accbc0619934015689232c40e5c0bf5b1c3c1b6d3fd5565ff4499708d
+  sha256: e4d1af249fb7054fa2df64b89e24f63735c9daa2c51d4e1af87e3f27b71b7f97

@@ -7,12 +7,12 @@ files:
 - local_path: code/01-tmem-allocation-tcgen05-mma-single-thread-launch.cu
   heading_path: '## Key Code > ### TMEM allocation + tcgen05.mma (single-thread launch)'
   fence_lang: cuda
-  sha256: 9869b2da4a77ecfda69e1ce7298567093298ec8a018663009b5cc024b5e00d36
+  sha256: 9f74475e8707161302e0dd1608433398ef9a8184c42297752216f6e4994fbb4f
 - local_path: code/02-tmem-load-into-registers-for-epilogue.cu
   heading_path: '## Key Code > ### TMEM load into registers for epilogue'
   fence_lang: cuda
-  sha256: 4c763453a1988074832a1bb67199d179bdcf37f14fe5bb690287e8b130348d0a
+  sha256: 8f594e1bc797f434be05602f0dd2be872927b618b37b177fe70071febb86e6ea
 - local_path: code/03-cutlass-mma-atom-wrapping.cpp
   heading_path: '## Key Code > ### CUTLASS MMA_Atom wrapping'
   fence_lang: cpp
-  sha256: 9677b38da5a09b3e6919bcf8054222a45fad54cbdc73ac9e39faf4eefa3e0152
+  sha256: 56680c6885341541c7495edc0a60cee143ddfa454d0a42b113767774ea14a527

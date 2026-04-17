@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/deepgemm.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### SM100 path — tcgen05.mma with UE8M0 block scaling
 // Original fence language: cpp
-// See artifacts/blogs/deepgemm/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/deepgemm/code/PROVENANCE.yaml for origin + license metadata.
 
 // On Blackwell, tcgen05.mma consumes UE8M0 scale factors directly.
 // 4 UE8M0 values pack into a single uint32; TMEM accumulates in full FP32

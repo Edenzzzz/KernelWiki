@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/flashmla.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### MLA decode inner loop
 // Original fence language: cuda
-// See artifacts/blogs/flashmla/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/flashmla/code/PROVENANCE.yaml for origin + license metadata.
 
 // MLA collapses K and V into a shared latent matrix of head-dim Dc=128.
 // On decode (one query vector against N KV tokens) we alternate TMA load,

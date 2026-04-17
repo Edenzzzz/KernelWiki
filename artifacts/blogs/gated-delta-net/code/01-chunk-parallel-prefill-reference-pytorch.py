@@ -1,7 +1,7 @@
 # Extracted from sources/blogs/gated-delta-net.md by scripts/extract_blog_code.py
 # Heading: ## Key Code > ### Chunk-parallel prefill reference (PyTorch)
 # Original fence language: python
-# See artifacts/blogs/gated-delta-net/PROVENANCE.yaml for origin + license metadata.
+# See artifacts/blogs/gated-delta-net/code/PROVENANCE.yaml for origin + license metadata.
 
 import torch
 

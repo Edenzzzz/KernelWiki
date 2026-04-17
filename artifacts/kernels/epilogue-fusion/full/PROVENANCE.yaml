@@ -16,7 +16,7 @@ files:
   upstream_sha: ed7a29d9
   upstream_path: csrc/quantization/fp4/nvfp4_scaled_mm_kernels.cu
 - local_path: tmem-load-into-registers-for-epilogue.cu
-  sha256: 4c763453a1988074832a1bb67199d179bdcf37f14fe5bb690287e8b130348d0a
+  sha256: 8f594e1bc797f434be05602f0dd2be872927b618b37b177fe70071febb86e6ea
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/colfax-cutlass-blackwell.md

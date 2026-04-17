@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/simon-nvfp4-gemv.md by scripts/extract_blog_code.py
 // Heading: # NVFP4 GEMV and Improved NVFP4 GEMV (Simon Veitner) > ## Key Code > ### Strategy 1 — K-parallel grid with atomic accumulation
 // Original fence language: cpp
-// See artifacts/blogs/simon-nvfp4-gemv/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/simon-nvfp4-gemv/code/PROVENANCE.yaml for origin + license metadata.
 
 // Launch one CTA per (M-tile, K-tile); accumulate partial products into a
 // global FP32 buffer via atomicAdd, then cast to FP16 in a second pass.

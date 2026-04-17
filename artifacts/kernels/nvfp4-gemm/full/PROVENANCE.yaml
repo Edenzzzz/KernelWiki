@@ -15,7 +15,7 @@ files:
   upstream_repo: NVIDIA/cutlass
   upstream_sha: ca4fdbea
 - local_path: blackwell-cutlass-schedules-and-tma.cu
-  sha256: fc0e5d9f024cdcd5548b907073e28ca708fbde831b653dcf972e4c20eca1c410
+  sha256: b6c10617286d018fc75ab114d0603a9fba29533ef01ec3290fc5ddcaa863e1a2
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/tflops-gap-fp4-moe.md

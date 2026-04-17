@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/deepgemm.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### Nc=128 CUDA-core promotion (Hopper SM90)
 // Original fence language: cpp
-// See artifacts/blogs/deepgemm/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/deepgemm/code/PROVENANCE.yaml for origin + license metadata.
 
 // On Hopper, the TC accumulator is only ~FP22-precise. DeepGEMM promotes
 // the partial sum to an FP32 CUDA-core accumulator every Nc=128 columns

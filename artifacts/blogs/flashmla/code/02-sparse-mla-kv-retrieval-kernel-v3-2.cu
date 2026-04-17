@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/flashmla.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### Sparse-MLA KV-retrieval kernel (V3.2)
 // Original fence language: cuda
-// See artifacts/blogs/flashmla/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/flashmla/code/PROVENANCE.yaml for origin + license metadata.
 
 // Sparse MLA selects top-k KV positions per query before running the dense
 // MLA kernel on just those positions. Retrieval uses FP8 dot products with

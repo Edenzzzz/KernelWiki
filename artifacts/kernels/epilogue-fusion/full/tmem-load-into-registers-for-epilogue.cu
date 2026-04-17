@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/colfax-cutlass-blackwell.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### TMEM load into registers for epilogue
 // Original fence language: cuda
-// See artifacts/blogs/colfax-cutlass-blackwell/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/colfax-cutlass-blackwell/code/PROVENANCE.yaml for origin + license metadata.
 
 // Epilogue warps drain TMEM → registers using tcgen05.ld
 // Each warp loads 32 columns (=128 bytes) at a time.

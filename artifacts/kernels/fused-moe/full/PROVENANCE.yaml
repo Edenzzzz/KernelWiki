@@ -22,7 +22,7 @@ files:
   upstream_sha: c554dc5c
   upstream_path: python/sglang/srt/layers/moe/moe_runner/flashinfer_cutedsl.py
 - local_path: moe-grouped-gemm-launch.cpp
-  sha256: 77cc294accbc0619934015689232c40e5c0bf5b1c3c1b6d3fd5565ff4499708d
+  sha256: e4d1af249fb7054fa2df64b89e24f63735c9daa2c51d4e1af87e3f27b71b7f97
   role: extracted-block
   mode: extracted
   upstream_path: sources/blogs/deepgemm.md

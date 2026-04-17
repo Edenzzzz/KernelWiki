@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/colfax-cutlass-blackwell.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### CUTLASS MMA_Atom wrapping
 // Original fence language: cpp
-// See artifacts/blogs/colfax-cutlass-blackwell/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/colfax-cutlass-blackwell/code/PROVENANCE.yaml for origin + license metadata.
 
 // The CUTLASS two-level abstraction: MMA_Atom wraps the PTX intrinsic,
 // MMA_Traits maps logical MxNxK shapes to TMEM addressing.

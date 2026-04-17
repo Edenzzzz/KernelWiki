@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/tcgen05-tutorial.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### Pipelining + mbarrier phases (62% of peak)
 // Original fence language: cuda
-// See artifacts/blogs/tcgen05-tutorial/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/tcgen05-tutorial/code/PROVENANCE.yaml for origin + license metadata.
 
 // Multi-stage TMA load pipeline. mbarrier phase bits toggle every STAGES
 // arrivals so try_wait.parity can distinguish consecutive rounds without a

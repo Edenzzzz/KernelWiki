@@ -46,51 +46,52 @@ def main():
         print(f"ERROR: {CORE_PATH.relative_to(REPO_ROOT)} does not exist; run scripts/compute_core_prs.py first", file=sys.stderr)
         sys.exit(2)
 
-    # Snapshot the committed bytes of every generated file BEFORE regeneration
-    # so we can diff all three after compute_core_prs.py writes the fresh ones.
-    generated_files = [
-        REPO_ROOT / "data" / "core-prs.yaml",
-        REPO_ROOT / "data" / "cute-dsl-universe.yaml",
-        REPO_ROOT / "data" / "triton-universe.yaml",
-    ]
-    committed_bytes = {}
+    # Regenerate the three manifests into a TEMPORARY directory so this
+    # verifier is safe to run in read-only CI / sandboxed environments and
+    # never dirties the working tree. Compare the fresh bytes against the
+    # committed versions under data/.
+    generated_names = ("core-prs.yaml", "cute-dsl-universe.yaml", "triton-universe.yaml")
     all_tracked = True
-    for path in generated_files:
-        git_res = subprocess.run(
-            ["git", "show", f"HEAD:{path.relative_to(REPO_ROOT)}"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=REPO_ROOT,
-        )
-        if git_res.returncode == 0:
-            committed_bytes[path] = git_res.stdout
+    committed_bytes = {}
+    for name in generated_names:
+        path = REPO_ROOT / "data" / name
+        if path.is_file():
+            committed_bytes[name] = path.read_bytes()
         else:
-            committed_bytes[path] = None
+            committed_bytes[name] = None
             all_tracked = False
 
-    # Regenerate all three files in-place (compute_core_prs.py writes directly
-    # to data/). Compare bytes against the committed snapshot.
-    res = subprocess.run(
-        [sys.executable, str(COMPUTE_SCRIPT)],
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-    )
-    if res.returncode != 0:
-        print(f"compute_core_prs.py failed:\n{res.stderr.decode(errors='replace')}", file=sys.stderr)
-        sys.exit(1)
+    with tempfile.TemporaryDirectory(prefix="verify_core_prs-") as td:
+        tmp_out = Path(td)
+        res = subprocess.run(
+            [sys.executable, str(COMPUTE_SCRIPT), "--output-dir", str(tmp_out)],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        )
+        if res.returncode != 0:
+            print(f"compute_core_prs.py failed:\n{res.stderr.decode(errors='replace')}", file=sys.stderr)
+            sys.exit(1)
 
-    fresh = yaml.safe_load(CORE_PATH.read_text(encoding="utf-8"))
+        fresh_bytes = {}
+        for name in generated_names:
+            fresh_path = tmp_out / name
+            if not fresh_path.is_file():
+                print(f"ERROR: compute_core_prs.py did not produce {name} in --output-dir", file=sys.stderr)
+                sys.exit(1)
+            fresh_bytes[name] = fresh_path.read_bytes()
+
+        fresh = yaml.safe_load(fresh_bytes["core-prs.yaml"].decode("utf-8"))
 
     if not all_tracked:
-        # First run: no committed version for at least one file yet.
-        print(f"No committed version found for at least one generated file in HEAD.")
+        # First run: no committed version for at least one generated file yet.
+        print(f"No committed version found for at least one generated file under data/.")
         print(f"Fresh derivation: {fresh.get('total_captured', 0)} PRs, "
               f"checksum {fresh.get('checksum_sha256', '')[:12]}...")
         print("(skip reproducibility comparison; commit the files first, then re-run)")
     else:
         drift = []
-        for path in generated_files:
-            committed = committed_bytes[path]
-            current = path.read_bytes()
-            if committed != current:
-                drift.append(path.relative_to(REPO_ROOT))
+        for name in generated_names:
+            if committed_bytes[name] != fresh_bytes[name]:
+                drift.append(Path("data") / name)
         if drift:
             print("FAIL: fresh regeneration does not match the committed generated files:",
                   file=sys.stderr)

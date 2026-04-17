@@ -4,7 +4,7 @@
 // Extracted from sources/blogs/yue-nvfp4-hackathon.md by scripts/extract_blog_code.py
 // Heading: # Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization Steps > ### Step 4: PTX Assembly (~27us)
 // Original fence language: asm
-// See artifacts/blogs/yue-nvfp4-hackathon/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/yue-nvfp4-hackathon/code/PROVENANCE.yaml for origin + license metadata.
 
 // Key PTX optimizations:
 // 1. cvt.rn.f16x2.e2m1x2 for FP4 conversion (vs C intrinsic)

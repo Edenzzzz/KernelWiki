@@ -4,7 +4,7 @@
 // Extracted from sources/blogs/yue-nvfp4-hackathon.md by scripts/extract_blog_code.py
 // Heading: # Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization Steps > ### Step 2: Coalesced Memory Access (~443us, then improved)
 // Original fence language: cpp
-// See artifacts/blogs/yue-nvfp4-hackathon/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/yue-nvfp4-hackathon/code/PROVENANCE.yaml for origin + license metadata.
 
 // Bad: each thread reads non-contiguous FP4 elements
 // Good: threads in a warp read contiguous 128-byte chunks

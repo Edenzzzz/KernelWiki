@@ -140,13 +140,50 @@ def path_allowed(path):
 
 
 def fetch_content_at_sha(repo, path, sha):
-    """Fetch single file's bytes at pinned SHA. Returns bytes OR raises."""
+    """Fetch a single file's bytes at the pinned SHA.
+
+    The GitHub `/repos/.../contents/...` endpoint omits the base64 `content`
+    field for files larger than ~1 MiB and returns a `download_url` pointing
+    at raw bytes instead. Files larger than 100 MiB can only be fetched via
+    the git blob API. Both fallbacks are tried in turn so oversized kernel
+    sources still reach the caller (who will then apply the 1 MiB per-file
+    size cap with a `size_cap_truncated: true` marker).
+    """
     endpoint = f"/repos/{repo}/contents/{path}?ref={sha}"
     out = run_gh(["api", endpoint])
     data = json.loads(out)
-    if data.get("type") != "file" or "content" not in data:
+    if data.get("type") != "file":
         raise RuntimeError(f"unexpected response for {repo}:{path}@{sha[:10]}: type={data.get('type')}")
-    return base64.b64decode(data["content"])
+
+    # Happy path: small file with inline content.
+    if "content" in data and data["content"]:
+        return base64.b64decode(data["content"])
+
+    # Fallback 1: file >1 MiB but <100 MiB — use download_url (raw bytes).
+    download_url = data.get("download_url")
+    if download_url:
+        import urllib.request
+        try:
+            with urllib.request.urlopen(download_url, timeout=30) as r:
+                return r.read()
+        except Exception as e:
+            # fall through to the blob fallback
+            pass
+
+    # Fallback 2: file ≥100 MiB — fetch via git blob API using the SHA
+    # embedded in the contents response.
+    blob_sha = data.get("sha")
+    if blob_sha:
+        blob_out = run_gh([
+            "api", "-H", "Accept: application/vnd.github.raw",
+            f"/repos/{repo}/git/blobs/{blob_sha}",
+        ])
+        return blob_out
+
+    raise RuntimeError(
+        f"could not fetch {repo}:{path}@{sha[:10]}: contents response had no "
+        f"`content`, no `download_url`, and no blob `sha`"
+    )
 
 
 def fetch_pr_file_list(repo, pr_num):

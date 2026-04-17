@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/simon-nvfp4-gemv.md by scripts/extract_blog_code.py
 // Heading: # NVFP4 GEMV and Improved NVFP4 GEMV (Simon Veitner) > ## Key Code > ### Strategy 3 — Atomic-free shared-memory reduction
 // Original fence language: cpp
-// See artifacts/blogs/simon-nvfp4-gemv/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/simon-nvfp4-gemv/code/PROVENANCE.yaml for origin + license metadata.
 
 // Each thread pair stores an intermediate product; after __syncthreads()
 // the CTA reduces along K-major in shared memory without atomics.

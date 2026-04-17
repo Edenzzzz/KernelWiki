@@ -12,10 +12,10 @@ files:
   mode: extracted
   upstream_path: inline-in-blog-markdown
   heading_path: '## Key Code > ### Chunk-parallel prefill reference (PyTorch)'
-  sha256: 7d982658221a2f6720fb5882535c2ae35cfd68f72bb479d5520440e1fcdec811
+  sha256: 709cd74d72c22e764ffb77d85bbecd0b1c47b52f2cc0c48bab279954d0f24a22
 - local_path: 02-triton-decode-step-kernel-streaming.py
   role: extracted-block
   mode: extracted
   upstream_path: inline-in-blog-markdown
   heading_path: '## Key Code > ### Triton decode-step kernel (streaming)'
-  sha256: 61e56ec921a9481ed5500817408b47cafd0457be06e8b3c59595ef85430422b6
+  sha256: 09a1bc93abdf8165a3d7809e485ef17a3d1a980ae579e36ba81b47665ba35b22

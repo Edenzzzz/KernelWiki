@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/yue-nvfp4-hackathon.md by scripts/extract_blog_code.py
 // Heading: # Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization Steps > ### Step 3: Hardware Intrinsics (~39us)
 // Original fence language: cpp
-// See artifacts/blogs/yue-nvfp4-hackathon/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/yue-nvfp4-hackathon/code/PROVENANCE.yaml for origin + license metadata.
 
 // Generic: manual bit manipulation for FP4 -> FP16 conversion
 // float val = decode_fp4_manual(packed_byte >> 4);  // slow

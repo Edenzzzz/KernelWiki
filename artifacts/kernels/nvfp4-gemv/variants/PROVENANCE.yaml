@@ -4,29 +4,29 @@ license: MIT-style-inherited-from-kernelwiki-tooling
 retrieved_at: '2026-04-17'
 asset_mode: derived
 derived_from:
-  - blog-yue-nvfp4
-  - pr-vllm-16032
-  - hw-nvfp4
+- blog-yue-nvfp4
+- pr-vllm-16032
+- hw-nvfp4
 size_cap_truncated: false
 generated_by: Phase 3 Round 2 task11 anchor bundle
 files:
-  - local_path: 01-step-1-cute-dsl-baseline-100us.cpp
-    role: derived-source
-    mode: derived
-    sha256: 04809366b21c2b5667003c0d92350a85bd7e63e0cab59ea57a7db7faa33e73d2
-  - local_path: 02-step-2-coalesced-memory-access-443us-then-improved.cpp
-    role: derived-source
-    mode: derived
-    sha256: 86369ce3606d6b6ecd720ccb7c988a1bf10f38320ada161707c1f9a71a9a5829
-  - local_path: 03-step-3-hardware-intrinsics-39us.cpp
-    role: derived-source
-    mode: derived
-    sha256: 493469207bcc9f098b4127e5c8bb6272cf6ee413b134e21596c0ecf040bdd430
-  - local_path: 04-step-5-ilp-optimization-22-9us.cpp
-    role: derived-source
-    mode: derived
-    sha256: 54fec3db1eab892f3e1dcfc35fe4761e886a9c608187c660c183f145628f99cb
-  - local_path: 05-step-4-ptx-assembly-27us.ptx
-    role: derived-source
-    mode: derived
-    sha256: 7790c3235dfbe25840f9f55641664eed5e22ddb077bf1bc1d8fdb1344abdbf02
+- local_path: 01-step-1-cute-dsl-baseline-100us.cpp
+  role: derived-source
+  mode: derived
+  sha256: b391756bdd12218e3e7ad3514589f31fc38472e673132544e7f5ae3998fc86f8
+- local_path: 02-step-2-coalesced-memory-access-443us-then-improved.cpp
+  role: derived-source
+  mode: derived
+  sha256: 69496235f666fa0b9099f1a20a77e3c64d023bcc8edb89cab05e6c93dadeeaa7
+- local_path: 03-step-3-hardware-intrinsics-39us.cpp
+  role: derived-source
+  mode: derived
+  sha256: ad45619f3d924a0abaf13e5db0a999f3f54dcea567cd19df2dc7ebbdbd414738
+- local_path: 04-step-5-ilp-optimization-22-9us.cpp
+  role: derived-source
+  mode: derived
+  sha256: 5857546cfa33fc13de0f5a81a94881e8993f715f4ce36c96c777d629b2516097
+- local_path: 05-step-4-ptx-assembly-27us.ptx
+  role: derived-source
+  mode: derived
+  sha256: 3a4fde2e82fa03aad2795255cc8f2569172cc1147cb500ae3344d8704a718aa5

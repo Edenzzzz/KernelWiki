@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/flash-attention-4.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### Software exp (Cody-Waite + Horner)
 // Original fence language: cuda
-// See artifacts/blogs/flash-attention-4/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/flash-attention-4/code/PROVENANCE.yaml for origin + license metadata.
 
 // Software-emulated exp2(x) using Cody-Waite range reduction and a
 // Horner-scheme polynomial, Sollya-optimized coefficients. Lets FA-4

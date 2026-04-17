@@ -125,19 +125,26 @@ def _derive_filename(idx, heading_path, lang, seen_names):
 
 def _file_header(slug, heading_path, lang, ext):
     """Build the per-file provenance header injected by the extractor.
-    C-family extensions get `//` comments; everything else gets `#`."""
+    C-family extensions get `//` comments; everything else gets `#`.
+
+    The header cites the bundle's actual PROVENANCE.yaml path
+    (`artifacts/blogs/<slug>/code/PROVENANCE.yaml`); the `code/` suffix
+    matters because that is where the asset-bundle root lives and where
+    the provenance metadata is written. Without the suffix readers
+    following the trail would land on a non-existent file.
+    """
     if ext in ("cu", "cuh", "cpp", "ptx", "h", "hpp"):
         return (
             f"// Extracted from sources/blogs/{slug}.md by scripts/extract_blog_code.py\n"
             f"// Heading: {heading_path}\n"
             f"// Original fence language: {lang}\n"
-            f"// See artifacts/blogs/{slug}/PROVENANCE.yaml for origin + license metadata.\n\n"
+            f"// See artifacts/blogs/{slug}/code/PROVENANCE.yaml for origin + license metadata.\n\n"
         )
     return (
         f"# Extracted from sources/blogs/{slug}.md by scripts/extract_blog_code.py\n"
         f"# Heading: {heading_path}\n"
         f"# Original fence language: {lang}\n"
-        f"# See artifacts/blogs/{slug}/PROVENANCE.yaml for origin + license metadata.\n\n"
+        f"# See artifacts/blogs/{slug}/code/PROVENANCE.yaml for origin + license metadata.\n\n"
     )
 
 
@@ -175,7 +182,13 @@ def extract_one_blog(blog_md, force=False):
                    if lang in EXT_MAP and body.strip()]
 
     if not code_blocks:
-        # Write a code_present: false manifest if the bundle doesn't exist
+        # Blog has no supported fenced code. If a previous extraction left a
+        # code/ subtree on disk, remove it entirely — otherwise validate.py,
+        # query.py --has-code, and get_page.py --include-code will continue
+        # to treat the blog as if it had extractable code.
+        import shutil as _shutil
+        if code_dir.is_dir():
+            _shutil.rmtree(code_dir)
         bundle.mkdir(parents=True, exist_ok=True)
         manifest_path.write_text(yaml.dump({
             "slug": slug,
@@ -183,9 +196,6 @@ def extract_one_blog(blog_md, force=False):
             "code_present": False,
             "generated_by": "scripts/extract_blog_code.py",
         }, sort_keys=False), encoding="utf-8")
-        # Also write a minimal PROVENANCE.yaml so validate.py is happy? Actually
-        # the bundle root must have PROVENANCE.yaml OR not be a bundle. If code
-        # is absent, the bundle is not a source-asset bundle; skip.
         return 0, False
 
     # Fresh extract: clear existing code dir to avoid orphan files

@@ -1,7 +1,7 @@
 // Extracted from sources/blogs/flash-attention-4.md by scripts/extract_blog_code.py
 // Heading: ## Key Code > ### 2-CTA cooperative backward
 // Original fence language: cuda
-// See artifacts/blogs/flash-attention-4/PROVENANCE.yaml for origin + license metadata.
+// See artifacts/blogs/flash-attention-4/code/PROVENANCE.yaml for origin + license metadata.
 
 // 2-CTA cooperative backward: paired CTAs in a cluster share a single TMEM
 // accumulator half, halving SMEM traffic for dK/dV accumulation.
