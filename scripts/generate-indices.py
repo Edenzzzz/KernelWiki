@@ -124,11 +124,15 @@ def generate_by_hardware_feature(pages):
 
     feature_pages = defaultdict(list)
     for p in pages:
-        for feat in p.get("hardware_features", []):
-            feature_pages[feat].append(p)
-        for tag in p.get("tags", []):
-            if tag in hw_tag_set:
-                feature_pages[tag].append(p)
+        explicit = p.get("hardware_features", [])
+        if explicit:
+            for feat in explicit:
+                feature_pages[feat].append(p)
+        else:
+            # Tag fallback only when hardware_features is absent
+            for tag in p.get("tags", []):
+                if tag in hw_tag_set:
+                    feature_pages[tag].append(p)
 
     # Add dedicated hardware pages under their canonical tags (from tags field)
     hw_pages = [p for p in pages if p.get("type") == "hardware"]
@@ -266,21 +270,18 @@ def generate_by_language(pages):
             if primary_lang and primary_lang in lang_data:
                 lang_data[primary_lang]["guide"] = p
 
-    # Find consumer pages: merge explicit languages field AND language tags
-    # Both sources contribute — a page with languages: [python] and tags: [triton]
-    # should appear under both python and triton
+    # Find consumer pages: trust languages field when present, fall back to tags only when absent
     for p in pages:
         if p.get("type") != "language":
-            indexed_langs = set()
-            for lang in p.get("languages", []):
-                if lang in lang_data:
-                    lang_data[lang]["consumers"].append(p)
-                    indexed_langs.add(lang)
-            # Also index supplemental language tags not already covered
-            for tag in p.get("tags", []):
-                if tag in valid_langs and tag not in indexed_langs:
-                    lang_data[tag]["consumers"].append(p)
-                    indexed_langs.add(tag)
+            explicit = p.get("languages", [])
+            if explicit:
+                for lang in explicit:
+                    if lang in lang_data:
+                        lang_data[lang]["consumers"].append(p)
+            else:
+                for tag in p.get("tags", []):
+                    if tag in valid_langs:
+                        lang_data[tag]["consumers"].append(p)
 
     lines.append("| Language | Guide | Related Pages |")
     lines.append("|----------|-------|--------------|")
