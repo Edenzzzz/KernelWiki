@@ -194,7 +194,7 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids, code_langs):
         "languages": set(valid_tags.get("languages", [])),
     }
 
-    # Check list type for all list-valued fields
+    # Check list type and uniqueness for all list-valued fields
     list_fields = ["tags", "techniques", "hardware_features", "kernel_types", "languages",
                     "architectures", "related", "sources", "symptoms", "candidate_techniques",
                     "prerequisites", "aliases"]
@@ -203,6 +203,23 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids, code_langs):
             if not isinstance(fm[tag_field], list):
                 errors.append(f"{rel}: field '{tag_field}' must be a YAML list, got {type(fm[tag_field]).__name__}")
                 continue
+            # Reject duplicates
+            seen = set()
+            for val in fm[tag_field]:
+                if val in seen:
+                    errors.append(f"{rel}: duplicate value '{val}' in field '{tag_field}'")
+                seen.add(val)
+
+    # Check hardware tags are reflected in hardware_features
+    if "hardware_features" in fm and isinstance(fm["hardware_features"], list):
+        hw_in_tags = set(fm.get("tags", [])) & set(field_vocab.get("hardware_features", set()))
+        hw_explicit = set(fm["hardware_features"])
+        missing_hw = hw_in_tags - hw_explicit
+        if missing_hw:
+            errors.append(
+                f"{rel}: tags contain hardware features {sorted(missing_hw)} "
+                f"not in hardware_features field"
+            )
 
     # Validate each structured field against its own vocabulary
     for tag_field, vocab in field_vocab.items():
