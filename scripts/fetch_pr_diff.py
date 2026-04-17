@@ -51,11 +51,33 @@ KERNEL_EXTS_PTX = {".ptx"}
 KERNEL_EXTS_PY_STRICT = {".py", ".pyx"}  # only when path matches keyword
 KERNEL_PY_KEYWORDS = ("kernel", "triton", "cute", "ops", "csrc")
 
-# Skip all of these entirely
+# Skip all of these entirely. Uses `fnmatch` against the POSIX upstream path,
+# so `**/` glob prefixes match at any directory depth (not only the repo top
+# level). Test and benchmark harnesses, CI config, docs, and example-test
+# scaffolding are all excluded because they pollute the shipped bundle with
+# non-canonical code.
 SKIP_GLOBS = (
-    "tests/**", "test/**", "*_test.cu", "*_test.cpp", "*_tests.py",
-    "docs/**", "**/README*", "**/CHANGELOG*", "**/release_notes*",
-    ".github/**", "ci/**", "**/conftest.py",
+    # Tests at any depth
+    "tests/**", "**/tests/**",
+    "test/**", "**/test/**",
+    "*_test.cu", "*_test.cpp", "*_tests.py", "**/test_*.py",
+    "**/*_test.py", "**/*_tests.py",
+    "**/conftest.py",
+    # Benchmarks at any depth
+    "benchmark/**", "benchmarks/**", "bench/**",
+    "**/benchmark/**", "**/benchmarks/**", "**/bench/**",
+    "**/bench_*.py", "**/*_bench.py", "**/*_benchmark.py",
+    # Examples that are purely demo/integration/correctness-check scaffolding
+    "**/examples/**/test_*",
+    "**/examples/**/demo_*",
+    # Docs / changelogs / meta
+    "docs/**", "**/docs/**",
+    "**/README*", "**/CHANGELOG*", "**/release_notes*",
+    "**/LICENSE*", "**/NOTICE*",
+    # CI / repo metadata
+    ".github/**", "**/.github/**",
+    "ci/**", "**/ci/**",
+    "**/Makefile", "**/*.mk", "**/CMakeLists.txt", "**/.gitignore",
 )
 
 

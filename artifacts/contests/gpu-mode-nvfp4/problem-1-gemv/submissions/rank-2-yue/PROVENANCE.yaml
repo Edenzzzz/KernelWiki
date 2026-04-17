@@ -29,6 +29,13 @@ files:
   heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
     Steps > ### Step 3: Hardware Intrinsics (~39us)'
   sha256: 4ede62cead50f0b2a785cf5d63b777293fb15f35083a5fd9661a4181be32b4d6
+- local_path: 04-step-4-ptx-assembly-27us.ptx
+  role: extracted-block
+  mode: extracted
+  upstream_path: sources/blogs/yue-nvfp4-hackathon.md
+  heading_path: '# Blackwell NVFP4 Kernel Hackathon Journey (Yue Zhang) > ## Key Optimization
+    Steps > ### Step 4: PTX Assembly (~27us)'
+  sha256: 8d6773986bc2e6e3b586a06a4118637ba4a52a1b348a02d73d6865b1a252d155
 - local_path: 05-step-5-ilp-optimization-22-9us.cpp
   role: extracted-block
   mode: extracted

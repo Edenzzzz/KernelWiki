@@ -12,11 +12,6 @@ files:
   role: pr-diff
   mode: upstream-patch
   sha256: bd07d51af49b2f7bcfbf1533049c89d6c46b34b3047c94e6d941e6087ef8e373
-- local_path: key-files/benchmark/bench_linear_attention/bench_cutedsl_kda_decode.py
-  role: upstream-file
-  mode: verbatim
-  upstream_path: benchmark/bench_linear_attention/bench_cutedsl_kda_decode.py
-  sha256: e242ffb6d37e855d2287dc2462d5177c40ac3f465a11896ddec91aa037d8e8a9
 - local_path: key-files/python/sglang/jit_kernel/cutedsl_kda.py
   role: upstream-file
   mode: verbatim

@@ -24,6 +24,7 @@ gpu-mode-nvfp4:
         - "01-step-1-cute-dsl-baseline-100us.cpp"
         - "02-step-2-coalesced-memory-access-443us-then-improved.cpp"
         - "03-step-3-hardware-intrinsics-39us.cpp"
+        - "04-step-4-ptx-assembly-27us.ptx"
         - "05-step-5-ilp-optimization-22-9us.cpp"
       origin_url: "https://yue-zhang-2025.github.io/2025/12/02/blackwell-nvfp4-kernel-hackathon-journey.html"
     rank-3-amandeep:
