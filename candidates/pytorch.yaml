@@ -1,0 +1,172 @@
+repo: pytorch/pytorch
+searched_at: '2026-04-17'
+keywords_used:
+- blackwell
+- sm100
+- sm_100
+- nvfp4
+- B200
+- cuda+13
+total_candidates: 31
+included: 23
+excluded: 8
+deferred: 0
+prs:
+- number: 180470
+  title: '[release 2.12] Apply Release only changes to 2.12 branch'
+  date: '2026-04-15'
+  decision: include
+  reason: 'matched: sm100'
+- number: 177193
+  title: '[Inductor][MPS] Fix half-precision type mismatches in Metal shader codegen
+    (#176436)'
+  date: '2026-03-11'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 175955
+  title: '[CI] Update inductor CI jobs to CUDA 13.0 (#175826)'
+  date: '2026-02-27'
+  decision: exclude
+  reason: non-kernel change
+- number: 175781
+  title: '[CI] Switch vLLM test and benchmark workflows to CUDA 13.0'
+  date: '2026-02-25'
+  decision: exclude
+  reason: non-kernel change
+- number: 175567
+  title: '[release-only] Remove +ptx from cuda 13.0 builds'
+  date: '2026-02-23'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 175380
+  title: '[CI] Add CUDA 13 periodic tests'
+  date: '2026-02-19'
+  decision: exclude
+  reason: non-kernel change
+- number: 175300
+  title: '[CI] Move CUDA 12.8 GPU tests from per-commit trunk to periodic'
+  date: '2026-02-19'
+  decision: exclude
+  reason: non-kernel change
+- number: 175091
+  title: '[RELEASE 2.11] Release only changes'
+  date: '2026-02-16'
+  decision: include
+  reason: 'matched: B200'
+- number: 175096
+  title: Update inductor expected accuracy files
+  date: '2026-02-16'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 171720
+  title: update doc for tlparse
+  date: '2026-01-05'
+  decision: include
+  reason: 'matched: B200'
+- number: 171189
+  title: '[cherry-pick][CUDA] Upgrade cuDNN to 9.15.1 for CUDA 13 builds '
+  date: '2025-12-23'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 170112
+  title: '[RELEASE 2.10] Release only changes'
+  date: '2025-12-10'
+  decision: include
+  reason: 'matched: sm100'
+- number: 166017
+  title: Bump uv from 0.8.6 to 0.9.5 in /.ci/lumen_cli
+  date: '2025-10-21'
+  decision: exclude
+  reason: non-kernel change
+- number: 164893
+  title: CUDA 13.0 builds fix on Amazon Linux 2023
+  date: '2025-10-07'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 164579
+  title: Pin conda version for Docker builds
+  date: '2025-10-03'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 164172
+  title: Use linux.g4dn.4xlarge.nvidia.gpu for cuda 12.4 legacy driver tests
+  date: '2025-09-29'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 163766
+  title: '[CD] CUDA 13.0 fix preload logic to include nvidia/cu13/lib/'
+  date: '2025-09-24'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 163764
+  title: '[Cherry-Pick] [CD] CUDA 13 specific followup changes. Remove sm50-70 From
+    CUDA 12.6 and CUDA 12.8 builds (#162455)'
+  date: '2025-09-24'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 163633
+  title: CUDA 13.0 Warning update for supported architectures
+  date: '2025-09-23'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 163522
+  title: '[CI] Update NVIDIA driver to `580.82.07`'
+  date: '2025-09-22'
+  decision: exclude
+  reason: non-kernel change
+- number: 162596
+  title: '[CD] Aarch64 Fix packaging ``libarm_compute.so`` and other libraries to
+    the aarch64 CUDA wheels'
+  date: '2025-09-10'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 162501
+  title: CUDA 13.0 Windows Nvidia Driver Update to 580.88
+  date: '2025-09-09'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 158478
+  title: Add warning about removed sm50 and sm60 arches
+  date: '2025-07-16'
+  decision: include
+  reason: 'matched: sm_100'
+- number: 158237
+  title: '[MPS] Switch Cholesky  decomp to column wise'
+  date: '2025-07-14'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 157641
+  title: 'Fix cuda 12.9 aarch64 GPU builds. Update CUDA_STABLE variable. '
+  date: '2025-07-04'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 157105
+  title: '[aarch64] Add back NCCL lib to cuda arm wheel'
+  date: '2025-06-27'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 154409
+  title: '[CI] Remove the xpu env source for linux binary validate'
+  date: '2025-05-27'
+  decision: exclude
+  reason: non-kernel change
+- number: 153648
+  title: Remove 3.13 hack when installing TIMM
+  date: '2025-05-15'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 152967
+  title: '[ATen][CUDA] Optimize 128 bit vectorization'
+  date: '2025-05-06'
+  decision: include
+  reason: 'matched: cuda+13'
+- number: 151133
+  title: add basic unit tests and noop config
+  date: '2025-04-11'
+  decision: exclude
+  reason: non-kernel change
+- number: 150676
+  title: '[CUDA][avgpool2d] Fix backward launch bounds again for `sm100`, `sm120`'
+  date: '2025-04-04'
+  decision: include
+  reason: 'matched: blackwell'
