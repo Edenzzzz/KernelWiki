@@ -203,16 +203,20 @@ def generate_by_kernel_type(pages):
         with open(tags_path) as f:
             kt_tag_set = set(yaml.safe_load(f).get("kernel_types", []))
 
+    # Only index kernel-bearing pages: sources and wiki/kernels (not technique/language pages)
+    kernel_bearing_types = {"kernel", None}  # None = source pages (no type field)
     type_pages = defaultdict(list)
     for p in pages:
         seen_kts = set()
         for kt in p.get("kernel_types", []):
             type_pages[kt].append(p)
             seen_kts.add(kt)
-        # Fall back to tags for pages without kernel_types field
-        for tag in p.get("tags", []):
-            if tag in kt_tag_set and tag not in seen_kts:
-                type_pages[tag].append(p)
+        # Fall back to tags only for source pages and kernel pages
+        page_type = p.get("type")
+        if page_type in kernel_bearing_types:
+            for tag in p.get("tags", []):
+                if tag in kt_tag_set and tag not in seen_kts:
+                    type_pages[tag].append(p)
 
     for kt in sorted(type_pages.keys()):
         page_links = []

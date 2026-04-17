@@ -4,7 +4,7 @@ title: "PTX ISA SM100 Instructions Reference"
 url: https://docs.nvidia.com/cuda/parallel-thread-execution/
 source_category: official-doc
 architectures: [sm100, sm100a]
-tags: [tcgen05, tmem, clc, tma, nvfp4, fp4, fp8, fp6, block-scale, mbarrier]
+tags: [ptx, tcgen05, tmem, clc, tma, nvfp4, fp4, fp8, fp6, block-scale, mbarrier]
 retrieved_at: 2026-04-16
 ---
 
