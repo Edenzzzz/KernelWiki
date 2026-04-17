@@ -77,7 +77,7 @@
 | [sgl-project/sglang](queries/by-repo.md#sgl-projectsglang) | SGLang Blackwell integration |
 | [vllm-project/vllm](queries/by-repo.md#vllm-projectvllm) | vLLM Blackwell support |
 | [flashinfer-ai/flashinfer](queries/by-repo.md#flashinfer-aiflashinfer) | FlashInfer Blackwell kernels |
-| [pytorch/pytorch](queries/by-repo.md#pytorchpytorch) | PyTorch Blackwell backend |
+| [pytorch/pytorch](queries/by-repo.md#pytorchpytorch) | PyTorch/Inductor Blackwell |
 
 ## Competitions
 

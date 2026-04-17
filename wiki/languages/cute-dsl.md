@@ -97,4 +97,4 @@ def blackwell_gemm(A, B, C):
 ## Related
 - [tcgen05-mma](../hardware/tcgen05-mma.md) — Underlying MMA instruction
 - [flash-attention-4](../kernels/flash-attention-4.md) — CuTe-DSL implementation
-- [CUTLASS Blackwell docs](../sources/docs/cutlass-blackwell.md) — Official reference
+- [CUTLASS Blackwell docs](../../sources/docs/nvidia-cutlass-blackwell.md) — Official reference

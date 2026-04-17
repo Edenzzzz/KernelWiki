@@ -214,26 +214,31 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
     if page_type.startswith("wiki-") and fm.get("confidence") == "verified":
         eb = fm.get("evidence_basis")
         if not eb or not isinstance(eb, list) or len(eb) == 0:
-            # Alternative: check if sources include both official-doc and upstream-code
-            src_ids = fm.get("sources", [])
-            src_categories = set()
-            for sid in src_ids:
-                if sid.startswith("doc-"):
-                    src_categories.add("official-doc")
-                elif sid.startswith("pr-"):
-                    src_categories.add("upstream-code")
-                elif sid.startswith("blog-"):
-                    src_categories.add("community-note")
-                elif sid.startswith("contest-"):
-                    src_categories.add("contest-report")
-            has_official = "official-doc" in src_categories
-            has_upstream = "upstream-code" in src_categories
-            if not (has_official and has_upstream):
+            errors.append(
+                f"{rel}: confidence 'verified' requires non-empty 'evidence_basis' field"
+            )
+        else:
+            eb_types = {entry.get("evidence_type") for entry in eb if isinstance(entry, dict)}
+            if "official-doc" not in eb_types:
                 errors.append(
-                    f"{rel}: confidence 'verified' requires evidence_basis or "
-                    f"sources citing both official-doc and upstream-code "
-                    f"(found: {src_categories})"
+                    f"{rel}: evidence_basis for 'verified' must include at least one "
+                    f"'official-doc' entry (found: {eb_types})"
                 )
+            if "upstream-code" not in eb_types:
+                errors.append(
+                    f"{rel}: evidence_basis for 'verified' must include at least one "
+                    f"'upstream-code' entry (found: {eb_types})"
+                )
+            # Cross-check evidence_basis source_ids against page sources
+            page_sources = set(fm.get("sources", []))
+            for entry in eb:
+                if isinstance(entry, dict):
+                    sid = entry.get("source_id", "")
+                    if sid and sid not in page_sources:
+                        errors.append(
+                            f"{rel}: evidence_basis references '{sid}' "
+                            f"not listed in page sources"
+                        )
 
     # Check technique/kernel/language pages have fenced code
     if page_type in ("wiki-technique", "wiki-kernel", "wiki-language"):
