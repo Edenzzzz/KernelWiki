@@ -205,13 +205,18 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
     if page_type == "wiki-migration" and "blackwell_relevance" not in fm:
         errors.append(f"{rel}: migration page missing 'blackwell_relevance'")
 
-    # Check performance_claims structure (including shape)
+    # Check performance_claims structure (including shape and numeric value)
     if "performance_claims" in fm and isinstance(fm["performance_claims"], list):
         for i, claim in enumerate(fm["performance_claims"]):
             if isinstance(claim, dict):
                 for req in ["gpu", "dtype", "shape", "metric", "value", "source_id"]:
                     if req not in claim:
                         errors.append(f"{rel}: performance_claims[{i}] missing '{req}'")
+                if "value" in claim and not isinstance(claim["value"], (int, float)):
+                    errors.append(
+                        f"{rel}: performance_claims[{i}].value must be numeric, "
+                        f"got {type(claim['value']).__name__}: {claim['value']}"
+                    )
 
     # Check wiki sources reference existing source ids
     if page_type.startswith("wiki-") and "sources" in fm and isinstance(fm["sources"], list):

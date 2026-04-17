@@ -46,8 +46,8 @@ def collect_all_pages():
         for md_file in sorted(search_dir.rglob("*.md")):
             fm = extract_frontmatter(md_file)
             if fm and isinstance(fm, dict):
-                fm["_path"] = str(md_file.relative_to(REPO_ROOT))
-                fm["_dir"] = str(search_dir.relative_to(REPO_ROOT))
+                fm["_path"] = md_file.relative_to(REPO_ROOT).as_posix()
+                fm["_dir"] = search_dir.relative_to(REPO_ROOT).as_posix()
                 pages.append(fm)
     return pages
 
@@ -169,8 +169,8 @@ def generate_by_repo(pages):
             title = pr.get("title", "Untitled")
             date = pr.get("date", "")
             path = qlink(pr["_path"])
-            techniques = ", ".join(pr.get("techniques", [])[:3])
-            tags = ", ".join(pr.get("tags", [])[:3])
+            techniques = ", ".join(list(dict.fromkeys(pr.get("techniques", [])))[:3])
+            tags = ", ".join(list(dict.fromkeys(pr.get("tags", [])))[:3])
             lines.append(f"| [#{pr_num}]({path}) | {title} | {date} | {techniques} | {tags} |")
         lines.append("")
     return "\n".join(lines) + "\n"

@@ -14,9 +14,9 @@ performance_claims:
   - gpu: H100
     dtype: bf16
     shape: "seqlen=8192, qk_dim=4, v_dim=8, d=128"
-    metric: throughput
-    value: "10x vs Qwen3-32B at 32K+"
-    utilization: "O(n) linear"
+    metric: speedup
+    value: 10
+    utilization: "vs Qwen3-32B at 32K+ context, O(n) linear complexity"
     source_id: blog-gated-delta-net
 ---
 
