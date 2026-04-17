@@ -76,9 +76,14 @@ pipelined_gemm(const __grid_constant__ GemmParams params)
         // Prologue: fill the first NUM_STAGES buffers
         for (int s = 0; s < NUM_STAGES && s < num_k_tiles; s++) {
             if (lane_id == 0) {
-                tma_load_tile_A(smem_A[s], params, s);
-                tma_load_tile_B(smem_B[s], params, s);
-                mbarrier_arrive(&mbar_load_complete[s]);
+                // Set expected TX bytes on mbarrier BEFORE issuing TMA.
+                // TMA hardware will arrive on the mbarrier when transfer completes.
+                uint32_t tx_bytes = TILE_A_BYTES + TILE_B_BYTES;
+                mbarrier_arrive_expect_tx(&mbar_load_complete[s], tx_bytes);
+                tma_load_tile_A(smem_A[s], params, s, &mbar_load_complete[s]);
+                tma_load_tile_B(smem_B[s], params, s, &mbar_load_complete[s]);
+                // NOTE: Do NOT manually arrive after TMA issue — the TMA
+                // hardware signals the mbarrier upon transfer completion.
             }
         }
 
@@ -88,9 +93,10 @@ pipelined_gemm(const __grid_constant__ GemmParams params)
             // Wait for MMA to finish with this buffer
             mbarrier_wait(&mbar_mma_complete[stage]);
             if (lane_id == 0) {
-                tma_load_tile_A(smem_A[stage], params, k);
-                tma_load_tile_B(smem_B[stage], params, k);
-                mbarrier_arrive(&mbar_load_complete[stage]);
+                uint32_t tx_bytes = TILE_A_BYTES + TILE_B_BYTES;
+                mbarrier_arrive_expect_tx(&mbar_load_complete[stage], tx_bytes);
+                tma_load_tile_A(smem_A[stage], params, k, &mbar_load_complete[stage]);
+                tma_load_tile_B(smem_B[stage], params, k, &mbar_load_complete[stage]);
             }
         }
 

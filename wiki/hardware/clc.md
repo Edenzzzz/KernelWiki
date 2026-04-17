@@ -69,27 +69,34 @@ __global__ void persistent_gemm_clc(
     // Allocate persistent resources (TMEM, pipeline state)
     uint32_t tmem_acc = tmem_alloc(256);
 
+    // Shared storage for CLC results (visible to all threads in CTA)
+    __shared__ uint2 clc_tile_coord;
+    __shared__ int clc_has_tile;
+
     // CLC tile loop: keep requesting tiles until none remain
     while (true) {
-        // Try to acquire the next tile from CLC hardware queue
-        uint2 tile_coord;
-        bool has_tile;
-
+        // Thread 0 acquires the next tile; result goes to shared memory
         if (threadIdx.x == 0) {
+            uint2 result;
+            int acquired = 0;
             asm volatile(
-                "clusterlaunchcontrol.try_acquire.async.shared::cta "
-                "[%0], %1;"
-                : "=r"(has_tile)
-                : "r"(&tile_coord)
+                "{\n"
+                "  .reg .pred p;\n"
+                "  clusterlaunchcontrol.try_cancel {%0, %1}, p;\n"
+                "  selp.s32 %2, 1, 0, p;\n"
+                "}\n"
+                : "=r"(result.x), "=r"(result.y), "=r"(acquired)
             );
+            clc_tile_coord = result;
+            clc_has_tile = acquired;
         }
-        __syncthreads();
+        __syncthreads();  // All threads see the shared result
 
         // Exit if no more tiles
-        if (!has_tile) break;
+        if (!clc_has_tile) break;
 
-        int tile_m = tile_coord.x;
-        int tile_n = tile_coord.y;
+        int tile_m = clc_tile_coord.x;
+        int tile_n = clc_tile_coord.y;
 
         // Zero accumulator
         tmem_zero(tmem_acc, 256);

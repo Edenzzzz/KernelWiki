@@ -61,15 +61,17 @@ blackwell_gemm_warp_specialized(
     // mbarrier pairs: producer signals "data ready", consumer signals "buffer free"
     __shared__ uint64_t mbar_data_ready[NUM_STAGES];
     __shared__ uint64_t mbar_buffer_free[NUM_STAGES];
+    // MMA→epilogue handoff barrier (MMA warp arrives, epilogue warps wait)
+    __shared__ uint64_t mbar_acc_complete;
 
     if (warp_id == 0) {
-        // === TMA PRODUCER WARP ===
-        // Initialize mbarriers (only one thread needed)
+        // Initialize all mbarriers (only one thread needed)
         if (lane_id == 0) {
             for (int s = 0; s < NUM_STAGES; s++) {
                 mbarrier_init(&mbar_data_ready[s], 1);    // TMA arrival count
                 mbarrier_init(&mbar_buffer_free[s], 1);    // MMA arrival count
             }
+            mbarrier_init(&mbar_acc_complete, 1);          // MMA arrival count
         }
     }
     // CTA-wide barrier: all warps must see initialized mbarriers
@@ -117,7 +119,9 @@ blackwell_gemm_warp_specialized(
         }
 
         // Signal epilogue warps that accumulation is complete
-        __threadfence_block();
+        if (lane_id == 0) {
+            mbarrier_arrive(&mbar_acc_complete);
+        }
 
     } else {
         // === EPILOGUE WARPS (2-15) ===
