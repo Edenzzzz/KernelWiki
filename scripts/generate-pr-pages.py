@@ -108,7 +108,9 @@ def is_kernel_related(title, files):
 
     # File-based inclusion
     kernel_exts = {".cu", ".cuh", ".ptx"}
-    kernel_dirs = {"cutlass/", "csrc/", "kernel", "triton/", "cute/", "gemm", "attention", "moe"}
+    kernel_dirs = {"cutlass/", "csrc/", "kernel", "triton/", "cute/", "gemm",
+                   "attention", "moe", "inductor/", "tensor_core", "mma",
+                   "scaled_mm", "quantiz", "flash_attention", "sdpa"}
 
     has_kernel_file = False
     for f in files:
@@ -123,8 +125,10 @@ def is_kernel_related(title, files):
 
     # Semantic signals in title
     semantic_kws = ["kernel", "sm100", "blackwell", "tcgen05", "tmem", "nvfp4",
-                     "fp8", "gemm", "attention", "moe", "mla", "cutlass",
-                     "flashinfer", "deepgemm", "flashmla", "triton", "fmha"]
+                     "fp8", "fp4", "gemm", "attention", "moe", "mla", "cutlass",
+                     "flashinfer", "deepgemm", "flashmla", "triton", "fmha",
+                     "inductor", "sdpa", "flash_attention", "scaled_mm",
+                     "block_scale", "quantiz", "tma", "b200", "cuda 13"]
     has_semantic = any(kw in title_lower for kw in semantic_kws)
 
     if has_kernel_file:

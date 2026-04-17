@@ -176,22 +176,81 @@
 
 <a id="pytorchpytorch"></a>
 ## pytorch/pytorch
-12 PRs
+71 PRs
 
 | PR | Title | Date | Techniques | Tags |
 |-----|-------|------|------------|------|
 | [#180470](../sources/prs/pytorch/PR-180470.md) | [release 2.12] Apply Release only changes to 2.12 branch | 2026-04-15 |  | attention, flash-attention, quantization |
+| [#178009](../sources/prs/pytorch/PR-178009.md) | [MPS] fix compiling of SDPA producing nan results | 2026-03-20 |  | gemm |
+| [#177144](../sources/prs/pytorch/PR-177144.md) | [Inductor] Don't unfuse addmm for bf16/fp16 to avoid precision loss | 2026-03-11 |  | gemm |
+| [#177193](../sources/prs/pytorch/PR-177193.md) | [Inductor][MPS] Fix half-precision type mismatches in Metal shader codegen (#176436) | 2026-03-11 |  | gemm |
+| [#176783](../sources/prs/pytorch/PR-176783.md) | [inductor] Fix Identity comparability and evalf recursion | 2026-03-07 |  | gemm |
+| [#176410](../sources/prs/pytorch/PR-176410.md) | [Inductor] Reject non-contiguous subnode fusion in mix-order reduction. | 2026-03-04 | kernel-fusion | kernel-fusion |
+| [#176495](../sources/prs/pytorch/PR-176495.md) | [inductor] avoid multi-stage for mix-order-red by default (#176228) | 2026-03-04 |  | gemm |
 | [#175826](../sources/prs/pytorch/PR-175826.md) | [CI] Update inductor CI jobs to CUDA 13.0 | 2026-02-26 |  | python |
+| [#175567](../sources/prs/pytorch/PR-175567.md) | [release-only] Remove +ptx from cuda 13.0 builds | 2026-02-23 |  | gemm |
+| [#175580](../sources/prs/pytorch/PR-175580.md) | [MPS] Fix 2-pass SDPA memory corruption by forcing float accumulators | 2026-02-23 |  | attention |
+| [#175299](../sources/prs/pytorch/PR-175299.md) | [benchmark] Skip pytorch_CycleGAN_and_pix2pix from inductor benchmarks | 2026-02-19 |  | gemm |
 | [#175091](../sources/prs/pytorch/PR-175091.md) | [RELEASE 2.11] Release only changes | 2026-02-16 |  | attention, flash-attention, quantization |
+| [#175096](../sources/prs/pytorch/PR-175096.md) | Update inductor expected accuracy files | 2026-02-16 |  | gemm |
+| [#172577](../sources/prs/pytorch/PR-172577.md) | [Graph Partition] Improve support for mutation ops | 2026-01-15 |  | gemm |
+| [#172141](../sources/prs/pytorch/PR-172141.md) | Skip modded_nanogpt model in TorchInductor benchmark | 2026-01-09 |  | gemm |
+| [#171895](../sources/prs/pytorch/PR-171895.md) | [cherry-pick][cuDNN][SDPA] cuDNN SDPA off-by-default for cuDNN versions < 12.9 (#171627) | 2026-01-07 |  | gemm |
+| [#171247](../sources/prs/pytorch/PR-171247.md) | [xpu][fix][inductor] fallback bfloat16 atomics to eager | 2025-12-24 |  | gemm |
+| [#171150](../sources/prs/pytorch/PR-171150.md) | Avoid closing random file handles in Inductor | 2025-12-23 |  | gemm |
+| [#171189](../sources/prs/pytorch/PR-171189.md) | [cherry-pick][CUDA] Upgrade cuDNN to 9.15.1 for CUDA 13 builds  | 2025-12-23 |  | gemm |
+| [#171129](../sources/prs/pytorch/PR-171129.md) | [Inductor] Fix constants handling for Triton constexpr (triton#8248) | 2025-12-22 |  | gemm |
+| [#171140](../sources/prs/pytorch/PR-171140.md) | [ROCm] Make grouped GEMM CK opt‑in via env and default to fallback path | 2025-12-22 |  | gemm |
+| [#170884](../sources/prs/pytorch/PR-170884.md) | [inductor] Fix cudagraph skip for index_put_ with boolean indices, gr… | 2025-12-19 |  | gemm |
+| [#170486](../sources/prs/pytorch/PR-170486.md) | [flex_attention] adds support for low precision K/V inputs in compiled mode with GPU | 2025-12-16 |  | attention, flash-attention |
+| [#170555](../sources/prs/pytorch/PR-170555.md) | [cherry-pick] Fix vllm issue for flex (#170499) | 2025-12-16 |  | attention |
+| [#170190](../sources/prs/pytorch/PR-170190.md) | [ROCm] Enable shared memory based pruning for Triton configs | 2025-12-11 |  | gemm |
+| [#170246](../sources/prs/pytorch/PR-170246.md) | [Inductor] ExternKernelBenchmarkRequest best attempt | 2025-12-11 |  | gemm |
+| [#170112](../sources/prs/pytorch/PR-170112.md) | [RELEASE 2.10] Release only changes | 2025-12-10 |  | quantization |
+| [#167327](../sources/prs/pytorch/PR-167327.md) | [cuDNN][SDPA][Convolution] Expose cuDNN runtime version in CUDA hooks | 2025-11-07 |  | gemm |
+| [#167121](../sources/prs/pytorch/PR-167121.md) | [cuDNN][SDPA] Check-in test for #166211 | 2025-11-05 |  | gemm |
+| [#166910](../sources/prs/pytorch/PR-166910.md) | [inductor] don't try to reorder loops for template | 2025-11-04 |  | gemm |
+| [#166913](../sources/prs/pytorch/PR-166913.md) | [Dynamo] Don't guard data ptrs by default with mark_static_address | 2025-11-04 |  | gemm |
+| [#166922](../sources/prs/pytorch/PR-166922.md) | [Inductor] No longer throw error in bmm out_dtype lowering due to tem… | 2025-11-04 |  | gemm |
+| [#166967](../sources/prs/pytorch/PR-166967.md) | [Graph Partition] move custom rules to inductor config (#166458) | 2025-11-04 |  | gemm |
+| [#166985](../sources/prs/pytorch/PR-166985.md) | [Graph Partition] fix graph partition input signature for fallback kernels | 2025-11-04 |  | gemm |
+| [#166994](../sources/prs/pytorch/PR-166994.md) | [GraphPartition] cache get_free_symbol_uses (#166338) | 2025-11-04 |  | gemm |
+| [#167020](../sources/prs/pytorch/PR-167020.md) | [Minor][Inductor] move some combo kernel log from warning to debug | 2025-11-04 |  | gemm |
+| [#164893](../sources/prs/pytorch/PR-164893.md) | CUDA 13.0 builds fix on Amazon Linux 2023 | 2025-10-07 |  | gemm |
+| [#164364](../sources/prs/pytorch/PR-164364.md) | [SDPA] [MPS] Fixes regression in 2.8.0 for scaled_dot_product_attention using mps | 2025-10-01 |  | attention |
+| [#164368](../sources/prs/pytorch/PR-164368.md) | [Flex attention] Fix flex attention head broadcast | 2025-10-01 |  | attention |
+| [#164236](../sources/prs/pytorch/PR-164236.md) | [AARCH64][CD][CUDA13][Triton][PTXAS] Turn on BUILD_BUNDLE_PTXAS=1   | 2025-09-30 |  | gemm |
+| [#164026](../sources/prs/pytorch/PR-164026.md) | [cuDNN][SDPA] Disable dropout for cuDNN SDPA on 9.11 - 9.13 | 2025-09-27 |  | gemm |
+| [#163954](../sources/prs/pytorch/PR-163954.md) | Move inductor jobs 3.9->3.10 | 2025-09-26 |  | gemm |
+| [#163861](../sources/prs/pytorch/PR-163861.md) | fix pickling for BitwiseFn | 2025-09-25 |  | gemm |
+| [#163764](../sources/prs/pytorch/PR-163764.md) | [Cherry-Pick] [CD] CUDA 13 specific followup changes. Remove sm50-70 From CUDA 12.6 and CUDA 12.8 builds (#162455) | 2025-09-24 |  | gemm |
+| [#163766](../sources/prs/pytorch/PR-163766.md) | [CD] CUDA 13.0 fix preload logic to include nvidia/cu13/lib/ | 2025-09-24 |  | gemm |
+| [#163633](../sources/prs/pytorch/PR-163633.md) | CUDA 13.0 Warning update for supported architectures | 2025-09-23 |  | gemm |
+| [#163583](../sources/prs/pytorch/PR-163583.md) | [2.9 cherry pick][triton] update 3.5 pin to bbb06c0334a6772b92d24bde54956e675c8c6604 (#163382) | 2025-09-22 |  | gemm |
 | [#163585](../sources/prs/pytorch/PR-163585.md) | CUDA 13.0 Warning update for supported architectures | 2025-09-22 |  | python |
+| [#163388](../sources/prs/pytorch/PR-163388.md) | [Inductor][Intel GPU] Save `threads_per_warp` from tirton compiled kernel for launching kernel correctly in cpp wrapper. | 2025-09-20 |  | gemm |
+| [#163395](../sources/prs/pytorch/PR-163395.md) | [graph partition] Add way to register custom rule (#163310) | 2025-09-20 |  | gemm |
 | [#162764](../sources/prs/pytorch/PR-162764.md) | fix cpp extension distributed warning spew | 2025-09-11 |  | python, cuda-cpp |
 | [#162455](../sources/prs/pytorch/PR-162455.md) | [CD] CUDA 13 specific followup changes. Remove sm50-70 From CUDA 12.6 and CUDA 12.8 builds | 2025-09-09 |  | python |
+| [#158646](../sources/prs/pytorch/PR-158646.md) | [cherry-pick][inductor][triton] Update HAS_WARP_SPEC to check triton.Config params. Update Triton Hash to top of release/3.4.x stack | 2025-07-18 |  | gemm |
 | [#158301](../sources/prs/pytorch/PR-158301.md) | Add warning about removed sm50 and sm60 arches | 2025-07-15 |  | python |
 | [#158237](../sources/prs/pytorch/PR-158237.md) | [MPS] Switch Cholesky  decomp to column wise | 2025-07-14 |  | gemm |
+| [#157752](../sources/prs/pytorch/PR-157752.md) | [release] Triton pin update to 3.4 | 2025-07-08 |  | gemm |
+| [#157241](../sources/prs/pytorch/PR-157241.md) | [user triton] AOT inductor support for device-side TMA | 2025-06-29 |  | tma |
+| [#156932](../sources/prs/pytorch/PR-156932.md) | Fix macOS build with `USE_MPS=OFF` | 2025-06-26 |  | gemm |
+| [#153641](../sources/prs/pytorch/PR-153641.md) | [FlexAttention] explicilty create grad_q w/ strides | 2025-05-15 |  | attention |
+| [#153104](../sources/prs/pytorch/PR-153104.md) | [FlexAttention] Remove Old Constraint on lastdim strides | 2025-05-07 |  | attention |
 | [#152967](../sources/prs/pytorch/PR-152967.md) | [ATen][CUDA] Optimize 128 bit vectorization | 2025-05-06 |  | gemm |
+| [#152774](../sources/prs/pytorch/PR-152774.md) | [dynamo][super variable] Fix bug to use correct source | 2025-05-04 |  | gemm |
 | [#150676](../sources/prs/pytorch/PR-150676.md) | [CUDA][avgpool2d] Fix backward launch bounds again for `sm100`, `sm120` | 2025-04-04 |  | gemm |
 | [#150705](../sources/prs/pytorch/PR-150705.md) | [CUDA] Only use vec128 if CUDA version is newer than 12.8 | 2025-04-04 | vectorized-loads | cuda-cpp |
 | [#150640](../sources/prs/pytorch/PR-150640.md) | [CUDA][avgpool2d] Fix backward launch bounds again for sm100, sm120 | 2025-04-03 |  | cuda-cpp |
+| [#149993](../sources/prs/pytorch/PR-149993.md) | [inductor][triton 3.3] Fix cpp_wrapper w/ TMA in triton 3.3 | 2025-03-26 |  | tma |
+| [#149644](../sources/prs/pytorch/PR-149644.md) | op should NOT be static in aoti_torch_call_dispatcher | 2025-03-20 |  | gemm |
+| [#149386](../sources/prs/pytorch/PR-149386.md) | Add AOTI shim for _weight_int4pack_mm_cpu_tensor (#149031) | 2025-03-18 |  | quantization |
+| [#149125](../sources/prs/pytorch/PR-149125.md) | Remove runtime dependency on packaging | 2025-03-13 |  | gemm |
+| [#149059](../sources/prs/pytorch/PR-149059.md) | [inductor] Fix profiler tests with latest Triton | 2025-03-12 |  | gemm |
+| [#144248](../sources/prs/pytorch/PR-144248.md) | [inductor][cpu] Fix bmm b_index for dynamic expressions in inductor autotuner | 2025-01-06 |  | gemm |
 
 <a id="sgl-projectsglang"></a>
 ## sgl-project/sglang

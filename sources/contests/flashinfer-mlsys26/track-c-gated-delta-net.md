@@ -9,6 +9,23 @@ hardware_features: [tcgen05, tmem, tma]
 kernel_types: [gated-delta-net, linear-attention, decode, prefill]
 languages: [cuda-cpp, cute-dsl, triton, tilelang]
 url: https://mlsys26.flashinfer.ai/
+submissions:
+  - rank: 1
+    participant: "Gemini 2.5 Pro (AI baseline)"
+    score: "0.628x avg speedup"
+    technique: "evolve agent generating GatedDeltaNet chunk-parallel prefill + recurrent decode"
+  - rank: 2
+    participant: "GPT-5"
+    score: "0.467x avg speedup"
+    technique: "iterative Triton kernel generation targeting linear attention delta rule"
+  - rank: 3
+    participant: "Claude Opus 4.1"
+    score: "0.456x avg speedup"
+    technique: "code generation referencing NVlabs/GatedDeltaNet and FLA kernels"
+  - rank: notable
+    participant: "FLA (Flash Linear Attention)"
+    score: "10x+ throughput vs Qwen3-32B at 32K+"
+    technique: "optimized Triton kernels for gated delta rule; variable-length support; chunk-based parallel prefill"
 ---
 
 # Track C: Gated Delta Net (Qwen3-Next)

@@ -9,6 +9,23 @@ hardware_features: [tcgen05, tmem, fp8, block-scale, tma]
 kernel_types: [sparse-attention, mla, attention, decode]
 languages: [cuda-cpp, cute-dsl, triton, tilelang]
 url: https://mlsys26.flashinfer.ai/
+submissions:
+  - rank: 1
+    participant: "Gemini 2.5 Pro (AI baseline)"
+    score: "0.628x avg speedup vs FlashInfer"
+    technique: "evolve agent approach; sparse indexer + attention kernel generation"
+  - rank: 2
+    participant: "GPT-5 (2025-08-07)"
+    score: "0.467x avg speedup"
+    technique: "iterative refinement targeting two-stage sparse attention"
+  - rank: 3
+    participant: "Claude Opus 4.1"
+    score: "0.456x avg speedup"
+    technique: "code generation with FlashMLA sparse as reference"
+  - rank: notable
+    participant: "FlashMLA (DeepSeek)"
+    score: "1450 TFLOPS on B200 (sparse prefill)"
+    technique: "FP8 KV cache with token-level sparsity; 656 bytes/token (512 FP8 + 16 scales + 128 RoPE)"
 ---
 
 # Track B: DeepSeek V3.2 Sparse Attention
