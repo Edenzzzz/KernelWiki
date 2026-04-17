@@ -93,6 +93,9 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
     if fm is None:
         errors.append(f"{rel}: missing YAML frontmatter")
         return errors
+    if not isinstance(fm, dict):
+        errors.append(f"{rel}: frontmatter must be a YAML mapping, got {type(fm).__name__}")
+        return errors
     if "_parse_error" in fm:
         errors.append(f"{rel}: YAML parse error: {fm['_parse_error']}")
         return errors
@@ -234,9 +237,15 @@ def validate_file(filepath, schemas, valid_tags, all_source_ids):
             )
 
     # Check performance_claims structure (including shape and numeric value)
-    if "performance_claims" in fm and isinstance(fm["performance_claims"], list):
-        for i, claim in enumerate(fm["performance_claims"]):
-            if isinstance(claim, dict):
+    if "performance_claims" in fm:
+        pc = fm["performance_claims"]
+        if not isinstance(pc, list):
+            errors.append(f"{rel}: performance_claims must be a list, got {type(pc).__name__}")
+        else:
+            for i, claim in enumerate(pc):
+                if not isinstance(claim, dict):
+                    errors.append(f"{rel}: performance_claims[{i}] must be a mapping, got {type(claim).__name__}")
+                    continue
                 for req in ["gpu", "dtype", "shape", "metric", "value", "source_id"]:
                     if req not in claim:
                         errors.append(f"{rel}: performance_claims[{i}] missing '{req}'")
