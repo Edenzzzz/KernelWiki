@@ -207,16 +207,16 @@ def generate_by_kernel_type(pages):
     kernel_bearing_types = {"kernel", None}  # None = source pages (no type field)
     type_pages = defaultdict(list)
     for p in pages:
-        seen_kts = set()
-        for kt in p.get("kernel_types", []):
+        explicit_kts = p.get("kernel_types", [])
+        for kt in explicit_kts:
             type_pages[kt].append(p)
-            seen_kts.add(kt)
-        # Fall back to tags only for source pages and kernel pages
-        page_type = p.get("type")
-        if page_type in kernel_bearing_types:
-            for tag in p.get("tags", []):
-                if tag in kt_tag_set and tag not in seen_kts:
-                    type_pages[tag].append(p)
+        # Tag fallback ONLY when kernel_types is absent or empty
+        if not explicit_kts:
+            page_type = p.get("type")
+            if page_type in kernel_bearing_types:
+                for tag in p.get("tags", []):
+                    if tag in kt_tag_set:
+                        type_pages[tag].append(p)
 
     for kt in sorted(type_pages.keys()):
         page_links = []
@@ -269,15 +269,15 @@ def generate_by_language(pages):
     # Find consumer pages (pages that use each language via languages field or tags)
     for p in pages:
         if p.get("type") != "language":
-            seen_langs = set()
-            for lang in p.get("languages", []):
+            explicit_langs = p.get("languages", [])
+            for lang in explicit_langs:
                 if lang in lang_data:
                     lang_data[lang]["consumers"].append(p)
-                    seen_langs.add(lang)
-            # Fall back to tags for pages without languages field
-            for tag in p.get("tags", []):
-                if tag in valid_langs and tag not in seen_langs:
-                    lang_data[tag]["consumers"].append(p)
+            # Tag fallback ONLY when languages is absent or empty
+            if not explicit_langs:
+                for tag in p.get("tags", []):
+                    if tag in valid_langs:
+                        lang_data[tag]["consumers"].append(p)
 
     lines.append("| Language | Guide | Related Pages |")
     lines.append("|----------|-------|--------------|")
