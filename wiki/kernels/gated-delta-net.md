@@ -9,7 +9,7 @@ reproducibility: snippet
 kernel_types: [gated-delta-net, linear-attention, decode, prefill, attention]
 languages: [triton, cuda-cpp]
 related: [technique-pipeline-stages]
-sources: [blog-gated-delta-net, doc-tfla]
+sources: [blog-gated-delta-net, doc-tfla, pr-vllm-37303]
 performance_claims:
   - gpu: H100
     dtype: bf16

@@ -8,7 +8,7 @@ confidence: source-reported
 reproducibility: snippet
 prerequisites: []
 related: [kernel-flash-attention-4, technique-warp-specialization]
-sources: [blog-flash-attention-4, doc-flash-attention-4]
+sources: [blog-flash-attention-4, doc-flash-attention-4, doc-ptx-isa-sm100]
 ---
 
 ## Overview

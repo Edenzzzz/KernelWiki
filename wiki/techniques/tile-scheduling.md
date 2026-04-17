@@ -8,7 +8,7 @@ confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-clc]
 related: [hw-clc, technique-persistent-kernels, pattern-low-sm-utilization]
-sources: [doc-nvidia-tuning-guide, doc-cutlass-blackwell]
+sources: [doc-nvidia-tuning-guide, doc-cutlass-blackwell, pr-cutlass-2161]
 blackwell_relevance: "CLC (SM100-only) replaces static scheduling; Hopper patterns provide baseline comparison."
 ---
 

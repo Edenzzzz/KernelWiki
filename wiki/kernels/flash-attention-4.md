@@ -9,7 +9,7 @@ reproducibility: snippet
 kernel_types: [attention, flash-attention]
 languages: [cute-dsl]
 related: [technique-warp-specialization, technique-software-exp, hw-tcgen05-mma, hw-tmem]
-sources: [doc-flash-attention-4, blog-flash-attention-4]
+sources: [doc-flash-attention-4, blog-flash-attention-4, pr-flashinfer-1850]
 performance_claims:
   - gpu: B200
     dtype: bf16

@@ -9,7 +9,7 @@ reproducibility: snippet
 kernel_types: [gemm, grouped-gemm]
 languages: [cuda-cpp, ptx]
 related: [technique-fine-grained-quantization, hw-tcgen05-mma, hw-nvfp4]
-sources: [blog-deepgemm]
+sources: [blog-deepgemm, pr-cutlass-2139, pr-vllm-23696]
 performance_claims:
   - gpu: H800
     dtype: fp8

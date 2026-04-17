@@ -6,7 +6,7 @@ from_arch: sm90
 to_arch: sm100
 tags: [tmem, tcgen05]
 related: [hw-tmem, hw-tcgen05-mma, pattern-register-pressure]
-sources: [doc-nvidia-tuning-guide, blog-tcgen05-tutorial]
+sources: [doc-nvidia-tuning-guide, blog-tcgen05-tutorial, pr-vllm-22738]
 blackwell_relevance: "Hopper stores MMA accumulators in registers (high pressure). Blackwell uses dedicated TMEM (256KB), eliminating register pressure for accumulators."
 confidence: source-reported
 reproducibility: pseudocode

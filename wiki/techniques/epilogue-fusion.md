@@ -8,7 +8,7 @@ confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-tmem, technique-warp-specialization]
 related: [technique-warp-specialization, hw-tmem, technique-double-buffering]
-sources: [doc-cutlass-blackwell, blog-colfax-cutlass]
+sources: [doc-cutlass-blackwell, blog-colfax-cutlass, pr-vllm-16032]
 blackwell_relevance: "TMEM-based epilogue fusion is new to Blackwell; Hopper pattern provides conceptual foundation."
 ---
 

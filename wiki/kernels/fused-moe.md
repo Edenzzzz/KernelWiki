@@ -9,7 +9,7 @@ reproducibility: snippet
 kernel_types: [moe, fused-kernel, grouped-gemm, gated-dual-gemm]
 languages: [cuda-cpp, cute-dsl, triton]
 related: [kernel-grouped-gemm, kernel-deepgemm, technique-fine-grained-quantization, technique-tile-scheduling]
-sources: [contest-flashinfer-track-a, blog-deepgemm]
+sources: [contest-flashinfer-track-a, blog-deepgemm, pr-vllm-23696]
 performance_claims:
   - gpu: B200
     dtype: fp8

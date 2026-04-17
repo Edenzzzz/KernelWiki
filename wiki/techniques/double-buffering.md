@@ -8,7 +8,7 @@ confidence: source-reported
 reproducibility: snippet
 prerequisites: [hw-tmem]
 related: [hw-tmem, technique-pipeline-stages, technique-epilogue-fusion]
-sources: [blog-tcgen05-tutorial, doc-nvidia-tuning-guide]
+sources: [blog-tcgen05-tutorial, doc-nvidia-tuning-guide, pr-flashinfer-2387]
 blackwell_relevance: "TMEM double-buffering is Blackwell-specific (half of 512 columns each); SMEM double-buffering transfers from Hopper."
 ---
 

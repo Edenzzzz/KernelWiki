@@ -6,7 +6,7 @@ architectures: [sm100, sm100a]
 tags: [clc, persistent-kernel, tile-scheduling]
 confidence: source-reported
 related: [technique-persistent-kernels, technique-tile-scheduling, pattern-tail-effect]
-sources: [doc-nvidia-tuning-guide, doc-cutlass-blackwell]
+sources: [doc-nvidia-tuning-guide, doc-cutlass-blackwell, pr-cutlass-2161]
 aliases: [CLC, "cluster launch control"]
 ---
 

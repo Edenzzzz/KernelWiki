@@ -9,7 +9,7 @@ reproducibility: snippet
 kernel_types: [mla, attention, decode, prefill, sparse-attention]
 languages: [cuda-cpp]
 related: [hw-tcgen05-mma, hw-tmem, kernel-nsa]
-sources: [blog-flashmla]
+sources: [blog-flashmla, pr-flashinfer-1117, pr-vllm-39752]
 performance_claims:
   - gpu: B200
     dtype: bf16

@@ -9,7 +9,7 @@ reproducibility: snippet
 kernel_types: [gemm]
 languages: [cuda-cpp, cute-dsl, ptx]
 related: [hw-nvfp4, hw-tcgen05-mma, hw-tmem, kernel-nvfp4-gemv, technique-warp-specialization]
-sources: [contest-gpumode-p2, doc-cutlass-blackwell]
+sources: [contest-gpumode-p2, doc-cutlass-blackwell, pr-cutlass-2139]
 performance_claims:
   - gpu: B200
     dtype: nvfp4

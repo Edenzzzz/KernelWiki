@@ -26,9 +26,9 @@ keywords_used:
 - triton+blackwell
 - fp8+kernel
 total_candidates: 144
-included: 115
+included: 80
 excluded: 29
-deferred: 0
+deferred: 35
 prs:
 - number: 180470
   title: '[release 2.12] Apply Release only changes to 2.12 branch'
@@ -94,8 +94,8 @@ prs:
 - number: 175766
   title: '[ROCm] Added CUDA check to test_pattern_matcher'
   date: '2026-02-25'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 175661
   title: Bump transformers version to 5.2.0
@@ -106,8 +106,8 @@ prs:
 - number: 175567
   title: '[release-only] Remove +ptx from cuda 13.0 builds'
   date: '2026-02-23'
-  decision: include
-  reason: 'matched: cuda+13'
+  decision: defer
+  reason: 'borderline: refactor/cleanup'
   files_changed: []
 - number: 175580
   title: '[MPS] Fix 2-pass SDPA memory corruption by forcing float accumulators'
@@ -130,8 +130,8 @@ prs:
 - number: 175299
   title: '[benchmark] Skip pytorch_CycleGAN_and_pix2pix from inductor benchmarks'
   date: '2026-02-19'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 175091
   title: '[RELEASE 2.11] Release only changes'
@@ -185,8 +185,8 @@ prs:
 - number: 172141
   title: Skip modded_nanogpt model in TorchInductor benchmark
   date: '2026-01-09'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 171926
   title: Revert "[Inductor] Fix constants handling for Triton constexpr (triton#8248)"
@@ -252,8 +252,8 @@ prs:
 - number: 171140
   title: '[ROCm] Make grouped GEMM CK opt‑in via env and default to fallback path'
   date: '2025-12-22'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: config only'
   files_changed: []
 - number: 170888
   title: '[dynamo] do not include source hashes in pickle'
@@ -264,8 +264,8 @@ prs:
 - number: 170884
   title: '[inductor] Fix cudagraph skip for index_put_ with boolean indices, gr…'
   date: '2025-12-19'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: CUDA graph infra'
   files_changed: []
 - number: 170726
   title: '[cherry-pick] Revert "[Inductor XPU GEMM] Step 1/N: Refactor cutlass configuration.
@@ -283,8 +283,8 @@ prs:
 - number: 170791
   title: '[dynamo][DebugMode] make ModTracker a no-op in compiled regions'
   date: '2025-12-18'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: logging'
   files_changed: []
 - number: 170555
   title: '[cherry-pick] Fix vllm issue for flex (#170499)'
@@ -295,8 +295,8 @@ prs:
 - number: 170588
   title: Add python3-dev to Dockerfile dependencies
   date: '2025-12-16'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: build infra'
   files_changed: []
 - number: 170486
   title: '[flex_attention] adds support for low precision K/V inputs in compiled mode
@@ -308,14 +308,14 @@ prs:
 - number: 170246
   title: '[Inductor] ExternKernelBenchmarkRequest best attempt'
   date: '2025-12-11'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 170190
   title: '[ROCm] Enable shared memory based pruning for Triton configs'
   date: '2025-12-11'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: config only'
   files_changed: []
 - number: 170112
   title: '[RELEASE 2.10] Release only changes'
@@ -332,8 +332,8 @@ prs:
 - number: 167121
   title: '[cuDNN][SDPA] Check-in test for #166211'
   date: '2025-11-05'
-  decision: include
-  reason: 'matched: sdpa'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 166994
   title: '[GraphPartition] cache get_free_symbol_uses (#166338)'
@@ -344,8 +344,8 @@ prs:
 - number: 166967
   title: '[Graph Partition] move custom rules to inductor config (#166458)'
   date: '2025-11-04'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: config only'
   files_changed: []
 - number: 166910
   title: '[inductor] don''t try to reorder loops for template'
@@ -356,8 +356,8 @@ prs:
 - number: 167020
   title: '[Minor][Inductor] move some combo kernel log from warning to debug'
   date: '2025-11-04'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: logging'
   files_changed: []
 - number: 166922
   title: '[Inductor] No longer throw error in bmm out_dtype lowering due to tem…'
@@ -416,8 +416,8 @@ prs:
 - number: 164579
   title: Pin conda version for Docker builds
   date: '2025-10-03'
-  decision: include
-  reason: 'matched: cuda+13'
+  decision: defer
+  reason: 'borderline: build infra'
   files_changed: []
 - number: 164368
   title: '[Flex attention] Fix flex attention head broadcast'
@@ -435,14 +435,14 @@ prs:
 - number: 164236
   title: '[AARCH64][CD][CUDA13][Triton][PTXAS] Turn on BUILD_BUNDLE_PTXAS=1  '
   date: '2025-09-30'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: CI/CD adjacent'
   files_changed: []
 - number: 164172
   title: Use linux.g4dn.4xlarge.nvidia.gpu for cuda 12.4 legacy driver tests
   date: '2025-09-29'
-  decision: include
-  reason: 'matched: cuda+13'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 164026
   title: '[cuDNN][SDPA] Disable dropout for cuDNN SDPA on 9.11 - 9.13'
@@ -465,15 +465,15 @@ prs:
 - number: 163766
   title: '[CD] CUDA 13.0 fix preload logic to include nvidia/cu13/lib/'
   date: '2025-09-24'
-  decision: include
-  reason: 'matched: cuda+13'
+  decision: defer
+  reason: 'borderline: CI/CD adjacent'
   files_changed: []
 - number: 163764
   title: '[Cherry-Pick] [CD] CUDA 13 specific followup changes. Remove sm50-70 From
     CUDA 12.6 and CUDA 12.8 builds (#162455)'
   date: '2025-09-24'
-  decision: include
-  reason: 'matched: cuda+13'
+  decision: defer
+  reason: 'borderline: CI/CD adjacent'
   files_changed: []
 - number: 163633
   title: CUDA 13.0 Warning update for supported architectures
@@ -536,8 +536,8 @@ prs:
   title: '[CD] Aarch64 Fix packaging ``libarm_compute.so`` and other libraries to
     the aarch64 CUDA wheels'
   date: '2025-09-10'
-  decision: include
-  reason: 'matched: cuda+13'
+  decision: defer
+  reason: 'borderline: CI/CD adjacent'
   files_changed: []
 - number: 162501
   title: CUDA 13.0 Windows Nvidia Driver Update to 580.88
@@ -555,27 +555,27 @@ prs:
   title: '[Reland][Inductor] Prune configs that require more shared memory than the
     hardware limit'
   date: '2025-08-29'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: config only'
   files_changed: []
 - number: 158613
   title: Setup TorchBench in Docker
   date: '2025-07-18'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 158646
   title: '[cherry-pick][inductor][triton] Update HAS_WARP_SPEC to check triton.Config
     params. Update Triton Hash to top of release/3.4.x stack'
   date: '2025-07-18'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: config only'
   files_changed: []
 - number: 158478
   title: Add warning about removed sm50 and sm60 arches
   date: '2025-07-16'
-  decision: include
-  reason: 'matched: sm_100'
+  decision: defer
+  reason: 'borderline: refactor/cleanup'
   files_changed: []
 - number: 158237
   title: '[MPS] Switch Cholesky  decomp to column wise'
@@ -617,8 +617,8 @@ prs:
 - number: 157560
   title: '[ez] Disable some failing periodic tests'
   date: '2025-07-03'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 157454
   title: '[inductor][user triton] sanitize triple-quoted docstrings in kernel definitions'
@@ -653,8 +653,8 @@ prs:
 - number: 157200
   title: '[inductor][static launcher] Skip correctness test for test_floats'
   date: '2025-06-28'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 157105
   title: '[aarch64] Add back NCCL lib to cuda arm wheel'
@@ -725,14 +725,14 @@ prs:
 - number: 153750
   title: Update ExecuTorch pin to latest viable/strict 3/28/2025 (#150308)
   date: '2025-05-16'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 153648
   title: Remove 3.13 hack when installing TIMM
   date: '2025-05-15'
-  decision: include
-  reason: 'matched: cuda+13'
+  decision: defer
+  reason: 'borderline: refactor/cleanup'
   files_changed: []
 - number: 153641
   title: '[FlexAttention] explicilty create grad_q w/ strides'
@@ -755,8 +755,8 @@ prs:
 - number: 153104
   title: '[FlexAttention] Remove Old Constraint on lastdim strides'
   date: '2025-05-07'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: refactor/cleanup'
   files_changed: []
 - number: 152967
   title: '[ATen][CUDA] Optimize 128 bit vectorization'
@@ -773,8 +773,8 @@ prs:
 - number: 152768
   title: '[cudagraphs] Fix issue in collecting static_input_idxs'
   date: '2025-05-04'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: CUDA graph infra'
   files_changed: []
 - number: 152361
   title: Build libgomp (gcc-13) from src on AArch64
@@ -845,8 +845,8 @@ prs:
 - number: 149644
   title: op should NOT be static in aoti_torch_call_dispatcher
   date: '2025-03-20'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: dispatch/selector (Python-only likely)'
   files_changed: []
 - number: 149526
   title: Add release branch push triggers to rocm-mi300.yml
@@ -863,26 +863,26 @@ prs:
 - number: 149125
   title: Remove runtime dependency on packaging
   date: '2025-03-13'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: refactor/cleanup'
   files_changed: []
 - number: 149059
   title: '[inductor] Fix profiler tests with latest Triton'
   date: '2025-03-12'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 145614
   title: '[CD] Fix slim-wheel cuda_nvrtc import problem'
   date: '2025-01-24'
-  decision: include
-  reason: 'matched: sdpa'
+  decision: defer
+  reason: 'borderline: CI/CD adjacent'
   files_changed: []
 - number: 144484
   title: Cleanup gpt_fast benchmark
   date: '2025-01-09'
-  decision: include
-  reason: 'matched: CUTLASS'
+  decision: defer
+  reason: 'borderline: benchmark/test-adjacent'
   files_changed: []
 - number: 144398
   title: 'ROCm SDPA: Ensure attn_mask has the same dtype with q'
@@ -899,8 +899,8 @@ prs:
 - number: 144248
   title: '[inductor][cpu] Fix bmm b_index for dynamic expressions in inductor autotuner'
   date: '2025-01-06'
-  decision: include
-  reason: 'matched: inductor'
+  decision: defer
+  reason: 'borderline: tuning/autotuner infra'
   files_changed: []
 - number: 144209
   title: Update torch-xpu-ops commit pin

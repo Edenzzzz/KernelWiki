@@ -9,7 +9,7 @@ reproducibility: snippet
 kernel_types: [sparse-attention, attention]
 languages: [triton]
 related: [kernel-flashmla, technique-pipeline-stages]
-sources: [blog-nsa]
+sources: [blog-nsa, blog-flashmla, blog-vllm-deepseek-v3-sparse]
 performance_claims:
   - gpu: H100
     dtype: bf16
