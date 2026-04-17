@@ -1,46 +1,66 @@
-# Blackwell Kernel Optimization Knowledge Base
+# KernelWiki — Blackwell & Hopper Kernel Optimization Knowledge Base
 
-A structured knowledge base of NVIDIA Blackwell (SM100, B200) and Hopper (SM90, H100) GPU kernel optimization techniques, designed for LLM agent retrieval.
+A structured knowledge base of NVIDIA Blackwell (SM100, B200) and Hopper (SM90, H100) GPU kernel optimization, packaged as a Claude Code skill. The repository root **is** the skill directory — clone it directly into `~/.claude/skills/` and it works out of the box.
+
+## Install as a Claude Code Skill
+
+```bash
+git clone git@github.com:DongyunZou/KernelWiki.git ~/.claude/skills/KernelWiki
+pip install -r ~/.claude/skills/KernelWiki/requirements.txt
+```
+
+That's it. The skill auto-registers (because `SKILL.md` lives at the clone root), and the query scripts auto-resolve the wiki root to their own directory — no environment variable required.
+
+Smoke test:
+
+```bash
+cd ~/.claude/skills/KernelWiki
+python3 scripts/query.py --tag nvfp4 --type kernel --compact
+python3 scripts/get_page.py kernel-flash-attention-4 --frontmatter-only
+```
+
+Optional override for relocating the scripts:
+
+```bash
+export BLACKWELL_WIKI_ROOT=/path/to/KernelWiki
+```
 
 ## What's Here
 
 - **460 PR references** from NVIDIA/cutlass, sgl-project/sglang, vllm-project/vllm, flashinfer-ai/flashinfer, pytorch/pytorch (Jan 2025 – Apr 2026)
-- **48 synthesized wiki pages**: hardware features, techniques, kernel case studies, problem patterns, DSL guides, migration guides
+- **48 synthesized wiki pages** — hardware features, techniques, kernel case studies, problem patterns, DSL guides, migration guides
 - **20 community blog summaries**, **10 official doc summaries**, **7 competition pages** (GPU Mode NVFP4 hackathon, FlashInfer MLSys 2026)
-- **6 auto-generated cross-reference indices**: by problem / technique / hardware feature / repo / kernel type / language
+- **6 auto-generated cross-reference indices** — by problem / technique / hardware feature / repo / kernel type / language
 - **5 candidate ledgers** tracking 3,928 merged PRs with include/defer/exclude decisions
 
-## For LLM Agents: Use the Skill
+## Query Tools
 
-The canonical way to query this KB from Claude Code is via the bundled skill:
+All tools run from the skill root, no env var needed.
 
-```
-skills/blackwell-kernel-wiki/
-├── SKILL.md              # When to engage + 10 navigation paths
-├── scripts/
-│   ├── query.py          # Unified search (keywords + filters)
-│   ├── get_page.py       # Fetch any page by id or path
-│   └── grep_wiki.py      # Regex text search
-├── references/
-│   ├── schema.md         # Condensed schema reference
-│   └── examples.md       # 10 worked query patterns
-└── README.md             # Install + quick smoke test
-```
+| Tool | Purpose |
+|---|---|
+| `scripts/query.py` | Unified search across 545 pages (keywords + filters + alias-aware) |
+| `scripts/get_page.py` | Fetch any page by `id` or path; `--follow-sources` expands cited sources |
+| `scripts/grep_wiki.py` | Regex text search across wiki bodies and PR pages |
 
-See [`skills/blackwell-kernel-wiki/README.md`](skills/blackwell-kernel-wiki/README.md) for installation.
+Examples:
 
-Quick start (no install needed):
 ```bash
-python3 skills/blackwell-kernel-wiki/scripts/query.py "ping-pong attention" --limit 5
-python3 skills/blackwell-kernel-wiki/scripts/get_page.py kernel-flash-attention-4
-python3 skills/blackwell-kernel-wiki/scripts/grep_wiki.py "tcgen05.fence" --only wiki
+python3 scripts/query.py "ping-pong attention" --limit 5
+python3 scripts/query.py --tag UMMA --type hardware --compact          # alias → tcgen05
+python3 scripts/query.py --architecture B200 --type kernel             # alias → sm100
+python3 scripts/get_page.py kernel-flash-attention-4 --follow-sources
+python3 scripts/grep_wiki.py "tcgen05\\.fence" --only wiki
 ```
 
-## For Human Readers
+## Companion Docs
 
-Start with [`index.md`](index.md) for curated top-level navigation.
-
-Read [`CLAUDE.md`](CLAUDE.md) for schema conventions and the 8-step navigation flow.
+- [`SKILL.md`](SKILL.md) — Skill entry point: when to engage, 5 navigation paths, output contract.
+- [`references/primer.md`](references/primer.md) — Topic map: hardware features, techniques, kernels, symptoms → canonical page IDs.
+- [`references/schema.md`](references/schema.md) — Frontmatter schema, confidence rules, reproducibility ladder, controlled vocabulary, canonical aliases.
+- [`references/examples.md`](references/examples.md) — 10 worked query patterns (user question → command sequence → synthesis).
+- [`CLAUDE.md`](CLAUDE.md) — Extended schema + navigation reference for Claude Code.
+- [`index.md`](index.md) — Human-facing curated top-level index.
 
 ## Architecture
 
@@ -56,24 +76,22 @@ Supporting files:
 - `data/aliases.yaml` — Canonical → synonym mappings
 - `candidates/` — Reviewed PR candidate ledgers (per repo)
 
-## Tooling
+## Maintenance Tooling
 
 | Script | Purpose |
-|--------|---------|
+|---|---|
 | `scripts/validate.py` | Validate YAML frontmatter, enforce schema, check link integrity |
 | `scripts/generate-indices.py` | Regenerate `queries/*.md` from frontmatter |
 | `scripts/generate-pr-pages.py` | Batch-generate source PR pages from candidate ledgers |
 
-Setup:
 ```bash
 pip install -r requirements.txt
-python3 scripts/validate.py         # should report 545 files, 0 errors
-python3 scripts/generate-indices.py # regenerate query indices
+python3 scripts/validate.py            # reports 545 files, 0 errors
+python3 scripts/generate-indices.py    # regenerate query indices
 ```
 
-## Quality Gates
+## Quality Gates (as of 2026-04-17)
 
-As of 2026-04-17:
 - 545 files, 497 source IDs, 0 validation errors
 - 0 broken links across 1,642 internal references
 - All `verified` wiki pages have official-doc + upstream-code evidence
@@ -82,54 +100,54 @@ As of 2026-04-17:
 
 ## Scope Rules
 
-- **Blackwell-first**: SM100 content is primary. SM90 requires explicit `blackwell_relevance` field.
-- **Kernel-only**: No distributed-system topics (DeepEP, DualPipe, EPLB are out of scope).
-- **English canonical**: All content in English.
-- **First-class DSLs**: CuTe DSL, CUDA C++, PTX, Triton. TileLang/cuTile/JAX-Pallas mentioned but no dedicated guides.
+- **Blackwell-first** — SM100 content is primary. SM90 requires explicit `blackwell_relevance` field.
+- **Kernel-only** — No distributed-system topics (DeepEP, DualPipe, EPLB are out of scope).
+- **English canonical** — All content in English.
+- **First-class DSLs** — CuTe DSL, CUDA C++, PTX, Triton. TileLang / cuTile / JAX-Pallas mentioned but no dedicated guides.
 
 ## Repository Layout
 
 ```
-├── README.md                    # This file
-├── CLAUDE.md                    # LLM navigation + schema conventions
-├── index.md                     # Human-facing curated top-level index
-├── requirements.txt             # Python deps (PyYAML)
+KernelWiki/                             (= ~/.claude/skills/KernelWiki/)
+├── SKILL.md                           # Skill entry point
+├── README.md                          # This file
+├── CLAUDE.md                          # Extended navigation + schema reference
+├── index.md                           # Curated top-level index
+├── requirements.txt                   # PyYAML
 │
-├── data/                        # Schema + vocabulary
+├── scripts/                           # Query tools + maintenance tooling
+│   ├── query.py                       # Unified search
+│   ├── get_page.py                    # Page fetcher
+│   ├── grep_wiki.py                   # Regex search
+│   ├── _wiki_root.py                  # Shared root resolver
+│   ├── validate.py                    # Schema validator
+│   ├── generate-indices.py            # Query-index generator
+│   └── generate-pr-pages.py           # Batch PR page generator
+│
+├── references/                        # Skill knowledge layer
+│   ├── primer.md                      # Topic map
+│   ├── schema.md                      # Condensed schema reference
+│   └── examples.md                    # 10 worked query patterns
+│
+├── data/                              # Schema + vocabulary
 │   ├── schemas.yaml
 │   ├── tags.yaml
 │   └── aliases.yaml
 │
-├── scripts/                     # Validation + generation tooling
-│   ├── validate.py
-│   ├── generate-indices.py
-│   └── generate-pr-pages.py
-│
-├── skills/                      # Claude Code skill (self-contained)
-│   └── blackwell-kernel-wiki/
-│       ├── SKILL.md
-│       ├── scripts/
-│       │   ├── query.py
-│       │   ├── get_page.py
-│       │   └── grep_wiki.py
-│       └── references/
-│           ├── schema.md
-│           └── examples.md
-│
-├── candidates/                  # Reviewed PR ledgers (source of truth for ingestion)
+├── candidates/                        # Reviewed PR ledgers (ingestion source of truth)
 │   ├── cutlass.yaml
 │   ├── sglang.yaml
 │   ├── vllm.yaml
 │   ├── flashinfer.yaml
 │   └── pytorch.yaml
 │
-├── sources/                     # Layer 1: raw data
+├── sources/                           # Layer 1: raw data
 │   ├── prs/{repo}/PR-{N}.md
 │   ├── contests/{contest}/
 │   ├── docs/
 │   └── blogs/
 │
-├── wiki/                        # Layer 2: synthesized knowledge
+├── wiki/                              # Layer 2: synthesized knowledge
 │   ├── hardware/
 │   ├── techniques/
 │   ├── kernels/
@@ -137,7 +155,7 @@ As of 2026-04-17:
 │   ├── languages/
 │   └── migration/
 │
-└── queries/                     # Layer 3: auto-generated indices
+└── queries/                           # Layer 3: auto-generated indices
     ├── by-problem.md
     ├── by-technique.md
     ├── by-hardware-feature.md
@@ -148,4 +166,4 @@ As of 2026-04-17:
 
 ## License
 
-Summaries and wiki syntheses in this repository are derivative works citing upstream PRs, blogs, and docs. The tooling (`scripts/`, `skills/`, `data/`) is MIT-style; see individual files for any exceptions.
+Summaries and wiki syntheses in this repository are derivative works citing upstream PRs, blogs, and docs. The tooling (`scripts/`, `references/`, `data/`) is MIT-style; see individual files for any exceptions.

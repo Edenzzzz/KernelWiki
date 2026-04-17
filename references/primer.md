@@ -106,7 +106,7 @@ All page IDs below resolve via `get_page.py <id>`. All paths are relative to the
 | flashinfer-ai/flashinfer | 126 | `candidates/flashinfer.yaml` |
 | pytorch/pytorch | 71 | `candidates/pytorch.yaml` |
 
-Query by repo: `python3 "$SKILL_DIR/scripts/query.py" --repo <name>`.
+Query by repo: `python3 scripts/query.py --repo <name>`.
 
 ---
 

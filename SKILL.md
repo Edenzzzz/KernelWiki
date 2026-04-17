@@ -1,11 +1,11 @@
 ---
-name: blackwell-kernel-wiki
+name: KernelWiki
 description: Use when the user asks about optimizing NVIDIA Blackwell (SM100, B200) or Hopper (SM90, H100) GPU kernels — tcgen05/TMEM/CLC/NVFP4/2-SM cooperative, warp specialization, FlashAttention-4, DeepGEMM, FlashMLA, MoE, grouped GEMM, CuTe-DSL/PTX/Triton on Blackwell, or wants concrete PR references from CUTLASS/SGLang/vLLM/FlashInfer/PyTorch. Do NOT use for generic CUDA Q&A that is not Blackwell/Hopper-specific, host-side framework integration, or distributed systems (DeepEP/EPLB/DualPipe).
 argument-hint: "[natural-language-question] | [--tag foo --type kernel] | [page-id]"
 allowed-tools: "Bash,Read,Grep,Glob"
 ---
 
-# Blackwell Kernel Wiki
+# KernelWiki — Blackwell & Hopper Kernel Optimization Wiki
 
 Query a structured, cross-referenced knowledge base of GPU kernel optimization for NVIDIA Blackwell (SM100) and Hopper (SM90) — 460+ merged PRs, 48 wiki synthesis pages, 7 competitions, 20 blogs, 10 doc summaries.
 
@@ -27,66 +27,44 @@ Do NOT use this skill for:
 - Host-side framework integration (model loading, request routing, scheduling policy)
 - Distributed systems topics — DeepEP, EPLB, DualPipe are out of scope
 
-## Runtime Setup
+## How To Query
 
-Commands below use `$SKILL_DIR/scripts/...`. Resolve it once:
-
-```bash
-# The skill's own directory. Works both when the skill lives at
-# skills/blackwell-kernel-wiki/ inside the wiki repo, and when it's installed
-# at ~/.claude/skills/blackwell-kernel-wiki/ (with BLACKWELL_WIKI_ROOT set).
-SKILL_DIR=$(find ~/.claude/skills/blackwell-kernel-wiki . -maxdepth 6 \
-            -type d -name blackwell-kernel-wiki 2>/dev/null | head -1)
-```
-
-If the skill is installed outside the wiki repo, also set:
-
-```bash
-export BLACKWELL_WIKI_ROOT=/absolute/path/to/blackwell-kernel-wiki
-```
-
-The scripts auto-detect the wiki root when running inside a checkout; the env
-override is only needed when the skill directory is separated from the data.
-
-## How To Query (Navigation)
-
-Use query paths in order of specificity. All paths live under the wiki root
-(the repository containing `data/`, `wiki/`, `sources/`, `queries/`).
+All commands below run from the skill directory (the clone root — the directory this `SKILL.md` lives in). The scripts auto-resolve the wiki root; **no environment variable required**.
 
 ### Path 1: Unified search (preferred for natural language)
 
 ```bash
-python3 "$SKILL_DIR/scripts/query.py" "how to fuse gate-up dual GEMM on Blackwell"
-python3 "$SKILL_DIR/scripts/query.py" --tag nvfp4 --type kernel
-python3 "$SKILL_DIR/scripts/query.py" --repo cutlass --limit 20
-python3 "$SKILL_DIR/scripts/query.py" --symptom tail-effect --compact
+python3 scripts/query.py "how to fuse gate-up dual GEMM on Blackwell"
+python3 scripts/query.py --tag nvfp4 --type kernel
+python3 scripts/query.py --repo cutlass --limit 20
+python3 scripts/query.py --symptom tail-effect --compact
 ```
 
 Filters: `--type`, `--tag`, `--repo`, `--language`, `--architecture`,
-`--symptom`, `--confidence`, `--limit`, `--compact`, `--paths-only`. Tag
-filters accept aliases — `--tag UMMA` matches `tcgen05`, `--tag B200` matches
-`sm100`, etc.
+`--symptom`, `--confidence`, `--limit`, `--compact`, `--paths-only`. `--tag`
+and `--architecture` accept aliases — `--tag UMMA` matches `tcgen05`,
+`--architecture B200` matches `sm100`, etc.
 
 ### Path 2: Fetch a specific page by id or path
 
 ```bash
-python3 "$SKILL_DIR/scripts/get_page.py" kernel-flash-attention-4
-python3 "$SKILL_DIR/scripts/get_page.py" pr-cutlass-2472
-python3 "$SKILL_DIR/scripts/get_page.py" kernel-flash-attention-4 --follow-sources
-python3 "$SKILL_DIR/scripts/get_page.py" kernel-flash-attention-4 --body-only
+python3 scripts/get_page.py kernel-flash-attention-4
+python3 scripts/get_page.py pr-cutlass-2472
+python3 scripts/get_page.py kernel-flash-attention-4 --follow-sources
+python3 scripts/get_page.py kernel-flash-attention-4 --body-only
 ```
 
 ### Path 3: Regex text search across wiki bodies and PR pages
 
 ```bash
-python3 "$SKILL_DIR/scripts/grep_wiki.py" "tcgen05\\.fence"
-python3 "$SKILL_DIR/scripts/grep_wiki.py" "2-CTA backward" --only wiki
-python3 "$SKILL_DIR/scripts/grep_wiki.py" "nvfp4" "block_scale" --any
+python3 scripts/grep_wiki.py "tcgen05\\.fence"
+python3 scripts/grep_wiki.py "2-CTA backward" --only wiki
+python3 scripts/grep_wiki.py "nvfp4" "block_scale" --any
 ```
 
 ### Path 4: Pre-built cross-reference indices
 
-The wiki root ships auto-generated indices under `queries/`:
+Auto-generated under `queries/`:
 
 - `queries/by-problem.md` — symptom → pattern page → candidate techniques
 - `queries/by-technique.md` — 15 techniques with architectures, confidence, reproducibility, source count
@@ -95,15 +73,13 @@ The wiki root ships auto-generated indices under `queries/`:
 - `queries/by-language.md` — cute-dsl/cuda-cpp/ptx/triton → guide page + related kernels/sources
 - `queries/by-repo.md` — all 460 PRs across cutlass/sglang/vllm/flashinfer/pytorch
 
-Read any of them with `python3 "$SKILL_DIR/scripts/get_page.py" queries/by-technique.md` or the `Read` tool directly.
-
 ### Path 5: Primer, schema, examples
 
-Three companion docs under `$SKILL_DIR/references/`:
+Companion docs under `references/`:
 
-- `primer.md` — topic map: hardware features, techniques, symptoms, canonical page IDs. Read this first when the user question is broad.
-- `schema.md` — condensed frontmatter schema, confidence rules, reproducibility ladder, controlled vocabulary, canonical aliases.
-- `examples.md` — 10 worked query patterns mapping user questions → command sequences → synthesis.
+- `references/primer.md` — topic map: hardware features, techniques, symptoms, canonical page IDs. Read this first when the question is broad.
+- `references/schema.md` — condensed frontmatter schema, confidence rules, reproducibility ladder, controlled vocabulary, canonical aliases.
+- `references/examples.md` — 10 worked query patterns mapping user questions → command sequences → synthesis.
 
 ## Output Pattern
 
