@@ -212,14 +212,45 @@ WebSearch: "flashinfer bench leaderboard kernel"
 
 ### 并行度
 
-每个仓库拆成 2-3 个time-range sub-agent：
-- Agent 1: 2025-01 ~ 2025-06（每个repo）
-- Agent 2: 2025-07 ~ 2025-12（每个repo）
-- Agent 3: 2026-01 ~ 2026-04（每个repo）
+大仓库需要更多sub-agent，每个agent负责一个时间段内50-80个PR的搜索+过滤+创建：
 
-总共：5 repos × 3 periods = 15 个 PR收集 sub-agents
-加上：2 个比赛数据 sub-agents
-= **17 个并行 sub-agents**
+**CUTLASS**（41 PRs, 小规模）：2 agents
+- Agent: 2025-01 ~ 2025-09
+- Agent: 2025-10 ~ 2026-04
+
+**SGLang**（194 PRs）：4 agents
+- Agent: 2025-01 ~ 2025-03
+- Agent: 2025-04 ~ 2025-06
+- Agent: 2025-07 ~ 2025-09
+- Agent: 2025-10 ~ 2026-04
+
+**vLLM**（254 PRs）：5 agents
+- Agent: 2025-01 ~ 2025-03
+- Agent: 2025-04 ~ 2025-06
+- Agent: 2025-07 ~ 2025-09
+- Agent: 2025-10 ~ 2025-12
+- Agent: 2026-01 ~ 2026-04
+
+**FlashInfer**（300 PRs）：5 agents
+- Agent: 2025-01 ~ 2025-03
+- Agent: 2025-04 ~ 2025-06
+- Agent: 2025-07 ~ 2025-09
+- Agent: 2025-10 ~ 2025-12
+- Agent: 2026-01 ~ 2026-04
+
+**PyTorch**（141 PRs）：3 agents
+- Agent: 2025-01 ~ 2025-06
+- Agent: 2025-07 ~ 2025-12
+- Agent: 2026-01 ~ 2026-04
+
+**比赛**：3 agents
+- Agent: GPU Mode hackathon leaderboards + solutions
+- Agent: FlashInfer contest forks + submissions
+- Agent: Additional blogs + docs
+
+总共：**2 + 4 + 5 + 5 + 3 + 3 = 22 个并行 sub-agents**
+
+每批可发6个并行agent，需要 4 批执行。
 
 ### 每个sub-agent的工作流
 
@@ -241,22 +272,32 @@ WebSearch: "flashinfer bench leaderboard kernel"
 3. 最终运行 `python3 scripts/generate-indices.py` 重建所有索引
 4. 运行link integrity check
 
-### 预期结果
+### 预期结果（收录至少一半匹配PR）
 
-| 来源 | 当前 | 目标 | 新增 |
-|------|------|------|------|
-| CUTLASS PRs | 7 | 30-50 | 23-43 |
-| SGLang PRs | 5 | 20-30 | 15-25 |
-| vLLM PRs | 6 | 25-40 | 19-34 |
-| FlashInfer PRs | 6 | 25-35 | 19-29 |
-| PyTorch PRs | 7 | 15-25 | 8-18 |
-| GPU Mode 比赛 | 4 | 15-20 | 11-16 |
-| FlashInfer 比赛 | 3 | 10-15 | 7-12 |
-| Blogs | 10 | 20-25 | 10-15 |
-| Docs | 6 | 10-12 | 4-6 |
-| **Total sources** | **54** | **180-260** | **~120-200 new** |
+| 来源 | API匹配数 | 目标（≥50%） | 当前 | 新增 |
+|------|----------|-------------|------|------|
+| CUTLASS PRs | 41 (blackwell) | **20+** | 7 | 13+ |
+| SGLang PRs | 194 (sm100) | **100+** | 5 | 95+ |
+| vLLM PRs | 254 (sm100) | **130+** | 6 | 124+ |
+| FlashInfer PRs | 300 (sm100) | **150+** | 6 | 144+ |
+| PyTorch PRs | 141 (sm100) | **70+** | 7 | 63+ |
+| GPU Mode 比赛 | leaderboards + solutions | **20+** | 4 | 16+ |
+| FlashInfer 比赛 | 17 forks + leaderboard | **15+** | 3 | 12+ |
+| Blogs | identified | **25+** | 10 | 15+ |
+| Docs | identified | **12+** | 6 | 6+ |
+| **Total sources** | **~930+** | **540+** | **54** | **~490+ new** |
 
-加上现有37 wiki pages + 新增wiki pages → **总计 250-350 files**
+加上现有37 wiki pages + 大量新增wiki pages → **总计 600-700+ files**
+
+### 过滤策略说明
+
+GitHub API匹配数中有大量重复（多个关键词匹配同一PR）和低相关PR。实际唯一PR数约为匹配数的60-70%。过滤掉纯CI/doc/bump后，目标是保留**至少50%的唯一匹配PR**。
+
+对于大仓库（SGLang 194, vLLM 254, FlashInfer 300），需要：
+1. 先用API获取全部匹配PR列表（number + title）
+2. 按title快速过滤掉明显无关的（`[CI]`, `[Doc]`, `bump`, `typo`, `format`）
+3. 对剩余PR获取详情并创建source page
+4. 每个sub-agent处理50-100个PR，需要拆更多时间段
 
 ## 额外博客和文档待收录
 
