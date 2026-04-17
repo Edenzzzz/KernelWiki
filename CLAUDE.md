@@ -4,6 +4,16 @@ A structured knowledge base of GPU kernel optimization for NVIDIA Blackwell (SM1
 
 ## Navigation
 
+### Recommended: use the `blackwell-kernel-wiki` skill
+```bash
+python3 skills/blackwell-kernel-wiki/scripts/query.py "<keywords>" [--tag X --type Y]
+python3 skills/blackwell-kernel-wiki/scripts/get_page.py <id-or-path> [--follow-sources]
+python3 skills/blackwell-kernel-wiki/scripts/grep_wiki.py "<pattern>" [--only wiki]
+```
+See `skills/blackwell-kernel-wiki/SKILL.md` and `references/examples.md` for 10 query patterns.
+
+### Direct navigation (when skill not available)
+
 1. **Start**: Read `index.md` for curated top-level navigation
 2. **By problem**: Read `queries/by-problem.md` → find symptom → follow links to pattern pages
 3. **By technique**: Read `queries/by-technique.md` → find technique → follow to technique page

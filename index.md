@@ -2,6 +2,17 @@
 
 > Comprehensive knowledge base for GPU kernel optimization on NVIDIA Blackwell (SM100) and Hopper (SM90).
 > Optimized for LLM agent retrieval. See [CLAUDE.md](CLAUDE.md) for schema and conventions.
+> **For Claude Code agents**: invoke the `blackwell-kernel-wiki` skill — see [skills/blackwell-kernel-wiki/SKILL.md](skills/blackwell-kernel-wiki/SKILL.md).
+
+## Recommended Query Tools (for LLM agents)
+
+```bash
+python3 skills/blackwell-kernel-wiki/scripts/query.py "<natural language>" [--tag <t>] [--type <kernel|technique|pr|...>]
+python3 skills/blackwell-kernel-wiki/scripts/get_page.py <page-id-or-path> [--follow-sources]
+python3 skills/blackwell-kernel-wiki/scripts/grep_wiki.py "<regex>" [--only wiki|sources]
+```
+
+See [skills/blackwell-kernel-wiki/references/examples.md](skills/blackwell-kernel-wiki/references/examples.md) for 10 worked query patterns.
 
 ## Quick Navigation
 
