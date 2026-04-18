@@ -134,6 +134,24 @@ def all_paths_would_be_skipped_by_fetch(paths):
     return all(any(fnmatch(p, g) for g in _FETCH_SKIP_GLOBS) for p in paths)
 
 
+_STRONG_CUTE_GLOBS = (
+    "cute/**", "**/cute/**",
+    "cute_dsl/**", "**/cute_dsl/**",
+    "**/cutlass.cute.**",
+    "examples/cute_dsl/**", "**/examples/cute_dsl/**",
+    "examples/python/CuTeDSL/**", "**/examples/python/CuTeDSL/**",
+    "tools/cute/**", "**/tools/cute/**",
+    "**/*cutedsl*.py",
+    "**/*cutedsl*.cu",
+)
+
+_KERNEL_OR_EXAMPLE_GLOBS = _STRONG_CUTE_GLOBS + (
+    "examples/**/*.cu", "**/examples/**/*.cu",
+    "examples/**/*.cuh", "**/examples/**/*.cuh",
+    "examples/**/*.hpp", "**/examples/**/*.hpp",
+)
+
+
 def apply_cute_dsl_policy(policy, pr):
     """Return (captured: bool, skipped_reason: str|None)."""
     rules = policy.get("cute-dsl", {}) or {}
@@ -141,16 +159,45 @@ def apply_cute_dsl_policy(policy, pr):
     tags = set(pr.get("tags") or [])
     changed_paths = pr.get("changed_paths") or []
 
-    # Match: languages contains cute-dsl OR tags contains cute-dsl OR
-    # changed_paths match any of the cute-dsl globs.
-    cute_globs = []
-    for crit in rules.get("capture_criteria", []):
-        if isinstance(crit, dict) and "changed_paths_match" in crit:
-            cute_globs.extend(crit["changed_paths_match"])
-    matches_glob = path_matches_any(changed_paths, cute_globs) if cute_globs else False
+    # Cute-DSL path signals. Two tiers:
+    #   STRONG: paths that literally name cute or cutedsl (e.g.
+    #           `include/cute/...`, `flashinfer_cutedsl_moe.py`). A
+    #           strong match alone is enough to enter the lane even
+    #           without a cute-dsl tag.
+    #   KERNEL_OR_EXAMPLE: a superset used for the "does this PR
+    #           author a kernel/example file?" check. Includes generic
+    #           CUTLASS `examples/**/*.cu` paths which are CuTe-DSL in
+    #           the Blackwell era but can't be distinguished from
+    #           non-cute cuda-cpp examples by path alone.
+    # fnmatch `**` matching requires both top-level and `**/` prefix
+    # variants (BL-20260417-skip-globs-fnmatch-depth).
+    from fnmatch import fnmatch
+    STRONG_CUTE_GLOBS = _STRONG_CUTE_GLOBS
+    KERNEL_OR_EXAMPLE_GLOBS = _KERNEL_OR_EXAMPLE_GLOBS
+    # Restrict the path-signal checks to paths that survive fetch's
+    # SKIP_GLOBS. Otherwise a PR whose only cute-ish path is
+    # `test_cutedsl_foo.py` or a benchmark script falsely passes the
+    # metadata-only gate via a path the fetch stage will drop
+    # downstream (R27 tightening on top of R19).
+    non_skip_paths = [
+        p for p in changed_paths
+        if not any(fnmatch(p, g) for g in _FETCH_SKIP_GLOBS)
+    ]
+    has_strong_cute = any(
+        fnmatch(p, g) for p in non_skip_paths for g in STRONG_CUTE_GLOBS
+    )
+    has_kernel_example = any(
+        fnmatch(p, g) for p in non_skip_paths for g in KERNEL_OR_EXAMPLE_GLOBS
+    )
     language_tag_match = "cute-dsl" in langs or "cute-dsl" in tags
 
-    if not (language_tag_match or matches_glob):
+    # Initial gate: either the PR declares cute-dsl in metadata, or a
+    # changed path carries a strong cute/cutedsl signal. A path-only
+    # match under the WEAK globs (generic `examples/*.cu`) is NOT
+    # enough to enter the lane without a cute-dsl tag — otherwise
+    # untagged cuda-cpp CUTLASS-example PRs would be falsely pulled
+    # in via the widened globs.
+    if not (language_tag_match or has_strong_cute):
         return False, "not a cute-dsl PR"
 
     # Skip rule: docs/CHANGELOG/release_notes only
@@ -175,6 +222,23 @@ def apply_cute_dsl_policy(policy, pr):
         return False, (
             "all changed_paths are tests/benchmarks/docs "
             "(empty bundle after fetch_pr_diff.SKIP_GLOBS)"
+        )
+
+    # Tightening (R27): metadata-only captures are rejected per policy.
+    # If the PR entered the lane via `language_tag_match` but no path
+    # matches any kernel/example glob (after fetch-skip filtering), it
+    # is a "cute-dsl-affinity" PR rather than a cute-dsl authorship PR.
+    # Concrete example: pr-sglang-21428 lists only
+    # `python/sglang/srt/layers/attention/linear/kda_backend.py`, a
+    # backend-dispatch file with no cute/cutedsl/CuTeDSL path marker
+    # and no `.cu`/`.cuh`/`.hpp` example file. Policy doc's
+    # `language_tag_only_without_kernel_path: true` skip rule covers
+    # this case.
+    if not has_kernel_example:
+        return False, (
+            "cute-dsl PR with no kernel/example path match after "
+            "fetch-skip filtering (control-plane / affinity only; "
+            "policy requires a kernel/example path)"
         )
 
     return True, None
@@ -288,11 +352,12 @@ def build_cute_universe(policy, all_prs):
     recording every one of the 460 PRs would dilute the lane's meaning.
     """
     entries = []
-    rules = (policy.get("cute-dsl") or {})
-    cute_globs = []
-    for crit in rules.get("capture_criteria", []):
-        if isinstance(crit, dict) and "changed_paths_match" in crit:
-            cute_globs.extend(crit["changed_paths_match"])
+    # R27: share the same STRONG path-signal list as apply_cute_dsl_policy
+    # so the universe "is-a-candidate" test uses the identical criterion
+    # as the capture decision. Previously the universe test pulled its
+    # globs from the YAML, which drifted out of sync with the code when
+    # the two-tier STRONG / KERNEL_OR_EXAMPLE split was introduced.
+    cute_globs = list(_STRONG_CUTE_GLOBS)
 
     for pid in sorted(all_prs.keys()):
         pr = all_prs[pid]

@@ -4,8 +4,8 @@
 lane: cute-dsl
 generated_by: scripts/compute_core_prs.py
 total: 25
-captured: 24
-skipped: 1
+captured: 22
+skipped: 3
 prs:
 - id: pr-cutlass-2139
   captured: true
@@ -40,11 +40,15 @@ prs:
 - id: pr-sglang-21203
   captured: true
 - id: pr-sglang-21239
-  captured: true
+  captured: false
+  skipped_reason: cute-dsl PR with no kernel/example path match after fetch-skip filtering
+    (control-plane / affinity only; policy requires a kernel/example path)
 - id: pr-sglang-21339
   captured: true
 - id: pr-sglang-21428
-  captured: true
+  captured: false
+  skipped_reason: cute-dsl PR with no kernel/example path match after fetch-skip filtering
+    (control-plane / affinity only; policy requires a kernel/example path)
 - id: pr-vllm-36728
   captured: true
 - id: pr-vllm-37217

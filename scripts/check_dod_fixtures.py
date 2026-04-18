@@ -197,8 +197,22 @@ def main():
     args = parser.parse_args()
 
     if not FIXTURES_PATH.is_file():
-        print(f"No {FIXTURES_PATH.relative_to(REPO_ROOT)} — skipping DoD fixture check.")
-        sys.exit(0)
+        # R27: the module docstring classifies a missing fixture file
+        # as an invocation error (the AC-7 gate is a required input).
+        # `install_precommit_hook.sh` also guards against invoking this
+        # script when the file is absent, so reaching this branch means
+        # the caller bypassed that guard — fail loud (exit 2) instead
+        # of reporting a clean skip that would silently remove the gate
+        # in CI.
+        print(
+            f"ERROR: {FIXTURES_PATH.relative_to(REPO_ROOT)} not found; "
+            f"the AC-7 DoD fixture gate requires this file. If the gate "
+            f"is intentionally being retired, remove the invocation from "
+            f"the pre-commit hook and delete this script instead of "
+            f"deleting the fixtures file.",
+            file=sys.stderr,
+        )
+        sys.exit(2)
 
     try:
         data = yaml.safe_load(FIXTURES_PATH.read_text(encoding="utf-8")) or {}
@@ -208,8 +222,15 @@ def main():
 
     entries = data.get("fixtures") or []
     if not entries:
-        print(f"{FIXTURES_PATH.relative_to(REPO_ROOT)} has no fixtures; nothing to check.")
-        sys.exit(0)
+        # R27: an empty `fixtures:` list collapses the AC-7 gate just
+        # like a missing file. Reject as invocation error rather than
+        # reporting "nothing to check" which looks like a clean pass.
+        print(
+            f"ERROR: {FIXTURES_PATH.relative_to(REPO_ROOT)} has no "
+            f"`fixtures:` entries; AC-7 requires at least one fixture.",
+            file=sys.stderr,
+        )
+        sys.exit(2)
 
     all_errors = []
     for entry in entries:

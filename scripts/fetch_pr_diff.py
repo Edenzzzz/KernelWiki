@@ -676,7 +676,9 @@ def main():
 
     print(f"\nFetched {ok}/{len(targets)} PRs successfully.")
 
-    if args.pilot and pilot_stats:
+    partial_failure = ok != len(targets)
+
+    if args.pilot and pilot_stats and not partial_failure:
         total_bytes = sum(s["bundle_bytes"] for s in pilot_stats)
         avg_bundle = total_bytes / len(pilot_stats)
         # Extrapolate
@@ -700,6 +702,31 @@ def main():
         print(f"  Lower-bound projection: {budget['lower_bound_projection_mib']} MiB")
         print(f"  Upper-bound projection: {budget['upper_bound_projection_mib']} MiB")
         print(f"  Active ceiling: {budget['active_ceiling_mib']} MiB")
+    elif args.pilot and partial_failure:
+        # R27: a partial pilot produces a misleading size-budget
+        # projection (some PRs silently missing), so refuse to write
+        # data/phase3-size-budget.yaml when the pilot fetch was
+        # incomplete. Re-run after the transient gh / upstream issue
+        # resolves.
+        print(
+            f"\nSkipping {BUDGET_PATH.relative_to(REPO_ROOT)} write: "
+            f"pilot fetch was partial ({ok}/{len(targets)}). "
+            f"Re-run after resolving the gh / upstream issue.",
+            file=sys.stderr,
+        )
+
+    if partial_failure:
+        # R27: any target that failed to fetch should make the whole
+        # command exit non-zero so CI regeneration doesn't silently
+        # commit a half-captured corpus. A transient gh error, stale
+        # merge_sha, or bundle-emission failure all contribute here.
+        print(
+            f"\nERROR: {len(targets) - ok} of {len(targets)} requested "
+            f"PR(s) did not fetch successfully. See the per-PR WARN / "
+            f"ERROR lines above.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
 
 if __name__ == "__main__":

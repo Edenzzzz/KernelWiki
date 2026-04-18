@@ -13,23 +13,19 @@ gh version 2.90.0 (2026-04-16)
 
 ## Scope
 
-- 95 asset bundles under `artifacts/` (91 post-R19 + 4 new blog
-  `asset_mode: extracted` bundles added in Round 20 for
-  `amandeep-nvfp4-attempts`, `modular-blackwell-matmul`,
-  `nvfp4-format-details`, and `vllm-deepseek-v3-sparse-attention`
-  after the extractor stopped dropping unlabeled fenced blocks; Round
-  26 tightened the unlabeled-fence filter with a bullet-ratio
-  heuristic, which dropped four prose-only fences from amandeep but
-  kept the four blog bundles. Two `kernels/*/full/` bundles had their
-  top-level `asset_mode` corrected from `verbatim` to `extracted`
-  since they combine an upstream-patch with an extracted blog snippet
-  rather than a verbatim upstream file.)
-- 312 files with `mode: verbatim` or `mode: upstream-patch` and no `size_cap_truncated` marker
+- 94 asset bundles under `artifacts/` (95 post-R26 − 1 removed in R27
+  when pr-sglang-21428's metadata-only cute-dsl capture was dropped
+  per policy: the PR touched only `python/sglang/srt/layers/attention/
+  linear/kda_backend.py`, a backend-dispatch file with no cute /
+  cutedsl / CuTeDSL path marker, so policy's
+  `language_tag_only_without_kernel_path: true` skip rule now applies
+  after the two-tier STRONG / KERNEL_OR_EXAMPLE glob refactor.)
+- 310 files with `mode: verbatim` or `mode: upstream-patch` and no `size_cap_truncated` marker (was 312; minus the 2 files in the dropped pr-sglang-21428 bundle)
 
 ## stdout
 
 ```
-Verified 95 bundle(s).
+Verified 94 bundle(s).
 All verbatim/upstream-patch assets match upstream.
 ```
 
