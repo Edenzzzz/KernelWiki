@@ -27,6 +27,7 @@ import argparse
 import base64
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -159,7 +160,7 @@ def collect_one(contest_page, sub_idx, sub, manifest, contest_page_id=None):
     # bundle, gh failure, mid-copy OS error) the staging dir is removed
     # and the prior bundle is preserved, so `code_path` in the contest
     # page never points at a half-written or missing submission.
-    import os as _os
+
     bundle_dir.parent.mkdir(parents=True, exist_ok=True)
     bundle_work = bundle_dir.parent / f".{bundle_dir.name}.new"
     if bundle_work.exists():
@@ -333,15 +334,15 @@ def collect_one(contest_page, sub_idx, sub, manifest, contest_page_id=None):
                 if bundle_prev.exists():
                     shutil.rmtree(bundle_prev, ignore_errors=True)
                 try:
-                    _os.rename(bundle_dir_final, bundle_prev)
+                    os.rename(bundle_dir_final, bundle_prev)
                 except OSError:
                     bundle_prev = None
             try:
-                _os.rename(bundle_work, bundle_dir_final)
+                os.rename(bundle_work, bundle_dir_final)
             except OSError as e:
                 if bundle_prev is not None and bundle_prev.exists():
                     try:
-                        _os.rename(bundle_prev, bundle_dir_final)
+                        os.rename(bundle_prev, bundle_dir_final)
                     except OSError:
                         pass
                 # Remove the orphan staging dir before re-raising, so a

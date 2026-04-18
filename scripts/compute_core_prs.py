@@ -24,6 +24,7 @@ from __future__ import annotations
 import hashlib
 import re
 import sys
+from fnmatch import fnmatch
 from pathlib import Path
 import yaml
 
@@ -31,8 +32,6 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SOURCES = REPO_ROOT / "sources"
 WIKI = REPO_ROOT / "wiki"
 DATA = REPO_ROOT / "data"
-
-PR_ID_RE = re.compile(r"pr-[a-z0-9\-]+-\d+")
 
 
 def extract_frontmatter(md_path):
@@ -108,7 +107,6 @@ def contest_referenced_prs():
 
 
 def path_matches_any(paths, globs):
-    from fnmatch import fnmatch
     return any(fnmatch(p, g) for p in paths for g in globs)
 
 
@@ -146,7 +144,6 @@ def all_paths_would_be_skipped_by_fetch(paths):
     """
     if not paths:
         return False
-    from fnmatch import fnmatch
     return all(any(fnmatch(p, g) for g in _FETCH_SKIP_GLOBS) for p in paths)
 
 
@@ -187,7 +184,6 @@ def apply_cute_dsl_policy(policy, pr):
     #           non-cute cuda-cpp examples by path alone.
     # fnmatch `**` matching requires both top-level and `**/` prefix
     # variants (BL-20260417-skip-globs-fnmatch-depth).
-    from fnmatch import fnmatch
     STRONG_CUTE_GLOBS = _STRONG_CUTE_GLOBS
     KERNEL_OR_EXAMPLE_GLOBS = _KERNEL_OR_EXAMPLE_GLOBS
     # Restrict the path-signal checks to paths that survive fetch's
@@ -222,7 +218,6 @@ def apply_cute_dsl_policy(policy, pr):
         if isinstance(crit, dict) and "changed_paths_match_only" in crit:
             skip_globs.extend(crit["changed_paths_match_only"])
     if skip_globs and changed_paths:
-        from fnmatch import fnmatch
         if all(any(fnmatch(p, g) for g in skip_globs) for p in changed_paths):
             return False, "documentation-only CuTe DSL PR"
 
@@ -298,7 +293,6 @@ def apply_triton_policy(policy, pr):
         )
     # Skip runtime-config-only
     if changed_paths:
-        from fnmatch import fnmatch
         runtime_only_globs = ["**/config/**", "**/__init__.py"]
         if all(any(fnmatch(p, g) for g in runtime_only_globs) for p in changed_paths):
             return False, "runtime-config-only Triton PR"
@@ -321,7 +315,6 @@ def apply_triton_policy(policy, pr):
         return True, None
     # sm100-integration
     if "sm100" in archs:
-        from fnmatch import fnmatch
         # Directory-scoped patterns catch files living under a triton tree,
         # and basename-scoped patterns catch Triton backend-dispatch files
         # like vllm/v1/attention/backends/triton_attn.py or

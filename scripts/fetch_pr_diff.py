@@ -30,9 +30,12 @@ import base64
 import fnmatch
 import hashlib
 import json
+import os
 import re
+import shutil
 import subprocess
 import sys
+from datetime import date
 from pathlib import Path
 import yaml
 
@@ -289,8 +292,6 @@ def emit_bundle(repo, pr_num, pr_id, merge_sha, file_list, whole_diff, dry_run=F
     state — either the prior good bundle or the complete new bundle,
     never a half-captured bundle.
     """
-    import os
-    import shutil
     # Repo short name: "NVIDIA/cutlass" -> "cutlass"; keep lowercase
     repo_short = repo.split("/")[-1].lower()
     bundle_final = ARTIFACTS / repo_short / f"PR-{pr_num}"
@@ -553,7 +554,6 @@ def emit_bundle(repo, pr_num, pr_id, merge_sha, file_list, whole_diff, dry_run=F
 
 
 def _today():
-    from datetime import date
     return date.today().isoformat()
 
 

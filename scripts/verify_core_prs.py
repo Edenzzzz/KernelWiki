@@ -22,6 +22,7 @@ bytes in memory rather than shelling out + writing to a temp directory.
 """
 
 import argparse
+import hashlib
 import json
 import subprocess
 import sys
@@ -141,7 +142,7 @@ def main():
             sys.exit(1)
         # Cross-check internal consistency: total_captured must match len(prs),
         # and the embedded checksum_sha256 must re-compute correctly.
-        import hashlib as _hl
+
         prs_list = fresh.get("prs") or []
         if fresh.get("total_captured") != len(prs_list):
             print(
@@ -154,7 +155,7 @@ def main():
         # prs_list. Re-dump with the same options and compare.
         checksum_body = yaml.dump(prs_list, allow_unicode=True, sort_keys=False,
                                   default_flow_style=False)
-        expected = _hl.sha256(checksum_body.encode("utf-8")).hexdigest()
+        expected = hashlib.sha256(checksum_body.encode("utf-8")).hexdigest()
         if fresh.get("checksum_sha256") != expected:
             print(
                 f"FAIL: embedded checksum_sha256 does not match re-computed hash\n"

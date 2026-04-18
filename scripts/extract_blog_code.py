@@ -25,6 +25,7 @@ artifacts/blogs/<slug>/PROVENANCE.yaml (asset_mode: extracted).
 import argparse
 import hashlib
 import re
+import shutil
 import sys
 from pathlib import Path
 import yaml
@@ -296,9 +297,9 @@ def extract_one_blog(blog_md, force=False):
         # code/ subtree on disk, remove it entirely — otherwise validate.py,
         # query.py --has-code, and get_page.py --include-code will continue
         # to treat the blog as if it had extractable code.
-        import shutil as _shutil
+
         if code_dir.is_dir():
-            _shutil.rmtree(code_dir)
+            shutil.rmtree(code_dir)
         bundle.mkdir(parents=True, exist_ok=True)
         manifest_path.write_text(yaml.dump({
             "slug": slug,
