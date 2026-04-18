@@ -316,6 +316,16 @@ def collect_one(contest_page, sub_idx, sub, manifest, contest_page_id=None):
         # in `finally` guarantees this fires even for the `return` paths
         # above — without it, a partial capture could replace the old
         # bundle before the caller sees the error.
+        #
+        # R29: if the swap itself fails (destination locked, cross-
+        # filesystem rename, etc.), raise so `collect_one()`'s caller
+        # treats the submission as failed. Previously the `finally`
+        # silently swallowed OSError, leaving `collect_one` to return
+        # (new_sub, True, None) from the earlier `return` while the
+        # new bundle never actually installed — the contest page was
+        # then rewritten with a `code_path` pointing at a stale /
+        # missing directory. Raising from `finally` overrides the
+        # pending return value, which is the Python semantic we want.
         if _swap_on_exit[0]:
             bundle_prev = None
             if bundle_dir_final.exists():
@@ -328,12 +338,23 @@ def collect_one(contest_page, sub_idx, sub, manifest, contest_page_id=None):
                     bundle_prev = None
             try:
                 _os.rename(bundle_work, bundle_dir_final)
-            except OSError:
+            except OSError as e:
                 if bundle_prev is not None and bundle_prev.exists():
                     try:
                         _os.rename(bundle_prev, bundle_dir_final)
                     except OSError:
                         pass
+                # Remove the orphan staging dir before re-raising, so a
+                # failing swap doesn't leave `.<name>.new` lying around
+                # between runs.
+                if bundle_work.exists():
+                    shutil.rmtree(bundle_work, ignore_errors=True)
+                # Propagate: the main loop wraps collect_one and
+                # converts this into a soft failure for the fails list.
+                raise RuntimeError(
+                    f"atomic bundle swap failed for {bundle_dir_final}: {e}; "
+                    f"prior bundle restored if possible"
+                )
             if bundle_prev is not None and bundle_prev.exists():
                 shutil.rmtree(bundle_prev, ignore_errors=True)
         else:
@@ -375,7 +396,17 @@ def main():
             # right source page. Path-derived ids (contest-<dir>-<stem>)
             # don't match curator-assigned ids like `contest-gpumode-p1`.
             page_id = fm.get("id") if isinstance(fm, dict) else None
-            new_sub, ok, err = collect_one(contest_md, i, sub, manifest, contest_page_id=page_id)
+            try:
+                new_sub, ok, err = collect_one(contest_md, i, sub, manifest, contest_page_id=page_id)
+            except RuntimeError as swap_err:
+                # R29: collect_one's finally raises on atomic-swap
+                # failure. Treat as a soft failure so the run exits
+                # non-zero but doesn't crash the whole collection.
+                # Critically, don't treat as ok=True: preserve the
+                # ORIGINAL `sub` dict so main() doesn't rewrite the
+                # contest page's submission_truth / code_path fields
+                # to point at a bundle that never installed.
+                new_sub, ok, err = dict(sub), False, f"swap failed: {swap_err}"
             if err:
                 fails.append(f"{contest_md.relative_to(REPO)}[{i}]: {err}")
             if ok:

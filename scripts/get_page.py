@@ -102,6 +102,27 @@ def _resolve_artifact_dir(page_path, fm):
     abs_path = WIKI_ROOT / candidate
     if not abs_path.is_dir():
         return None, None, False
+
+    # R29: for source-blog fallbacks, consult the extraction manifest.
+    # `scripts/extract_blog_code.py` writes a MANIFEST.yaml even when the
+    # blog has no extractable fences (with `code_present: false`), so a
+    # naive "directory exists" check would surface the empty shell as
+    # an artifact bundle. Skip the fallback when the manifest explicitly
+    # declares no code — this keeps `get_page.py --include-code` and
+    # `query.py --has-code` consistent for blogs like
+    # `blog-blackwell-microbenchmarking` that ship zero code.
+    if parts[1] == "blogs":
+        manifest_path = abs_path / "MANIFEST.yaml"
+        if manifest_path.is_file():
+            try:
+                import yaml as _yaml
+                manifest = _yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+                if manifest.get("code_present") is False:
+                    return None, None, False
+            except Exception:
+                # On parse error, fall through to normal behavior —
+                # better to print the bundle than to silently hide it.
+                pass
     return str(candidate), abs_path, True
 
 
