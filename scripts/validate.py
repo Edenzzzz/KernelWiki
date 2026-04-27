@@ -13,6 +13,7 @@ SOURCES_DIR = REPO_ROOT / "sources"
 WIKI_DIR = REPO_ROOT / "wiki"
 DATA_DIR = REPO_ROOT / "data"
 ARTIFACTS_DIR = REPO_ROOT / "artifacts"
+CANDIDATES_DIR = REPO_ROOT / "candidates"
 
 REPRO_ORDER = ["concept", "pseudocode", "snippet", "runnable", "benchmarked"]
 
@@ -546,6 +547,80 @@ def validate_contest_submissions(fm, filepath, schemas):
 # Phase 3: artifact bundle validation (AC-2, AC-5, AC-9, AC-10, AC-11)
 # ---------------------------------------------------------------------------
 
+## Ledger-shape check (AC-3 from plan-phase4.md). Every candidates/*.yaml
+## must carry the canonical top-level fields and its summary counts must
+## match its row decisions.
+LEDGER_REQUIRED_TOP_FIELDS = [
+    "repo",
+    "searched_at",
+    "keywords_used",
+    "total_candidates",
+    "included",
+    "excluded",
+    "deferred",
+    "prs",
+]
+LEDGER_REQUIRED_PR_FIELDS = ["number", "title", "date", "decision", "reason"]
+
+
+def validate_ledger(ledger_path):
+    """Validate a candidate ledger file's top-level shape and summary
+    consistency. Returns a list of error strings (empty if valid)."""
+    errors = []
+    rel = ledger_path.relative_to(REPO_ROOT)
+    try:
+        data = yaml.safe_load(ledger_path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as e:
+        return [f"{rel}: invalid YAML ({e})"]
+    if not isinstance(data, dict):
+        return [f"{rel}: top-level value must be a mapping"]
+    for field in LEDGER_REQUIRED_TOP_FIELDS:
+        if field not in data:
+            errors.append(f"{rel}: missing required top-level field '{field}'")
+    if errors:
+        # Don't continue with summary-count check if shape is broken.
+        return errors
+    prs = data["prs"]
+    if not isinstance(prs, list):
+        return [f"{rel}: 'prs' must be a list, got {type(prs).__name__}"]
+    inc = exc = dfr = 0
+    for i, row in enumerate(prs):
+        if not isinstance(row, dict):
+            errors.append(f"{rel}: prs[{i}] must be a mapping")
+            continue
+        for f in LEDGER_REQUIRED_PR_FIELDS:
+            if f not in row:
+                errors.append(f"{rel}: prs[{i}] missing required field '{f}'")
+        d = str(row.get("decision", "")).lower()
+        if d == "include":
+            inc += 1
+        elif d == "exclude":
+            exc += 1
+        elif d == "defer":
+            dfr += 1
+        else:
+            errors.append(f"{rel}: prs[{i}] has unknown decision '{row.get('decision')}'")
+    if data["total_candidates"] != len(prs):
+        errors.append(
+            f"{rel}: total_candidates={data['total_candidates']} disagrees with len(prs)={len(prs)}"
+        )
+    if data["included"] != inc:
+        errors.append(f"{rel}: included={data['included']} disagrees with row count {inc}")
+    if data["excluded"] != exc:
+        errors.append(f"{rel}: excluded={data['excluded']} disagrees with row count {exc}")
+    if data["deferred"] != dfr:
+        errors.append(f"{rel}: deferred={data['deferred']} disagrees with row count {dfr}")
+    if (
+        data["total_candidates"] != data["included"] + data["excluded"] + data["deferred"]
+    ):
+        errors.append(
+            f"{rel}: total_candidates ({data['total_candidates']}) != "
+            f"included + excluded + deferred ("
+            f"{data['included']} + {data['excluded']} + {data['deferred']})"
+        )
+    return errors
+
+
 def sha256_of_file(path):
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -858,11 +933,20 @@ def main():
     for op in orphans:
         all_errors.append(f"{op.relative_to(REPO_ROOT)}: source file outside any recognized asset bundle")
 
+    # AC-3: candidate-ledger shape check.
+    ledger_count = 0
+    if CANDIDATES_DIR.exists():
+        for ledger_file in sorted(CANDIDATES_DIR.glob("*.yaml")):
+            ledger_count += 1
+            all_errors.extend(validate_ledger(ledger_file))
+
     print(f"Validated {file_count} files ({len(all_source_ids)} source IDs collected)")
     if bundle_count or orphans:
         print(f"Validated {bundle_count} asset bundles "
               f"(verbatim={verbatim_count}, extracted={extracted_count}, derived={derived_count}, "
               f"orphan-source-files={len(orphans)})")
+    if ledger_count:
+        print(f"Validated {ledger_count} candidate ledgers")
     if all_errors:
         print(f"\n{len(all_errors)} errors found:\n")
         for err in all_errors:

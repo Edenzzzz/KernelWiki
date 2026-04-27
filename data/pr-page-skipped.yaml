@@ -1,0 +1,27 @@
+## AC-4 PR-page skip audit. Schema: data/schemas.yaml ::
+## pr-page-skipped-audit. Sort key: (repo, pr_number) ascending.
+## Byte-stable for identical inputs (regen-deterministic).
+##
+## Stages owned by scripts/generate-pr-pages.py:
+##   pre-fetch         -> gh PR fetch returned no data
+##   is-kernel-related -> file-allowlist check excluded the PR
+##
+## ROUND-2 BOOTSTRAP STATE
+## ------------------------
+## This file ships as an empty audit on 2026-04-27 because the audit-emission
+## code path in scripts/generate-pr-pages.py was just added in this round.
+## No skip records exist yet because the generator has not been re-run since.
+##
+## Future rounds (notably Round 3 task15 + task16) will populate this file by
+## re-running scripts/generate-pr-pages.py against the refreshed five ledgers.
+## At that point AC-4's negative test ("validator fails when an include
+## ledger row appears in neither sources/prs/.../PR-N.md nor
+## data/pr-page-skipped.yaml") becomes binding for new generator runs.
+##
+## AC-5's FlashInfer-specific test ("every prs[*] row in
+## candidates/flashinfer.yaml with decision: include AND date > 2026-01-22
+## either has a corresponding sources/prs/flashinfer/PR-<N>.md or a row in
+## data/pr-page-skipped.yaml") closes when Round 3 actually re-runs the
+## generator over the FlashInfer ledger.
+
+rows: []

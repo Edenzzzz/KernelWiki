@@ -21,6 +21,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
 TAGS_PATH = REPO_ROOT / "data" / "tags.yaml"
+PR_PAGE_SKIPPED_PATH = REPO_ROOT / "data" / "pr-page-skipped.yaml"
 
 # Load controlled vocabulary
 with open(TAGS_PATH, encoding="utf-8") as f:
@@ -265,7 +266,48 @@ def generate_page(repo, pr_data, files, inclusion_reason, captured_at):
     return content
 
 
-def process_ledger(ledger_path, max_pages=None, captured_at=None):
+def load_skip_audit():
+    """Load data/pr-page-skipped.yaml, returning a dict mapping
+    (repo, pr_number) -> row. Used to merge new skips with existing rows."""
+    if not PR_PAGE_SKIPPED_PATH.is_file():
+        return {}
+    data = yaml.safe_load(PR_PAGE_SKIPPED_PATH.read_text(encoding="utf-8")) or {}
+    rows = data.get("rows") or []
+    return {(row["repo"], row["pr_number"]): row for row in rows}
+
+
+def write_skip_audit(audit_map):
+    """Write data/pr-page-skipped.yaml deterministically: rows sorted
+    by (repo, pr_number) ascending; byte-stable across re-runs for
+    identical inputs."""
+    rows = [audit_map[k] for k in sorted(audit_map.keys())]
+    payload = {"rows": rows}
+    out = "## AC-4 PR-page skip audit. Schema: data/schemas.yaml ::\n"
+    out += "## pr-page-skipped-audit. Sort key: (repo, pr_number) ascending.\n"
+    out += "## Byte-stable for identical inputs (regen-deterministic).\n"
+    out += "##\n"
+    out += "## Stages owned by scripts/generate-pr-pages.py:\n"
+    out += "##   pre-fetch         -> gh PR fetch returned no data\n"
+    out += "##   is-kernel-related -> file-allowlist check excluded the PR\n"
+    out += "##\n"
+    out += yaml.safe_dump(payload, sort_keys=False, default_flow_style=False, width=200, allow_unicode=True)
+    PR_PAGE_SKIPPED_PATH.write_text(out, encoding="utf-8")
+
+
+def record_skip(audit_map, repo, pr_number, stage, reason, captured_at):
+    """Record (or update) a skip-audit row for one ledger include row."""
+    repo_slug = repo.split("/")[1]
+    audit_map[(repo, pr_number)] = {
+        "pr_id": f"pr-{repo_slug}-{pr_number}",
+        "repo": repo,
+        "pr_number": pr_number,
+        "stage": stage,
+        "reason": reason,
+        "recorded_at": captured_at,
+    }
+
+
+def process_ledger(ledger_path, max_pages=None, captured_at=None, audit_map=None):
     """Process a candidate ledger and generate PR pages."""
     with open(ledger_path, encoding="utf-8") as f:
         ledger = yaml.safe_load(f)
@@ -329,6 +371,9 @@ def process_ledger(ledger_path, max_pages=None, captured_at=None):
         pr_data = fetch_pr(repo, number)
         if not pr_data:
             skipped += 1
+            if audit_map is not None:
+                record_skip(audit_map, repo, number, "pre-fetch",
+                            "gh pr fetch returned no data", captured_at)
             continue
         files = fetch_pr_files(repo, number)
 
@@ -336,6 +381,9 @@ def process_ledger(ledger_path, max_pages=None, captured_at=None):
         is_kernel, reason = is_kernel_related(title, files)
         if is_kernel is False:
             skipped += 1
+            if audit_map is not None:
+                record_skip(audit_map, repo, number, "is-kernel-related",
+                            reason, captured_at)
             continue
 
         inclusion_reason = reason if is_kernel else "deferred-semantic"
@@ -367,16 +415,21 @@ def main():
             captured_at = a.split("=", 1)[1]
             date.fromisoformat(captured_at)  # smoke check
 
+    audit_map = load_skip_audit()
+
     if "--all" in sys.argv:
         ledger_dir = REPO_ROOT / "candidates"
         for ledger_file in sorted(ledger_dir.glob("*.yaml")):
-            process_ledger(ledger_file, max_pages, captured_at)
+            process_ledger(ledger_file, max_pages, captured_at, audit_map)
     elif args:
-        process_ledger(args[0], max_pages, captured_at)
+        process_ledger(args[0], max_pages, captured_at, audit_map)
     else:
         print("Usage: python3 scripts/generate-pr-pages.py candidates/cutlass.yaml [--max=N] [--captured-at=YYYY-MM-DD]")
         print("       python3 scripts/generate-pr-pages.py --all [--max=N] [--captured-at=YYYY-MM-DD]")
         print("       (default captured_at = today's date)")
+        return
+
+    write_skip_audit(audit_map)
 
 
 if __name__ == "__main__":

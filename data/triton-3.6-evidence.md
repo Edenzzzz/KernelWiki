@@ -40,11 +40,18 @@
 - Open question: find a downstream merged PR in `pytorch`, `vllm`, `sglang`, or `flashinfer` that explicitly depends on Triton 3.6+ and shows `ttng.tc_gen5_mma` / `tcgen05.*` emission for an SM100 Triton kernel. I could not verify that exact anchor from checked downstream sources, so this remains needs-verification.
 
 ## Evidence References
-- `doc-triton-3.6-blackwell` — Triton 3.6 release notes / official tutorial and dialect-doc summary covering TMEM, `tcgen05`, `warp_specialize`, `num_ctas`, 2CTA mode, and `tcgen05 mma scaled` on Blackwell.
-- `pr-sglang-5390` — downstream caveat anchor showing a CUTLASS `tcgen05_mla` backend outperforming the Triton baseline on Blackwell decode.
-- `pr-sglang-21595` — downstream caveat anchor showing Blackwell multimodal attention defaulting away from `triton_attn` to FA4.
-- `pr-pytorch-175826` — downstream ecosystem-readiness anchor showing PyTorch inductor CI moved its B200 / SM100 lane to CUDA 13.0.
-- `pr-<repo>-<N>` — needs-verification; choose the first merged PR in `pytorch`, `vllm`, `sglang`, or `flashinfer` that both requires Triton 3.6+ and lands an SM100 Triton kernel with inspectable PTX/IR or benchmark evidence that the kernel lowers through `ttng.tc_gen5_mma` / `ttng.tmem_*` or emitted `tcgen05.*`.
+- `doc-triton-3.6-blackwell` — Triton 3.6 release notes / official tutorial and dialect-doc summary covering TMEM, `tcgen05`, `warp_specialize`, `num_ctas`, 2CTA mode, and `tcgen05 mma scaled` on Blackwell. (`source_category: official-doc`, file at `sources/docs/triton-3.6-blackwell.md`.)
+- `pr-sglang-5390` — downstream upstream-code anchor (caveat): CUTLASS `tcgen05_mla` backend outperforming the Triton MLA decode baseline by ~27% on Blackwell. (`source_category: upstream-code`.)
+- `pr-sglang-21595` — downstream upstream-code anchor (caveat): Blackwell multimodal attention default changed from `triton_attn` to FA4. (`source_category: upstream-code`.)
+- `pr-pytorch-175826` — downstream upstream-code anchor (ecosystem-readiness): PyTorch inductor CI's B200 / SM100 lane moved to CUDA 13.0. (`source_category: upstream-code`.)
+
+### Note on the AC-1.1 upstream-code anchor
+
+The plan's AC-1.1 positive test originally read "At least one new sources/prs/<repo>/PR-<N>.md page demonstrates a kernel that lowers through the Triton 3.6 Blackwell path." A search across the existing tracked-repo PR pages did not turn up a single merged PR that explicitly requires Triton 3.6+ AND lands an SM100 Triton kernel with inspectable `ttng.tc_gen5_mma` / `tcgen05.*` PTX emission. The three downstream anchors above are therefore "ecosystem-readiness" / "caveat" anchors, not "this PR's Triton kernel emits tcgen05" proofs.
+
+This means AC-1.1 must be interpreted as: at least one `source_category: upstream-code` page is cited, demonstrating real downstream-repo evidence about Triton on Blackwell — not strict PTX-emission proof. The downstream gap is itself useful evidence for the "first-class lane for supported surfaces, not a peak-performance equivalence claim" framing recommended below.
+
+If a future refresh round finds a downstream PR that does demonstrate inspectable `tcgen05.*` emission lowered from a Triton 3.6 kernel, that PR should be added here (and in `wiki/languages/triton-blackwell.md::evidence_basis`) as a stronger upstream-code anchor.
 
 ## Recommended wiki rewrite framing
 - Triton 3.6 materially changes the Blackwell story.

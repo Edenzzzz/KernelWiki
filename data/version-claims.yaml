@@ -1,0 +1,32 @@
+## Version-claims registry — central side of the DEC-1 hybrid registry.
+##
+## Schema: data/schemas.yaml :: version-claims-registry.
+##
+## Each claim entry has:
+##   id:                       (string, prefix vs-)
+##   tool:                     (one of triton/cutlass/cuda/ptx/cute-dsl/cutile/tilelang/tilus/jax-pallas)
+##   claim_valid_for:          (semver range, e.g. ">=3.6")
+##   last_verified_release:    (must match a release name in data/tool-versions.yaml)
+##   last_verified_at:         (ISO date)
+##   applies_to:               (list of file paths or YAML JSON-pointers)
+##   source_ids:               (list; each must resolve to a sources/**/*.md frontmatter id)
+##   dev_branch_sha:           (required when claim_valid_for contains "dev")
+##   notes:                    (optional)
+##
+## Wiki/reference pages and parsed YAML scalars in scope cite an entry by id
+## via their `version_sensitive: <id>` pointer. The validator (task5) enforces
+## that every per-page pointer resolves here AND every entry's `applies_to`
+## paths exist + carry the matching pointer.
+##
+## This registry is intentionally empty in Round 2. Wiki/reference rewrites
+## (task11, task12, task13) populate it in Round 3 — at minimum:
+##   - vs-triton-3.6-blackwell-tcgen05  (covers wiki/languages/triton-blackwell.md,
+##                                        references/primer.md::Triton row,
+##                                        references/examples.md::Example 7,
+##                                        data/inclusion-policy.yaml::triton.description)
+## Additional entries will be added by task12 for CUTLASS minor-version
+## reconciliation across wiki/hardware/clc.md, wiki/languages/cute-dsl.md,
+## wiki/techniques/persistent-kernels.md, wiki/techniques/warp-specialization.md,
+## wiki/techniques/epilogue-fusion.md, and wiki/hardware/tmem.md per DEC-4.
+
+claims: []

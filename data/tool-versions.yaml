@@ -40,51 +40,75 @@ tools:
 
   - tool: cutlass
     releases:
-      - name: "4.5-dev"
-        released_at: "needs-verification"
-        channel: dev
-        dev_branch_sha: "needs-verification"
-        notes: |
-          Active development branch as of 2026-03-25 (cutlass ledger row
-          PR-3130 "Update blackwell tutorial to be compatible with 4.5-dev
-          version"). Wiki pages with confidence: source-reported or
-          experimental MAY cite "4.5-dev" only when their version_sensitive
-          block pins a specific dev_branch_sha; the validator (task5) enforces
-          this. Replace dev_branch_sha with a real SHA when the next refresh
-          round captures one.
-      - name: "4.x stable"
-        released_at: "needs-verification"
+      - name: "4.5.0"
+        released_at: "2026-03-27"
         channel: stable
+        evidence_source_ids:
+          - doc-cutlass-changelog-sm100
         notes: |
-          Generic CUTLASS 4 stable family. Wiki pages with confidence:
-          verified MUST cite a specific stable release here (not the dev
-          branch). Refine to a specific 4.<minor>.<patch> version when the
-          next refresh round captures it.
-      - name: "3.x"
-        released_at: "needs-verification"
+          Most recent CUTLASS stable release as of 2026-04-27. Wiki pages
+          with confidence: verified that mention CUTLASS 4.x SHOULD pin to
+          4.5.0 unless they specifically depend on a feature that arrived
+          in a later patch.
+      - name: "4.4.2"
+        released_at: "2026-03-13"
         channel: stable
+        evidence_source_ids:
+          - doc-cutlass-changelog-sm100
         notes: |
-          Pre-Blackwell-era CUTLASS family. Some legacy wiki pages reference
-          "CUTLASS 3.x for SM100" (e.g. wiki/hardware/clc.md); those should
-          be reconciled to 4.x stable in task12.
+          Last 4.4.x patch before 4.5.0.
+      - name: "4.4.0"
+        released_at: "2026-02-14"
+        channel: stable
+        evidence_source_ids:
+          - doc-cutlass-changelog-sm100
+        notes: |
+          4.4.0 minor release.
+      - name: "4.3.0"
+        released_at: "2025-11-21"
+        channel: stable
+        evidence_source_ids:
+          - doc-cutlass-changelog-sm100
+        notes: |
+          Pre-Blackwell-tutorial-rewrite era reference release.
+      - name: "3.8.0"
+        released_at: "2025-01-15"
+        channel: stable
+        evidence_source_ids:
+          - doc-cutlass-changelog-sm100
+        notes: |
+          First CUTLASS release with Blackwell support. Some legacy wiki
+          pages reference "CUTLASS 3.x for SM100" (e.g. wiki/hardware/clc.md);
+          those should be reconciled to a current 4.x stable release in task12.
+          Date approximate from doc-cutlass-changelog-sm100 ("January 2025,
+          first Blackwell support").
 
   - tool: cuda
     releases:
       - name: "13.1"
         released_at: "needs-verification"
         channel: stable
+        evidence_source_ids:
+          - doc-cuda-13
+          - doc-cutile-python-dsl
         notes: |
           Introduced cuTile Python DSL (see sources/docs/cutile-python-dsl.md).
-          Driver requirement R580 minimum, R590 for tile profiling.
+          Driver requirement R580 minimum, R590 for tile profiling. Exact
+          release date pending future refresh-round capture.
       - name: "13.0"
         released_at: "needs-verification"
         channel: stable
+        evidence_source_ids:
+          - doc-cuda-13
+          - pr-pytorch-175826
         notes: |
           PyTorch inductor B200/SM100 lane was moved to 13.0 in pr-pytorch-175826
           (cited as ecosystem-readiness anchor in data/triton-3.6-evidence.md).
+          Exact release date pending future refresh-round capture.
       - name: "12.8"
         released_at: "needs-verification"
         channel: stable
         notes: |
           First CUDA toolkit with full Blackwell/sm100 support. Required for
-          PyTorch's vec128 vectorized loads (pr-pytorch-150705).
+          PyTorch's vec128 vectorized loads (pr-pytorch-150705). Exact
+          release date pending future refresh-round capture.
