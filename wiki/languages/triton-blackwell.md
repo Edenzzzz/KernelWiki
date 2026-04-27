@@ -4,7 +4,7 @@ title: "Triton on Blackwell"
 type: language
 tags: [triton, attention, moe, gated-delta-net]
 related: [kernel-nsa, kernel-gated-delta-net, kernel-fused-moe, lang-cute-dsl]
-sources: [doc-triton-3.6-blackwell, pr-sglang-22079, pr-sglang-21019, pr-sglang-5390, pr-sglang-21595, pr-pytorch-175826, blog-nsa, blog-gated-delta-net, blog-flash-attention-4]
+sources: [doc-triton-3.6-blackwell, pr-vllm-29339, pr-sglang-22079, pr-sglang-21019, pr-sglang-5390, pr-sglang-21595, pr-pytorch-175826, blog-nsa, blog-gated-delta-net, blog-flash-attention-4]
 reproducibility: snippet
 architectures: [sm100, sm90]
 confidence: verified
@@ -12,7 +12,7 @@ evidence_basis:
   - evidence_type: official-doc
     source_id: doc-triton-3.6-blackwell
   - evidence_type: upstream-code
-    source_id: pr-sglang-22079
+    source_id: pr-vllm-29339
 version_sensitive:
   id: vs-triton-3.6-blackwell-tcgen05
 blackwell_relevance: "As of Triton 3.6+, Triton has native Blackwell (SM100) lowering through tcgen05 + TMEM via descriptor/TMA warp-specialized matmul, Gluon multi-CTA / 2CTA, and tl.dot_scaled. This page documents which lowering surfaces are first-class on Blackwell vs which are still gluon-only or workload-dependent."
@@ -46,7 +46,7 @@ Verified lowering surfaces (with caveats):
 3. **Gluon front-end + `gl.warp_specialize` + `num_ctas`** — the most explicit Blackwell-native surface. Initial 2-CTA cluster support landed in `#8644`, `#8653`; `num_ctas` plumbing in `#8645`; Gluon-side `tcgen05 mma scaled` in `#8393`. The release notes describe 2-CTA / cluster as initial support, so cluster-scope kernels via Gluon should be treated as early-stage.
 
 Caveats — what the verified evidence does and does not establish:
-- **What is verified**: the Triton 3.6 release adds tcgen05 + TMEM lowering infrastructure (per `doc-triton-3.6-blackwell`), and downstream Triton matmul kernels using `tl.dot` are landing for `[sm100, sm90]` post-3.6 (per `pr-sglang-22079`, the Gemma4 NVFP4 attention kernel merged 2026-04-03). Together those establish that Triton 3.6+ on Blackwell is materially different from the pre-3.6 "lacked-tcgen05 / lacked-TMEM" story.
+- **What is verified**: the Triton 3.6 release adds tcgen05 + TMEM lowering infrastructure (per `doc-triton-3.6-blackwell`), and downstream tracked repos are wiring the `triton_kernels` library (the upstream `triton-lang/triton/python/triton_kernels` collection shipped with Triton 3.6) into Blackwell-only codepaths post-3.6 (per `pr-vllm-29339`, the post-refresh primary anchor that scopes `triton_kernels` to `[sm100, sm90]` for MXFP4 quantization). Supplementary evidence: pre-refresh `pr-sglang-22079` (the Gemma4 NVFP4 attention kernel merged 2026-04-03) shows real `tl.dot` matmul kernels landing for `[sm100, sm90]` after 3.6 in the SGLang codebase. Together those establish that Triton 3.6+ on Blackwell is materially different from the pre-3.6 "lacked-tcgen05 / lacked-TMEM" story.
 - **What is not yet verified by in-corpus evidence**: that arbitrary plain `tl.dot` kernels AUTOMATICALLY emit `ttng.tc_gen5_mma` / `tcgen05.*` PTX on every shape and configuration. The 3.6 infrastructure exists (`#8136`, `#8148`, `#8202`, `#8225`, `#8338`, `#8386`, `#8421`, `#8495`, `#8102` in the release notes) and downstream tl.dot kernels for SM100 are landing, but the question of "is the new path the default for every `tl.dot` shape on Blackwell" has not been confirmed by inspectable downstream PTX in any tracked-repo PR locally. Treat plain `tl.dot` on Blackwell as "uses the 3.6+ infrastructure when applicable" rather than as a blanket equivalence-to-CuTe-DSL claim.
 - **What is also not yet verified**: that fused attention forward kernels with `warp_specialize=True`, `tl.dot_scaled` block-scaled matmul, and Gluon multi-CTA paths produce the same lowering as the upstream Triton tutorials predict — the upstream tutorials demonstrate these paths; tracked-downstream repos haven't yet landed PRs with inspectable PTX confirming each one.
 
@@ -59,16 +59,21 @@ Before Triton 3.6, the Blackwell story was: the compiler generated `wgmma.mma_as
 The `evidence_basis` is anchored on:
 
 - **`doc-triton-3.6-blackwell`** (`source_category: official-doc`) — verifies that Triton 3.6 ships native Blackwell lowering infrastructure (TMEM, tcgen05, warp_specialize plumbing, Gluon multi-CTA / 2CTA, tl.dot_scaled). This is the "infrastructure exists" half of AC-1.2.
-- **`pr-sglang-22079`** (`source_category: upstream-code`) — verifies that downstream tracked repos are landing real Triton `tl.dot` matmul kernels for `[sm100, sm90]` after the Triton 3.6.0 release. The kernel is the SGLang `extend_attention` Triton kernel for the Gemma4 NVFP4 attention path (merged 2026-04-03; tagged `attention`, `fp4`, `gemm`, `nvfp4`); ships verbatim under `artifacts/prs/sglang/PR-22079/key-files/python/sglang/srt/layers/attention/triton_ops/extend_attention.py`. This is the "downstream adoption is happening" half of AC-1.2.
+- **`pr-vllm-29339`** (`source_category: upstream-code`) — **post-refresh primary anchor** verifying that downstream tracked repos are wiring the upstream `triton-lang/triton/python/triton_kernels` library (the kernel collection shipped with Triton 3.6 that drives Blackwell `tcgen05` + TMEM) into production Blackwell-only codepaths. The vLLM bugfix scopes `triton_kernels` use to `[sm100, sm90]` for the MXFP4 quantization path after issues appeared on SM110/SM120 (merged 2025-11-24; tagged `fp4`, `quantization`). This PR page is post-refresh — it is NOT in `data/refresh-cutoff.yaml::previous_pages_manifest`. This is the "downstream adoption is happening" half of AC-1.2 and the AC-1.1 "new tracked-repo PR page" anchor.
 
-Together the two anchors establish that **the 3.6+ Blackwell lowering infrastructure is real AND downstream Triton matmul kernels are being shipped on SM100 today** — which is the substance of the rewrite: the pre-3.6 "lacked-tcgen05 / lacked-TMEM" framing is no longer correct.
+Together the two anchors establish that **the 3.6+ Blackwell lowering infrastructure is real AND tracked downstream repos are scoping the Triton 3.6 kernel library to Blackwell production codepaths today** — which is the substance of the rewrite: the pre-3.6 "lacked-tcgen05 / lacked-TMEM" framing is no longer correct.
 
 Two clarifications about what these anchors do NOT prove (since the verified-surface section above flags some shapes as needs-verification):
 
-- The anchors do not prove that EVERY plain `tl.dot` kernel on SM100 emits `tcgen05.mma` PTX. They prove that plain-`tl.dot` Triton matmul kernels are landing on Blackwell post-3.6 and that the 3.6 release added the infrastructure those kernels can lower through. Whether the lowering is automatic for every shape is a separate question.
+- The anchors do not prove that EVERY plain `tl.dot` kernel on SM100 emits `tcgen05.mma` PTX. They prove that the Triton 3.6 kernel library is being adopted on Blackwell-only paths in tracked downstream repos and that the 3.6 release added the infrastructure those kernels lower through. Whether the lowering is automatic for every shape is a separate question.
 - The anchors do not include explicit inspectable `tcgen05.mma` PTX dumps from a tracked-downstream merged PR. Such proof would be a stronger anchor than what we have today; until one is found, the verified claim should be read as "Triton 3.6+ Blackwell is real and downstream-adopted", not "every Triton matmul on Blackwell is now optimal".
 
-Secondary anchor: [`pr-sglang-21019`](../../sources/prs/sglang/PR-21019.md), a Qwen3.5 GDN projection fused split/reshape/cat kernel merged 2026-03-20. `tl.load`/`tl.store` only (memory rearrangement, no `tl.dot`), so it demonstrates "Triton on SM100 post-3.6" but not the matmul lowering path. Caveat anchors `pr-sglang-5390`, `pr-sglang-21595`, and `pr-pytorch-175826` provide ecosystem context (CUTLASS still leads on peak; Blackwell defaults moved away from triton_attn for some workloads; CI moved to CUDA 13.0).
+Pre-refresh historical anchors (retained as supplementary context, not as AC-1.1 "new tracked-repo PR page" evidence on their own):
+
+- [`pr-sglang-22079`](../../sources/prs/sglang/PR-22079.md) — Gemma4 NVFP4 SGLang `extend_attention` Triton kernel doing actual `tl.dot(q,k)` / `tl.dot(p,v)` matmul on `[sm100, sm90]`, merged 2026-04-03. Strongest in-corpus example of a real `tl.dot` Triton matmul landing for SM100 post-3.6, but pre-refresh per `previous_pages_manifest`.
+- [`pr-sglang-21019`](../../sources/prs/sglang/PR-21019.md) — Qwen3.5 GDN projection fused split/reshape/cat kernel merged 2026-03-20. `tl.load`/`tl.store` only (memory rearrangement, no `tl.dot`); demonstrates "Triton on SM100 post-3.6" but not the matmul lowering path.
+
+Caveat anchors `pr-sglang-5390`, `pr-sglang-21595`, and `pr-pytorch-175826` provide ecosystem context (CUTLASS still leads on peak; Blackwell defaults moved away from triton_attn for some workloads; CI moved to CUDA 13.0).
 
 ## FlashInfer-Bench: AI-Generated Triton Performance
 
@@ -148,7 +153,9 @@ The following Triton files ship **verbatim** under `artifacts/prs/` (pinned at e
 |---|---|---|
 | [`artifacts/prs/flashinfer/PR-1025/key-files/flashinfer/triton/format_conversion.py`](../../artifacts/prs/flashinfer/PR-1025/key-files/flashinfer/triton/format_conversion.py) | FP8 / FP16 format conversion Triton kernels for FlashInfer | flashinfer#1025 |
 | [`artifacts/prs/sglang/PR-20910/key-files/python/sglang/jit_kernel/norm.py`](../../artifacts/prs/sglang/PR-20910/key-files/python/sglang/jit_kernel/norm.py) | Normalization kernels (memory-bound SM100 Triton) | sglang#20910 |
-| [`artifacts/prs/sglang/PR-21019/key-files/python/sglang/jit_kernel/triton/gdn_fused_proj.py`](../../artifacts/prs/sglang/PR-21019/key-files/python/sglang/jit_kernel/triton/gdn_fused_proj.py) | GatedDeltaNet fused projection (linear-attention) Triton kernel — `tl.load`/`tl.store` only; secondary upstream-code anchor (`pr-sglang-21019`, merged 2026-03-20). | sglang#21019 |
-| [`artifacts/prs/sglang/PR-22079/key-files/python/sglang/srt/layers/attention/triton_ops/extend_attention.py`](../../artifacts/prs/sglang/PR-22079/key-files/python/sglang/srt/layers/attention/triton_ops/extend_attention.py) | Gemma4 NVFP4 attention Triton kernel — actual `tl.dot(q,k)` / `tl.dot(p,v)` matmul on `[sm100, sm90]`; **primary upstream-code anchor** for the Triton 3.6+ Blackwell path (`pr-sglang-22079`, merged 2026-04-03). | sglang#22079 |
+| [`artifacts/prs/sglang/PR-21019/key-files/python/sglang/jit_kernel/triton/gdn_fused_proj.py`](../../artifacts/prs/sglang/PR-21019/key-files/python/sglang/jit_kernel/triton/gdn_fused_proj.py) | GatedDeltaNet fused projection (linear-attention) Triton kernel — `tl.load`/`tl.store` only; pre-refresh historical anchor (`pr-sglang-21019`, merged 2026-03-20). | sglang#21019 |
+| [`artifacts/prs/sglang/PR-22079/key-files/python/sglang/srt/layers/attention/triton_ops/extend_attention.py`](../../artifacts/prs/sglang/PR-22079/key-files/python/sglang/srt/layers/attention/triton_ops/extend_attention.py) | Gemma4 NVFP4 attention Triton kernel — actual `tl.dot(q,k)` / `tl.dot(p,v)` matmul on `[sm100, sm90]`; pre-refresh historical anchor (`pr-sglang-22079`, merged 2026-04-03). | sglang#22079 |
+
+The current AC-1.1 **post-refresh primary upstream-code anchor** is `pr-vllm-29339` ([`sources/prs/vllm/PR-29339.md`](../../sources/prs/vllm/PR-29339.md)) — a vLLM bugfix that scopes the Triton 3.6 `triton_kernels` library to `[sm100, sm90]` for the MXFP4 quantization path. No artifact bundle is shipped because the change touches only the dispatch gate logic in `vllm/model_executor/layers/quantization/mxfp4.py`; the Triton 3.6 kernel library itself lives upstream in `triton-lang/triton`. Per DEC-3, `triton-lang/triton` is not tracked this round.
 
 The full 42-PR universe is enumerated in `data/triton-universe.yaml`. Entries marked `captured: false` do not ship locally because they fall outside the three in-policy sub-scopes (see the policy file for reasons).
