@@ -106,8 +106,8 @@ All page IDs below resolve via `get_page.py <id>`. All paths are relative to the
 | Repo | PR pages | Ledger |
 |---|---|---|
 | NVIDIA/cutlass | 32 | `candidates/cutlass.yaml` |
-| sgl-project/sglang | 105 | `candidates/sglang.yaml` |
-| vllm-project/vllm | 126 | `candidates/vllm.yaml` |
+| sgl-project/sglang | 645 | `candidates/sglang.yaml` |
+| vllm-project/vllm | 833 | `candidates/vllm.yaml` |
 | flashinfer-ai/flashinfer | 583 | `candidates/flashinfer.yaml` |
 | pytorch/pytorch | 85 | `candidates/pytorch.yaml` |
 | deepseek-ai/DeepGEMM | 1 | `candidates/deepgemm.yaml` |

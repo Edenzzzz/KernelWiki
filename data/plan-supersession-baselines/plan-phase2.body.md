@@ -1,6 +1,5 @@
 # Blackwell Kernel Wiki — Phase 2 Massive Expansion Plan
 
-
 ## Goal Description
 
 Expand the Blackwell kernel optimization knowledge base from 91 files to 540+ by collecting at least 50% of all Blackwell/SM100-related merged PRs from 5 major repositories (Jan 2025 - Apr 2026), contest submission data, and additional community resources. Use a 2-stage pipeline: first build reviewed candidate ledgers, then generate markdown source pages. Extend wiki synthesis to cover newly discovered concepts.

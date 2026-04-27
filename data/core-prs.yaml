@@ -8,8 +8,8 @@ sources:
 - cute-dsl-tutorial
 - triton-in-policy
 - allowlist
-total_captured: 91
-checksum_sha256: 08cb376af75e766396188d63a3bb386ef13bd2985b038acfc088744de7191d3e
+total_captured: 166
+checksum_sha256: 89fa8c486e50c32f14c07dd3fb4e51305ed96fbc8990b136a42d66428fcd9b0a
 prs:
 - id: pr-cutlass-2139
   source_of_inclusion: wiki-graph-closure
@@ -141,6 +141,42 @@ prs:
   source_of_inclusion: wiki-graph-closure
 - id: pr-pytorch-176495
   source_of_inclusion: triton-in-policy
+- id: pr-sglang-10403
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-10422
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-12376
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-13873
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-14105
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-14311
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-14717
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-15539
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-15631
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-15712
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-16043
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-17353
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-18442
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-19174
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-19549
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-19652
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-19725
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-20094
+  source_of_inclusion: cute-dsl-tutorial
 - id: pr-sglang-20910
   source_of_inclusion: triton-in-policy
 - id: pr-sglang-21019
@@ -161,14 +197,128 @@ prs:
   source_of_inclusion: wiki-graph-closure
 - id: pr-sglang-22323
   source_of_inclusion: triton-in-policy
+- id: pr-sglang-3987
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-4012
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-4887
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-4918
+  source_of_inclusion: triton-in-policy
 - id: pr-sglang-5390
   source_of_inclusion: wiki-graph-closure
+- id: pr-sglang-6081
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-6627
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-6736
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-7204
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-7689
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-8258
+  source_of_inclusion: triton-in-policy
+- id: pr-sglang-9199
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-sglang-9477
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-12528
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-12601
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-12639
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-12676
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-13718
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-13789
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-13867
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-14245
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-14253
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-15492
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-15956
+  source_of_inclusion: triton-in-policy
 - id: pr-vllm-16032
   source_of_inclusion: wiki-graph-closure
+- id: pr-vllm-16366
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-16828
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-17484
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-19168
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-19561
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-20087
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-20308
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-20332
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-20903
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-21188
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-21197
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-22314
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-22368
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-22421
+  source_of_inclusion: triton-in-policy
 - id: pr-vllm-22738
   source_of_inclusion: wiki-graph-closure
+- id: pr-vllm-22758
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-23424
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-23666
+  source_of_inclusion: triton-in-policy
 - id: pr-vllm-23696
   source_of_inclusion: wiki-graph-closure
+- id: pr-vllm-25990
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-vllm-26322
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-26534
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-28346
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-28775
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-30286
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-30585
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-30687
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-30716
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-30887
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-30974
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-31528
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-vllm-31777
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-33417
+  source_of_inclusion: cute-dsl-tutorial
+- id: pr-vllm-33529
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-34597
+  source_of_inclusion: triton-in-policy
+- id: pr-vllm-36518
+  source_of_inclusion: triton-in-policy
 - id: pr-vllm-36728
   source_of_inclusion: cute-dsl-tutorial
 - id: pr-vllm-37054

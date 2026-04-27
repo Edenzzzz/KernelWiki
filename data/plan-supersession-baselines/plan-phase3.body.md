@@ -1,6 +1,5 @@
 # KernelWiki Phase 3 — Data Depth: Local Code Artifacts
 
-
 ## Goal Description
 
 Transform KernelWiki from an "index-card" knowledge base (545 markdown summaries that link out to real code) into a self-contained code library in which LLM agents can answer concrete kernel questions — "how do I write an NVFP4 batched GEMV?", "how is warp specialization structured on Blackwell?", "how does DeepGEMM do Nc=128 CUDA-core promotion?" — by reading files inside the repository, without following external links.

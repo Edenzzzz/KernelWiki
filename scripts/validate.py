@@ -874,9 +874,34 @@ def validate_refresh_subset():
     return errors
 
 
-## AC-4 captured_at >= cutoff_date check. Newly-generated PR pages must
-## have captured_at on or after the round's refresh cutoff. (Old pages
-## from prior rounds are exempt; this check is per-page.)
+## AC-4 captured_at >= cutoff_date check. Two failure modes:
+##   (1) captured_at strictly newer than cutoff_date — impossible.
+##   (2) captured_at older than cutoff_date AND the file did not exist in
+##       the pre-refresh git revision — i.e., a freshly generated page
+##       that nonetheless has a stale timestamp.
+##
+## To detect (2) without coupling validate.py to the working git tree at
+## arbitrary depth, we anchor "pre-refresh" to a checked-in baseline:
+## data/refresh-cutoff.yaml::previous_pages_manifest is a list of file
+## paths that existed before the round started. Any PR page NOT in that
+## manifest must have captured_at >= cutoff_date.
+##
+## When the manifest is absent, fall back to the original "future-dated
+## captured_at fails" check only.
+def _load_previous_pages_manifest():
+    cutoff_path = DATA_DIR / "refresh-cutoff.yaml"
+    if not cutoff_path.is_file():
+        return None
+    try:
+        data = yaml.safe_load(cutoff_path.read_text(encoding="utf-8")) or {}
+    except yaml.YAMLError:
+        return None
+    pp = data.get("previous_pages_manifest")
+    if not isinstance(pp, list):
+        return None
+    return set(pp)
+
+
 def validate_captured_at_cutoff():
     errors = []
     cutoff_path = DATA_DIR / "refresh-cutoff.yaml"
@@ -889,11 +914,8 @@ def validate_captured_at_cutoff():
     if cutoff is None:
         return errors
     cutoff_str = cutoff.isoformat() if hasattr(cutoff, "isoformat") else str(cutoff)
-    # Find pages that were *added* relative to the latest commit. Cheap
-    # heuristic: page's captured_at is newer-or-equal to cutoff is OK;
-    # otherwise emit advisory. We check per-page captured_at == cutoff_str
-    # for newly-generated pages, which are the ones whose captured_at
-    # was set by R5-2's reclassification.
+    pre_manifest = _load_previous_pages_manifest()  # set or None
+
     for prs_dir in sorted(SOURCES_DIR.glob("prs/*")):
         if not prs_dir.is_dir():
             continue
@@ -905,18 +927,23 @@ def validate_captured_at_cutoff():
             if ca is None:
                 continue
             ca_str = ca.isoformat() if hasattr(ca, "isoformat") else str(ca)
-            # If the page's captured_at is exactly the round cutoff, it
-            # was generated this round and must satisfy ca >= cutoff.
-            # If it's an older date, it's a prior-round page (no constraint).
-            if ca_str == cutoff_str:
-                # Already validated by being equal; pass.
-                continue
+            rel = str(pr_file.relative_to(REPO_ROOT))
+            # Failure mode (1): captured_at strictly after cutoff.
             if ca_str > cutoff_str:
                 errors.append(
-                    f"{pr_file.relative_to(REPO_ROOT)}: captured_at={ca_str!r} "
-                    f"is AFTER refresh-cutoff cutoff_date={cutoff_str!r} "
-                    f"(impossible per AC-4)"
+                    f"{rel}: captured_at={ca_str!r} is AFTER refresh-cutoff "
+                    f"cutoff_date={cutoff_str!r} (impossible per AC-4)"
                 )
+                continue
+            # Failure mode (2): freshly generated page (not in pre-refresh
+            # manifest) must have captured_at == cutoff or later.
+            if pre_manifest is not None and rel not in pre_manifest:
+                if ca_str != cutoff_str:
+                    errors.append(
+                        f"{rel}: page is new this round but captured_at="
+                        f"{ca_str!r} != cutoff_date {cutoff_str!r} "
+                        f"(AC-4: freshly-generated pages must use the round's cutoff)"
+                    )
     return errors
 
 
@@ -981,6 +1008,73 @@ def validate_claim_bearing_pages_have_pointer():
     return errors
 
 
+## DEC-4 CUTLASS dev-pinning rule. Any wiki page whose body (excluding
+## fenced code blocks) mentions the literal string "4.5-dev" must:
+##   (1) carry confidence: source-reported or confidence: experimental
+##       (NOT confidence: verified — verified pages cite stable releases
+##       only per DEC-4 mixed policy);
+##   (2) carry a version_sensitive frontmatter pointer whose registry
+##       entry pins a specific dev_branch_sha.
+def validate_cutlass_dev_pinning():
+    errors = []
+    if not WIKI_DIR.exists():
+        return errors
+    # Load registry once for dev_branch_sha lookups.
+    claims_path = DATA_DIR / "version-claims.yaml"
+    claims_by_id = {}
+    if claims_path.is_file():
+        try:
+            cdata = yaml.safe_load(claims_path.read_text(encoding="utf-8")) or {}
+            for c in cdata.get("claims", []) or []:
+                if isinstance(c, dict) and "id" in c:
+                    claims_by_id[c["id"]] = c
+        except yaml.YAMLError:
+            pass
+    for md_file in sorted(WIKI_DIR.rglob("*.md")):
+        text = md_file.read_text(encoding="utf-8")
+        # Strip fenced code blocks; the rule applies to prose only.
+        body = re.sub(r"```.*?```", "", text, flags=re.S)
+        if "4.5-dev" not in body:
+            continue
+        fm = extract_frontmatter(md_file)
+        rel = md_file.relative_to(REPO_ROOT)
+        if not fm or not isinstance(fm, dict):
+            errors.append(
+                f"{rel}: mentions '4.5-dev' outside code fences but has no frontmatter "
+                f"(DEC-4: dev-branch references require version_sensitive pointer)"
+            )
+            continue
+        confidence = fm.get("confidence")
+        if confidence == "verified":
+            errors.append(
+                f"{rel}: mentions '4.5-dev' outside code fences with confidence: verified "
+                f"(DEC-4: verified pages cite stable releases only)"
+            )
+            continue
+        if confidence not in ("source-reported", "experimental"):
+            errors.append(
+                f"{rel}: mentions '4.5-dev' but confidence={confidence!r} "
+                f"(DEC-4: must be source-reported or experimental)"
+            )
+            continue
+        vs = fm.get("version_sensitive")
+        ptr_id = vs.get("id") if isinstance(vs, dict) else vs
+        if not ptr_id or ptr_id not in claims_by_id:
+            errors.append(
+                f"{rel}: mentions '4.5-dev' but version_sensitive pointer is "
+                f"absent or unresolved (DEC-4: requires registry entry with dev_branch_sha)"
+            )
+            continue
+        dev_sha = claims_by_id[ptr_id].get("dev_branch_sha")
+        if not dev_sha or str(dev_sha).lower() in ("none", "null", "needs-verification", ""):
+            errors.append(
+                f"{rel}: mentions '4.5-dev' and version_sensitive resolves to "
+                f"{ptr_id!r}, but the registry entry has no concrete dev_branch_sha "
+                f"(DEC-4)"
+            )
+    return errors
+
+
 ## AC-9 plan-body-unchanged check. plan-phase{2,3}.md body content past
 ## the supersession header must be byte-equal to a checked-in baseline.
 ## Baseline files live at data/plan-supersession-baselines/<plan>.body.md.
@@ -996,18 +1090,23 @@ def validate_plan_body_unchanged():
         baseline_path = baselines_dir / f"{plan_path.stem}.body.md"
         if not baseline_path.is_file():
             continue
-        # Strip the supersession header (within first 3 lines) and
-        # compare the rest against the baseline.
-        lines = plan_path.read_text(encoding="utf-8").splitlines()
-        body_lines = [ln for i, ln in enumerate(lines)
-                      if not (i < 3 and re.match(r"^>\s*Superseded by", ln, re.I))]
-        body = "\n".join(body_lines)
+        # Strip the supersession-header BLOCK (the matching line plus its
+        # trailing blank line, if any) within the first 4 lines. This is
+        # how Round 2 inserted the header — `# title\n\n> Superseded ...\n\n##`
+        # — so removing both restores the pre-refresh structure.
+        text = plan_path.read_text(encoding="utf-8")
+        text = re.sub(
+            r"(?m)^>\s*Superseded by[^\n]*\n(?:\n)?",
+            "",
+            text,
+            count=1,
+        )
         baseline = baseline_path.read_text(encoding="utf-8")
-        if body != baseline:
+        if text != baseline:
             errors.append(
-                f"{plan_path.name}: body content (excluding supersession header) "
+                f"{plan_path.name}: body content (excluding supersession header block) "
                 f"differs from data/plan-supersession-baselines/{baseline_path.name} "
-                f"(AC-9 body-immutability)"
+                f"(AC-9 body-immutability vs pre-refresh git revision)"
             )
     return errors
 
@@ -1401,6 +1500,9 @@ def main():
 
     # AC-9 body-immutability for superseded plans.
     all_errors.extend(validate_plan_body_unchanged())
+
+    # DEC-4 CUTLASS dev-pinning rule.
+    all_errors.extend(validate_cutlass_dev_pinning())
 
     # AC-10 discoverability + sources/upstreams forbidden.
     all_errors.extend(validate_discoverability())
