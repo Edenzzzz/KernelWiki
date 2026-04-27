@@ -1,0 +1,90 @@
+## Tool releases of record for the version-sensitive registry.
+## Read by scripts/check_version_freshness.py and the validator's
+## DEC-4 CUTLASS pinning rule (task5). Schema: data/schemas.yaml
+## :: tool-versions-snapshot.
+##
+## This file is deterministic and offline; entries are populated
+## from upstream release notes captured via Codex consult, never
+## from live network queries at validation time. Adding/updating
+## entries requires a fresh Codex consult to confirm release name +
+## date + channel.
+##
+## "needs-verification" sentinels mark fields the current refresh
+## round did not authoritatively pin; future refresh rounds should
+## replace them. The validator (task5) does not reject
+## needs-verification entries, but check_version_freshness.py
+## flags them as advisory warnings.
+
+tools:
+  - tool: triton
+    releases:
+      - name: "3.6.0"
+        released_at: "2026-01-21"
+        channel: stable
+        release_notes_url: "https://github.com/triton-lang/triton/releases/tag/v3.6.0"
+        evidence_source_ids:
+          - doc-triton-3.6-blackwell  # to be created in task10
+        notes: |
+          First Triton release with native Blackwell tcgen05 + TMEM lowering
+          infrastructure. Strongest user-visible Blackwell paths: descriptor/TMA
+          warp-specialized matmul, Gluon multi-CTA / 2CTA, tl.dot_scaled / block
+          scaled. See data/triton-3.6-evidence.md for the per-pathway breakdown.
+      - name: "3.5.1"
+        released_at: "2025-11-12"
+        channel: stable
+        release_notes_url: "https://github.com/triton-lang/triton/releases/tag/v3.5.1"
+        notes: |
+          Last 3.5.x patch before the 3.6 Blackwell story. Pages with
+          version_sensitive claims valid for ">=3.5,<3.6" should pin to this
+          release.
+
+  - tool: cutlass
+    releases:
+      - name: "4.5-dev"
+        released_at: "needs-verification"
+        channel: dev
+        dev_branch_sha: "needs-verification"
+        notes: |
+          Active development branch as of 2026-03-25 (cutlass ledger row
+          PR-3130 "Update blackwell tutorial to be compatible with 4.5-dev
+          version"). Wiki pages with confidence: source-reported or
+          experimental MAY cite "4.5-dev" only when their version_sensitive
+          block pins a specific dev_branch_sha; the validator (task5) enforces
+          this. Replace dev_branch_sha with a real SHA when the next refresh
+          round captures one.
+      - name: "4.x stable"
+        released_at: "needs-verification"
+        channel: stable
+        notes: |
+          Generic CUTLASS 4 stable family. Wiki pages with confidence:
+          verified MUST cite a specific stable release here (not the dev
+          branch). Refine to a specific 4.<minor>.<patch> version when the
+          next refresh round captures it.
+      - name: "3.x"
+        released_at: "needs-verification"
+        channel: stable
+        notes: |
+          Pre-Blackwell-era CUTLASS family. Some legacy wiki pages reference
+          "CUTLASS 3.x for SM100" (e.g. wiki/hardware/clc.md); those should
+          be reconciled to 4.x stable in task12.
+
+  - tool: cuda
+    releases:
+      - name: "13.1"
+        released_at: "needs-verification"
+        channel: stable
+        notes: |
+          Introduced cuTile Python DSL (see sources/docs/cutile-python-dsl.md).
+          Driver requirement R580 minimum, R590 for tile profiling.
+      - name: "13.0"
+        released_at: "needs-verification"
+        channel: stable
+        notes: |
+          PyTorch inductor B200/SM100 lane was moved to 13.0 in pr-pytorch-175826
+          (cited as ecosystem-readiness anchor in data/triton-3.6-evidence.md).
+      - name: "12.8"
+        released_at: "needs-verification"
+        channel: stable
+        notes: |
+          First CUDA toolkit with full Blackwell/sm100 support. Required for
+          PyTorch's vec128 vectorized loads (pr-pytorch-150705).
