@@ -1,4 +1,11 @@
 # KernelWiki — Blackwell & Hopper Kernel Optimization Knowledge Base
+> [!IMPORTANT]
+> This skill is maintained as a standalone submodule of
+> [Kernel Design Agents (KDA)](https://github.com/mit-han-lab/kernel-design-agents)
+> for easy installation.
+>
+> For bug reports, feature requests, and discussions, please use the main KDA repository:
+> https://github.com/mit-han-lab/kernel-design-agents
 
 > **Knowledge cutoff: 2026-04-27.** All upstream PRs, blog snapshots, and version-claim entries are anchored to upstream state on or before this date (recorded in [`data/refresh-cutoff.yaml`](data/refresh-cutoff.yaml)). Triton claims pin to release **3.6.0** (released 2026-01-21); CUTLASS claims pin to **4.5.0** (released 2026-03-27); see [`data/tool-versions.yaml`](data/tool-versions.yaml) for all tracked tools. To advance the cutoff, run `scripts/refresh_candidate_ledger.py`, regenerate PR pages, and bump the cutoff date file.
 
