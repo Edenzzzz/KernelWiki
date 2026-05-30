@@ -219,7 +219,7 @@ TMEM supports bulk copy operations from SMEM:
 // Copy 256 columns of TMEM from src to dst
 tcgen05.cp.cta_group::1.b128 [taddr], s-desc;
 ```
-where the 64-bit register operand s-desc is the matrix descriptor which represents the source matrix in the shared memory that needs to be copied.
+where the 64-bit register operand s-desc is the matrix descriptor which represents the source matrix in the shared memory that needs to be copied. The format of the matrix is described [Matrix Descriptors](https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#tcgen05-matrix-descriptors).
 ## Double-Buffering with TMEM
 
 Double-buffering TMEM accumulators enables overlapping the epilogue of the current tile with the MMA accumulation of the next tile:
