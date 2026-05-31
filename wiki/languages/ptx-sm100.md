@@ -32,8 +32,8 @@ tcgen05.ld.sync.aligned.32x32b.x1  {regs}, [tmem_addr];
 // Store registers to TMEM
 tcgen05.st.sync.aligned.32x32b.x1  [tmem_addr], {regs};
 
-// Copy SMEM to TMEM
-tcgen05.cp.sync.aligned  [tmem_addr], [smem_addr], num_bytes;
+// Copy a shaped SMEM matrix descriptor into TMEM
+tcgen05.cp.cta_group::1.128x256b  [tmem_addr], sdesc;
 
 // Critical fence between TMA completion and MMA
 tcgen05.fence::after_thread_sync;
