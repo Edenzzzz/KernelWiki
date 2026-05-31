@@ -76,13 +76,13 @@ __device__ uint32_t tmem_alloc_cta(uint32_t num_cols) {
     // Only thread 0 allocates; result must reach ALL warps in the CTA.
     // __shfl_sync is warp-local — it cannot broadcast across warps.
     if (threadIdx.x == 0) {
-        uint32_t addr;
+        uint32_t smem_addr =
+            static_cast<uint32_t>(__cvta_generic_to_shared(&s_tmem_addr));
         asm volatile(
-            "tcgen05.alloc.cta_group::1.sync.aligned.b32 %0, %1;"
-            : "=r"(addr)
-            : "r"(num_cols)
+            "tcgen05.alloc.cta_group::1.sync.aligned.shared::cta.b32 [%0], %1;"
+            :
+            : "r"(smem_addr), "r"(num_cols)
         );
-        s_tmem_addr = addr;
     }
     __syncthreads();  // All warps now see s_tmem_addr
     return s_tmem_addr;
@@ -130,7 +130,7 @@ __global__ void persistent_gemm_kernel(/* ... */) {
         }
 
         // 4. Fence and read results
-        asm volatile("tcgen05.mma.fence::before_thread_sync;");
+        asm volatile("tcgen05.fence::before_thread_sync;");
         __syncthreads();
 
         // 5. Epilogue: read from TMEM, apply bias/activation, write to GMEM
@@ -247,7 +247,7 @@ __global__ void double_buffered_gemm(/* ... */) {
         for (int k = 0; k < K_tiles; ++k) {
             issue_tcgen05_mma(tmem_acc[buf], smem_a[k], smem_b[k]);
         }
-        asm volatile("tcgen05.mma.fence::before_thread_sync;");
+        asm volatile("tcgen05.fence::before_thread_sync;");
         __syncthreads();
 
         // If not the first tile, the *other* buffer's epilogue
@@ -317,7 +317,7 @@ result = tmem_load(acc)
 
 ## Common Pitfalls
 
-1. **Forgetting to fence**: Reading TMEM without `tcgen05.mma.fence::before_thread_sync` produces undefined (stale) values.
+1. **Forgetting to fence**: Reading TMEM without `tcgen05.fence::before_thread_sync` produces undefined (stale) values.
 2. **Forgetting to deallocate**: In persistent kernels, TMEM must be freed before re-acquiring tiles. Otherwise, the next allocation will fail or hang.
 3. **Exceeding 512 columns**: Attempting to allocate more than the SM's total column budget silently corrupts data or causes a hang.
 4. **Cross-warp reads**: A thread can only directly read/write TMEM rows mapped to its own lane. Accessing another warp's rows requires explicit shuffle or SMEM staging.

@@ -109,14 +109,10 @@ __device__ void clc_init_scheduler(
     ClcSchedulePolicy policy)
 {
     if (threadIdx.x == 0) {
-        // Program the CLC with tile grid dimensions and policy
-        // CLC handles the swizzle mapping internally
+        // Configure the software scheduler metadata used around CLC queries.
+        // The CLC PTX surface is try_cancel/query_cancel, not clusterctl.init.
         uint32_t config = encode_clc_config(tiles_m, tiles_n, policy);
-        asm volatile(
-            "clusterctl.init.shared [%0], %1, %2, %3;"
-            : : "r"((uint32_t)clc_buffer),
-                "r"(tiles_m), "r"(tiles_n), "r"(config)
-        );
+        init_clc_scheduler_metadata(clc_buffer, tiles_m, tiles_n, config);
     }
     __syncwarp();
 }

@@ -64,36 +64,22 @@ persistent_gemm_clc(const __grid_constant__ GemmParams params)
 }
 ```
 
-At the PTX level, the CLC interaction uses dedicated instructions:
+At the PTX level, the CLC interaction is a cancel/query sequence. The exact
+inline PTX is usually hidden behind CUTLASS/CuTe wrappers, but the control flow
+looks like this:
 
-```ptx
-// CLC tile acquisition in PTX
-// clusterctl.try_cancel cancels the CTA if no work remains
-.reg .pred  %has_work;
-.reg .b32   %tile_m, %tile_n;
-
+```text
 TILE_LOOP:
-    // Attempt to get next tile from CLC hardware scheduler
-    clusterctl.query.async.shared  [%smem_tile_desc];
-    clusterctl.wait;
+    // Request cancellation of a not-yet-launched cluster.
+    clusterlaunchcontrol.try_cancel(response_smem, mbarrier)
+    wait(mbarrier)
 
-    // Check if valid tile was assigned
-    ld.shared.b32  %has_work, [%smem_tile_desc + 0];
-    @!%has_work bra TRY_CANCEL;
-
-    // Extract tile coordinates
-    ld.shared.b32  %tile_m, [%smem_tile_desc + 4];
-    ld.shared.b32  %tile_n, [%smem_tile_desc + 8];
+    // Query the 16-byte response.
+    has_work, tile_m, tile_n = clusterlaunchcontrol.query_cancel(response_smem)
+    if (!has_work) return
 
     // ... compute tile ...
-
-    bra TILE_LOOP;
-
-TRY_CANCEL:
-    // Atomically try to cancel this CTA
-    clusterctl.try_cancel  %cancelled;
-    @!%cancelled bra TILE_LOOP;   // Another CTA may have pushed work
-    ret;
+    goto TILE_LOOP
 ```
 
 ## Comparison: CLC vs Static Stride (Hopper)

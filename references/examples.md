@@ -20,7 +20,7 @@ Concrete patterns showing how to translate a user question into a navigation pat
 
 **Command**:
 ```bash
-python3 scripts/query.py" --type kernel --tag gemm --architecture sm100
+python3 scripts/query.py --type kernel --tag gemm --architecture sm100
 ```
 
 ---
@@ -36,8 +36,8 @@ python3 scripts/query.py" --type kernel --tag gemm --architecture sm100
 
 **Command**:
 ```bash
-python3 scripts/query.py" --symptom low-sm-utilization
-python3 scripts/get_page.py" pattern-low-sm-utilization
+python3 scripts/query.py --symptom low-sm-utilization
+python3 scripts/get_page.py pattern-low-sm-utilization
 ```
 
 ---
@@ -51,8 +51,8 @@ python3 scripts/get_page.py" pattern-low-sm-utilization
 
 **Command**:
 ```bash
-python3 scripts/query.py" --tag tcgen05 --repo cutlass --limit 30
-python3 scripts/grep_wiki.py" "tcgen05\\.mma" --only sources
+python3 scripts/query.py --tag tcgen05 --repo cutlass --limit 30
+python3 scripts/grep_wiki.py "tcgen05\\.mma" --only sources
 ```
 
 Tip: the `--tag` filter also accepts aliases, so `--tag UMMA` resolves to `tcgen05`.
@@ -69,7 +69,7 @@ Tip: the `--tag` filter also accepts aliases, so `--tag UMMA` resolves to `tcgen
 
 **Command**:
 ```bash
-python3 scripts/get_page.py" kernel-flash-attention-4 --follow-sources
+python3 scripts/get_page.py kernel-flash-attention-4 --follow-sources
 ```
 
 ---
@@ -83,8 +83,8 @@ python3 scripts/get_page.py" kernel-flash-attention-4 --follow-sources
 
 **Command**:
 ```bash
-python3 scripts/get_page.py" migration-wgmma-to-tcgen05
-python3 scripts/get_page.py" hw-tcgen05-mma
+python3 scripts/get_page.py migration-wgmma-to-tcgen05
+python3 scripts/get_page.py hw-tcgen05-mma
 ```
 
 ---
@@ -99,8 +99,8 @@ python3 scripts/get_page.py" hw-tcgen05-mma
 
 **Command**:
 ```bash
-python3 scripts/query.py" --type contest --tag nvfp4
-python3 scripts/get_page.py" contest-gpumode-p1
+python3 scripts/query.py --type contest --tag nvfp4
+python3 scripts/get_page.py contest-gpumode-p1
 ```
 
 ---
@@ -114,7 +114,7 @@ python3 scripts/get_page.py" contest-gpumode-p1
 
 **Command**:
 ```bash
-python3 scripts/query.py" "gated delta net decode" --language triton
+python3 scripts/query.py "gated delta net decode" --language triton
 ```
 
 ---
@@ -128,7 +128,7 @@ python3 scripts/query.py" "gated delta net decode" --language triton
 
 **Command**:
 ```bash
-python3 scripts/query.py" --symptom memory-bound
+python3 scripts/query.py --symptom memory-bound
 ```
 
 ---
@@ -137,9 +137,9 @@ python3 scripts/query.py" --symptom memory-bound
 
 **Command**:
 ```bash
-python3 scripts/query.py" --repo flashinfer --tag moe --limit 30
-python3 scripts/query.py" --repo flashinfer --tag fp8 --limit 30
-python3 scripts/grep_wiki.py" "fp8" "moe" --only sources --files-only
+python3 scripts/query.py --repo flashinfer --tag moe --limit 30
+python3 scripts/query.py --repo flashinfer --tag fp8 --limit 30
+python3 scripts/grep_wiki.py "fp8" "moe" --only sources --files-only
 ```
 
 ---
@@ -152,8 +152,8 @@ python3 scripts/grep_wiki.py" "fp8" "moe" --only sources --files-only
 
 **Command**:
 ```bash
-python3 scripts/get_page.py" lang-ptx --body-only
-python3 scripts/grep_wiki.py" "tcgen05" --only wiki --context 0
+python3 scripts/get_page.py lang-ptx --body-only
+python3 scripts/grep_wiki.py "tcgen05" --only wiki --context 0
 ```
 
 ---

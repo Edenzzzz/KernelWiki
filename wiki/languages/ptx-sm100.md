@@ -18,19 +18,19 @@ SM100 PTX instructions for Blackwell-specific hardware features.
 
 ```ptx
 // Allocate TMEM columns
-tcgen05.alloc.cta_group::1.sync.aligned  tmem_addr, num_cols;
+tcgen05.alloc.cta_group::1.sync.aligned.shared::cta.b32  [smem_tmem_addr], num_cols;
 
 // MMA: inputs from SMEM, accumulator in TMEM
-tcgen05.mma.cta_group::1.kind::f16  tmem_addr, desc_a, desc_b, idesc_c, idesc_d;
+tcgen05.mma.cta_group::1.kind::f16  [tmem_addr], desc_a, desc_b, idesc, enable_input_d;
 
 // 2-SM cooperative MMA
-tcgen05.mma.cta_group::2.kind::f16  tmem_addr, desc_a, desc_b, idesc_c, idesc_d;
+tcgen05.mma.cta_group::2.kind::f16  [tmem_addr], desc_a, desc_b, idesc, enable_input_d;
 
 // Load TMEM to registers
-tcgen05.ld.sync.aligned.32x32b.x1  {regs}, [tmem_addr];
+tcgen05.ld.sync.aligned.32x32b.x1.b32  {regs}, [tmem_addr];
 
 // Store registers to TMEM
-tcgen05.st.sync.aligned.32x32b.x1  [tmem_addr], {regs};
+tcgen05.st.sync.aligned.32x32b.x1.b32  [tmem_addr], {regs};
 
 // Copy a shaped SMEM matrix descriptor into TMEM
 tcgen05.cp.cta_group::1.128x256b  [tmem_addr], sdesc;
@@ -39,7 +39,7 @@ tcgen05.cp.cta_group::1.128x256b  [tmem_addr], sdesc;
 tcgen05.fence::after_thread_sync;
 
 // Deallocate TMEM (MUST before kernel exit)
-tcgen05.dealloc.cta_group::1.sync.aligned  tmem_addr, num_cols;
+tcgen05.dealloc.cta_group::1.sync.aligned.b32  tmem_addr, num_cols;
 ```
 
 ## NVFP4 Conversion Instructions

@@ -14,7 +14,7 @@ A structured knowledge base of NVIDIA Blackwell (SM100, B200) and Hopper (SM90, 
 ## Install as a Claude Code Skill
 
 ```bash
-git clone git@github.com:DongyunZou/KernelWiki.git ~/.claude/skills/KernelWiki
+git clone git@github.com:mit-han-lab/KernelWiki.git ~/.claude/skills/KernelWiki
 pip install -r ~/.claude/skills/KernelWiki/requirements.txt
 ```
 

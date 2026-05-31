@@ -145,11 +145,7 @@ __global__ void nvfp4_gemm_kernel(
         }
     } else if (warp_id == 1 && lane_id == 0) {
         // MMA consumer warp: tcgen05.mma
-        uint32_t tmem_addr;
-        asm volatile(
-            "tcgen05.alloc.cta_group::1.sync.aligned %0, %1;"
-            : "=r"(tmem_addr) : "r"(256)  // 256 TMEM columns
-        );
+        uint32_t tmem_addr = tmem_alloc_cta(256);  // 256 TMEM columns
 
         for (int k = 0; k < K; k += BLOCK_K) {
             int stage = (k / BLOCK_K) % NUM_STAGES;

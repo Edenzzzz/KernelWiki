@@ -110,15 +110,17 @@ __global__ void blackwell_gemm(
     half* smem_b = smem_a + TILE_M * TILE_K;
 
     // TMEM accumulator -- NO REGISTER PRESSURE
-    uint32_t tmem_acc;
+    __shared__ uint32_t s_tmem_acc;
     if (threadIdx.x == 0) {
+        uint32_t smem_addr =
+            static_cast<uint32_t>(__cvta_generic_to_shared(&s_tmem_acc));
         asm volatile(
-            "tcgen05.alloc.cta_group::1.sync.aligned.b32 %0, %1;"
-            : "=r"(tmem_acc)
-            : "r"(256)  // 256 columns for 128x256 tile
+            "tcgen05.alloc.cta_group::1.sync.aligned.shared::cta.b32 [%0], %1;"
+            :: "r"(smem_addr), "r"(256)  // 256 columns for 128x256 tile
         );
     }
-    tmem_acc = __shfl_sync(0xFFFFFFFF, tmem_acc, 0);
+    __syncthreads();
+    uint32_t tmem_acc = s_tmem_acc;
 
     // Zero TMEM accumulator
     tmem_zero(tmem_acc, 256);
@@ -147,7 +149,7 @@ __global__ void blackwell_gemm(
     }
 
     // Fence before reading TMEM (replaces wgmma.wait_group)
-    asm volatile("tcgen05.mma.fence::before_thread_sync;");
+    asm volatile("tcgen05.fence::before_thread_sync;");
     __syncthreads();
 
     // Epilogue: read from TMEM, then write to GMEM
@@ -270,7 +272,7 @@ asm volatile("wgmma.wait_group.sync.aligned 0;");
 
 ```cuda
 // Blackwell: fence before reading TMEM
-asm volatile("tcgen05.mma.fence::before_thread_sync;");
+asm volatile("tcgen05.fence::before_thread_sync;");
 __syncthreads();
 // TMEM accumulators now ready for reading
 ```
@@ -350,7 +352,7 @@ Blackwell's base MMA tile is 2x larger in M (128 vs 64). When migrating:
 
 2. **Not deallocating TMEM**: On Hopper, register accumulators are freed implicitly when the CTA exits. On Blackwell, TMEM must be explicitly deallocated in persistent kernels.
 
-3. **Synchronization model mismatch**: Replacing `wgmma.wait_group` with `__syncthreads()` alone is insufficient. The `tcgen05.mma.fence::before_thread_sync` must precede the syncthreads.
+3. **Synchronization model mismatch**: Replacing `wgmma.wait_group` with `__syncthreads()` alone is insufficient. The `tcgen05.fence::before_thread_sync` must precede the syncthreads.
 
 4. **Over-allocating threads**: On Hopper, you need 128 threads per warpgroup for MMA. Blindly keeping the same thread count on Blackwell wastes resources since only 1 thread issues tcgen05.
 

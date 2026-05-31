@@ -147,14 +147,17 @@ __global__ void hopper_kernel(/* ... */) {
 // BLACKWELL: Accumulator lives in TMEM
 __global__ void blackwell_kernel(/* ... */) {
     // 1. Allocate TMEM (explicit, must be done once)
-    uint32_t tmem_acc;
+    __shared__ uint32_t s_tmem_acc;
     if (threadIdx.x == 0) {
+        uint32_t smem_addr =
+            static_cast<uint32_t>(__cvta_generic_to_shared(&s_tmem_acc));
         asm volatile(
-            "tcgen05.alloc.cta_group::1.sync.aligned.b32 %0, %1;"
-            : "=r"(tmem_acc) : "r"(256)
+            "tcgen05.alloc.cta_group::1.sync.aligned.shared::cta.b32 [%0], %1;"
+            :: "r"(smem_addr), "r"(256)
         );
     }
-    tmem_acc = __shfl_sync(0xFFFFFFFF, tmem_acc, 0);
+    __syncthreads();
+    uint32_t tmem_acc = s_tmem_acc;
 
     // 2. Zero-initialize TMEM
     for (int c = 0; c < 256; c += 4) {
@@ -179,7 +182,7 @@ __global__ void blackwell_kernel(/* ... */) {
     }
 
     // 4. Fence before reading
-    asm volatile("tcgen05.mma.fence::before_thread_sync;");
+    asm volatile("tcgen05.fence::before_thread_sync;");
     __syncthreads();
 
     // 5. Epilogue: read from TMEM to registers (in small batches)

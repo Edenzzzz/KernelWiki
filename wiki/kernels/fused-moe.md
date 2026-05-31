@@ -130,11 +130,8 @@ __global__ void gated_dual_gemm_fused(
     int M, int N, int K
 ) {
     // Two TMEM regions: one for gate accumulator, one for up accumulator
-    uint32_t tmem_gate, tmem_up;
-    asm volatile("tcgen05.alloc.cta_group::1.sync.aligned %0, %1;"
-                 : "=r"(tmem_gate) : "r"(256));
-    asm volatile("tcgen05.alloc.cta_group::1.sync.aligned %0, %1;"
-                 : "=r"(tmem_up) : "r"(256));
+    uint32_t tmem_gate = tmem_alloc_cta(256);
+    uint32_t tmem_up = tmem_alloc_cta(256);
 
     // Pipelined main loop
     for (int k = 0; k < K; k += BLOCK_K) {
@@ -159,21 +156,16 @@ __global__ void gated_dual_gemm_fused(
 
     // Fused epilogue: SiLU(gate) * up
     // Read both accumulators from TMEM, apply activation, store result
-    float gate_val, up_val;
-    asm volatile("tcgen05.ld.sync.aligned.32x32b.x1 {%0}, [%1];"
-                 : "=r"(gate_val) : "r"(tmem_gate));
-    asm volatile("tcgen05.ld.sync.aligned.32x32b.x1 {%0}, [%1];"
-                 : "=r"(up_val) : "r"(tmem_up));
+    float gate_val = tmem_load_f32(tmem_gate);
+    float up_val = tmem_load_f32(tmem_up);
 
     // SiLU(x) = x * sigmoid(x) = x / (1 + exp(-x))
     float silu_gate = gate_val / (1.0f + expf(-gate_val));
     output[row * N + col] = __float2half(silu_gate * up_val);
 
     // Deallocate TMEM
-    asm volatile("tcgen05.dealloc.cta_group::1.sync.aligned %0, %1;"
-                 :: "r"(tmem_gate), "r"(256));
-    asm volatile("tcgen05.dealloc.cta_group::1.sync.aligned %0, %1;"
-                 :: "r"(tmem_up), "r"(256));
+    tmem_dealloc(tmem_gate, 256);
+    tmem_dealloc(tmem_up, 256);
 }
 ```
 

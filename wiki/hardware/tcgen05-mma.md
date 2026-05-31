@@ -163,26 +163,26 @@ __device__ void mma_bf16_accumulate(
 
 Fences are **mandatory** for correctness. The hardware does not implicitly synchronize between MMA and TMEM reads/writes.
 
-### tcgen05.mma.fence
+### tcgen05.fence
 
 Insert before reading MMA results from TMEM:
 
 ```cuda
-// Wait for all outstanding tcgen05.mma operations to complete
+// Fence before CTA sync and TMEM reads after the completion mechanism.
 __device__ void fence_before_tmem_read() {
-    asm volatile("tcgen05.mma.fence::before_thread_sync;");
+    asm volatile("tcgen05.fence::before_thread_sync;");
     __syncthreads();  // Ensure all threads see the fence
 }
 ```
 
-### tcgen05.mma.fence variants
+### tcgen05.fence variants
 
 ```ptx
 // Fence before reading TMEM (most common)
-tcgen05.mma.fence::before_thread_sync;
+tcgen05.fence::before_thread_sync;
 
-// Fence at CTA scope for cooperative operations
-tcgen05.mma.fence::before_cluster_sync;
+// Fence after CTA sync before issuing dependent tcgen05 operations
+tcgen05.fence::after_thread_sync;
 ```
 
 ### Correct Mainloop Fence Pattern
@@ -213,7 +213,7 @@ __device__ void gemm_mainloop(/* params */) {
     }
 
     // 4. CRITICAL: Fence before reading accumulator from TMEM
-    asm volatile("tcgen05.mma.fence::before_thread_sync;");
+    asm volatile("tcgen05.fence::before_thread_sync;");
     __syncthreads();
 
     // 5. Now safe to read results from TMEM
@@ -272,7 +272,7 @@ __device__ void blackwell_mma() {
     }
 
     // Fence + sync before reading results
-    asm volatile("tcgen05.mma.fence::before_thread_sync;");
+    asm volatile("tcgen05.fence::before_thread_sync;");
     __syncthreads();
     // Read from TMEM -- registers free for other work
 }

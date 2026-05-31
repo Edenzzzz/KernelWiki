@@ -99,7 +99,7 @@ performance_claims:
     metric: TFLOPS
     value: 1605
     utilization: "71%"
-    source_id: paper-flash-attention-4
+    source_id: doc-flash-attention-4
 ```
 
 ## Tooling

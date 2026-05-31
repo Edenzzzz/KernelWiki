@@ -56,7 +56,7 @@ Tail: last few tiles distributed to first-available CTAs.
 
 ### Hardware Queue
 
-CLC maintains a hardware-managed work queue. Each entry represents a tile coordinate (or cluster coordinate in multi-CTA setups). The queue is populated at kernel launch and drained by CTAs calling `clusterlaunchcontrol.try_acquire`.
+CLC operates by letting a running CTA or cluster issue `clusterlaunchcontrol.try_cancel` to cancel a not-yet-launched ClcID and take over that work. There is no `clusterlaunchcontrol.try_acquire` PTX instruction.
 
 ### CLC Programming Model
 
@@ -120,7 +120,7 @@ __global__ void persistent_gemm_clc(
         }
 
         // Epilogue
-        asm volatile("tcgen05.mma.fence::before_thread_sync;");
+        asm volatile("tcgen05.fence::before_thread_sync;");
         __syncthreads();
         store_output(tmem_acc, C, tile_m, tile_n);
     }
@@ -192,8 +192,8 @@ struct ClcTileScheduler {
     CUTLASS_DEVICE
     WorkTileInfo get_next_work() {
         WorkTileInfo work;
-        // Acquire next tile from CLC hardware
-        bool valid = clc_try_acquire(&work.tile_coord);
+        // Fetch next tile by cancelling a not-yet-launched ClcID.
+        bool valid = clc_try_cancel(&work.tile_coord);
         work.is_valid = valid;
 
         if (valid) {
@@ -245,12 +245,12 @@ K = 8192   # hidden dim
 When using 2-SM cooperative MMA (`cta_group::2`), CLC distributes work in **cluster-sized units**:
 
 ```cuda
-// 2-SM cooperative CLC: each acquisition gets a cluster-sized tile
+// 2-SM cooperative CLC: each successful cancel gets a cluster-sized tile
 __device__ void cooperative_clc_loop() {
     while (true) {
-        // Acquire tile for the 2-CTA cluster
+        // Fetch tile for the 2-CTA cluster
         ClusterTile tile;
-        bool valid = clc_try_acquire_cluster(&tile);
+        bool valid = clc_try_cancel_cluster(&tile);
         if (!valid) break;
 
         // Both CTAs in the cluster share the tile

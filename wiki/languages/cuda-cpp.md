@@ -17,12 +17,19 @@ Plain CUDA C++ with inline PTX is used for hand-optimized Blackwell kernels. The
 ## tcgen05 via Inline PTX
 
 ```cuda
-// Allocate TMEM
-__device__ void tmem_alloc(uint32_t* addr, uint32_t num_cols) {
-    asm volatile(
-        "tcgen05.alloc.cta_group::1.sync.aligned %0, %1;"
-        : "=r"(*addr) : "r"(num_cols)
-    );
+// Allocate TMEM. tcgen05.alloc writes the allocated address into SMEM.
+__device__ uint32_t tmem_alloc_cta(uint32_t* smem_tmem_addr,
+                                   uint32_t num_cols) {
+    if (threadIdx.x == 0) {
+        uint32_t smem_addr =
+            static_cast<uint32_t>(__cvta_generic_to_shared(smem_tmem_addr));
+        asm volatile(
+            "tcgen05.alloc.cta_group::1.sync.aligned.shared::cta.b32 [%0], %1;"
+            :: "r"(smem_addr), "r"(num_cols)
+        );
+    }
+    __syncthreads();
+    return *smem_tmem_addr;
 }
 
 // Issue MMA (single thread, typically warp 1 lane 0)
@@ -32,7 +39,7 @@ __device__ void tcgen05_mma(uint32_t tmem_addr,
                              uint32_t idesc_c, uint32_t idesc_d) {
     asm volatile(
         "tcgen05.mma.cta_group::1.kind::f16"
-        " %0, %1, %2, %3, %4;"
+        " [%0], %1, %2, %3, %4;"
         :: "r"(tmem_addr), "l"(desc_a), "l"(desc_b),
            "r"(idesc_c), "r"(idesc_d)
     );
@@ -41,15 +48,15 @@ __device__ void tcgen05_mma(uint32_t tmem_addr,
 // Load TMEM to registers
 __device__ void tmem_load(float* dst, uint32_t tmem_addr, int cols) {
     asm volatile(
-        "tcgen05.ld.sync.aligned.32x32b.x1 {%0}, [%1];"
-        : "=r"(*dst) : "r"(tmem_addr)
+        "tcgen05.ld.sync.aligned.32x32b.x1.b32 {%0}, [%1];"
+        : "=f"(*dst) : "r"(tmem_addr)
     );
 }
 
 // Deallocate TMEM (MUST do before kernel exit)
 __device__ void tmem_dealloc(uint32_t addr, uint32_t num_cols) {
     asm volatile(
-        "tcgen05.dealloc.cta_group::1.sync.aligned %0, %1;"
+        "tcgen05.dealloc.cta_group::1.sync.aligned.b32 %0, %1;"
         :: "r"(addr), "r"(num_cols)
     );
 }
