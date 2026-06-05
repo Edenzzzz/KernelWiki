@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13677
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: d6c018dd5d9ab18a28a4f7620adedb2b66405041
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13677
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 1919c9bf44b2b0ccc4f8e9ef2884cd479752321946523b6bb6ba36ab60a05430
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: d2ae579bc1b06a3dc083c94291b6f039b0f05bd2c356dbc062450add967e0b3a
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/mla/trtllm_mla.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3a7d4830525bf7e6178a0d975c23acba7fc4e7be04b251492198b7baa89847b7
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/mla/trtllm_mla.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/custom_ops/mla/test_trtllm_mla_op.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a24f7aece1cb7b90e3dc9e553a1e953dd55032258f95110bc5e714e9b8eb3231
+  upstream_path: tests/unittest/auto_deploy/singlegpu/custom_ops/mla/test_trtllm_mla_op.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 4b5f13d94e02afca2b87f126bb74eaa9656d3f36c30b95ab1f1ffc856ac91fb5

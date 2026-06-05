@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10190
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 0caa9ed6dc5ca708db65c21ccf020f746f602a1d
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10190
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: b384d507b62b522788dbddfb769644fe0ef042c3ed2413c72d53e1876f38bcee
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: eb96d0b6466c26dc5aaa8824159dbaec7baec736b53ab5fa51ddced6eabe4270
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/detail/collective/mixed_input_utils.hpp
+  role: upstream-file
+  mode: verbatim
+  sha256: fb5113689d04bc93d01a4921369bf92d7bc04448035d47534e03a71dfd77e9a1
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/detail/collective/mixed_input_utils.hpp
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/builders/sm100_umma_builder_weightonly.inl
+  role: upstream-file
+  mode: verbatim
+  sha256: 2e771579cbdbcb4af70c042386720724e19cd0100bcd4477448ac8e4c80ca040
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/builders/sm100_umma_builder_weightonly.inl
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/collective_builder_sm100_weightonly.hpp
+  role: upstream-file
+  mode: verbatim
+  sha256: bc97c69df551c6b2090a995c3e805ef261cc837588bf276b30c23384b05666cd
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/collective_builder_sm100_weightonly.hpp
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/collective_mma_sm100_weightonly.hpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 758a877ccb31ce203e0fcc5f8f4f9da13aa13dc28a5b8cc43d7ff0b7c9e47d1d
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/collective_mma_sm100_weightonly.hpp
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/sm100_mma_warpspecialized_mixed_input.hpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 7743e67033b4e0768dae4a47f9377728e297a8ed00f806c3c2a3048275c9ab9c
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/collective/sm100_mma_warpspecialized_mixed_input.hpp
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/kernel/fpA_intB_gemm.h
+  role: upstream-file
+  mode: verbatim
+  sha256: bd85aa8dbefa38d08d463bb3aa6393a4328b22af9d7bc67245310a0b4abf3881
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/kernel/fpA_intB_gemm.h
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/kernel/mixed_gemm_B_layout.h
+  role: upstream-file
+  mode: verbatim
+  sha256: eb43be48e09c5ba48c52f38b9b44d6a1bf223e735acfb1e5c116348677810e00
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm/kernel/mixed_gemm_B_layout.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/cutlass_heuristic.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: df1fbec7482cc06ec64836090d4f51cdeda401f57ecee6f52a20643d3fbc42e4
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/cutlass_heuristic.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 86f6f777f0d3249e1b7b8df9584f84f9cd7d0249d9f61e2c53e8c1b7aadc55f9

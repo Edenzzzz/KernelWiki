@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/6809
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 1e654c3cc7dac9ff6c7225fc4fe374b33c0244af
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-6809
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 60d2558f8eea1c9dc004e5d4c00aebd5b428a01884c6b321f89cb9dbda77b637
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: ecb561ec4d529fccb83ee7b1309ea1771dabb52a5f784eecf69e617ee462447a
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/KernelRunner.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 7dd7c9c82b5585cebfec7413f1af966b6e28a9baa8e7e8cc9cb0af1643ec9113
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/KernelRunner.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/KernelRunner.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 077946c0aef42c426bd1206cb9badad1ac79994aecf31031a1b9c459acac5502
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/KernelRunner.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/Enums.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 7ee396d034e07f7badd71ee7e43242dd70841525b77d137a25ce68dea7121373
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/Enums.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/GemmInterface.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 21e8e2d5d728e6d8ebf67ae96f2de8367085a908c2f54ab80522046906ce3ccb
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/GemmInterface.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/GemmOptions.h
+  role: upstream-file
+  mode: verbatim
+  sha256: ae0a8c870d33a1c9bdd7db743129b13d5f911ee0cc07a9b31322b784b6ce7fc8
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/GemmOptions.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/KernelMetaInfo.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 61d4f1cbe7a3e229cdb034f50c703b0ad4fd695a8eac6cd3de72702f02580793
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/KernelMetaInfo.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/KernelParams.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 7c620b92004e53dc7c5032f23d1fdbe2a1fe13726b9dee2df4d75f859f7d40ea
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/KernelParams.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/KernelParamsDecl.h
+  role: upstream-file
+  mode: verbatim
+  sha256: aa7945ab0256c40425db1095c834cc3671a20583eec668dc9ed73356c3a2288a
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/gemm/trtllmGen_gemm_export/KernelParamsDecl.h
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: e51c02d822e300e21301df51bb1fb58275d5bb691feadcb055498f2d6cc8e28f

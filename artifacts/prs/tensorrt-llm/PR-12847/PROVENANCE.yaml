@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12847
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 7d0215129fe73a4c56e81aff366f81fe4fdd48f0
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12847
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c90fd055854f17604144cf72743aabac0e7f11a6e1e3fcb8a30256329bf65292
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 1e10a42a3bb71dc39b3def9b45e35de9ecfb9d6a5d917424be5b0e2cea594e7c
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/gemma4_moe.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 3980d01972f91ac5458ab905df049a3e44e8bedec600fc50e9f6d814c8da3cd4
+  upstream_path: examples/auto_deploy/model_registry/configs/gemma4_moe.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/compile/backends/torch_cudagraph.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f5bfe4bde3c815bd6de093feadb31201ceb904b86356a8b7b212be4841ed47ed
+  upstream_path: tensorrt_llm/_torch/auto_deploy/compile/backends/torch_cudagraph.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 275b9d75799f3c4bfbd0dd8203381e1233f8a9a2c189238e9df66abfd67e88da
+  upstream_path: tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/gather_logits_before_lm_head.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ab5f627ad00b9fc9a211fbb0ac578d75bdbdbe28d347f5da736c7bdd410a9a95
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/gather_logits_before_lm_head.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/utils/multi_stream_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b16a870e782766395f208f283a9a0407aa52ac0503aff361e0984e07f8e8f68c
+  upstream_path: tensorrt_llm/_torch/auto_deploy/utils/multi_stream_utils.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/compile/test_piecewise_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bebaaa5b2372d62407a095d9df6f4faf629eaad940cd60d950c9aa255fcd918f
+  upstream_path: tests/unittest/auto_deploy/singlegpu/compile/test_piecewise_utils.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_gather_logits_before_lm_head.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 053d9fdb1894421f1932e16c8d6df3305023dc1731f5e5828ffbac08208cb145
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_gather_logits_before_lm_head.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: da44a3fd54995d31038f50c7f49a1ce6d4f2d36db16f6b240ae3d7d42bd34554

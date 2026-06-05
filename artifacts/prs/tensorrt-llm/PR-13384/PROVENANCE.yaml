@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13384
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: e7d80e9383bf913a614e93728b3da90673aa4c40
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13384
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 2697fbba6f624d5b0db4a577d8533b51d513c74819ce0c616e4635f630da7bf3
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 9a310d6f185342bb772f7de75b11c0ec4911832b13d8e013acf74a8c2b3ce2f6
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/configurable_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ecf7c345e442e91653fd9a3b7c0cf2a7169b98f15e776bebeda0e9ee890f5221
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/configurable_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 708de0de3660a933a912bb56ddde9313e25d01dfce57ae7611fbd1559b729009
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/mega_moe/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b9a45807b682ba8a2dcbcb2f374ecdd4aa5cc7e426d72c5010473575b2d700c7
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/mega_moe/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/mega_moe/backend.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4a86ac93b138f4f996ac18b685a9b026c3db5aa7c60e38370e62cd3c743302ab
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/mega_moe/backend.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 61a16235e7e35bef0dbda414afdab624967255756271a7557adedfc3c01b96ae

@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13160
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 2156b29fb4fb5004f263cb3e3f387c3e47b07242
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13160
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: d0109a4cf98da026dc4335ebfa3995a34b2ee8a18dcc2f05d6f79f831ab0fb7c
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 1ccba7e9bfc44a92b7bf29fc00952b522807d6967695241bed710b60a544fa76
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cublasScaledMMLut.h
+  role: upstream-file
+  mode: verbatim
+  sha256: b7b95e0b3499458ac4110a948496123ec75e1d4dd7a91dd371f31997722bc7ab
+  upstream_path: cpp/tensorrt_llm/thop/cublasScaledMMLut.h
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_nemotron_h.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 940dd7a17a718f511b9061925eb4afe54196d81cc60b7a2e9df93250167c7a39
+  upstream_path: tensorrt_llm/_torch/models/modeling_nemotron_h.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/mamba2_mixer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 91cade0a28b63c50ccc5852823857c369ee2d5bc7a347ebd02d5c8189c1405dc
+  upstream_path: tensorrt_llm/_torch/modules/mamba/mamba2_mixer.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mlp.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8142a669e1aa0c92dd3392a557d869ee6501d2735b7b4ddb033f5839231fee48
+  upstream_path: tensorrt_llm/_torch/modules/mlp.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: dd80d2da5329b8673a9f7811546f25257472ae0307a1f8a56cb87b06a1f821e5

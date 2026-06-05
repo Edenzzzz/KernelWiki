@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11473
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: ad4502cd1aa3b84f8529ed4cf93eb0974fc53e97
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11473
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 2053792ca2cf947e86d06a1bebd3778349cb9b95499c34bcc65e9d5fd88b13e7
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2b45b314b76bb8994f6ff768b44edc88185318155c30f702d40b5f074f5a9e68
+- local_path: source-snapshot/cpp/tensorrt_llm/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: ae808adb9276e1d7d0847d537d81de948152a98549942052bb09b539b2099608
+  upstream_path: cpp/tensorrt_llm/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 61908d7d68f6503fb303d7eaa0f7b8425e15d5d2b189846d0fa99033a3f66e3e
+  upstream_path: cpp/tensorrt_llm/kernels/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedGatedRMSNormQuant/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 854c2375529e33dcfa9e6f14d9f69456f6c8a8586f8a9ffe3e5e58c0f1b68dc6
+  upstream_path: cpp/tensorrt_llm/kernels/fusedGatedRMSNormQuant/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedGatedRMSNormQuant/fusedGatedRMSNormQuant.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: f30366066ce605a839a8deba3210a774518daa05d95992e0ba8c1cf41209af05
+  upstream_path: cpp/tensorrt_llm/kernels/fusedGatedRMSNormQuant/fusedGatedRMSNormQuant.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedGatedRMSNormQuant/fusedGatedRMSNormQuant.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 54f56d55225c9d05db20adb86618224673c119b1d63181a09d19cc5ad9c8149a
+  upstream_path: cpp/tensorrt_llm/kernels/fusedGatedRMSNormQuant/fusedGatedRMSNormQuant.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 59062552d2b42a098fc0b706aa06e1759864b731d1759c5207cc2da813173714
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fusedGatedRMSNormQuant.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: a72a3d7e611713600b18b2891207a091538ca60f8d925507e63618166e466b74
+  upstream_path: cpp/tensorrt_llm/thop/fusedGatedRMSNormQuant.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3bf08707aebc30fcbad16039b912465c7d57d19a263d1f5917ed0324b264bbeb
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: b14d703942f07132dc5839aa4b33eceb6fd7c8d1a65b38b4e600901bdb2ff0a0

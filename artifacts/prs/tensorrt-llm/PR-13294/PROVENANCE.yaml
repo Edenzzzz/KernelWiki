@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13294
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: b9bc42052f740aa9e89c484b7cc7efd2b5385f30
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13294
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8e17eb2e8c313f038182c8a5c081dc58290964e4e7e2c26ba677cdd62ddade1b
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2f42b41583a116a5a05a37e53b8498f4356fbca3beb5e52c2fd9da84ae8f475f
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: decdfcff8ab9c8582ee986b4fcd098b0a46841669012122109d6c30eec3058bf
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/IntFastDiv.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 175bfb151af50f2b149c6dd51d5b003c76c5658b70bd7ce75781620d18563bac
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/IntFastDiv.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingDeepSeek.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: f3c85eef1ead6d4a4392637fb9b1e058a8237ff6470112e6a4ccb52c1b25ee25
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingDeepSeek.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingKernel.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 3c809cc920857215df2c7844c0e241b83977cd024549839dd697b52f29ff9217
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingKernel.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 8eea138c147609e429a5918a579620a792b86a1d3123c1d5a4709faf216ac94d
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingKernel.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingKernelTopK.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: a335f3c438c4cdfe58bd2acc7a95a8daed27a05e16b471b7219f0f9279d1d329
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingKernelTopK.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingLlama4.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: b4961df8c42614b26eafb31997b4d966d989c8c5831af8d163509cfd4be1301c
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingLlama4.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingRenormalize.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 22824caf41441bc73e6323a723c8b5e3f312919394ea6a34c717c1024899649e
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingRenormalize.cu
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: ea6c887ce92f136b2d319217463604652867a5916390be3f165192e30497abe0

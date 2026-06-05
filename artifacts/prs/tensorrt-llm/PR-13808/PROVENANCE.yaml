@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13808
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 94d5bc416394bd56f1dedb4465fbdd3ff994512a
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13808
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: af9f88e7b40e4ccf0e6f604f66cee5a5dede38a01588fac76f4a25eb8e833d44
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 1f3d8e9f5ae8545bc5f08275bdfeade81e75b362459f0232f6ab06c28c4737ad
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fmhaDispatcher.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: e0bc8696964218266e13a6e568ee43d3471bc0aabde7d09859825e2644079c3e
+  upstream_path: cpp/tensorrt_llm/kernels/fmhaDispatcher.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/kernelMetaInfo.h.SKIPPED.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 6d8810abc7379e3b7cb2c2b152a326a43429f80a3d3de3cafa1afc558560cea9
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/kernelMetaInfo.h.SKIPPED.txt
+- local_path: source-snapshot/tests/unittest/trt/attention/test_gpt_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: aec33e93303d7ef502d959b5eb31d1ba128793a64d3eaaee29b225c445c95693
+  upstream_path: tests/unittest/trt/attention/test_gpt_attention.py
+- local_path: source-snapshot/tests/unittest/utils/util.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3826a2f73faa92bf183166e0b3b5f06cbf5b7140b31a6fe363cc5a40f6dd35c5
+  upstream_path: tests/unittest/utils/util.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 297f44a50d6623a9908bade09e734aa089fc95d9fec3935234983e61c1661677

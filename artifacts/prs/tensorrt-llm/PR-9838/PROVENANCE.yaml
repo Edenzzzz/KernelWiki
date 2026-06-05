@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9838
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: d2384f1f61a7884975a97d57fcaecea158faa8b9
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9838
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c09716b4681029260918ba32ab4378663bc20efc09241da7f6600e08ea6db799
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: e212231de1910ad0e232364c945a8f2e91450bdce56ade2ed493059071fe40f8
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/include/moe_kernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 77ab4f990aa1b1be447b17c498009e67c8986a042499cf50b21d80709d0fbafd
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/include/moe_kernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_mixed_input_launcher.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 23516392db660cdfb7a0fc37dda9988ad884406cf07c731542b000d2ce18bd53
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_mixed_input_launcher.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_mixed_input_launcher.inl
+  role: upstream-file
+  mode: verbatim
+  sha256: c464d5347e3f347e4fc3bb58ea9253a7a397c9e39437f71721d125c2c87d86eb
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_mixed_input_launcher.inl
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_gemm_template_dispatch.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 2c8cd1589618beeadd9733776146b697d565f2b4101bffd9d10fa48e50ecd8b4
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_gemm_template_dispatch.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_gemm_template_dispatch_tma_ws_mixed_dtype.h
+  role: upstream-file
+  mode: verbatim
+  sha256: f1551d6c5836bfc98ea8513d7915525b34b3640f8b8637243790958418ae08cf
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_gemm_template_dispatch_tma_ws_mixed_dtype.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_kernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 0289a6ee2d2fb72cd6bbbc517bb840d67355f40d762eddf9076292c66213c61b
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_kernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/python/generate_kernels.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d35bebe35a6d55ee0f665db05fb76d303cc9ab1bce1a7a0ede77b8be4ece2ba8
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/python/generate_kernels.py
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/moeOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 44215c9ddeafac68bc3992a2042badaed3dbbca398dd86ee50da1656cd5e202f
+  upstream_path: cpp/tensorrt_llm/thop/moeOp.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: c0b83cd04c0f5f50951c22fca01b087258ed5e41b8c567222ff57eec152c16b5

@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12861
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 6d5e898a5383e400a8f75afce258ce98a39637a2
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12861
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 26bb847ee363ac56e1d792c660cef47ee5169978feace08094acc04d45b15316
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 9f34f28ba875cd4df8e19e4790188e7a1ad65ccb438e906cb4d5bba445fd844d
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/torch_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2f3d51e74e2fa74a83710b8e455491ba926b3fcd9f8c943ac9d982cb1efd6fc6
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/torch_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/torch_backend_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8f64b3f4a8dd2b2b8023673686a670fce408b2330cd55ebc1ba090ac68305b84
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/torch_backend_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_paged_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 37209f7ed327ec4f8442764dd9895f2abf82ab442e493342d080dbbb7cad3734
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_paged_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention_interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2a3c8071e40f761842a49b9f356b0cf1de5db5baeeddb0e3a2fddddb69ef2f1e
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention_interface.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/semantic_mask_registry.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 901c6a7a535275ac3e4590cd06c3795d44fe67d35e75e4463b2234f78be74861
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/semantic_mask_registry.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/llm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d1feb0e7b3807c243eba0cd882b6ee38b94cf81ab4e322ea7da56ced23029e6a
+  upstream_path: tensorrt_llm/_torch/auto_deploy/llm.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/models/custom/modeling_gemma4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d2f246b01dead7be766e8a02cd1cd4d9a55ff56ab1ddad141412b047c8528eda
+  upstream_path: tensorrt_llm/_torch/auto_deploy/models/custom/modeling_gemma4.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/shim/ad_executor.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b48175b84048787bc8482a6407291a7a89480d2374fd2b205bff2eedcb5e0b44
+  upstream_path: tensorrt_llm/_torch/auto_deploy/shim/ad_executor.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: c16a7fa765dbaf231a12beb529891c6cdf94ef9df5b8165b859a366db286b176

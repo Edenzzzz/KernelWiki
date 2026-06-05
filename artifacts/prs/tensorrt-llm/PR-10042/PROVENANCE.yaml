@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10042
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: e03bd9f7a316f241e44aa1238c0d0bd3c794b12d
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10042
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 50d7a754e8c64aa2c5d159838549fcf43055535553d4478692dc14a02c8e7f7a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a4c882f4275e3449372664641ef4339c6e028af5437b4ca3fc2f39a18494bb9b
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0f9cb7855457c9901ca628a9d3d0b1ea412dff0d6f80cdc0f04f00cc4c3797af
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bc6450150bbf1c1507b430cf2b1b267bcb7f348f6faec0443e7ae6f34a2bd56e
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+- local_path: source-snapshot/tests/scripts/cute_dsl_kernels/run_blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b9a79dfd15741b5d525632e4647c771d6e3c6bfee6e7de65e9b2701019a3e9c5
+  upstream_path: tests/scripts/cute_dsl_kernels/run_blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_cute_dsl_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 23ea0a0d3f0661af25c41f4f891ac19dcfdbec994c308d4a7cd15282ef18de10
+  upstream_path: tests/unittest/_torch/thop/parallel/test_cute_dsl_moe.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: b09daa92bbcdff68ad62d3c3bf8266050dea080f41a11a8d9344c98fa20be491

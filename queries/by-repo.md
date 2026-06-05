@@ -2,6 +2,249 @@
 
 > Auto-generated. Do not edit manually.
 
+<a id="dao-ailabquack"></a>
+## Dao-AILab/quack
+49 PRs
+
+| PR | Title | Date | Techniques | Tags |
+|-----|-------|------|------------|------|
+| [#137](../sources/prs/quack/PR-137.md) | Fix exception chaining in CuTeDSL ELF patch | 2026-05-15 |  | cute-dsl |
+| [#132](../sources/prs/quack/PR-132.md) | RMS Norm Bwd: Optimize for GB200 w/ TMA loads, reload_x, separate output dtype, new launch configs | 2026-05-14 |  | gemm, tma, cuda-cpp |
+| [#134](../sources/prs/quack/PR-134.md) | [Bug] Tracer | 2026-05-14 |  | cuda-cpp, cute-dsl, triton |
+| [#126](../sources/prs/quack/PR-126.md) | feat: add `weight` to cross entropy | 2026-05-01 |  | tma, cuda-cpp, cute-dsl |
+| [#123](../sources/prs/quack/PR-123.md) | Fix cute dsl arch import | 2026-04-29 |  | cute-dsl |
+| [#117](../sources/prs/quack/PR-117.md) | [Gemm] Add tile_K parameter and enable 2CTA for tile_m=128 | 2026-04-26 |  | gemm |
+| [#120](../sources/prs/quack/PR-120.md) | Fix ColVecReduce shared-memory staging | 2026-04-26 |  | gemm, cute-dsl |
+| [#118](../sources/prs/quack/PR-118.md) | Add remaining SM120 / RTX 50 support for GEMM epilogues and RMS paths | 2026-04-25 | epilogue-fusion | gemm, epilogue-fusion, cuda-cpp |
+| [#119](../sources/prs/quack/PR-119.md) | ruff benchmarks/ | 2026-04-24 |  | cuda-cpp |
+| [#107](../sources/prs/quack/PR-107.md) | [Gemm] Implement concat_layout | 2026-04-18 |  | gemm |
+| [#96](../sources/prs/quack/PR-96.md) | Add SM120 (consumer Blackwell) support | 2026-04-14 |  | cute-dsl, gemm, tma |
+| [#99](../sources/prs/quack/PR-99.md) | add _get_mma_inst_tile_k() virtual method to GemmSm100 | 2026-04-14 |  | gemm, moe, cuda-cpp |
+| [#103](../sources/prs/quack/PR-103.md) | Fix gemm_out inplace versus separate out tensor pytorch custom op schema mismatch | 2026-04-13 |  | gemm |
+| [#104](../sources/prs/quack/PR-104.md) | Fix autotuner worker device affinity | 2026-04-13 |  | cuda-cpp |
+| [#100](../sources/prs/quack/PR-100.md) | Autotune between tma gather and cp.async in SM100 | 2026-04-08 |  | tma |
+| [#98](../sources/prs/quack/PR-98.md) | Remove asm_dialect=AD_ATT from inline PTX assembly calls | 2026-04-06 |  | cute-dsl, ptx |
+| [#97](../sources/prs/quack/PR-97.md) | [BugFix] Fix `_is_warp_leader` in `TraceContext`  | 2026-04-05 | warp-specialization | cute-dsl, warp-specialization |
+| [#95](../sources/prs/quack/PR-95.md) | [Gemm] Fix `gemm_symmetric` on SM120 + add benchmark | 2026-04-03 |  | gemm, cuda-cpp |
+| [#94](../sources/prs/quack/PR-94.md) | [Gemm] fix sm120 gemm kernel invocation error | 2026-04-02 |  | cute-dsl, gemm, cuda-cpp |
+| [#80](../sources/prs/quack/PR-80.md) | CLC should be autotunable in SM100 rather than a fixed argument | 2026-03-25 |  | clc |
+| [#87](../sources/prs/quack/PR-87.md) | Optimal Tile Size for Blackwell Symmetric is (256, 256) | 2026-03-25 |  | cuda-cpp |
+| [#84](../sources/prs/quack/PR-84.md) | Expand SM100 autotuning space | 2026-03-18 |  | cuda-cpp |
+| [#85](../sources/prs/quack/PR-85.md) | Avoid CUDA context initialization at import time | 2026-03-18 |  | gemm, cuda-cpp |
+| [#82](../sources/prs/quack/PR-82.md) | Add stochastic rounding support for GEMM epilogue | 2026-03-16 | epilogue-fusion | gemm, epilogue-fusion, cuda-cpp |
+| [#83](../sources/prs/quack/PR-83.md) | Allow for patching tvm-ffi | 2026-03-13 |  | cute-dsl, attention, cuda-cpp |
+| [#81](../sources/prs/quack/PR-81.md) | [SM100] fix CLC persistence for varlen-M tile scheduler | 2026-03-11 | tile-scheduling | gemm, clc, tile-scheduling |
+| [#79](../sources/prs/quack/PR-79.md) | Fix Triangular Scheduler | 2026-03-09 | tile-scheduling | tile-scheduling, cute-dsl |
+| [#78](../sources/prs/quack/PR-78.md) | new nvvm.fmin signature | 2026-03-07 |  | cute-dsl |
+| [#76](../sources/prs/quack/PR-76.md) | Support to only store mPostAct | 2026-03-03 |  | gemm |
+| [#75](../sources/prs/quack/PR-75.md) | Better gemm configs that reduce 80% autotuning time | 2026-02-25 |  | gemm |
+| [#74](../sources/prs/quack/PR-74.md) | Fix gather fusion in SM100 | 2026-02-11 | kernel-fusion | kernel-fusion |
+| [#71](../sources/prs/quack/PR-71.md) | Add utils for gated activation  | 2026-02-02 |  | cuda-cpp |
+| [#66](../sources/prs/quack/PR-66.md) | Fix unroll_full kwarg typo in bitonic_sort | 2026-01-21 |  | cute-dsl |
+| [#59](../sources/prs/quack/PR-59.md) | Don't write to same tile twice in symmetric gemm | 2025-12-07 |  | gemm |
+| [#57](../sources/prs/quack/PR-57.md) | Swap order of decorators | 2025-11-21 |  | cute-dsl |
+| [#53](../sources/prs/quack/PR-53.md) | Fix gradient computation in RMS PreNorm backward pass | 2025-10-30 |  | cuda-cpp |
+| [#46](../sources/prs/quack/PR-46.md) | Refactor Symmetric GEMM to be an activation | 2025-10-01 |  | gemm |
+| [#36](../sources/prs/quack/PR-36.md) | [GemmSm90]Add varlen_utils and make gemm interface api return shape consistent | 2025-09-08 |  | gemm |
+| [#33](../sources/prs/quack/PR-33.md) | [TORCH_COMPILE] add torch compile support | 2025-09-07 |  | gemm |
+| [#35](../sources/prs/quack/PR-35.md) | Add optional epilogue args | 2025-09-05 | epilogue-fusion | gemm, epilogue-fusion |
+| [#31](../sources/prs/quack/PR-31.md) | Add missing default value for `is_scheduler_warp` | 2025-09-01 | tile-scheduling, warp-specialization | gemm, tile-scheduling, warp-specialization |
+| [#32](../sources/prs/quack/PR-32.md) | Fix a potential use-def issue in dynamic control flow | 2025-09-01 |  | gemm |
+| [#29](../sources/prs/quack/PR-29.md) | Fix Symmetric Compile Cache | 2025-08-20 | cache-policy | cache-policy, cute-dsl |
+| [#28](../sources/prs/quack/PR-28.md) | Speedup Torch Wrapper for Symm Matmul | 2025-08-11 |  | gemm, cute-dsl |
+| [#27](../sources/prs/quack/PR-27.md) | Symmetric alpha * A @ B + beta * C | 2025-08-08 |  | gemm |
+| [#19](../sources/prs/quack/PR-19.md) | add PyTorch focused benchmarking for quack rmsnorm | 2025-07-17 |  | cuda-cpp, triton |
+| [#20](../sources/prs/quack/PR-20.md) | add reduction options to Quack Cross Entropy for PyTorch drop-in usage | 2025-07-17 |  | cuda-cpp |
+| [#16](../sources/prs/quack/PR-16.md) | Add RMSNorm support for BF16 and FP16 weights, add unit tests to verify BF16, FP16 weight results for fwd, bwd | 2025-07-16 |  | cute-dsl |
+| [#7](../sources/prs/quack/PR-7.md) | Add Layernorm example | 2025-07-10 |  | cuda-cpp |
+
+<a id="nvidiatensorrt-llm"></a>
+## NVIDIA/TensorRT-LLM
+180 PRs
+
+| PR | Title | Date | Techniques | Tags |
+|-----|-------|------|------------|------|
+| [#14000](../sources/prs/TensorRT-LLM/PR-14000.md) | [TRTLLM-12589][fix] Reset MoE A2A dispatch state on warmup OOM | 2026-05-15 |  | moe |
+| [#14054](../sources/prs/TensorRT-LLM/PR-14054.md) | [https://nvbugs/6162323][fix] Make mxfp4 H20 swizzle WAR more robust | 2026-05-15 | swizzling | fp4, swizzling |
+| [#14070](../sources/prs/TensorRT-LLM/PR-14070.md) | [None][perf] Speed up model init: cache support_nvlink() | 2026-05-15 | cache-policy | cache-policy, cute-dsl |
+| [#14074](../sources/prs/TensorRT-LLM/PR-14074.md) | [None][fix] Support DeepSeekV4 routing in perfect-router planner | 2026-05-15 |  | moe, cuda-cpp |
+| [#13740](../sources/prs/TensorRT-LLM/PR-13740.md) | [https://nvbugs/6108841][fix] add hidden_dim=6144 router GEMM instantiation for GLM-5 | 2026-05-14 | fine-grained-quantization | fine-grained-quantization, gemm, moe |
+| [#13873](../sources/prs/TensorRT-LLM/PR-13873.md) | [TRTLLM-12503][feat] Parallel VAE independent scaling and fix arg passing | 2026-05-14 | fine-grained-quantization, pipeline-stages, tile-scheduling | fp4, fp8, fine-grained-quantization |
+| [#13929](../sources/prs/TensorRT-LLM/PR-13929.md) | [TRTLLM-35237][feat] Add cute dsl FP4 paged MQA logits decode kernel | 2026-05-14 | fine-grained-quantization, pipeline-stages | fp4, fp8, fine-grained-quantization |
+| [#14004](../sources/prs/TensorRT-LLM/PR-14004.md) | [None][feat] AutoDeploy re-onboard GPT_OSS | 2026-05-14 |  | fp4 |
+| [#14106](../sources/prs/TensorRT-LLM/PR-14106.md) | [None][fix] Add SPDX Apache-2.0 headers and fix license compliance for llm-c standalone repo | 2026-05-14 |  | fp4 |
+| [#13052](../sources/prs/TensorRT-LLM/PR-13052.md) | [#12716][feat] Fused cross-head QK Norm + RoPE kernel for WAN | 2026-05-13 | kernel-fusion | kernel-fusion, attention, cuda-cpp |
+| [#13169](../sources/prs/TensorRT-LLM/PR-13169.md) | [https://nvbugs/5945047][fix] Fix cluster launch enablement for SM120 GPUs in allReduce fusion | 2026-05-13 | cache-policy, kernel-fusion, pipeline-stages | cache-policy, kernel-fusion, pipeline-stages |
+| [#13594](../sources/prs/TensorRT-LLM/PR-13594.md) | [None][test] Add GB300 DISAGG NIXL CI Perf Test Back | 2026-05-13 |  | cuda-cpp |
+| [#13808](../sources/prs/TensorRT-LLM/PR-13808.md) | [None][feat] Update FMHA cubins for head_dim 80 | 2026-05-13 |  | attention, cuda-cpp |
+| [#13837](../sources/prs/TensorRT-LLM/PR-13837.md) | [None][test] Add func and perf case of nemotron-3-Nano-Omni model on DGX-Spark | 2026-05-13 |  | nvfp4, fp4 |
+| [#13997](../sources/prs/TensorRT-LLM/PR-13997.md) | [None][feat] enable TRTLLM-Gen internal routing | 2026-05-13 | kernel-fusion, tile-scheduling | moe, nvfp4, fp4 |
+| [#14039](../sources/prs/TensorRT-LLM/PR-14039.md) | [#8542][feat] AutoDeploy: add Llama-3.1-8B FP8 perf-sanity test on H100 | 2026-05-13 |  | fp8 |
+| [#12731](../sources/prs/TensorRT-LLM/PR-12731.md) | [None][feat] Optimize mamba SSD prefill and extend flashinfer dispatch | 2026-05-12 |  | moe, attention, cuda-cpp |
+| [#13570](../sources/prs/TensorRT-LLM/PR-13570.md) | [TRTLLM-12128][feat] enable SageAttention for Wan/FLUX (new commits) | 2026-05-12 | pipeline-stages, tile-scheduling | nvfp4, fp4, pipeline-stages |
+| [#13658](../sources/prs/TensorRT-LLM/PR-13658.md) | [None][test] add Nemotron Ultra V3 AutoDeploy accuracy test | 2026-05-12 | pipeline-stages, tile-scheduling | nvfp4, fp4, pipeline-stages |
+| [#13892](../sources/prs/TensorRT-LLM/PR-13892.md) | [None][perf] mHC fused_hc kernel optimizations + DS-V4 entry-boundary RMSNorm fold-in | 2026-05-12 | kernel-fusion | tma, kernel-fusion, attention |
+| [#13971](../sources/prs/TensorRT-LLM/PR-13971.md) | [None][perf] Follow-up patch for "Improve TRTLLM MoE autotune in DEP (#13667)" | 2026-05-12 |  | fp4, moe |
+| [#13901](../sources/prs/TensorRT-LLM/PR-13901.md) | [None][chore] Remove glm_moe_dsa tokenizer WAR after Transformers 5.x upgrade | 2026-05-11 |  | moe |
+| [#13908](../sources/prs/TensorRT-LLM/PR-13908.md) | [None][refactor] MoEScheduler split + MegaMoE EPLB / multi-chunk / CI integration | 2026-05-11 | tile-scheduling | moe, fp4, tile-scheduling |
+| [#13945](../sources/prs/TensorRT-LLM/PR-13945.md) | [https://nvbugs/6100102][fix] Fix cutlass grouped gemm launcher EpilogueScalars construction | 2026-05-11 | epilogue-fusion | gemm, moe, tma |
+| [#12884](../sources/prs/TensorRT-LLM/PR-12884.md) | [TRTLLM-11585][feat] Add CUTEDSL moe backend for nemotron-h | 2026-05-10 | fine-grained-quantization, kernel-fusion, pipeline-stages | fine-grained-quantization, kernel-fusion, pipeline-stages |
+| [#13938](../sources/prs/TensorRT-LLM/PR-13938.md) | [None][feat] Keep DSv4 o_a_proj as FP8, and port vLLM's fused_inv_rope_fp8_quant | 2026-05-10 | fine-grained-quantization, kernel-fusion | fp8, fine-grained-quantization, kernel-fusion |
+| [#12932](../sources/prs/TensorRT-LLM/PR-12932.md) | [None][feat] Add Gemma4 multimodal model support (text + vision + audio) | 2026-05-09 |  | attention, gemm, moe |
+| [#13219](../sources/prs/TensorRT-LLM/PR-13219.md) | [TRTLLM-34871][feat] Add cute dsl FP8 paged MQA logits decode kernel | 2026-05-09 | fine-grained-quantization, pipeline-stages, tile-scheduling | fp8, fine-grained-quantization, pipeline-stages |
+| [#13470](../sources/prs/TensorRT-LLM/PR-13470.md) | [https://nvbugs/6017720][fix] Fix moe backend mismatch on Blackwell in perf test. | 2026-05-09 |  | moe |
+| [#13652](../sources/prs/TensorRT-LLM/PR-13652.md) | [None][feat] Add DeepSeekV4 attention kernels | 2026-05-09 | cache-policy | cache-policy, attention, mla |
+| [#12946](../sources/prs/TensorRT-LLM/PR-12946.md) | [#12784][feat] AutoDeploy: Optimize DeepSeek-R1 model performance | 2026-05-08 | fine-grained-quantization, kernel-fusion | fine-grained-quantization, kernel-fusion, gemm |
+| [#13186](../sources/prs/TensorRT-LLM/PR-13186.md) | [None][feat] Update the deepseek routing | 2026-05-08 |  | moe, cuda-cpp |
+| [#13384](../sources/prs/TensorRT-LLM/PR-13384.md) | [None][feat] Add MegaMoEDeepGemmFusedMoE backend wrapping DeepGEMM fp8_fp4_mega_moe | 2026-05-08 | kernel-fusion | fp4, fp8, kernel-fusion |
+| [#13542](../sources/prs/TensorRT-LLM/PR-13542.md) | [None][chore] Convert cubins in repository to compressed archives | 2026-05-08 |  | attention, cuda-cpp |
+| [#13667](../sources/prs/TensorRT-LLM/PR-13667.md) | [None][perf] Improve TRTLLM MoE autotune in DEP | 2026-05-08 |  | moe, fp4, cuda-cpp |
+| [#13811](../sources/prs/TensorRT-LLM/PR-13811.md) | [None][feat] Indexer topk opt | 2026-05-08 |  | moe, cuda-cpp, cute-dsl |
+| [#11897](../sources/prs/TensorRT-LLM/PR-11897.md) | [TRTLLM-10990][feat] Fuse SwiGLU and quant into shared expert | 2026-05-07 | fine-grained-quantization, kernel-fusion, pipeline-stages | fp4, nvfp4, fine-grained-quantization |
+| [#12507](../sources/prs/TensorRT-LLM/PR-12507.md) | [#4674][feat] optimize llama8B decode: trtllm silu_mul backend, quant+silu_mul, QKV passthrough to attention | 2026-05-07 | fine-grained-quantization | fine-grained-quantization, attention, decode |
+| [#13340](../sources/prs/TensorRT-LLM/PR-13340.md) | [None][feat] Integrate FP4 indexer for DSA on Blackwell | 2026-05-07 | cache-policy, fine-grained-quantization, kernel-fusion | fp4, fp8, cache-policy |
+| [#13646](../sources/prs/TensorRT-LLM/PR-13646.md) | [None][perf] Use bf16 custom router GEMM kernel for DeepSeek-V4 | 2026-05-07 |  | gemm, cuda-cpp |
+| [#13761](../sources/prs/TensorRT-LLM/PR-13761.md) | [None][perf] Optimize DeepSeek-V4 compressor BF16 input | 2026-05-07 |  | attention, decode, cuda-cpp |
+| [#13767](../sources/prs/TensorRT-LLM/PR-13767.md) | [None][fix] Plumb swiglu_limit through DeepGEMM and TRTLLMGen FP8 fused MoE | 2026-05-07 | fine-grained-quantization, kernel-fusion | fp8, moe, fine-grained-quantization |
+| [#13802](../sources/prs/TensorRT-LLM/PR-13802.md) | [None][fix] Use compressed lengths for DeepSeek-V4 indexer | 2026-05-07 | cache-policy, tile-scheduling | cache-policy, tile-scheduling, attention |
+| [#12440](../sources/prs/TensorRT-LLM/PR-12440.md) | [None][feat] Update TRTLLM MoE cubins | 2026-05-06 |  | tma, moe |
+| [#13410](../sources/prs/TensorRT-LLM/PR-13410.md) | [None][fix] Add support for context multiCtaKv sparse fmha | 2026-05-06 |  | attention, cuda-cpp |
+| [#13505](../sources/prs/TensorRT-LLM/PR-13505.md) | [None][perf] Drop cubin and Eliminate ~6s FMHA JIT recompile in eager generation by aligning kernel selection with CUDA graph warmup | 2026-05-06 |  | fp4, attention, decode |
+| [#13708](../sources/prs/TensorRT-LLM/PR-13708.md) | [https://nvbugs/6094072][fix] swizzle GPT-OSS dummy MXFP4 weights | 2026-05-06 | swizzling | fp4, swizzling |
+| [#13328](../sources/prs/TensorRT-LLM/PR-13328.md) | [None][feat] Resubmission of the routing refactor in trtllmgen | 2026-05-05 |  | moe, cuda-cpp |
+| [#13677](../sources/prs/TensorRT-LLM/PR-13677.md) | [#11823][feat] AutoDeploy's mla chunked prefill loop support | 2026-05-05 |  | attention, mla, cuda-cpp |
+| [#13771](../sources/prs/TensorRT-LLM/PR-13771.md) | [None][fix] Fix fused MHC for DeepSeek-V4-Pro hidden size | 2026-05-05 | kernel-fusion | kernel-fusion, gemm, cuda-cpp |
+| [#12861](../sources/prs/TensorRT-LLM/PR-12861.md) | [None][feat] AutoDeploy: Add Gemma4 vision support | 2026-05-04 |  | gemm, cuda-cpp, triton |
+| [#13714](../sources/prs/TensorRT-LLM/PR-13714.md) | [None][docs] add GVR Top-K technical blog | 2026-05-03 |  | cuda-cpp |
+| [#12320](../sources/prs/TensorRT-LLM/PR-12320.md) | [None][feat] Support update weight for nvfp4 | 2026-05-02 | fine-grained-quantization, kernel-fusion | nvfp4, fp4, fine-grained-quantization |
+| [#13692](../sources/prs/TensorRT-LLM/PR-13692.md) | [None][fix] Fix early_stopping type and plumb through Triton ensemble… | 2026-05-02 |  | triton |
+| [#13160](../sources/prs/TensorRT-LLM/PR-13160.md) | [None][chore] improve gemm perf for nemotron in spark | 2026-05-01 |  | gemm |
+| [#13452](../sources/prs/TensorRT-LLM/PR-13452.md) | [TRTLLM-11285][perf] Force enable TF32 tensor cores for DSA indexer fused GEMM | 2026-05-01 | fine-grained-quantization, kernel-fusion | fine-grained-quantization, kernel-fusion, attention |
+| [#13633](../sources/prs/TensorRT-LLM/PR-13633.md) | [None][fix] Plumb promptIgnoreLength through Triton backend to fix silently-dropped lengthPenalty and earlyStopping | 2026-05-01 |  | cuda-cpp, triton |
+| [#13688](../sources/prs/TensorRT-LLM/PR-13688.md) | [None][fix] Revert 'Add bf16 trtllm-gen moe support through flashinfer.' | 2026-05-01 |  | moe |
+| [#12074](../sources/prs/TensorRT-LLM/PR-12074.md) | [TRTLLM-11289][feat] Integrate CuteDSL's bf16 dense GEMMs | 2026-04-30 | fine-grained-quantization, pipeline-stages, tile-scheduling | fine-grained-quantization, pipeline-stages, tile-scheduling |
+| [#12738](../sources/prs/TensorRT-LLM/PR-12738.md) | [None][feat] Add bf16 trtllm-gen moe support through flashinfer. | 2026-04-30 | fine-grained-quantization, kernel-fusion, tile-scheduling | fine-grained-quantization, kernel-fusion, tile-scheduling |
+| [#13064](../sources/prs/TensorRT-LLM/PR-13064.md) | [None][chore] Update flashinfer-python from 0.6.6 to 0.6.8 | 2026-04-30 |  | cute-dsl |
+| [#13222](../sources/prs/TensorRT-LLM/PR-13222.md) | [#11823][feat] AutoDeploy trtllm_mla attention backend | 2026-04-30 |  | fp8, attention, mla |
+| [#13453](../sources/prs/TensorRT-LLM/PR-13453.md) | [None][feat] Use a replay method for state rollback in Mamba-2 speculative decoding | 2026-04-30 |  | attention, cuda-cpp, triton |
+| [#13477](../sources/prs/TensorRT-LLM/PR-13477.md) | [None][perf] Scheme X L2-aware dispatcher and PDL launchers for sparse-attention GVR Top-K | 2026-04-30 | tile-scheduling | pdl, tile-scheduling, attention |
+| [#13496](../sources/prs/TensorRT-LLM/PR-13496.md) | [https://nvbugs/6114727][fix] Unwaive deepseek r1 fp4 v2 grace_blackwell r1 fp4 v2 tep4 mtp3 1k1k | 2026-04-30 |  | fp4 |
+| [#13541](../sources/prs/TensorRT-LLM/PR-13541.md) | [https://nvbugs/6098442][fix] Add fix for IMA with TRTLLM-Gen GmemReductionWithSeparateKernel | 2026-04-30 |  | attention, cuda-cpp |
+| [#13628](../sources/prs/TensorRT-LLM/PR-13628.md) | [None][feat] Fuse FP8 1x128 quantize + UE8M0 scale pack on SM100 | 2026-04-30 | fine-grained-quantization, kernel-fusion, pipeline-stages | fp8, tma, fine-grained-quantization |
+| [#13660](../sources/prs/TensorRT-LLM/PR-13660.md) | [TRTLLM-12383][fix] limit MHC TF32 pmap GEMM to SM100 | 2026-04-30 |  | gemm |
+| [#13433](../sources/prs/TensorRT-LLM/PR-13433.md) | [None][perf] Extend customMoeRouting kernel to support Qwen3.5 | 2026-04-29 | kernel-fusion | fp4, nvfp4, tma |
+| [#13486](../sources/prs/TensorRT-LLM/PR-13486.md) | [None][fix] visual_gen UlyssesAttention: pass post-A2A seq_len to inner backend | 2026-04-29 |  | attention, cuda-cpp |
+| [#13595](../sources/prs/TensorRT-LLM/PR-13595.md) | [None][feat] Enable EPLB for DeepSeek-V4 | 2026-04-29 | fine-grained-quantization, kernel-fusion, pipeline-stages | fp8, moe, nvfp4 |
+| [#13268](../sources/prs/TensorRT-LLM/PR-13268.md) | [https://nvbugs/6095953][fix] Fix cache memory estimation for Qwen3 hybrid models in trtllm-bench | 2026-04-28 | cache-policy | nvfp4, fp4, cache-policy |
+| [#11589](../sources/prs/TensorRT-LLM/PR-11589.md) | [TRTLLM-10004][feat] Enable GEMM -> AR with GEMM output in registered buffers | 2026-04-27 | fine-grained-quantization, kernel-fusion | fp4, fp8, nvfp4 |
+| [#13454](../sources/prs/TensorRT-LLM/PR-13454.md) | [None][fix] Split TRT-LLM-only rope fusion out of standalone auto_deploy | 2026-04-25 | kernel-fusion | gemm, kernel-fusion |
+| [#13117](../sources/prs/TensorRT-LLM/PR-13117.md) | [None][feat] Add FP4 residual quantization kernel without channel reo… | 2026-04-24 | fine-grained-quantization | fp4, nvfp4, fine-grained-quantization |
+| [#13149](../sources/prs/TensorRT-LLM/PR-13149.md) | [TRTLLM-11958][perf] reduce @torch.library.custom_op host overhead | 2026-04-24 |  | gemm, nvfp4, fp4 |
+| [#13379](../sources/prs/TensorRT-LLM/PR-13379.md) | [https://nvbugs/6098442][fix] WAR IMA on DS V3.2 and update trtllm-gen cubin, lib and src | 2026-04-24 |  | attention |
+| [#12937](../sources/prs/TensorRT-LLM/PR-12937.md) | [TRTLLM-11485][feat] Feature rework: Add SageAttention refreshed kernels (attentionOp only) | 2026-04-23 | fine-grained-quantization | fp8, fine-grained-quantization, attention |
+| [#13081](../sources/prs/TensorRT-LLM/PR-13081.md) | [TRTLLM-11540][feat] Revert revert of EAGLE3 dynamic tree speculative decoding support | 2026-04-23 |  | attention, cuda-cpp |
+| [#13207](../sources/prs/TensorRT-LLM/PR-13207.md) | [None][fix] Propagate init_load_balancer to DeepGemmFusedMoE in create_moe_backend | 2026-04-23 | fine-grained-quantization, kernel-fusion | moe, fine-grained-quantization, kernel-fusion |
+| [#13103](../sources/prs/TensorRT-LLM/PR-13103.md) | [None][feat] Optimize causal_conv1d prefill and decode kernels | 2026-04-22 |  | attention, decode, cuda-cpp |
+| [#13157](../sources/prs/TensorRT-LLM/PR-13157.md) | [https://nvbugs/6086538][fix] suppress misleading skip-softmax FMHA warning in generation | 2026-04-21 |  | tma, attention |
+| [#13176](../sources/prs/TensorRT-LLM/PR-13176.md) | [https://nvbugs/6088149][chore] Unwaive perf sanity tests for bug 6088149 | 2026-04-21 |  | fp4 |
+| [#13294](../sources/prs/TensorRT-LLM/PR-13294.md) | [None][fix] Revert "Refactor the routing part in trtllmgen" (#12246) | 2026-04-21 |  | moe, cuda-cpp |
+| [#12163](../sources/prs/TensorRT-LLM/PR-12163.md) | [None][feat] Minimax RMS norm optimization | 2026-04-20 |  | attention, moe, cuda-cpp |
+| [#12882](../sources/prs/TensorRT-LLM/PR-12882.md) | [TRTLLM-11878][feat] Gen-only sync transfer v2 and manager v2 | 2026-04-20 |  | cuda-cpp |
+| [#12470](../sources/prs/TensorRT-LLM/PR-12470.md) | [None][feat] Support sparse mqa/gqa attention | 2026-04-19 | kernel-fusion | kernel-fusion, attention, decode |
+| [#13033](../sources/prs/TensorRT-LLM/PR-13033.md) | [None][feat] Update rms_norm + fp4_qaunt kernel supporting more dim | 2026-04-18 | fine-grained-quantization, kernel-fusion | fp4, fine-grained-quantization, kernel-fusion |
+| [#13120](../sources/prs/TensorRT-LLM/PR-13120.md) | [None][bug] fix SM90 full-mask skip-softmax dispatch | 2026-04-18 |  | tma, attention, cuda-cpp |
+| [#12911](../sources/prs/TensorRT-LLM/PR-12911.md) | [TRTLLM-11794][feat] Optimize ViT Attention kernel on Nemotron | 2026-04-17 |  | attention, cuda-cpp |
+| [#13142](../sources/prs/TensorRT-LLM/PR-13142.md) | [https://nvbugs/5844149][fix] Fix issues with DSV3.2 perf tests | 2026-04-17 |  | fp4 |
+| [#12929](../sources/prs/TensorRT-LLM/PR-12929.md) | [None][fix] Fix moe_chunking_tokens during MoE A2A | 2026-04-15 |  | moe |
+| [#12799](../sources/prs/TensorRT-LLM/PR-12799.md) | [TRTLLM-11797][feat] Add cutedsl moe backend supporting for qwen3.5. | 2026-04-13 | kernel-fusion, pipeline-stages | kernel-fusion, pipeline-stages, moe |
+| [#12062](../sources/prs/TensorRT-LLM/PR-12062.md) | [TRTLLM-11540][feat] Add EAGLE3 dynamic tree speculative decoding support | 2026-04-12 | cache-policy | cache-policy, attention, decode |
+| [#12519](../sources/prs/TensorRT-LLM/PR-12519.md) | [#12634][feat] AutoDeploy: Support rank 256 MLA in flashinfer_mla | 2026-04-11 | cache-policy | cache-policy, attention, mla |
+| [#12847](../sources/prs/TensorRT-LLM/PR-12847.md) | [None][fix] Fix multi_stream_moe accuracy with MLIR and piecewise cudagraphs | 2026-04-11 |  | moe, cuda-cpp, triton |
+| [#12866](../sources/prs/TensorRT-LLM/PR-12866.md) | [None][feat] AutoDeploy: Onboard google/gemma-4-31B-it dense model, including nvfp4 | 2026-04-11 |  | tma, fp4, nvfp4 |
+| [#12664](../sources/prs/TensorRT-LLM/PR-12664.md) | [None][feat] AutoDeploy: Add the Triton kernel for MLA | 2026-04-08 |  | mla, cuda-cpp, triton |
+| [#12761](../sources/prs/TensorRT-LLM/PR-12761.md) | [None][fix] Add missing allow_partial_loading param to CuteDSL and ConfigurableMoE load_weights | 2026-04-08 |  | moe, cute-dsl |
+| [#12831](../sources/prs/TensorRT-LLM/PR-12831.md) | [None][feat] Add Claude Code agents and skills for kernel dev, perf analysis, and compilation | 2026-04-08 |  | cuda-cpp, cute-dsl, triton |
+| [#12612](../sources/prs/TensorRT-LLM/PR-12612.md) | [None][feat] Trtllm-gen FMHA JIT support | 2026-04-07 | tile-scheduling | tile-scheduling, attention, mla |
+| [#11869](../sources/prs/TensorRT-LLM/PR-11869.md) | [None][feat] Add fused DiT QK Norm + RoPE CUDA kernel for FLUX | 2026-04-04 | kernel-fusion | kernel-fusion, attention, cuda-cpp |
+| [#12427](../sources/prs/TensorRT-LLM/PR-12427.md) | [None][feat] MLIR-based auto-generated elementwise fusion for AutoDeploy | 2026-04-04 | kernel-fusion | kernel-fusion, cuda-cpp, triton |
+| [#12385](../sources/prs/TensorRT-LLM/PR-12385.md) | [None][feat] Temporally-Correlated Heuristic-guided Indexer TopK for Sparse Attention | 2026-04-03 | tile-scheduling | tile-scheduling, attention, decode |
+| [#11718](../sources/prs/TensorRT-LLM/PR-11718.md) | [TRTLLM-11119][feat] Blackwell SageAttention, Integrate into AttentionOp API | 2026-04-02 | fine-grained-quantization, kernel-fusion, pipeline-stages | fine-grained-quantization, kernel-fusion, pipeline-stages |
+| [#12136](../sources/prs/TensorRT-LLM/PR-12136.md) | [None][feat] Add DWDP (Distributed Weight Data Parallelism) support for MoE inference | 2026-04-02 | fine-grained-quantization, kernel-fusion, pipeline-stages | fine-grained-quantization, kernel-fusion, pipeline-stages |
+| [#12581](../sources/prs/TensorRT-LLM/PR-12581.md) | [https://nvbugs/5983390][perf] Multiple host perf optimizations for DSA part | 2026-04-02 | cache-policy | cache-policy, attention, cuda-cpp |
+| [#12642](../sources/prs/TensorRT-LLM/PR-12642.md) | [None][feat] Add triton paged attention for AutoDeploy | 2026-04-02 |  | attention, decode, cuda-cpp |
+| [#12666](../sources/prs/TensorRT-LLM/PR-12666.md) | [https://nvbugs/5836828][fix] Fix GPTOSS CUTLASS MOE on Hopper nvlink one-sided workspace overflow | 2026-04-02 |  | fp4, moe, cute-dsl |
+| [#12679](../sources/prs/TensorRT-LLM/PR-12679.md) | [None][revert] Revert "[TRTLLM-11119][feat] Blackwell SageAttention, Integrate into … | 2026-04-02 |  | attention |
+| [#10479](../sources/prs/TensorRT-LLM/PR-10479.md) | [None] [feat] Add densegemm backend for MoE | 2026-04-01 | fine-grained-quantization, kernel-fusion, pipeline-stages | fp4, nvfp4, fine-grained-quantization |
+| [#12537](../sources/prs/TensorRT-LLM/PR-12537.md) | [None][feat] Add Mamba2 MTP SSM cache CUDA kernel for tree-based speculative decoding | 2026-04-01 | cache-policy | cache-policy, cuda-cpp |
+| [#12503](../sources/prs/TensorRT-LLM/PR-12503.md) | [https://nvbugs/5983390][perf] Split MLA DSA custom op for piecewise CUDA graph capture | 2026-03-31 | cache-policy, fine-grained-quantization, tile-scheduling | fp8, cache-policy, fine-grained-quantization |
+| [#12506](../sources/prs/TensorRT-LLM/PR-12506.md) | [None][feat] Add PDL support to CuTE DSL top-k kernels | 2026-03-25 | pipeline-stages, tile-scheduling | pdl, pipeline-stages, tile-scheduling |
+| [#12445](../sources/prs/TensorRT-LLM/PR-12445.md) | [https://nvbugs/5983390][fix] Remove redundant D2H sync to optimize perf | 2026-03-24 |  | attention, cuda-cpp |
+| [#12456](../sources/prs/TensorRT-LLM/PR-12456.md) | [None][perf] add Dynamic SMEM block routing in MOE | 2026-03-24 |  | moe, cuda-cpp |
+| [#12079](../sources/prs/TensorRT-LLM/PR-12079.md) | [None][feat] CuteDSL MOE: Add raster along M/N support for blockscaled contiguous backbone kernel | 2026-03-23 | fine-grained-quantization, kernel-fusion, pipeline-stages | fine-grained-quantization, kernel-fusion, pipeline-stages |
+| [#12354](../sources/prs/TensorRT-LLM/PR-12354.md) | [TRTLLM-10407][perf] Add cute dsl single pass multi cta cluster topk | 2026-03-23 | pipeline-stages | pipeline-stages, moe, cuda-cpp |
+| [#12322](../sources/prs/TensorRT-LLM/PR-12322.md) | [https://nvbugs/5983390][perf] Kernel fusions in _gather_k_cache_for_chunk of Indexer in DSA | 2026-03-21 | cache-policy, kernel-fusion | fp4, nvfp4, cache-policy |
+| [#12236](../sources/prs/TensorRT-LLM/PR-12236.md) | [TRTLLM-10407][perf] Enable CuteDSL indexer_top_k in model | 2026-03-19 | tile-scheduling | tile-scheduling, attention, cuda-cpp |
+| [#11990](../sources/prs/TensorRT-LLM/PR-11990.md) | [None][feat] GLM 5 support and DSA MTP fixes | 2026-03-18 | cache-policy, fine-grained-quantization, tile-scheduling | fp8, cache-policy, fine-grained-quantization |
+| [#11993](../sources/prs/TensorRT-LLM/PR-11993.md) | [#11694][feat] AutoDeploy: Improve the piecewise CG memory usage | 2026-03-18 | fine-grained-quantization, kernel-fusion, tile-scheduling | fine-grained-quantization, kernel-fusion, tile-scheduling |
+| [#12055](../sources/prs/TensorRT-LLM/PR-12055.md) | [TRTLLM-11285][feat] Fuse indexer wk + weights_proj into single GEMM in TF32 for DS-V3.2 | 2026-03-18 | fine-grained-quantization, kernel-fusion | fine-grained-quantization, kernel-fusion, attention |
+| [#12201](../sources/prs/TensorRT-LLM/PR-12201.md) | [None][feat] Add fused allreduce+RMSNorm op and optional residual in … | 2026-03-18 | kernel-fusion | kernel-fusion, moe, cuda-cpp |
+| [#12046](../sources/prs/TensorRT-LLM/PR-12046.md) | [https://nvbugs/5955188][fix] Fix harmony parsers and WAR routing PDL for agentic coding use cases | 2026-03-13 | tile-scheduling | pdl, tile-scheduling, moe |
+| [#11697](../sources/prs/TensorRT-LLM/PR-11697.md) | [TRTLLM-11092][feat] add support for visual gen FA4 attention backend | 2026-03-12 | pipeline-stages | pipeline-stages, attention, cuda-cpp |
+| [#11652](../sources/prs/TensorRT-LLM/PR-11652.md) | [None][feat] NVFP4 TRTLLM-Gen MoE for AutoDeploy (Nemotron Super) | 2026-03-10 | fine-grained-quantization, kernel-fusion, tile-scheduling | fp4, nvfp4, fine-grained-quantization |
+| [#11899](../sources/prs/TensorRT-LLM/PR-11899.md) | [TRTLLM-10421][perf] Add fused cat+fp8_quantize CUDA kernel for DSA indexer | 2026-03-10 | fine-grained-quantization, kernel-fusion | fp8, fine-grained-quantization, kernel-fusion |
+| [#11900](../sources/prs/TensorRT-LLM/PR-11900.md) | [TRTLLM-10407][feat] Integrate CuTE DSL top-k kernel for Blackwell | 2026-03-09 | pipeline-stages, tile-scheduling | pipeline-stages, tile-scheduling, decode |
+| [#11473](../sources/prs/TensorRT-LLM/PR-11473.md) | [None][feat] Optimize by fuse nvfp4_quant to layernorm_gated for mamba2_mixer | 2026-03-07 | fine-grained-quantization, kernel-fusion | fp4, nvfp4, fine-grained-quantization |
+| [#11510](../sources/prs/TensorRT-LLM/PR-11510.md) | [None][feat] Add support for expert_number<=2048 and K<=32 | 2026-03-05 | fine-grained-quantization | fine-grained-quantization, gemm, moe |
+| [#11774](../sources/prs/TensorRT-LLM/PR-11774.md) | [None][fix] Fix SM120 issue for rms_norm with nvfp4_quant_fusion | 2026-03-03 | fine-grained-quantization, kernel-fusion | fp4, nvfp4, fine-grained-quantization |
+| [#11769](../sources/prs/TensorRT-LLM/PR-11769.md) | [https://nvbugs/5885070][fix] fix deepeplowlatency with cutedsl moe backend | 2026-03-02 | fine-grained-quantization, kernel-fusion | fp8, fine-grained-quantization, kernel-fusion |
+| [#11501](../sources/prs/TensorRT-LLM/PR-11501.md) | [None][feat] TRT-LLM Gen MoE finalize kernel optimization | 2026-03-01 |  | moe, cuda-cpp |
+| [#11165](../sources/prs/TensorRT-LLM/PR-11165.md) | [https://nvbugs/5799917][fix] Recover from CUTLASS MoE doActivation perf regression for MXFP4/NVFP4 dtype | 2026-02-26 | fine-grained-quantization | fp4, fp8, nvfp4 |
+| [#11381](../sources/prs/TensorRT-LLM/PR-11381.md) | [None][feat] Remove non flash attetnion style fmha_v2 kernel for hopper | 2026-02-26 | kernel-fusion, pipeline-stages | kernel-fusion, pipeline-stages, attention |
+| [#11733](../sources/prs/TensorRT-LLM/PR-11733.md) | [https://nvbugs/5799917][fix] Recover from CUTLASS MoE doActivation perf regression for MXFP4/NVFP4 dtype | 2026-02-26 | fine-grained-quantization | fp4, nvfp4, fine-grained-quantization |
+| [#11273](../sources/prs/TensorRT-LLM/PR-11273.md) | [None][feat] Optimize super-v3 nvfp4 for better perf | 2026-02-12 | cache-policy, fine-grained-quantization, kernel-fusion | fp4, nvfp4, cache-policy |
+| [#10130](../sources/prs/TensorRT-LLM/PR-10130.md) | [TRTLLM-9457][feat] Add cute dsl fp8 gemm for Blackwell | 2026-02-06 | fine-grained-quantization, pipeline-stages | fp8, fine-grained-quantization, pipeline-stages |
+| [#11143](../sources/prs/TensorRT-LLM/PR-11143.md) | [None][feat] fuse shared to sparse experts in TRT-LLM Gen MoE | 2026-02-04 | fine-grained-quantization, kernel-fusion | fp4, fp8, fine-grained-quantization |
+| [#11181](../sources/prs/TensorRT-LLM/PR-11181.md) | [https://nvbugs/5854860][fix] Fix cutedsl argmax on sm120 | 2026-02-04 | pipeline-stages | pipeline-stages, cuda-cpp, cute-dsl |
+| [#10476](../sources/prs/TensorRT-LLM/PR-10476.md) | [TRTLLM-10276][feat] Integrate cutedsl argmax kernel | 2026-01-27 |  | decode, cuda-cpp, cute-dsl |
+| [#10987](../sources/prs/TensorRT-LLM/PR-10987.md) | [TRTLLM-9831][perf] Use TMA.RED to improve effective memory bandwidth | 2026-01-27 | fine-grained-quantization, kernel-fusion, pipeline-stages | tma, fine-grained-quantization, kernel-fusion |
+| [#10279](../sources/prs/TensorRT-LLM/PR-10279.md) | [TRTLLM-10147][perf] Balanced random MoE workload generator for CuteDSL kernel UT, autotuner and layerwise benchmark | 2026-01-25 | kernel-fusion | kernel-fusion, moe, cuda-cpp |
+| [#10327](../sources/prs/TensorRT-LLM/PR-10327.md) | [None][fix] impl fused triton kernel for e8m0 resmooth to reduce memory footprint | 2026-01-16 | fine-grained-quantization, kernel-fusion | fp8, fine-grained-quantization, kernel-fusion |
+| [#10742](../sources/prs/TensorRT-LLM/PR-10742.md) | [https://nvbugs/5669671][fix] Support GuidedDecoder with sharded logits (pick #10698) | 2026-01-16 | pipeline-stages | tma, pipeline-stages, attention |
+| [#10532](../sources/prs/TensorRT-LLM/PR-10532.md) | [None][feat] MiniMax M2 support | 2026-01-14 | fine-grained-quantization, kernel-fusion, pipeline-stages | fp8, fine-grained-quantization, kernel-fusion |
+| [#9905](../sources/prs/TensorRT-LLM/PR-9905.md) | [None][feat] Adding torch ext API for FusedAddRMSNormQuant kernel | 2026-01-14 | fine-grained-quantization, kernel-fusion | fp4, fine-grained-quantization, kernel-fusion |
+| [#9729](../sources/prs/TensorRT-LLM/PR-9729.md) | [None][feat] add fp4 gemm + allreduce | 2026-01-13 | fine-grained-quantization, kernel-fusion | fp4, nvfp4, fine-grained-quantization |
+| [#10264](../sources/prs/TensorRT-LLM/PR-10264.md) | [TRTLLM-10022][feat] Add hopper xqa decode support for skip softmax attention | 2026-01-12 | pipeline-stages | tma, pipeline-stages, attention |
+| [#10339](../sources/prs/TensorRT-LLM/PR-10339.md) | [TRTLLM-9661][chore] Further reduce tuning time for cuteDSL nvFP4 dense gemm. | 2026-01-08 | fine-grained-quantization, tile-scheduling | fp4, nvfp4, fine-grained-quantization |
+| [#10429](../sources/prs/TensorRT-LLM/PR-10429.md) | [None] [feat] Add test script and raster M for gather fc1 kernel | 2026-01-07 | fine-grained-quantization, kernel-fusion | fine-grained-quantization, kernel-fusion, gemm |
+| [#10088](../sources/prs/TensorRT-LLM/PR-10088.md) | [None][feat] CuteDSL MOE FC1 Enhancement | 2026-01-06 | fine-grained-quantization, kernel-fusion, pipeline-stages | tmem, fine-grained-quantization, kernel-fusion |
+| [#9838](../sources/prs/TensorRT-LLM/PR-9838.md) | [https://nvbugs/5726962][feat] Apply fusion for W4AFP8_AWQ MoE | 2026-01-06 | epilogue-fusion, fine-grained-quantization, kernel-fusion | fp8, tma, epilogue-fusion |
+| [#10190](../sources/prs/TensorRT-LLM/PR-10190.md) | [None][feat] sm100 weight-only kernel | 2026-01-05 | fine-grained-quantization, pipeline-stages, tile-scheduling | fine-grained-quantization, pipeline-stages, tile-scheduling |
+| [#10201](../sources/prs/TensorRT-LLM/PR-10201.md) | [TRTLLM-9831][perf] Enable 2CTA with autotune for CuteDSL MoE and Grouped GEMM optimizations | 2025-12-25 | fine-grained-quantization, kernel-fusion, tile-scheduling | tmem, fine-grained-quantization, kernel-fusion |
+| [#10226](../sources/prs/TensorRT-LLM/PR-10226.md) | [TRTLLM-9798][feat] Change to use new DeepGEMM MQA sm100 kernel for MTP-3 | 2025-12-24 | fine-grained-quantization, pipeline-stages | fine-grained-quantization, pipeline-stages, attention |
+| [#10043](../sources/prs/TensorRT-LLM/PR-10043.md) | [TRTLLM-9992][perf] Enable PDL for CuteDSL kernels and overlap MoeOutputMemset | 2025-12-20 | fine-grained-quantization, kernel-fusion, tile-scheduling | pdl, tmem, fine-grained-quantization |
+| [#10042](../sources/prs/TensorRT-LLM/PR-10042.md) | [None][perf] Add more optimization options for MOE CuteDSL finalized kernel | 2025-12-18 | fine-grained-quantization, kernel-fusion, pipeline-stages | tma, tmem, fine-grained-quantization |
+| [#9852](../sources/prs/TensorRT-LLM/PR-9852.md) | [None][feat] Fused kernels (qknormrope + moe routing) and two-model MTP support for glm4moe | 2025-12-14 | kernel-fusion | kernel-fusion, attention, moe |
+| [#9811](../sources/prs/TensorRT-LLM/PR-9811.md) | [None][feat] spark cublas LUT table for llama-8b-bf16 perf | 2025-12-13 |  | moe, cuda-cpp |
+| [#9924](../sources/prs/TensorRT-LLM/PR-9924.md) | [TRTLLM-9493][feat] Add helixPostProcessNative kernel for cp_dim=2 | 2025-12-13 | kernel-fusion | kernel-fusion, moe, cuda-cpp |
+| [#9618](../sources/prs/TensorRT-LLM/PR-9618.md) | [TRTLLM-9685] [feat] Add gather fc1 kernel by cuteDSL | 2025-12-11 | fine-grained-quantization, kernel-fusion, pipeline-stages | fp4, fine-grained-quantization, kernel-fusion |
+| [#9854](../sources/prs/TensorRT-LLM/PR-9854.md) | [None][feat] Port fp4 quantization kernel optimization from FlashInfer | 2025-12-10 | fine-grained-quantization, swizzling | fp4, fine-grained-quantization, swizzling |
+| [#9486](../sources/prs/TensorRT-LLM/PR-9486.md) | [TRTLLM-8958][feat] and [TRTLLM-8960]: create ConfigurableMoE and support TRTLLMGenFusedMoE as backend | 2025-12-01 | fine-grained-quantization, kernel-fusion, tile-scheduling | fine-grained-quantization, kernel-fusion, tile-scheduling |
+| [#9175](../sources/prs/TensorRT-LLM/PR-9175.md) | [None][feat] TRT-LLM Gen MoE optimize DeepSeek Fp8 activation kernel | 2025-11-21 | fine-grained-quantization, vectorized-loads | fp8, fine-grained-quantization, vectorized-loads |
+| [#9025](../sources/prs/TensorRT-LLM/PR-9025.md) | [None][feat] Update TRTLLM MoE cubins; reduce mxfp4 weight padding requirement; tighten TMA bound | 2025-11-17 | fine-grained-quantization, pipeline-stages | fp4, nvfp4, tma |
+| [#9087](../sources/prs/TensorRT-LLM/PR-9087.md) | [None][fix] support topk autotuner input for expert slot per group larger than 32 | 2025-11-14 | tile-scheduling | tile-scheduling, moe, cuda-cpp |
+| [#8886](../sources/prs/TensorRT-LLM/PR-8886.md) | [None][feat] Enable EPLB for trtllm-gen and cutlass backend | 2025-11-12 | fine-grained-quantization, kernel-fusion, pipeline-stages | fine-grained-quantization, kernel-fusion, pipeline-stages |
+| [#8620](../sources/prs/TensorRT-LLM/PR-8620.md) | [None][feat] Enable nvfp4 cuda core for sm120 | 2025-10-29 | fine-grained-quantization | fp4, nvfp4, fine-grained-quantization |
+| [#8675](../sources/prs/TensorRT-LLM/PR-8675.md) | [TRTLLM-8827] [feat] Enable low precision alltoall for Cutlass and TRTLLMGen backends | 2025-10-28 | kernel-fusion | kernel-fusion, moe, cute-dsl |
+| [#8501](../sources/prs/TensorRT-LLM/PR-8501.md) | [None][fix] Fix the performance issue of FP8 blockwise grouped GEMM when using attention DP | 2025-10-27 | fine-grained-quantization, kernel-fusion | fp8, fine-grained-quantization, kernel-fusion |
+| [#8405](../sources/prs/TensorRT-LLM/PR-8405.md) | [TRTLLM-8535][feat] Support DeepSeek V3.2 with FP8 + BF16 KV cache/NVFP4 + BF16 KV cache | 2025-10-24 | cache-policy, fine-grained-quantization | fp4, fp8, nvfp4 |
+| [#7761](../sources/prs/TensorRT-LLM/PR-7761.md) | [TRTLLM-8637][feat] Optimize the routing kernel for DeepseekV3 (MoE CUTLASS backend); Add support for 384 experts (MoE TRTLLM backend) | 2025-10-20 | fine-grained-quantization | fp4, fp8, fine-grained-quantization |
+| [#7937](../sources/prs/TensorRT-LLM/PR-7937.md) | [None][feat] GPT-OSS Sm120/Sm121 Support | 2025-10-06 | fine-grained-quantization, kernel-fusion, pipeline-stages | fp4, fp8, fine-grained-quantization |
+| [#7755](../sources/prs/TensorRT-LLM/PR-7755.md) | [None][fix] Fix and add test for TRTLLM MoE backend | 2025-09-23 | pipeline-stages | fp8, pipeline-stages, moe |
+| [#7524](../sources/prs/TensorRT-LLM/PR-7524.md) | [None][chore] Fix kernel launch param and add TRTLLM MoE backend test | 2025-09-09 | fine-grained-quantization, pipeline-stages | fp4, fp8, nvfp4 |
+| [#6809](../sources/prs/TensorRT-LLM/PR-6809.md) | [OMNIML-2336][feat] Add NVFP4 x FP8 | 2025-09-04 | epilogue-fusion, fine-grained-quantization, pipeline-stages | fp4, fp8, nvfp4 |
+| [#6538](../sources/prs/TensorRT-LLM/PR-6538.md) | [None][feat] Use Separate QKV Input Layout for Context MLA | 2025-08-19 | cache-policy, kernel-fusion, pipeline-stages | tma, cache-policy, kernel-fusion |
+| [#4867](../sources/prs/TensorRT-LLM/PR-4867.md) | feat: Add w4a8_mxfp4_fp8 quantization recipe. | 2025-06-16 | cache-policy, fine-grained-quantization | fp4, fp8, nvfp4 |
+
 <a id="nvidiacutlass"></a>
 ## NVIDIA/cutlass
 32 PRs

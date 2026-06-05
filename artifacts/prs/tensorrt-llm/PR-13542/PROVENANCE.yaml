@@ -1,0 +1,64 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13542
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 5e5355460ce6eb55f9f366d8b2c63c65de06d270
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13542
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 657519ccf8f105c0a85a3be3ccb60a76f3c625c8b88de7142bb8a0ed9582676a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: ff12ce27094f70a1f655a4e599ee7342e7f64d76ff22b9beebed82ce3af8a116
+  size_cap_truncated: true
+- local_path: source-snapshot/.cmake-format.json
+  role: upstream-file
+  mode: verbatim
+  sha256: 07bca012e6d792e5c0554a09e7072d8c5429013584323db7a1b4a2c59df86bfe
+  upstream_path: .cmake-format.json
+- local_path: source-snapshot/cpp/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: f7051af9f3f41774f638da49c04c0875912cef14b16df9557b3fcdd3ea5c2db6
+  upstream_path: cpp/CMakeLists.txt
+- local_path: source-snapshot/cpp/cmake/modules/cuda_configuration.cmake
+  role: upstream-file
+  mode: verbatim
+  sha256: c73cb4faa5bae5cbfe5a373543e1d52f312c1b41f59c8e6c262c29f5222c142f
+  upstream_path: cpp/cmake/modules/cuda_configuration.cmake
+- local_path: source-snapshot/cpp/cmake/modules/tllm_cubin_archive.cmake
+  role: upstream-file
+  mode: verbatim
+  sha256: 33191e1906dd4ba4c242272584789068b59a65058d8ee52ff9a8074bec1b47be
+  upstream_path: cpp/cmake/modules/tllm_cubin_archive.cmake
+- local_path: source-snapshot/cpp/include/tensorrt_llm/common/cubinIncbin.h
+  role: upstream-file
+  mode: verbatim
+  sha256: e004cc547c847e890898731704630f86f5abfe858e74a1257b002242a244e0bc
+  upstream_path: cpp/include/tensorrt_llm/common/cubinIncbin.h
+- local_path: source-snapshot/cpp/kernels/fmha_v2/Makefile
+  role: upstream-file
+  mode: verbatim
+  sha256: 12300e33d2f697aa92a28c236c2ee37904df7dea30995e471ae30e5b2481d042
+  upstream_path: cpp/kernels/fmha_v2/Makefile
+- local_path: source-snapshot/cpp/kernels/fmha_v2/setup.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 725e7983a6d65d59f6f984634a81b46b958e00f1c299e11b7a96b88dd6d78c4b
+  upstream_path: cpp/kernels/fmha_v2/setup.py
+- local_path: source-snapshot/cpp/kernels/xqa/gen_cubins.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 864bef4d4b9b896fcf5c62695fa518eb8c47972fba2b395bb137e37a4a7287b6
+  upstream_path: cpp/kernels/xqa/gen_cubins.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: dd551b763a79ee7f047e983bf54f9066b8743bc19e6b4209b9adf4624489291c
+  size_cap_truncated: true

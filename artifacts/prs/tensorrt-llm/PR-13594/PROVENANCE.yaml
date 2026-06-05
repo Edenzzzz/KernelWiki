@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13594
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 3ee67fce6c1b64f168fef7e65b4f696be8d89933
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13594
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: de9b5c970f377098fefc1141075f73bdf3c0cfffa308190ca1abee07e01afb9c
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 29dad88488463f0c93e7eb5d757e7b8472ba2b6d4db93bbfd48c5b7379ea0061
+- local_path: source-snapshot/jenkins/L0_Test.groovy
+  role: upstream-file
+  mode: verbatim
+  sha256: 9a70518fbce8a09dc28445662fe813aece25447167c648037eb7e803aedcc561
+  upstream_path: jenkins/L0_Test.groovy
+- local_path: source-snapshot/jenkins/scripts/perf/disaggregated/submit.py
+  role: upstream-file
+  mode: verbatim
+  sha256: da9b108d90f517d5f878c503818eb228cd1e9fc4760baf01116f493375049304
+  upstream_path: jenkins/scripts/perf/disaggregated/submit.py
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node1_gpu4.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 2f37fd087bbf88b61132f8b0b7755b49c6db70e4b13770f4f34a08300a47e1dd
+  upstream_path: tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node1_gpu4.yml
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node2_gpu8.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: a036c399ec9312f011837d4e0a95a4c0c1d6ef4fe51379bc82dba7fffec6a82a
+  upstream_path: tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node2_gpu8.yml
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node4_gpu16.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 385b200540cd0599afe4c56f95c66b6b63332175701771cfe450630716fb8e08
+  upstream_path: tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node4_gpu16.yml
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node8_gpu32.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 2a4eaf823d9b2114b5c6cfdbab3203d6252e62c0bb31ab0f642c1f066641b979
+  upstream_path: tests/integration/test_lists/test-db/l0_gb300_multi_nodes_perf_sanity_ctx1_node1_gpu4_gen1_node8_gpu32.yml
+- local_path: source-snapshot/tests/integration/test_lists/waives.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: ec7374071630ac7ea90bd30bf34aa5c90cac33b3bf3d10a57c1a278f4e3746b6
+  upstream_path: tests/integration/test_lists/waives.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 6ce538c30ed1b4de9c897bd41b753e627ca04a40a7239cdb66a58274a0d372f8

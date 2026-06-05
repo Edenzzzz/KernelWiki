@@ -1,0 +1,62 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/33
+upstream_repo: Dao-AILab/quack
+upstream_sha: 04ca6560ac694fb08416efbce7faa3e60530effc
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-33
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: cd8b709880069be3373270c88dccadc6b82312f703c6d2e8ee229b85271f155f
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a11bf1e84b566b33565e10619650321f515c395beda1102e2046da6616a9a6bc
+- local_path: source-snapshot/quack/cross_entropy.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 143902b8bca333ae6f9a366793f94d78581fc592bad993695afc54af091f665d
+  upstream_path: quack/cross_entropy.py
+- local_path: source-snapshot/quack/rmsnorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 791e4258a090248417773fcde80c285fb0b648121fd3c12b7456d4d3b1b6e4db
+  upstream_path: quack/rmsnorm.py
+- local_path: source-snapshot/quack/softmax.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 09dc50ef34e16e25c2f002133a30fdd6c77620ad5ee367331b192e305a77faa9
+  upstream_path: quack/softmax.py
+- local_path: source-snapshot/quack/topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7f4840321e145cbd2c2f1cd907ed86a294757893ffef422556c6da9821b95ca6
+  upstream_path: quack/topk.py
+- local_path: source-snapshot/tests/test_cross_entropy.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 435640549185f65e03fb53624b037bb02e3c4ba213e9e8d7822a9b7cfb55cdc2
+  upstream_path: tests/test_cross_entropy.py
+- local_path: source-snapshot/tests/test_rmsnorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 219b2203b322ea59b390d929956a490134f3ed2e8999a19a2ee0e552646d85cb
+  upstream_path: tests/test_rmsnorm.py
+- local_path: source-snapshot/tests/test_softmax.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f9cfcb41ab7d8aabe62a1a97be219b095b792ef0708b656dd53fefb48fcd2375
+  upstream_path: tests/test_softmax.py
+- local_path: source-snapshot/tests/test_topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 60bab426afd63b389e653534c98b3275281f057d54a0e4363f756525ee610135
+  upstream_path: tests/test_topk.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 1c9a4f6d096601481a9708b385b39788b55de7c863c38fea151cfa49c487e363

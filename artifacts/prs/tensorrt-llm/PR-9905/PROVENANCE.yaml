@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9905
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 00daae0d1a2dccf781dcd687579b5de1e0491593
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9905
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9d0029b331a877cd6e8e0e2996ebbf1c5afb006d47b73ada6a71cae25e311ad4
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 8205edf07f9fcb7f340124542c060cdd4ad028bd33a20234948d336a7260e87c
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/low_latency_layernorm.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 4ed3689b62b53078efbf1ec41339d7ba687e9ed71ac6abb605f0502af136d475
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/low_latency_layernorm.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 313182b39077a90b3ba78fb4a73b17813172ac57cf3631155e3c1971aaba831c
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: db39bdf369a5aa7d2f0998173e775985026c343b8a17994adcb0a21a5624a1c5
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fusedAddRMSNormQuant.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 772205c41a40d57b93be60ed0e2921d940211dc87fda7b65b08e546f94d8df6d
+  upstream_path: cpp/tensorrt_llm/thop/fusedAddRMSNormQuant.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8e3a46589669c59405c06cc502b4c4c5848a65f09ef2be55412d4e04e0b8c85a
+  upstream_path: tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_llama.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 76316c921c51f3dc4e942caf6fd1ef857848bdf7a906fdce4c4a2de9c8a30427
+  upstream_path: tensorrt_llm/_torch/models/modeling_llama.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/rms_norm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 83724ca28d1ae67fd91c125a3cf2ef8a91380c56bbf425fb61c1015fc2ccdc18
+  upstream_path: tensorrt_llm/_torch/modules/rms_norm.py
+- local_path: source-snapshot/tensorrt_llm/mapping.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ef149fde47ab5bd23a8a4d88da6fa61752d5213e5d425f1d08bead9545e57d42
+  upstream_path: tensorrt_llm/mapping.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 03964cfe8b8b51a3fa7b6b9792135821d26a9a34842f7336411467f6a1b912ba

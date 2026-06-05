@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9087
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 008c6c43e05c7b706b8b425e4da5962e06015d7a
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9087
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: cd4edc1d6aadf873ec9138780ec28266ddf8f3954b58dba912bbd117414dac00
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 39c2b1e5d6d1d5fce96a80bdd2a7627fd6a0328a14f5246674dc7eb83d2a226d
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingDeepSeek.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 4a8f323b36a2d26034b311a23d38815943c7f1b6b34cc7c6bed39262e3ae5889
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingDeepSeek.cu
+- local_path: source-snapshot/tensorrt_llm/_torch/autotuner.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 75f2f857395491868e4c042663aa9d99bc8e0d1329bb082f697825529eec5604
+  upstream_path: tensorrt_llm/_torch/autotuner.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/trtllm_gen_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b40e72d436928e80c712c6c78e8b58f10a016f4b0252aefeeaeaa6542fc17234
+  upstream_path: tensorrt_llm/_torch/custom_ops/trtllm_gen_custom_ops.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5274dd1239d9e01c06c647a2db4c4376c13ebd65006338dc5acf34cf564dbe1e
+  upstream_path: tests/unittest/_torch/thop/parallel/test_moe.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 4983d5794533a96814d098ede34ad00818d976d0271ffd49d3a1384f81c5a53a

@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13149
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: bc098214a4bf8bb2e2170e72b2faa232db54c6d9
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13149
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: df3a59b95d659bf900ecafeea1ebbdbc23661ec65d7889a6e1797e98999f6543
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 093d5c8aa958201c7fd007bd8b5bb05eb6f0f7a1f3f89db58f789f6faff89771
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/fast_custom_op.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 008227ffa72a96d5e743f46f4d2ec57b7d9b26ed28905111ac44da0acb7de957
+  upstream_path: tensorrt_llm/_torch/custom_ops/fast_custom_op.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b8e6b51d5e56e5f6c6ee4ce254c475bf5486977b5fafcb9ad96af99661a88fc1
+  upstream_path: tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: d3cc50e21493ef2502ba2104a6bf50fd40f381c5ba50d0f3f4d2c004fb2c7014

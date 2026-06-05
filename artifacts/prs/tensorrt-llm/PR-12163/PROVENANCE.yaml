@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12163
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: d912d1c7fa8d31a918ca74754b750f81c4b79776
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12163
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: b053e7471d63a59595a26c77dc7873f1fec799f5be3de95679e4f628e5072baf
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 64e2cbdba99ad76729b47d0dd91b333d9d964d8740579185cbab85f9f5825a21
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/communicationKernels/MiniMaxReduceRMSKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: f89c0c6cb7b0e7a64cc828de7d15ddf366e8d5cb9844caa444219f68aa170c31
+  upstream_path: cpp/tensorrt_llm/kernels/communicationKernels/MiniMaxReduceRMSKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/communicationKernels/MiniMaxReduceRMSKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: e5fa94d83398d70abd7cfe181f2f7bfd1727cf50875412a7e8a521e84e0d3a13
+  upstream_path: cpp/tensorrt_llm/kernels/communicationKernels/MiniMaxReduceRMSKernel.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/allreduceOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 5348e312d68f6ee2a3240f9cd151aab65a757290ffa51e600f59164596e5e2fd
+  upstream_path: cpp/tensorrt_llm/thop/allreduceOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 98f28d693ff56a530e797904e569b1c8eebc706c8a6d4b0fa4cc011a124c71af
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/distributed/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8ef4ffd8bf51624a4b3385bc0296d19bd7bee3602668b62a65648c5325601054
+  upstream_path: tensorrt_llm/_torch/distributed/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/distributed/ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8c0e06d66af6bede5ac389de1747d6d9e15e9988040b91ee9e342c6a18c4779c
+  upstream_path: tensorrt_llm/_torch/distributed/ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_minimaxm2.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 01dbef8f202acdb5fae62c031f7332d7471d16261796c74bcc1bb1b538d0f913
+  upstream_path: tensorrt_llm/_torch/models/modeling_minimaxm2.py
+- local_path: source-snapshot/tests/microbenchmarks/minimax_all_reduce.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6205b69bb8fcfecdd1f306491c8272cf39fe5c1756572120c601f538eab0936a
+  upstream_path: tests/microbenchmarks/minimax_all_reduce.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 3557400e5d4e0de59445ce51145019dae145581c88abdc38de409b6b1a3c8c1a

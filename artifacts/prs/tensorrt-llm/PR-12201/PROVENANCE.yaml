@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12201
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: a89b9eb7545f91886806d81ae28378a1c7255b24
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12201
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 3914a5660a82273d08eac604b6df1a87f5a6e823c6e32dcd282be8ee66106890
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 90a130c4a857e922885efd6f41dcb45d6990a95a86477bfeb686484acd4c327e
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/communicationKernels/allReduceFusionKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 6123ec23c8dd85a1d3ab0bc4f751ae889c9c8638a9a4e1c8884424eb07dc0a12
+  upstream_path: cpp/tensorrt_llm/kernels/communicationKernels/allReduceFusionKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/communicationKernels/allReduceFusionKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 09229d798129428a0a6ba3fc58de6d1fe3edb2428f18ce66743c1e57c31b9645
+  upstream_path: cpp/tensorrt_llm/kernels/communicationKernels/allReduceFusionKernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/communicationKernels/moeAllReduceFusionKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 053764f09cd752f25d30bdf3d98c58b3f764dd79667638ac052fc662c92eb782
+  upstream_path: cpp/tensorrt_llm/kernels/communicationKernels/moeAllReduceFusionKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/customAllReduceKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 1742f4ba492c304f4e433cbae682817321e64007cd0319ad5518c028c86db1d5
+  upstream_path: cpp/tensorrt_llm/kernels/customAllReduceKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/customAllReduceKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 520f61a43b2691b41ba0911e9ccc1637ea0c14ed1ae14ac25ebeef2b8ecc6e7d
+  upstream_path: cpp/tensorrt_llm/kernels/customAllReduceKernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/allreduceOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: f813d2c26ee207dce52632779bd41df037492ef286d5f1e4a947eb54f337fda4
+  upstream_path: cpp/tensorrt_llm/thop/allreduceOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/distributed/ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 78e9aa54f5fca62232e759295863c50c31788fa5960002702b12a42f7ff4a882
+  upstream_path: tensorrt_llm/_torch/distributed/ops.py
+- local_path: source-snapshot/tensorrt_llm/functional.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9d37f15fd61096717d6c29fca5c035be98dd8181d08c7b858d4449383766c75b
+  upstream_path: tensorrt_llm/functional.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 0fc4aa48de019628de1d74362acdf84d60df3593091b0b3b683ef92932793b56

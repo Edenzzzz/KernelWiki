@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12731
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 3e9933e023fd738612eca54739e5bdb403f30527
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12731
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 42274a2df5d0969378ef9a9ecba4c296998fc60e63b6afcfcd529213fbfec296
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 83f429292d31204773ed04be36b6dd74e918ceff5b72ba2a83074e645d08cbf5
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/communicationKernels/moeAlltoAllKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 9c474fccf3dbbef8f21ec0ebc0daacb8b40efe28bdf34f2d04a91a0189ff0c71
+  upstream_path: cpp/tensorrt_llm/kernels/communicationKernels/moeAlltoAllKernels.cu
+- local_path: source-snapshot/tensorrt_llm/_torch/models/checkpoints/hf/nemotron_h_weight_mapper.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fe146e157f19d27ec83eb59f7dd49a77f4ef6d8ca57081a0d8d9308cc9acdffd
+  upstream_path: tensorrt_llm/_torch/models/checkpoints/hf/nemotron_h_weight_mapper.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_nemotron_h.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e02212ffe52a68531fae1d73ab93f3bacfed1ebdfda6a4423bfff34c89a53c4d
+  upstream_path: tensorrt_llm/_torch/models/modeling_nemotron_h.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_speculative.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2b8c323b6e57c421bc2978f7a47e5f03486c4b302f7aad6f382ba99bf0db3c85
+  upstream_path: tensorrt_llm/_torch/models/modeling_speculative.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/fuse_elementwise_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e127f15683c5aef457f3f60d7f4b8a3d7e8f578809bc26095767fdfe4da94742
+  upstream_path: tensorrt_llm/_torch/modules/mamba/fuse_elementwise_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/mamba2_mixer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 35c61515d244040407449d729599d13c03af825a7f9a0126d0d5945ef02ee5c7
+  upstream_path: tensorrt_llm/_torch/modules/mamba/mamba2_mixer.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/ssd_combined.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7513427397e457c87f33e458dbb32b7f1e61c19e169425258394d5ae83a394a7
+  upstream_path: tensorrt_llm/_torch/modules/mamba/ssd_combined.py
+- local_path: source-snapshot/tensorrt_llm/_torch/visual_gen/jit_kernels/flash_attention/cute/cute_dsl_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d7f18d55e540849415d26bcc4290e2b118622112178c31d7cc5e4afe02ac3d0f
+  upstream_path: tensorrt_llm/_torch/visual_gen/jit_kernels/flash_attention/cute/cute_dsl_utils.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 28c2681f42b5035dec9d761a08cb09f7a4ef4d433802b6ce33e050209f285b36

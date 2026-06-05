@@ -1,0 +1,37 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12079
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: a0c42e3828c7dc132858fc8ab7755d598d425c8c
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12079
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 742015515359dddfca9faaa527c3dd312a8806f07b93aaebfb7a0da290d98060
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 65437e9c053f4fc6bbc0480bf936e5be4fec1cb5e6a84892c13e8670139f58aa
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 08232d9fb16c4c0ee40ea2153be6cd929a5a8949a5a6d8c8effd27d21fede812
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm.py
+- local_path: source-snapshot/tests/scripts/cute_dsl_kernels/run_blockscaled_contiguous_grouped_gemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: eb01938b3c8df2bbf52c7036fc343dbfc9df8d1fb0786ec65d62ff8063742e81
+  upstream_path: tests/scripts/cute_dsl_kernels/run_blockscaled_contiguous_grouped_gemm.py
+- local_path: source-snapshot/tests/scripts/cute_dsl_kernels/run_blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 534e32f29c538347ba068551adf6b6550287d10531ce48ae2edaa973ef77e27a
+  upstream_path: tests/scripts/cute_dsl_kernels/run_blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 050c45d4232f83facb3487053eb170e0ac0cfed542ec36e123ae342f57005049

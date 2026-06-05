@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12456
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 4dd96d8e9c92a3c1fc016a42aea5f1721a1fff3b
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12456
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: f11ab53a8793d9412ea2014025f346612addd2c3c1fa31019c0b567a3f3754fd
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: c4a414cda7757896b0764ccf445a61be1832e7ef1af71634fa767ec7f205874f
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingRenormalize.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 22824caf41441bc73e6323a723c8b5e3f312919394ea6a34c717c1024899649e
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/RoutingRenormalize.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/routingRenormalize/RoutingRenormalizeCommon.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 3ec76a6b207d6721ef40c09359cb3baca3d78559fe6244be197a38d4dbdbec55
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/routingRenormalize/RoutingRenormalizeCommon.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/routingRenormalize/launchBlockKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 092d645fa9b9be24b1342ab60dbad098f967d923797c658ceb304f51700d1925
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/routingRenormalize/launchBlockKernel.cu
+- local_path: source-snapshot/cpp/tests/unit_tests/kernels/routing/routingRenormalizeTest.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 207001cd945c51090169b1120bd4e686a26d1b16a5d5ffd37327052601e66d39
+  upstream_path: cpp/tests/unit_tests/kernels/routing/routingRenormalizeTest.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 10ccea5ced64f3398e0b4595b1eccfd401bcb87bb6117a2b3a5a46503d531731

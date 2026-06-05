@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11993
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 5e9b731f0832a320a43357cf301d6c0dbff93573
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11993
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 0025cad5d6e8c8efda2617858c54b3a52692a3c6e19dadaf58e464dab55723cd
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2c6a9e09aa03ca3b23c838555d0b2143f0d229e913e6a57dd7fa8009abde2680
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/qwen3.5_moe_35b.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 37fd34fe398806daa00dc7cc07ce9590a8c71b8ef3dbfa0ba1a4ed0d92ffed1a
+  upstream_path: examples/auto_deploy/model_registry/configs/qwen3.5_moe_35b.yaml
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/qwen3.5_moe_400b.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: d2cd74c7ee7d5bac5daac321332546c1161a3ceecea5095786a9346429240918
+  upstream_path: examples/auto_deploy/model_registry/configs/qwen3.5_moe_400b.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/compile/backends/torch_cudagraph.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f7635e7cc06e4f576b7c85e719e5142647975494904ae9645504dccddbf818fd
+  upstream_path: tensorrt_llm/_torch/auto_deploy/compile/backends/torch_cudagraph.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/compile/piecewise_runner.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c7f235cb4199539bac774521da8f94f2edf1f6f71e2f491b83dd3a5bc49af060
+  upstream_path: tensorrt_llm/_torch/auto_deploy/compile/piecewise_runner.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e214478be967e386719129c583fba63a6fb1fd127e7a8de387b5542b47d32e3d
+  upstream_path: tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/flashinfer_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c25e24977adf09c6d07a7473c3b0ec8b22702551435d62f1683516d5676078d9
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/flashinfer_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/torch_backend_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 96c4c80fcfaf55ac76ea7efe500964725fb7fe4e72b2f32db12eb0812b836cf5
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/torch_backend_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1411176707786eb893a68a2e62138fce208bc70129bfb21aebb6b5e2cb698231
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_attention.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: e6334136dc76e0646cde72fd8f1daca4d1df6d478c0f67d96dcc95c851e0d990

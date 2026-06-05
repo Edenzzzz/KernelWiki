@@ -1,0 +1,32 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/103
+upstream_repo: Dao-AILab/quack
+upstream_sha: fa8f672aff44f1d37c0a6de670335ec6e81e1b0f
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-103
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 5c504fdec1d729c767e93582d299c80cf9d878ed575034f220921c8ab4d13286
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a6ba29ffc867eb6fbae4055821c82e782ae888503993aecde3c8f71242848378
+- local_path: source-snapshot/quack/gemm_interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 559d168d3d77fa4e1f0e6bbaa16e013250a6d0769269b0c057908d99640ec1db
+  upstream_path: quack/gemm_interface.py
+- local_path: source-snapshot/tests/test_linear.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1aea7428fcb446f71f8f5cf7410cdeeb4b59c711aa6fb368c193a729665d4716
+  upstream_path: tests/test_linear.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 916e687ba971c17b15c06a7af5d17839a8798c74c93e6f642ef880eb207dcb76

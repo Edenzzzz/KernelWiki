@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11990
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: cdf7054d36a1a03f576c64f36156abc9d4d77b32
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11990
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: e2582120793e9f10731bc2def1ef1bbc459ac3123fa8b52330be45f1af037900
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: ff37414683625b6a2e06aa3b505adab4091e10120a23f4b29f92eac4f1065ea1
+- local_path: source-snapshot/docs/source/deployment-guide/deployment-guide-for-glm-5-on-trtllm.md
+  role: upstream-file
+  mode: verbatim
+  sha256: cb789c2fa007f989d0a9b6998a2021861007245f808463d757a8db4f05cc70fd
+  upstream_path: docs/source/deployment-guide/deployment-guide-for-glm-5-on-trtllm.md
+- local_path: source-snapshot/docs/source/media/glm_5_fp8_perf.png
+  role: upstream-file
+  mode: verbatim
+  sha256: b381d54ad7554e53658a148cafd41dbd72c7771ba75bdbb8f957f62872baffef
+  upstream_path: docs/source/media/glm_5_fp8_perf.png
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8eec25d6937be49e00eaf7a5d392bbb104eb238fecc8befe56ba3065d0d8cabc
+  upstream_path: tensorrt_llm/_torch/attention_backend/interface.py
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4f2b54b12d2f66664ff06a6765288cac3d8356a47b0934df1e9057837ddc3172
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tensorrt_llm/_torch/model_config.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1547f46999dd8f191a285131dce501c925bb2287a52d24bd941aa6a2f4cb4d6c
+  upstream_path: tensorrt_llm/_torch/model_config.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv3.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d5e584b3180e73284e7b594cc6ddd6f819664a85ca64ef569c905d0f63dd410f
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv3.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_speculative.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 23415f8cd67cef2e1cc4517dca0ba607e08029f6638cc8265a1a21df989e8c03
+  upstream_path: tensorrt_llm/_torch/models/modeling_speculative.py
+- local_path: source-snapshot/tensorrt_llm/_torch/pyexecutor/config_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 03299d022f42fbc0179cc0a1850b823188df48d68d485ff6d2f2bbba438d77b5
+  upstream_path: tensorrt_llm/_torch/pyexecutor/config_utils.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 049df00b5e5cd6e0981d85efd02db495b91b415e3ab765a070c917de41928085

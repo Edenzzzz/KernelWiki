@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10476
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 2e30e1c0624ea093044a3ca08b847e7f5e49e511
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10476
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 55240d24d79f95bdb329e53f9b8c87303e99fd867838d186176e0f0e8d7222f0
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 77489bc945c211ac464e9397d2974100ce2200b0526771ca15f45fc84449d277
+- local_path: source-snapshot/LICENSE
+  role: upstream-file
+  mode: verbatim
+  sha256: ae8c80aaac9722901ed1d31c4961c2453244a70422417aa6beb5e47a7673dc32
+  upstream_path: LICENSE
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/argmax.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 87c7d853fc49317dc27178fb66d78dab47ee8543a7ec9fca2e06d0d9f845d1ea
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/argmax.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/test_argmax.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 53304cea061d727a435e63c67c6098c42b0ad894cbbc75a3ae5061a7abd1395c
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/test_argmax.py
+- local_path: source-snapshot/tensorrt_llm/_torch/speculative/interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7fcafa7368613647deb4962aeb300a5bf908298be7bd51f78db086406308a24e
+  upstream_path: tensorrt_llm/_torch/speculative/interface.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 58f9baabbf081bddae3cbc1b5af4b5bd2481c64322c073e006c9f942153e6807

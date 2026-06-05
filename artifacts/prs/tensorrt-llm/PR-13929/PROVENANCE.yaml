@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13929
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 33a803d1638fd64482659099ab24b697f2b418b7
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13929
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: ede6c9bbfb6c85b392903363fd9b0f9cf909df7a0c92a865c96cef583db11fae
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: f1fd446c97d9b693a617f32a6cb4ec5c7f5e30f34d3eddf22331f2eed43af653
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e25694aba21cdddfaba345a475a75cc3bbea1f1518d4d001d4eee4dd0f50aa0c
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3b4640b44644a5d43d54f94805699242f6faaa0220d898f08d94ce015c4f7864
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/paged_mqa_logits/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2e97232dee3500a721dd2aaf8789a856ae382ce9be96526c2ecbdc49cb4f209c
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/paged_mqa_logits/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/paged_mqa_logits/fp4_paged_mqa_logits.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b5e09f13c571de815cf3c7a8801d4d385266c5db1bd0d5d8f0532723d3bba58d
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/paged_mqa_logits/fp4_paged_mqa_logits.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/paged_mqa_logits/fp8_paged_mqa_logits.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3ccb0d34946acd64a3313b6a4fb26bab90f3896c3a3ebe96c734eca47ef514c5
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/paged_mqa_logits/fp8_paged_mqa_logits.py
+- local_path: source-snapshot/tensorrt_llm/_torch/visual_gen/jit_kernels/flash_attention/cute/utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9760e1e8e59457af04ef5761feea6831dc75c45424afc85cf4ab280f261c116a
+  upstream_path: tensorrt_llm/_torch/visual_gen/jit_kernels/flash_attention/cute/utils.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_pytorch.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 050b3482cae6b93de87c6fb3181d1582ffd21523a88a6af3da55c7ecbf32a8e9
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_pytorch.py
+- local_path: source-snapshot/tests/integration/test_lists/qa/llm_function_core.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 08754328936134388bdc59c67e6687ee033ff0ad2b404c24aac97ecfd702f4a3
+  upstream_path: tests/integration/test_lists/qa/llm_function_core.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 69e7ffc884ef19e52db65d231df73bd01bc66f4a58d81266aaa6ed2e19c6481d

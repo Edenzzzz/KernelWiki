@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9811
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: b4ef61109915cad6057f6a28d3323a228d530929
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9811
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: dd4c7ddcbe851c935c56a7c9a4f30ece3a4b9f5cfcf2d5bb823949de18d94a90
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 24df4449999ecbcfdc21b421eac020a165fdde9584d1f79ecb57d56746f269cc
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cublasScaledMM.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 9660ad2a202fc98272204fd7b093c157a9285b62d522ec625273ca07cae9b82b
+  upstream_path: cpp/tensorrt_llm/thop/cublasScaledMM.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cublasScaledMMLut.h
+  role: upstream-file
+  mode: verbatim
+  sha256: ccae6c53cb907b4770731e60ac5d96b34eb7b81b778c0c86b3d57d741df1f86f
+  upstream_path: cpp/tensorrt_llm/thop/cublasScaledMMLut.h
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_llama.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ad2f7d79a02276e7fe94da36e7c433bb4676f3c0e081476f93f653b6d1461b6e
+  upstream_path: tensorrt_llm/_torch/models/modeling_llama.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/gated_mlp.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a8c2cafcb9a42dacadecb1738dd5193ef3d12f3d4694feeadfb247997e9302ab
+  upstream_path: tensorrt_llm/_torch/modules/gated_mlp.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: bea2d55afd260a660482241270ac092edc5400e97cb7277a90a6a0ea53ea4634

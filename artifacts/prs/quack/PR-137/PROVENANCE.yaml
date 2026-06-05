@@ -1,0 +1,27 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/137
+upstream_repo: Dao-AILab/quack
+upstream_sha: 408710a0b71ac68603be15727f8ae8c1f0d77e5f
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-137
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: fecf66e98be287262cff4970e88d2ad653823257486b9cb187cc3043f2e453cc
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 774f45c3de19164ee3147b6de75b6c7a0dcd66eb9d562bb923103144ec9dcb64
+- local_path: source-snapshot/quack/cute_dsl_elf_fix.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1135294a7cf9234aeeadd69baf983df25c4220b246d97a62970315236c4db798
+  upstream_path: quack/cute_dsl_elf_fix.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: ae6ae62af2165d4aa070e1defcc01d66b96295f58af4080dd681757eb2c0bb06

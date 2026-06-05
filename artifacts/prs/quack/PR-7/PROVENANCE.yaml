@@ -1,0 +1,37 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/7
+upstream_repo: Dao-AILab/quack
+upstream_sha: 996408b6492dada70d7f190348977285cb0a0ce7
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-7
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: cff82bf2690cf888720e5b50dd21a6dd5f365a733cb637dcb68b0d626a3eaf6a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 3ffb13631406155afdf3ecc03e3a0c3f1c607e1c184e548af19267ee5211b8e3
+- local_path: source-snapshot/benchmarks/benchmark_layernorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b8a102b2d8068be3fef1795b3684f0e67e03f09e37d731c0eeb9868ba5612a2f
+  upstream_path: benchmarks/benchmark_layernorm.py
+- local_path: source-snapshot/quack/layernorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8a104ac89ef65d90f7872e414f168fe075c5b07833a25a4b720bb3aceb68cb11
+  upstream_path: quack/layernorm.py
+- local_path: source-snapshot/tests/test_layernorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fbb811b08bf64b552e48dcc2a143fecc85639586e48931562b7119f912889013
+  upstream_path: tests/test_layernorm.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 80af6abfdfb44238feccdfb6c306bffac8489acb624c6016c7fcc6637d935016

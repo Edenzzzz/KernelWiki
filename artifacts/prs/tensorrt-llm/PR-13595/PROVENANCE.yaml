@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13595
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: ad2da1885cd49624c8124bae9bbd7c539a078b2f
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13595
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 2441fb59f6d2714138c0d0f5dff7ea52bcbc767cfcc21cf86b150946a32a56c0
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 6fe30d9070c9a54cc777e376fc5c8d1f4747964bdc3c82f96a9a620faf0b5ea5
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2ea969ae1d1182c29e44808edbaac0037a92bab50bc9f25d4cd7766d95e5129e
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv4.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/moe_load_balancer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 83de74a80a6e21be683b4a013eb7b40bad1ab061f978e46b44e7abe26250350e
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/moe_load_balancer.py
+- local_path: source-snapshot/tensorrt_llm/tokenizer/deepseek_v4/tokenizer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8d302a3af665407b8e9dcfe5f994da9065adab4028327cbc1cbf590c56dfc914
+  upstream_path: tensorrt_llm/tokenizer/deepseek_v4/tokenizer.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_pytorch.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b6be9c565f96af67d7861503c7cfeab68d6ca46dc12a99138ee22ea35ecd2a8e
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_pytorch.py
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_dgx_b200.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: d331c8bb23598d185cdc789296bddba5c229ca6a2915612511a5a03c219c631c
+  upstream_path: tests/integration/test_lists/test-db/l0_dgx_b200.yml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 4f6a64eff76d341a62c56ae0c2a573d29c54116e79595b6b3e5cf42c92083877

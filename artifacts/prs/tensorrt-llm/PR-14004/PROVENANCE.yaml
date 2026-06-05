@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/14004
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: aab928d1bdf8ae2e99a0ef1edea3bec5bc188944
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-14004
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9f20e8bfcc3434a0afaaff19c5052fb46187811bee29c62ee3b122577b4ee734
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 21b3fd8f6c882d0fda5b7608fabf815ecd924c1a42553a5955a0a295916d6a6e
+- local_path: source-snapshot/docs/source/models/supported-models.md
+  role: upstream-file
+  mode: verbatim
+  sha256: 4344f15465f5d77e464ebf2ccc5b8a2d588ee2da64c57dfe13fb92f999751c39
+  upstream_path: docs/source/models/supported-models.md
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/gpt_oss_120b.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 613a93be83a8a7f0680a42ed1cc15be467687000b46248c79368da6246928999
+  upstream_path: examples/auto_deploy/model_registry/configs/gpt_oss_120b.yaml
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/gpt_oss_20b.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 1252353fa8f8ec7c01a3a498dfd08c04095c641713d0325474e8c633a08d00ac
+  upstream_path: examples/auto_deploy/model_registry/configs/gpt_oss_20b.yaml
+- local_path: source-snapshot/examples/auto_deploy/model_registry/models.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 5513b8202dcdb8d1870f1b910d603ff30c5ce117b1f135710e46f6b328f15a82
+  upstream_path: examples/auto_deploy/model_registry/models.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/trtllm_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b78148987caa49d765f292b1fa6497fd8dd03d0a22b5d94b5312c5ad726d51d8
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/trtllm_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/mxfp4_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6513aca81527701dfa3f4818c2272b1bd0a3a126893db6ec858ac3c4960c1569
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/mxfp4_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/models/custom/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2bce9b54f5dfc02f9f94507eca108ffbf27211754ceb5be90c0956ffe043a56a
+  upstream_path: tensorrt_llm/_torch/auto_deploy/models/custom/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/models/custom/modeling_gpt_oss.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8c332d22086668660de0a55734fb3bdd180b74347190cea59a6f8cc9e0fbcef9
+  upstream_path: tensorrt_llm/_torch/auto_deploy/models/custom/modeling_gpt_oss.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 98df61ea4d8dfa7fba30b609f094676fa3d69ca57e9127c351aece8586698859

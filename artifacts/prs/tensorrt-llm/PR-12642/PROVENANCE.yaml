@@ -1,0 +1,52 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12642
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 753d71ccd9f1b0f03c742110e98fd6ff9683990a
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12642
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: ce86bda62030dad88fc149aa8a4874b30170307f118b6b11d19fee67feb4f1a3
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a8c065c77cad3456d6e8db8ec0ada266f4576ec744b3e93d4f59c73fed95ccb7
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9c97b78eb92edf316856690e0a97d95986b1aea971af36bbd098bcea90e72559
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_paged_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2d954ee01919c42cc73233c75e1c814382191d9c8044ea5ce24eaee1d3088c95
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_paged_attention.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_autodeploy.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d5b442e4ef54e030ad535bf1cd45e610c57559e4a6bdb3f52097746ca6912997
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_autodeploy.py
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_b200.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 3e732c0e1e7ffa8f347285d1910fc57674d0dc57d9fbf873d57113af401e6aec
+  upstream_path: tests/integration/test_lists/test-db/l0_b200.yml
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_h100.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 6df0c62fdff9bb7c881533e65d3338d5e5d4e948a8dca85d5bf69cab96045916
+  upstream_path: tests/integration/test_lists/test-db/l0_h100.yml
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/custom_ops/attention/test_triton_paged_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 80061be6d06a6751cc9a2eb0d0a446ac21bd0a31cea4dcca5f8bee8322a6b22e
+  upstream_path: tests/unittest/auto_deploy/singlegpu/custom_ops/attention/test_triton_paged_attention.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 67356388237a2ab0d046eda94f4c061f7e5a9f90826eaedc70058eb537284de1

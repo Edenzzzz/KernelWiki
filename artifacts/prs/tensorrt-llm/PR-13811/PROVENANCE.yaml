@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13811
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 3f896a64b0db929e3e153a793bcf3488f601b8e7
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13811
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9018455b76d8d2e0d2213d4542cf6756724ea86a2a06863b2d1010700f9c5f83
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 01743e36c97b1bf6d266a3d4e4c024d4c14395f8ac5add34fcb0a9b8ff9b3907
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/IndexerTopK.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6a6594ce5ee574471f384da991b40e7343c9e9f84e1017594b1903565d0e52e7
+  upstream_path: cpp/tensorrt_llm/kernels/IndexerTopK.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/indexerTopK.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 14c8a77cd5df8fd392b204577d2c8629e4c2ca129fcce8bcecd50ecba6ba2fcd
+  upstream_path: cpp/tensorrt_llm/kernels/indexerTopK.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/IndexerTopKOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 3131da15306eb06ba9efec6de1b678ae3ab7cb07b3aa2d1718c8bddf1137c4b3
+  upstream_path: cpp/tensorrt_llm/thop/IndexerTopKOp.cpp
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_indexer_topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a2ebf3e6858ecfe33fdeb58a3b1f3de168a3970ea00d43fbbf9ecbce413982bd
+  upstream_path: tests/unittest/_torch/thop/parallel/test_indexer_topk.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: ac53986d997174736e2a84e28735aa1504db0ccbe59cf6d165626b184f4ef218

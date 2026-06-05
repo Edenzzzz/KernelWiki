@@ -1,0 +1,63 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13505
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: c37992cacc1e501d22e83465506172663b7a7077
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13505
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 3080f3323b21f3be4a194d5de87348686fb8c9519f2ca7b6096652ca0099d1bd
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 05bb18c0886840ccd74c55c25dc601e93f30f23d5463bce4017c530effb2c0ad
+  size_cap_truncated: true
+- local_path: source-snapshot/cpp/tensorrt_llm/common/attentionOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 084a89dcea604c59f08fcea4d41b90afc007e1b76f9c449b131f900463824560
+  upstream_path: cpp/tensorrt_llm/common/attentionOp.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/decoderMaskedMultiheadAttention/xqaParams.h
+  role: upstream-file
+  mode: verbatim
+  sha256: e78b53ec30c97a6816b262fc13a4685e1b59ffea64b102e5660c0114f89ab102
+  upstream_path: cpp/tensorrt_llm/kernels/decoderMaskedMultiheadAttention/xqaParams.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: ac1975eeba03f0d8fc7e51e9827c64f9ad2e37197c697256a1da86bfae752234
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128StaticContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: effcbb5d6b37ef2ae8f261899bb1738a8970cf8bb91d1761f2f61e136a30bcb8
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128StaticContext_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: fdcc1c5e8cd5140e95b9158850151c6e409310d8a937d3c2bccd86c4720dbe28
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: cde954010db2d917e47a2ac99f52dc4d56274d02f3662af2866fc3975e587ca9
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: fa337db3fb604d91b9b84bfd4d2569375e279ee84724cc69de18b1daa6d8cf10
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 0011a257d5989dc5e7bc23ac67c0e89f44d25b4c39b1041bf9a283b9e055dd2c
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: cbd7eee7238ee2a546dac16147497b32d32435b53868429289fd9e33af962dcc

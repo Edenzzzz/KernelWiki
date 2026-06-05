@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13692
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 37311bad3a5b7a66fb53fcd55e74cbf940440d12
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13692
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: ff8963d68081971d4a4fb0004731296ea7f6f7bd026b5dd8ccbe745f5baa00c7
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2575b52448a45bb108654e1e14818b1fa0e795f60c58debc8319cbce0ddc20a4
+- local_path: source-snapshot/triton_backend/all_models/disaggregated_serving/disaggregated_serving_bls/config.pbtxt
+  role: upstream-file
+  mode: verbatim
+  sha256: 086b2a93e6d5bc801ef36627d1942f13e695350f9c90f6716212c58183539061
+  upstream_path: triton_backend/all_models/disaggregated_serving/disaggregated_serving_bls/config.pbtxt
+- local_path: source-snapshot/triton_backend/all_models/gpt/ensemble/config.pbtxt
+  role: upstream-file
+  mode: verbatim
+  sha256: 0068f47350e76a72d452b3380be6e18423a75116f6428d9f61ba86529895179e
+  upstream_path: triton_backend/all_models/gpt/ensemble/config.pbtxt
+- local_path: source-snapshot/triton_backend/all_models/gpt/tensorrt_llm/config.pbtxt
+  role: upstream-file
+  mode: verbatim
+  sha256: db71b33801829a77d3f4da32a7c9e5c2c0623454adde4babaef8472718001754
+  upstream_path: triton_backend/all_models/gpt/tensorrt_llm/config.pbtxt
+- local_path: source-snapshot/triton_backend/all_models/inflight_batcher_llm/ensemble/config.pbtxt
+  role: upstream-file
+  mode: verbatim
+  sha256: 15b42f16d0d28f9a30f0e739d26c1e4df82bce43807c6ce1baf037ba6b6142a6
+  upstream_path: triton_backend/all_models/inflight_batcher_llm/ensemble/config.pbtxt
+- local_path: source-snapshot/triton_backend/all_models/inflight_batcher_llm/tensorrt_llm/config.pbtxt
+  role: upstream-file
+  mode: verbatim
+  sha256: b944b31ff11d911daa9531d5f63390d350270de0149c9866b163a9b689755534
+  upstream_path: triton_backend/all_models/inflight_batcher_llm/tensorrt_llm/config.pbtxt
+- local_path: source-snapshot/triton_backend/all_models/inflight_batcher_llm/tensorrt_llm_bls/1/lib/decode.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 470a4b92d5fc27103d66a4b9082d801192e8de23981874ed41e98225bcd5218f
+  upstream_path: triton_backend/all_models/inflight_batcher_llm/tensorrt_llm_bls/1/lib/decode.py
+- local_path: source-snapshot/triton_backend/all_models/inflight_batcher_llm/tensorrt_llm_bls/1/lib/triton_decoder.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e16cc9ab07ef760be4330e9375a8d76ee8ec3db080d8184626e4d7d1c0908685
+  upstream_path: triton_backend/all_models/inflight_batcher_llm/tensorrt_llm_bls/1/lib/triton_decoder.py
+- local_path: source-snapshot/triton_backend/all_models/inflight_batcher_llm/tensorrt_llm_bls/config.pbtxt
+  role: upstream-file
+  mode: verbatim
+  sha256: 33243b2025fd235089e0fe286ea4540668210f041833773dad2aacd3446b9108
+  upstream_path: triton_backend/all_models/inflight_batcher_llm/tensorrt_llm_bls/config.pbtxt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: ca0b2b0d4ddc6ed2a1a05c75cb63f6b49f2d809ff3e921de72c41296bff2c92f

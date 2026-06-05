@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13761
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 68e75e5a4a6a786b4666e7756665580b72bbcc82
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13761
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 21328a69682f9ab3db7ab31bf495bb678c9e7f3055d8dcb6679814a9bfb6aeaf
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: d01e096842d34b6dae2140769fe38020ed17f35e88357af1e4b88a8487db3f64
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/compressorKernels/compressorKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: b2f041f9711583c6585f4bb17393aea6b2e596727d892cc16a691088ff30cf95
+  upstream_path: cpp/tensorrt_llm/kernels/compressorKernels/compressorKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/compressorKernels/compressorKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: b4ceb9973eda67f1d885e8c7c8ce33946d627b0ff04f61572c2546f1fa0b00af
+  upstream_path: cpp/tensorrt_llm/kernels/compressorKernels/compressorKernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/compressorOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 0579e3431d05a374cd9d334e9eb5c2326b3d17aaa547e8f6d0776699ee34dfd8
+  upstream_path: cpp/tensorrt_llm/thop/compressorOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/deepseek_v4/compressor.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f2edee9531c27b80994bf4824acc7b3d7d60bc1d58b5e77fd686c5823986d10f
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/deepseek_v4/compressor.py
+- local_path: source-snapshot/tests/unittest/_torch/attention/sparse/deepseek_v4/test_compressor_kernel.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ecd93902d3b976216b19c7cf9e55ec8cf2d024dfabf16f593b482a9de9f9a521
+  upstream_path: tests/unittest/_torch/attention/sparse/deepseek_v4/test_compressor_kernel.py
+- local_path: source-snapshot/tests/unittest/_torch/attention/sparse/deepseek_v4/test_compressor_module.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 05c79f355cd197393107a537d6d823d35f429df7cdfff9e1645a1d902323c4e8
+  upstream_path: tests/unittest/_torch/attention/sparse/deepseek_v4/test_compressor_module.py
+- local_path: source-snapshot/tests/unittest/_torch/attention/sparse/deepseek_v4/test_compressor_tf32.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a5b7f6d8420cd22542fa6805b6aa621de3080d9d1d7a5377a379b2de428b41a4
+  upstream_path: tests/unittest/_torch/attention/sparse/deepseek_v4/test_compressor_tf32.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 0bcf1f504ac7f97e2d75720a2b103ad0b700f8d7f393682b4b62e36f8a01bab6

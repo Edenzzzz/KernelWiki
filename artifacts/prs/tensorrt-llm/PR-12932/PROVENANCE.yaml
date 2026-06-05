@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12932
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 18194559472c114e6ddd6c5a055d837075639b01
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12932
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 46a1ac504d7e3209126efdf183dbd65591d6c858890ad4a9b2eaaaa8c1d19a82
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2408eefa1fc289681b03d5e1c3eadc325ebb787809de08ee1a27ed60267a5aeb
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/flashinfer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2f7c5065960d3fc13677af242573704f0e18cfe52ff3afcb1373a176a7f287d1
+  upstream_path: tensorrt_llm/_torch/attention_backend/flashinfer.py
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/triton_prefill.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 51328b1e3810e424d940c648a2595ab8326f6b25b6d301c05b85a3eef1a478e7
+  upstream_path: tensorrt_llm/_torch/attention_backend/triton_prefill.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2679a607e1af2f32666988ed4de6d65649c870139fd3f7f3f7f0629f8c0296fb
+  upstream_path: tensorrt_llm/_torch/models/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/checkpoints/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 76f08d38fd3594e28763719c06376dacd5fb4cd47a67196352102810f6c24f62
+  upstream_path: tensorrt_llm/_torch/models/checkpoints/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/checkpoints/hf/gemma4_weight_mapper.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9c258a74548d4f2369379a57accb83792d4952261e38c9344d4eb8ace4c4954a
+  upstream_path: tensorrt_llm/_torch/models/checkpoints/hf/gemma4_weight_mapper.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_clip.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5295a9580cc52d38db2f21c0f4660093005599830920866171f2de30306f61d9
+  upstream_path: tensorrt_llm/_torch/models/modeling_clip.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_gemma4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 472f53c75b31fa0b12e27d8c2d1e805dcc6880949322e9affe0ebab22f3eab39
+  upstream_path: tensorrt_llm/_torch/models/modeling_gemma4.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_gemma4mm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f250e1877dd37e0e034bdd5bd59cafbe3658af2755e7507be0bcc47f7c1c5841
+  upstream_path: tensorrt_llm/_torch/models/modeling_gemma4mm.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 64bc0bd9b4f979a5fbbcd08e1c9cebd1f4d450fb3ffe647252a2205e7911996f

@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11501
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 3ed1d789609ec6440c7766b10c81111e80753d0f
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11501
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: f00fda64acfb465e32eca4bda6dc94cb8f033d71e75c542dd50c49938e3cda45
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 39cf3ba6430af765f2e6a975fe3959a2b27eb8eb7821e16fd4df747450b9193c
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 13df0d789f838ac534128c7e51b88ede0bee446b0e32e7a454cfbd1796af5375
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6f8c1853de11ec441866545a185ba7cfbb09e024c48acefd2acd7504e70edc3a
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.h
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: d62572363bd07e6138fdaa6273a20f6264d9dba60102d7104985848614fc8ca0

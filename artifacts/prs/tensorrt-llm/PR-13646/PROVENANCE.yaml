@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13646
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 591f210d7792ecf05a7916cd0307522db92f6975
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13646
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c36576788d82ce1480cd92cc3dc05522f6e106ad6ba7f6fd42b873d46c6ece4a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 35ac4aa8070b35db269f2ccb3a473827368b169ddbd15acc78a58ac00648f5ba
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/dsv3MinLatencyKernels/dsv3RouterGemm.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: c06cf4a4e9e55e3f9ecce8986ed577e2cd0a2bc2bb443e23bc72d5fe53691198
+  upstream_path: cpp/tensorrt_llm/kernels/dsv3MinLatencyKernels/dsv3RouterGemm.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/dsv3RouterGemmOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: f195e3a82b13f4991c24f74332009bd367ae7c46471daf678e91530acdeef86d
+  upstream_path: cpp/tensorrt_llm/thop/dsv3RouterGemmOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d21b85ad3d65c8e8c53b40745d66714c6d0387f1f9065407cdc241850342333d
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv4.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_dsv3_router_gemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fd73ceec10ac2d3c61831ded4ff06f02dcc89e9d3d95e325b82fe67ba670dedc
+  upstream_path: tests/unittest/_torch/thop/parallel/test_dsv3_router_gemm.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 0debb788276fc38628a66b1dcb24e059f7e5c5f6546b36d9658524a248a4ca4e

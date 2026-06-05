@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13433
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: bc693ed5a3161d9ba050ae74f0940ffb581eee1c
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13433
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 978d86489eb1622e7678e4a8be82b0419ffbc051d82124b3a5b7cc1b8c00e9be
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: bc6d45613fea8844b19860990bbbcf798f25ee9c1732076446e54ddd102fd8c4
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/customMoeRoutingKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 536e9e4dde938ad80f4e965dbb947227b6af97198cdebc1361b4f0af1aeedcb1
+  upstream_path: cpp/tensorrt_llm/kernels/customMoeRoutingKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/moeTopKFuncs.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 861044f19eebf4a44ba1401eef6389d1700fc286a1efa7b64f265a0f4c7a8300
+  upstream_path: cpp/tensorrt_llm/kernels/moeTopKFuncs.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/customMoeRoutingOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: ccd9bbf579efc6471017e4075e042435773991d8927a475940b55e9dc5e9d1e7
+  upstream_path: cpp/tensorrt_llm/thop/customMoeRoutingOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/routing.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 262c578b6c7db58e8bbdf5f9369931f3ef1871bb235bcdbba94d7566371208e0
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/routing.py
+- local_path: source-snapshot/tests/unittest/_torch/modules/test_moe_routing.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2fc18f1ced32955d45c2c175799354dc6d09fe5b734c5ee9c3280424c6bd588d
+  upstream_path: tests/unittest/_torch/modules/test_moe_routing.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 4e12c52ebbb16416f5d59503d7fb69f76d3bd458a46c2a6a53d27827c3a2cd33

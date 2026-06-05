@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12503
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: c21c41cb6120740712af283b1ee554f172950cc4
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12503
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 819b3ce5529eb554f7d119a8bd3c250cce9f6a5b2ea0e09e4d8107e1ebec23e7
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: b0af2947113164acdc817d4e6a9bed47aeec5dbd21753fd42827af7227df7727
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 54f6b429392646b9c886782e0498603c760883158d9fe7b15429cfdc010426db
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tensorrt_llm/_torch/compilation/piecewise_optimizer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a29b0f8f78a33bdc002d17f0498a35c6e8cba243f88b36c986c120e43bba3497
+  upstream_path: tensorrt_llm/_torch/compilation/piecewise_optimizer.py
+- local_path: source-snapshot/tensorrt_llm/_torch/compilation/utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6266eb0895dcdcd4a95606fea4aed840d167621bf09a12431f8fddb87e272372
+  upstream_path: tensorrt_llm/_torch/compilation/utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4cc5bd74fa2145121ace18cf2c2dff41abb734486c7c229ab9b32b8ec003472c
+  upstream_path: tensorrt_llm/_torch/modules/attention.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 88267a074b9ad42d2c51191985568afaccb7ab7f3817bff94a6dc600d408725f

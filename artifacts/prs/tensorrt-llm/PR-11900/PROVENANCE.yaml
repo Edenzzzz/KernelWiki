@@ -1,0 +1,52 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11900
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: fb3e81dfccf5bb2a6f6164d1bff4e5621df106c5
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11900
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 455cdc3ab274fa63da316e1845a44835bb2dc867ce65420b2e2e286ffcadd33e
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2fdd292e21ed8b26aff148b9e8a87efae7f307227f550ff8ce578c08c463e892
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 27efb504c9eaa917860991fdcfa73cfa2f58b6cbad13ca88df6182da06784fc5
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b02010c84c97be830868f1dd7d55bc30aecf7084530026e1c84d537a46ed6aa2
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/block_scan.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9d24534b3d18d6debf358625e23373fab49a8b30db11277848febc1d8368cabd
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/block_scan.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/filtered_top_k_decode_varlen.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 659f80b4aa78567057d1900c11fc5098108cf41899dee133708b004f6010379c
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/filtered_top_k_decode_varlen.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/filtered_top_k_varlen_util.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a4137e3e196ccb351295df5029bc506feb57980d010e5f7f34a23ea77aad7364
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/filtered_top_k_varlen_util.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_indexer_topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8faa23f9eced27d3cf26bac739ec5e5004e84b5c1c71dcd29541ff25aae02fea
+  upstream_path: tests/unittest/_torch/thop/parallel/test_indexer_topk.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 6e929d6c4150f37a98a34dbbf3d37fff708945d52f95bef303de9dcd52bc6050

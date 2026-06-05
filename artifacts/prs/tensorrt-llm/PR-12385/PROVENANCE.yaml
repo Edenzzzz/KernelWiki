@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12385
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 5f59b9998aab3b01ef8d80160e4c096e80fdb1c0
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12385
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 5081d50cf72c0c61da5d01b48ef24850dc305f5eaf73913701341b2fd0b414d7
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: bbb95cf932f602c9d243111c4afff909edd771118b3736848812c18df0eaf606
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/IndexerTopK.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 640626471e75ebd4426650a29975eb8a6f7fa5d54109e9f2c5c7cab4634a0baf
+  upstream_path: cpp/tensorrt_llm/kernels/IndexerTopK.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/heuristicTopKDecode.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 81fe978fb732ba8c9ab603f39f6dfb72714a8c8d4c102908fc3e9a96ab08566e
+  upstream_path: cpp/tensorrt_llm/kernels/heuristicTopKDecode.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/heuristicTopKDecode.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 7922e311d58d35daff75ea0c3e2fbbcbdf18221bfc37bf43915df4996b2924ab
+  upstream_path: cpp/tensorrt_llm/kernels/heuristicTopKDecode.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/heuristic_topk.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 6b05aa754f060a0e64738c01e16f18e32b2811910a03f84451a59b45d337fbef
+  upstream_path: cpp/tensorrt_llm/kernels/heuristic_topk.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/indexerTopK.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 962084145e200791548b4539983ef093615d37dbe8ff8437cef3f79f4f345211
+  upstream_path: cpp/tensorrt_llm/kernels/indexerTopK.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/IndexerTopKOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 0928fca8e48144099ec2a12c37681372b504eec1b9e195365090fbe06e4d28e5
+  upstream_path: cpp/tensorrt_llm/thop/IndexerTopKOp.cpp
+- local_path: source-snapshot/examples/longbench/eval_longbench_v1.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f7bbc7fb5abac83d42f07cf26aee23d0056f39f719bb7f0d781b31d821e38827
+  upstream_path: examples/longbench/eval_longbench_v1.py
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4547ec59eb8c771107eeac7fd25eed9f3d7d978b5371bfe713c7cc1d24405bf6
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: fbfdb909704ac8d750c38aa2a696ecb2d883c1ca6dc013baa58acb8ec197bedd

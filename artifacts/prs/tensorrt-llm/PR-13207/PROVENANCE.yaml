@@ -1,0 +1,27 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13207
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 2283dfb030462cbe1b4ea0be9fa68dbd5e27b5bb
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13207
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 4414592fd2be850cb5d6c69e0444a08f93cb18382f4ab4d7f3ee425a21b003fd
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 36e79102db6566168482adee5b9cc91931946fbe0e2f6ffbb314d48a2fd601ff
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6b28aa0817d6876c741120a2027516cf30ef118e45b70e77e8e8a6b96666d10a
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: af20203f182d16b4a7b71df52b40012d3820280537c02937d00bec477c232381

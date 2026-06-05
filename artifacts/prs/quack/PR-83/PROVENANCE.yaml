@@ -1,0 +1,27 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/83
+upstream_repo: Dao-AILab/quack
+upstream_sha: 0c714ebdd6a318bc0fabe590df13852675c7c9cc
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-83
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: da423dc437f293bf53dc995436edf39151496d6ff0b639cc6223e40c43e61ecf
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: d3e476dc35123296ff652df9dda9e1962e2d72bc3360430828ec69d2f8359111
+- local_path: source-snapshot/quack/cute_dsl_ptxas.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0588626f3f5deb386f995af2b720e4f7d14c2131741f3147a2789c50aaf442f5
+  upstream_path: quack/cute_dsl_ptxas.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: fcbc024cc5b2d40e17f8c6df88222e4d11215c636272c32b92063379367fdff3

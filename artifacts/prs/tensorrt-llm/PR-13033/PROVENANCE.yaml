@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13033
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: af4b29ac86b3c0348fe57ee0adfc535f8da95e60
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13033
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8e63ac14bba1820b9442285c66eee5dc7f5c82818baf7024cacc61ea998de0ff
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2362483dbedd82ce7681b63f93dca6d7576cb0b1bb30fb912779495c2a9c4aa6
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/fp4_converter.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 7d55ac5f70bb5fe69081feedd324a755991a32a233e8d9dddaecd1f69e9a598b
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/fp4_converter.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/low_latency_layernorm.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 2e56142031d63b952f62e5334ee8b677622779e346588bb440452bc69fd26cf1
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/low_latency_layernorm.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 03b1d93fbe1fee7ab2c5c2e6659710c99245538761139fd702a1db32aa04661b
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.cuh
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_nemotron_h.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 31713a35e3c19323a380bdb99a399458cac18470cf71e23085e9e76f7baeae22
+  upstream_path: tensorrt_llm/_torch/models/modeling_nemotron_h.py
+- local_path: source-snapshot/tests/unittest/_torch/modules/test_fused_add_rms_norm_quant.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b54e984ae8b4c8d08ef3c116a0d6f63d367746b037ef675c10c01d31e1eccddc
+  upstream_path: tests/unittest/_torch/modules/test_fused_add_rms_norm_quant.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 8ee5b6bdefae44f6639c195f83c460e48626d56ebfa10d382d8b9f20265b05ad

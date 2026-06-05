@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13714
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: c839365499af9e43cb442340d97d1d8d5f2b3a96
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13714
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 999ff457afe44ed1a4865a93c2c7d57bc9dd9ec0da9e0dfd2220c1519e016c9b
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 4c008dcc296ed2236f86ba77dfac572646e588f9869eaf80e08e3ce9076fd626
+- local_path: source-snapshot/docs/source/blogs/media/tech_blog21_algorithm_flow.png
+  role: upstream-file
+  mode: verbatim
+  sha256: 261430fb4f4f53ec2e848a18c26b284b98c239348fdb1b988ec7dbe9415ab5fd
+  upstream_path: docs/source/blogs/media/tech_blog21_algorithm_flow.png
+- local_path: source-snapshot/docs/source/blogs/media/tech_blog21_dispatch_logic.png
+  role: upstream-file
+  mode: verbatim
+  sha256: 514d14bcc5e543e1647aa5ea96a17ea7b05271e7610e7093bd964e506b4d237d
+  upstream_path: docs/source/blogs/media/tech_blog21_dispatch_logic.png
+- local_path: source-snapshot/docs/source/blogs/media/tech_blog21_e2e_tept8_osl1k_bar.png
+  role: upstream-file
+  mode: verbatim
+  sha256: 6565a3ec204a654f8c91eb738a4fec4c7bda1816a2640c49823fc2b829151714
+  upstream_path: docs/source/blogs/media/tech_blog21_e2e_tept8_osl1k_bar.png
+- local_path: source-snapshot/docs/source/blogs/media/tech_blog21_hit_ratio.png
+  role: upstream-file
+  mode: verbatim
+  sha256: cce11d6f5da5170ad2e4e6c750bd6abc7c3223968a2ff13aca39e63f082a9c05
+  upstream_path: docs/source/blogs/media/tech_blog21_hit_ratio.png
+- local_path: source-snapshot/docs/source/blogs/tech_blog/blog15_Optimizing_DeepSeek_V32_on_NVIDIA_Blackwell_GPUs.md
+  role: upstream-file
+  mode: verbatim
+  sha256: 5ee9821486a906539b0903dafe7263b6d4c9985f6051c3572a8b0a321378706b
+  upstream_path: docs/source/blogs/tech_blog/blog15_Optimizing_DeepSeek_V32_on_NVIDIA_Blackwell_GPUs.md
+- local_path: source-snapshot/docs/source/blogs/tech_blog/blog21_Temporal_Correlation_Meets_Sparse_Attention.md
+  role: upstream-file
+  mode: verbatim
+  sha256: e7755f6ec160d24b118b95be73d2de6effed3b9d5f5a485cba54b1d8eb217c6c
+  upstream_path: docs/source/blogs/tech_blog/blog21_Temporal_Correlation_Meets_Sparse_Attention.md
+- local_path: source-snapshot/docs/source/features/sparse-attention.md
+  role: upstream-file
+  mode: verbatim
+  sha256: 92dab381504d962f53989ea63c75a543f77a025ff8fe18ee804339cb7923a72b
+  upstream_path: docs/source/features/sparse-attention.md
+- local_path: source-snapshot/tensorrt_llm/llmapi/llm_args.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 915d365c900cb843da13853c7fbc79078d67773eb1acd54dfcea6b120ec99bda
+  upstream_path: tensorrt_llm/llmapi/llm_args.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: c503e0831147cac8c8b618c8864deff7019db087527ded4611899fe82b00e61f

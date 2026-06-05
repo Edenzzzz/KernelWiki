@@ -1,0 +1,37 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/14000
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 08828dbba17171fef26ee7d291e7d937e4074365
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-14000
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: e2cccbaa125f6945b2ef61be05a3046c47ff0c824df2025a5fbe23ddf8f556d6
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: dbc6f043f34346e5939e0d7d9994d068d3fd4eddf70b22b030c9d66592276e23
+- local_path: source-snapshot/tensorrt_llm/_torch/distributed/moe_alltoall.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9a05a30bc90baff9a724e35201733a93db7e49aab129db40ca66738f2cdb9720
+  upstream_path: tensorrt_llm/_torch/distributed/moe_alltoall.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/communication/nvlink_one_sided.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8cd3ee427f5cd68b636a412c51aee951348724c232cd0425ff37a0fa188a47f8
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/communication/nvlink_one_sided.py
+- local_path: source-snapshot/tensorrt_llm/_torch/pyexecutor/model_engine.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5bb1a18d2e42ff9e9413287660363a05f1ec359241d9438f506af2669cd38657
+  upstream_path: tensorrt_llm/_torch/pyexecutor/model_engine.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: f4932ebb1fe1397b9415e8663259c3010952b7b3433fa344d2fc6d835cc551e7

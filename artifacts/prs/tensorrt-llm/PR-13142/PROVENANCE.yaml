@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13142
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 36b41f26a2964f635dfad15e1c872d265f14e9fe
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13142
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 6a21ca07bb76250eff679f27a90503b30221c5db4f240e109a5345a152f2de3d
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 5099fe9f5548ab3c995d3eb16eff2d921db80888cab4b730556a1d52dbd247b1
+- local_path: source-snapshot/tests/integration/defs/perf/test_perf_sanity.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b1ec837b603f519a348558c4daa0ea44e30233359f9c6e8f2511f096bfed2b7c
+  upstream_path: tests/integration/defs/perf/test_perf_sanity.py
+- local_path: source-snapshot/tests/integration/test_lists/waives.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: b47f52da417e607a65f62aa2456ad37fbe13cbbeade9eeec6aaeaf68d30e2aa5
+  upstream_path: tests/integration/test_lists/waives.txt
+- local_path: source-snapshot/tests/scripts/perf-sanity/disaggregated/gb200_deepseek-v32-fp4_32k4k_con1_ctx1_dep4_gen1_tep8_eplb0_mtp3_ccb-UCX.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 092ef7489ab4ad04651136ad6d638498a7e542552b2c3b3e85eabac000a0c3af
+  upstream_path: tests/scripts/perf-sanity/disaggregated/gb200_deepseek-v32-fp4_32k4k_con1_ctx1_dep4_gen1_tep8_eplb0_mtp3_ccb-UCX.yaml
+- local_path: source-snapshot/tests/scripts/perf-sanity/disaggregated/gb200_deepseek-v32-fp4_32k4k_con2048_ctx1_dep4_gen1_dep32_eplb288_mtp1_ccb-UCX.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 9ed2751c8aa459dad1712b06a593c0fc404895c8c7ba531fa0575da3badaea9b
+  upstream_path: tests/scripts/perf-sanity/disaggregated/gb200_deepseek-v32-fp4_32k4k_con2048_ctx1_dep4_gen1_dep32_eplb288_mtp1_ccb-UCX.yaml
+- local_path: source-snapshot/tests/scripts/perf-sanity/disaggregated/gb200_deepseek-v32-fp4_32k4k_con256_ctx1_dep4_gen1_dep32_eplb0_mtp3_ccb-UCX.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: dfa7912a0b6a3082ea1aaed35111ec3c2c9c8b7cb296335420a3f8321c9d69d3
+  upstream_path: tests/scripts/perf-sanity/disaggregated/gb200_deepseek-v32-fp4_32k4k_con256_ctx1_dep4_gen1_dep32_eplb0_mtp3_ccb-UCX.yaml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: a87f84563a3bb21cc7216859335604d178eaf5b3d97b02f908d34267b8070165

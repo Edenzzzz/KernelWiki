@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13477
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 2a26e4315e6605c6ef487b8cb7825393e23e871f
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13477
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 1a90d920c5d09254940ba5937894a8551ef8493c0b457d38887767d2a1405aba
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a07c921bbc5d68a839dab75c0a916981a9abb80f5bba3fe6eb69d2c0452d8235
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/heuristicTopKDecode.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: d6ccc93ccf19cc7991dd31f4f9687afcce0171d7a583451765986e36f49c1d1d
+  upstream_path: cpp/tensorrt_llm/kernels/heuristicTopKDecode.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/heuristic_topk.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: a490e274fe36e4e2768ada76ee7b39caacde2231376c27b49586b724760ca350
+  upstream_path: cpp/tensorrt_llm/kernels/heuristic_topk.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/indexerTopK.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 51175062124899420c819f841822419877f4678a2cc247e34656f96129a8a097
+  upstream_path: cpp/tensorrt_llm/kernels/indexerTopK.cu
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bacb646ef8c89c775b113907df8a6d67a9d327bc8e334d1648c6df0e4aaf7275
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 56fae4186a2caf9b33c406d57c1820c34f90829d36aa561a7dd8970d321a2ff9
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 461f73ff5bd3ba123fcb49a0f5bc0d0997260011365359962987e46dc37ac722

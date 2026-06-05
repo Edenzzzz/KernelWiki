@@ -1,0 +1,62 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/19
+upstream_repo: Dao-AILab/quack
+upstream_sha: 670a9df15f68868f90acc7a54375748887fe987f
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-19
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: cd42cdb86922fe1534e651fca49eac3c4528e38c007be91db2cec705634687f4
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 1687c32f4581aa28d85ac505bb68132f03322a1901d5b13fb73c8a1c798ac9f5
+- local_path: source-snapshot/benchmarks/pytorch_benchmark_rmsnorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: daa5ccec52eb6d485fdbfe6d71630b96e0018ae60487dbe37fceeb9bd9233211
+  upstream_path: benchmarks/pytorch_benchmark_rmsnorm.py
+- local_path: source-snapshot/benchmarks/pytorch_benchmark_rmsnorm_backward.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8c4edbf4eb75877bc47b0f76f8f2b78db02367a8aad0e175a4e2f358bdfa3e90
+  upstream_path: benchmarks/pytorch_benchmark_rmsnorm_backward.py
+- local_path: source-snapshot/benchmarks/visual_outputs/quack_vs_pytorch_backward_speedup.png
+  role: upstream-file
+  mode: verbatim
+  sha256: b75b7e0e84ab76d8abe84305e70a3dd82088f797eb52152e696ce26043b9f0b9
+  upstream_path: benchmarks/visual_outputs/quack_vs_pytorch_backward_speedup.png
+- local_path: source-snapshot/benchmarks/visual_outputs/quack_vs_pytorch_speedup.png
+  role: upstream-file
+  mode: verbatim
+  sha256: a181e3c489b4b750df7b0b29b69b2038b0c8ce6f011ffbb92bbf52a6c7a5db23
+  upstream_path: benchmarks/visual_outputs/quack_vs_pytorch_speedup.png
+- local_path: source-snapshot/benchmarks/visual_outputs/quack_vs_torchcompile_backward_speedup.png
+  role: upstream-file
+  mode: verbatim
+  sha256: 32ea4566828e76523d1ca7c7c36ae8bc2eda39fa68600ef423a8f85b4600be21
+  upstream_path: benchmarks/visual_outputs/quack_vs_torchcompile_backward_speedup.png
+- local_path: source-snapshot/benchmarks/visual_outputs/quack_vs_torchcompile_speedup.png
+  role: upstream-file
+  mode: verbatim
+  sha256: 41afb61e64107290a73de86e0c25cf7c318c856b3fc176d429c13d2263efe111
+  upstream_path: benchmarks/visual_outputs/quack_vs_torchcompile_speedup.png
+- local_path: source-snapshot/benchmarks/visual_outputs/rmsnorm_backward_speedup_comparison.png
+  role: upstream-file
+  mode: verbatim
+  sha256: b68b22778d532b53ae36bd43b081c1ae6848f190baccbaaee199cf1eb9d83d28
+  upstream_path: benchmarks/visual_outputs/rmsnorm_backward_speedup_comparison.png
+- local_path: source-snapshot/benchmarks/visual_outputs/rmsnorm_speedup_comparison.png
+  role: upstream-file
+  mode: verbatim
+  sha256: b44a5de5a27b121cc1ff32adf9eefa7255f0426603b86f15934567f9815e9b6c
+  upstream_path: benchmarks/visual_outputs/rmsnorm_speedup_comparison.png
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: bd24db1ba7ee2b999737260f44e2fa69c66e64d7fb0e557c773f286a5b679364

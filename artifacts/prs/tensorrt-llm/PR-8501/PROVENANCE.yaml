@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/8501
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 55bc09c9554b4da440907d62ef79257325e63b94
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-8501
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: d14d840c3ec9a7fe2ffd16b70d1f09f490adee429ce21022b8dd5c92125476f3
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: c4c5cc41b50258a08b618e120e44e9f072139f5a695599c3d413ae096aac93bf
+- local_path: source-snapshot/cpp/micro_benchmarks/mixtureOfExpertsBackendBenchmarkFixture.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6ad380d14f33563ce146170a289db4bf82a8dbefd45fe6c1715fc99761bd7461
+  upstream_path: cpp/micro_benchmarks/mixtureOfExpertsBackendBenchmarkFixture.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_gemm.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 21f7be0e7bf5e455b1ee582942bbf632a4ceb47677b613b6e5ca73dd63f7684f
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_gemm.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_gemm.h
+  role: upstream-file
+  mode: verbatim
+  sha256: ae9221097caa918dfd7681dae04a087f21edc621a5442d082df9ddf2ff6a1ecd
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_gemm.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/include/moe_kernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: b417765cd4977974c1f599974b1e000bc1eb7a0b0fcea4878a2878695dd582d2
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/include/moe_kernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_kernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 4880ae558fe0d0707e06a452bb00812972e9eefc39413081a5c122cb37dcd3af
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_kernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/internal_cutlass_kernels/include/moe_kernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 87d74a95b085df0227c76a07f27ee3c68e1cf939f99d5a42a1201693cb7f2adf
+  upstream_path: cpp/tensorrt_llm/kernels/internal_cutlass_kernels/include/moe_kernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/plugins/mixtureOfExperts/mixtureOfExpertsPlugin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 3f2fde7d34c816e8846536057b9edc8a47a8ad16de2979c4acb34b0038322354
+  upstream_path: cpp/tensorrt_llm/plugins/mixtureOfExperts/mixtureOfExpertsPlugin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fp8BlockScalingGemm.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 28d93232f434e736fe3db6ae7ca387c4f0dbfcef6509fd48f7b308c139522382
+  upstream_path: cpp/tensorrt_llm/thop/fp8BlockScalingGemm.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: c1da07fa3a2b02add995b91b23e07352a206bbcb61da97f1a2ce9382b1a8bb6d

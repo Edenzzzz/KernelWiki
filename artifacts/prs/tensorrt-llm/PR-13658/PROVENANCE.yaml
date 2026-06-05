@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13658
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 312bdb83bea4a9b52682653372678ba97418252e
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13658
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 2ae0e688148cdd31587218c204e2029729faf895f509fe2e14e6e9b4e91c5470
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: e8f40d63d57a9d6f65d6f9fac3384bbdf8b9808b38910a46a1a4f67f4d3c2494
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/ultra_v3.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 817b3bec32e00094483ded3d52ed1dcba321b02d957c0cf3f11b7bbf00bc377f
+  upstream_path: examples/auto_deploy/model_registry/configs/ultra_v3.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/mamba/flashinfer_backend_mamba.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e506d3238d5bfbb725c7d9aa7e11038e751d4ed58ce8132077bab27ab027f8d0
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/mamba/flashinfer_backend_mamba.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/references/gsm8k.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 51a14cc351393f3825d77d3e4b8f0f8f5011d68ea4e690ffe09e27318ee566dc
+  upstream_path: tests/integration/defs/accuracy/references/gsm8k.yaml
+- local_path: source-snapshot/tests/integration/defs/accuracy/references/mmlu.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: d79cfde3ff7dd2cb9c5de9637e1521dd7a9396d718e53e91a2b4945d3f8f58ef
+  upstream_path: tests/integration/defs/accuracy/references/mmlu.yaml
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_autodeploy.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 25a2e2b91a04dcac39c378ec4e7f7f3868e07a64f9e93b349e59aa6b99d2b33f
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_autodeploy.py
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_dgx_b200.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: e7fd6ee874893f31779cb3647330b613f9ffef603c1d981d967bbd2c91c7d0ac
+  upstream_path: tests/integration/test_lists/test-db/l0_dgx_b200.yml
+- local_path: source-snapshot/tests/test_common/llm_data.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5546dfaa85fd5da5772ec8058c5a148da774cb3c78036038a00b80b47d3c69c8
+  upstream_path: tests/test_common/llm_data.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 7e0dd2aa8a458a627dd603bdf06bb86b96c52ee46174c4d4305c6e2c62815bab

@@ -1,0 +1,37 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12322
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 24242eef570007548348073c2003c969da8e64ab
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12322
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 6dc0952ae59319915686f489b8848066c0a87a658c7bc4cfa338c2b009aeea08
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: bf92dcf8eb9c10be7320ecac761ad65903e4548947573afcee06561cb06e9078
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7c19c12aecf31e5fd6f6d010be5fbeb11b2f0e5119fc784e94f97aedfe55fba8
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/kernel.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c6f7e568200af202aaf5634b9aaa56d280efefae4583e57967cae7b0f519c7b9
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/kernel.py
+- local_path: source-snapshot/tests/unittest/_torch/attention/sparse/test_triton_gather_k_cache.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 60459f4c0b3f5cf3df281a89d1f909dbc1325d85e50eb0d49021326a5b2f99b8
+  upstream_path: tests/unittest/_torch/attention/sparse/test_triton_gather_k_cache.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: eb441fb6a14df9e585eb23ad05e574f089fc1a92eb08834184b1ab083a82fb5b

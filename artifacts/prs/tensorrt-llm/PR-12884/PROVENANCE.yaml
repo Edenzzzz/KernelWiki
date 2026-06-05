@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12884
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: ac6d56aa92a9052056db080bb7f88d10f116c28c
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12884
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: b6d7ce367dd84c4719d6b11c098775ec8a4ea03256c22ed85f22d51fe01c1049
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: bb9409dad0e799c7dd4bf968eb5dc9da3986f5900829f312e53478774f4bbb9f
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2358811781fa465ccd8b4220146b63c5788fb7527c506e9e07dccce302b25603
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3f48fbbfddb98348966c4bc82ffb327cb748fe9d11ed2615eb1be4e7521dfe67
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_gather_grouped_gemm_act_fusion.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bb5078d73a8bca7bf785c21561609d28ad3186f30c7fcddbad1cdd49e6706265
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/fused_moe_cute_dsl.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8b9f010fc0bae888418edf61a842eff184407415848d29f3884c50d627895524
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/fused_moe_cute_dsl.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/quantization.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8d3b39795f554c8181240bdcb20f1ddfda825e406aafd44020544b05b5a93f73
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/quantization.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_pytorch.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bf84804b3ff50725f71eab8807b2ec24a149182c3571715b8ec5fcd2444ba2f8
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_pytorch.py
+- local_path: source-snapshot/tests/integration/test_lists/qa/llm_function_core.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 6b0c63fb9fcdf83eb236fda0e1ae9b1ee23adc76c63a85a32e92944e743fbd7f
+  upstream_path: tests/integration/test_lists/qa/llm_function_core.txt
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_dgx_b200.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: afc46bc012cd615fbba3337c5237fb1964143ab51d0dbed98f5c3fd6879618eb
+  upstream_path: tests/integration/test_lists/test-db/l0_dgx_b200.yml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 0fd7b6955010c42abf53a5d2f321adde943fa3bd2b3b8b0310d5b151f8f07cdb

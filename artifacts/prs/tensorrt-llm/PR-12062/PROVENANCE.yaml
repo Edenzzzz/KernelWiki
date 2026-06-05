@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12062
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 9a9cc5edd7dd8946db533f4c032ba69009db544c
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12062
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 803d61f9fddd1c0f546bff7e0a148970720d6e6e44386e1de506e8926c915b16
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 03ce32424149d862208d8c8031f2b8772e0ce75e34ac1aa833e2db11ffd52cf9
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/speculativeDecoding/dynamicTreeKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 19b243c28b597cfc444f1e106847dfcbe6d04d0d4bf4d5a797102fb68f8407d9
+  upstream_path: cpp/tensorrt_llm/kernels/speculativeDecoding/dynamicTreeKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/speculativeDecoding/dynamicTreeKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: d9eb3d85c365603d20619ee7b09fe13e45b62ff634c5c3f8a5a997b4c6efdec3
+  upstream_path: cpp/tensorrt_llm/kernels/speculativeDecoding/dynamicTreeKernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/speculativeDecoding/kvCacheUpdateKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 4fc4d110ba8a52458e19c5c8c8c2dd74938cdd6bdbf77eb66d011b835ae27af4
+  upstream_path: cpp/tensorrt_llm/kernels/speculativeDecoding/kvCacheUpdateKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/speculativeDecoding/kvCacheUpdateKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 2908e52ac92a25db87d0bb8553c89e464e948a9958c050db73d5bd499d4581e6
+  upstream_path: cpp/tensorrt_llm/kernels/speculativeDecoding/kvCacheUpdateKernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/fmhaRunnerParams.h
+  role: upstream-file
+  mode: verbatim
+  sha256: ba3060098e346170ae9892fe66ecf8b65ebc70099fde7ad98302ae68701c9e7d
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/fmhaRunnerParams.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/prepareCustomMask.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 9c41d6786c0d214188eacb6ffe6d066c4557114178ae7e8145bea23f02434ba2
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/prepareCustomMask.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/xqaDispatcher.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 4e04850e6e492f6fa23fe1497c744c033e4954d3fd080d404d38e83c683ef314
+  upstream_path: cpp/tensorrt_llm/kernels/xqaDispatcher.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: f79b9c812f0f36149b909a0dd237df6b5b3465fd1ec03d6fe9f125259a89d917
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 69bcc838080fdc684ad8aebcc642ca99fd093a76ae0bc12ced6f0f6a0600ee38

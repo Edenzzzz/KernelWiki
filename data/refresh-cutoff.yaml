@@ -9,7 +9,7 @@
 ## revision c5aa1e5 = Phase 4 prep commit). Used by
 ## validate_captured_at_cutoff to detect freshly-generated pages
 ## with stale captured_at values (AC-4 strict).
-cutoff_date: '2026-04-27'
+cutoff_date: '2026-05-16'
 previous_pages_manifest:
 - sources/prs/cutlass/PR-2033.md
 - sources/prs/cutlass/PR-2037.md

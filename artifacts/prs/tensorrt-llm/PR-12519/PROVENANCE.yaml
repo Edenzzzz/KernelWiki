@@ -1,0 +1,52 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12519
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 131e7b0bffd253a49cd8749a87f96235185a111a
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12519
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 37a90b6e67b40319bc3ecba8db9fe5ba34a9e50ea714d37af1f48bba820b056f
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 116854bd49bb1ea1a1ddfd9c4c11672f463a2ce32a68c9a7527940d753dd6a2e
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 461ab575a88d06e10c9cf7b28da9681bc26b28eb62c2e615eaaf26855d36d5c0
+  upstream_path: tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/mla/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6f4191f1be96e9264b77eaebd3085326f0a037d7e106220c218caaa5fde1ad76
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/mla/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/mla/flashinfer_trtllm_mla.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 175b820f54a18f94c7aeeaac6a3305f03a92e2504be413223e7bb9d6eb37f621
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/mla/flashinfer_trtllm_mla.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/kvcache.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3c264d9ea356c9e0e71c4b23435e56e8a4ef3455938b3f5dc3b9dc64d415e4ca
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/kvcache.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/custom_ops/mla/test_flashinfer_trtllm_mla_op.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5b73ba77089c66edc8aeb7d0e20dbef736eabe1acde206dff081bfe8f7a6b7ad
+  upstream_path: tests/unittest/auto_deploy/singlegpu/custom_ops/mla/test_flashinfer_trtllm_mla_op.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_kv_cache.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f5dfaccac9841485daa9b499dcbd0200031d5e9b587e0d20ab1a87bc152f4d8a
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_kv_cache.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 15dc8e544421174dfb3b2095b92cfcc9509a1dc91bafbb15b9b437f2da5db392

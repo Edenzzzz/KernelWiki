@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13186
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 8c1bdcb1f5bb033fb60f5f0c6fad4ed0db1b90d7
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13186
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: bb140a0285d9559655b9f0438fb628e88664e1ec8c65915da07ecf49e5cfd549
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 264e1a1e530d8ad08a322d9413ea7df58498fff24b8683e9804f61f58b1828a7
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/moeTopKFuncs.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 7cd587f0bd51453e7f31c577b8e883637a3841b386df7da4f65296742cea5885
+  upstream_path: cpp/tensorrt_llm/kernels/moeTopKFuncs.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/noAuxTcKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 897ac3488d5e68ea2453be7d2a0c05fd21cfc033e5dc551e1007ff68a9c6038f
+  upstream_path: cpp/tensorrt_llm/kernels/noAuxTcKernels.cu
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/communication/deep_ep.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7bbb3e751c39695ad8fd4cb57dfc096af4f43197d370bd35efa0256858d97ecd
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/communication/deep_ep.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/routing.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6a1ec6e5a432e404968201566378b6fab814cab8e8b00aa9a5b1d85370d531a3
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/routing.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel_hw_agnostic/test_noaux_tc.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d869657ba40177d38caee60c191c1c9d4966ed1238d650d5ffd7329a5ef71004
+  upstream_path: tests/unittest/_torch/thop/parallel_hw_agnostic/test_noaux_tc.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: aed828674ee6d294faac95e8322a07e39fa88d57ad6dcf7e103160b811cd514b

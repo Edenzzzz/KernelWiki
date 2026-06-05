@@ -1,0 +1,42 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/123
+upstream_repo: Dao-AILab/quack
+upstream_sha: 8a4c7f4eec7b655251ec8d848615606e6e0380da
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-123
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: d12cd878fb49ccfa618925e3d94cbbcc32b14b13c398cba094d1bea0f53a5f5b
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 028d7b4f8765f0d0d21cc9e64c58be2fc7b9e2d62be5688ffb7a0cd7d712e512
+- local_path: source-snapshot/quack/copy_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5fee565ccb1fb8a85cbd24c6c653263f8ef3f5d9f64ebf725d74b3820e3ef4a1
+  upstream_path: quack/copy_utils.py
+- local_path: source-snapshot/quack/cross_entropy.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fa4b961088bc28e4e1632f8093035ebd9b256ca41e052566821ba0f07c802918
+  upstream_path: quack/cross_entropy.py
+- local_path: source-snapshot/quack/rmsnorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 066f4e3e898b8d65a3fe2c659a1d96ab8f7a299b113de58a5847b48058a1650d
+  upstream_path: quack/rmsnorm.py
+- local_path: source-snapshot/quack/softmax.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bd71c6051c0e18c1ea967aa0b552095c579b415c14837185b5e20672a9231534
+  upstream_path: quack/softmax.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 45df629696af604c8b9c53d7ad290b710197223a844beadc771923aac5bfda03

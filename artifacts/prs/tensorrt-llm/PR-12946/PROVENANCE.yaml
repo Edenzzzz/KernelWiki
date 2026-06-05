@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12946
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 6fe67471b1b5a9a067ef8e744fd1eb8ec8ee5d29
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12946
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 1652723b9c0d129823e1104e5766e235e991765a48e3c19c90331045d6f58a4d
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a4b5c1f59c4489c3fbd7f19c79a2e750b61dcedd956a83cfb159e1438ccab78a
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/deepseek-r1.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: f98cbf4fd62a0dbf3405202b21fc80a994432bce81acaf8cf5895ca58368db91
+  upstream_path: examples/auto_deploy/model_registry/configs/deepseek-r1.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/config/default.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: d54bd06a55212aea06312c41072e43d9e44cd434890cda95c7f1beec65219ae0
+  upstream_path: tensorrt_llm/_torch/auto_deploy/config/default.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/distributed/trtllm_dist.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 034b46826d2a9375acc7f143a5a76aadf41f3f682e08044e66ba62d71fd0d8b1
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/distributed/trtllm_dist.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/trtllm_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 352f2edbd6b88db2617dc8bd67c5d1375478a20ed8b3029233cda83d6db9363c
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/trtllm_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/linear/swiglu.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4828ec63c2242b15d1a9a4ac657ff236bd0102abded8eb5ad7c036b7706684a1
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/linear/swiglu.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/quantization/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 066a6a9d72ed3768ee0755000ef01e5d49efdcba0a2236cf304140ae5f51cd86
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/quantization/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/quantization/torch_quant.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 909336076eb5b751b682cbb74a9c7bcb3a56323a02141303c3428a7e7083f9ca
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/quantization/torch_quant.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/quantization/trtllm_quant.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c1044e9b424a53a1eb49095c391b65adc06feab8506e865a4a0f8f1d806a6638
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/quantization/trtllm_quant.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 7b1e75a9931460cd727353fbd32ee8bae317a2f70eca4e77577daf2ef6c6c96f

@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11181
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: b68760fb399e9657aa1360b3bfb88672bce1b364
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11181
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: a519f60da781c761bee011ce6ef564eb1e6449d314f061c6534b39cc1e60f687
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: bbab55a5aa44fd9ea8072dc6627085fe041f3b8bb0298839050e3f45c23359b7
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/argmax.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 91f17854a1ab0a4306507a5b64b6eda26fc09111833e002cab7fd2ba5d57ff24
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/argmax.py
+- local_path: source-snapshot/tests/integration/test_lists/waives.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 90f94da8321e7b742e06ab45ac4846637e70225de86c17131661d06bfd3ac7d4
+  upstream_path: tests/integration/test_lists/waives.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 74292ad157e17aed887ba49132e7e4918106d583c6d391104403f417d879d0c1

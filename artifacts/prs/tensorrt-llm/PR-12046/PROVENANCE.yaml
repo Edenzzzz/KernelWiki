@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12046
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 9b53ae24b362c7bcc75e256b1a8d9a1365171af6
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12046
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: fb79b480c9c582143b29bad8fcfbfd1ef0ee4a2a000c5cf6368b7f730e569aa5
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 344e346008f3a58c42da0d7f93ade4b3478ec328ee9355da61bd27478c9d8919
+- local_path: source-snapshot/cpp/tensorrt_llm/common/envUtils.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 198558d87c6f921bcfd46c5fd5dec4fa8dd7a4a1de42c04148c47c799d1526e5
+  upstream_path: cpp/tensorrt_llm/common/envUtils.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/common/envUtils.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 3eb5aced8c97e01c7b49f2e4e233577fd0ab38ea1fa16113cb9472aabee698b8
+  upstream_path: cpp/tensorrt_llm/common/envUtils.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: b62693f9d791099e37c3d24fbfc9afc81fe4c62f07da2ea07e276942eaefab06
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.cu
+- local_path: source-snapshot/jenkins/L0_Test.groovy
+  role: upstream-file
+  mode: verbatim
+  sha256: bfb6d3805b6ab7c09889abaecdf9bb978d3b930af98ef0eebed7a44253793e83
+  upstream_path: jenkins/L0_Test.groovy
+- local_path: source-snapshot/tensorrt_llm/executor/postproc_worker.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 49ef6c1183bc184968da08f1167c2c7c48ec8384801c895feea9feed80a29273
+  upstream_path: tensorrt_llm/executor/postproc_worker.py
+- local_path: source-snapshot/tensorrt_llm/executor/result.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 81cd92e87698d799d0ce83bedd98e5725feba9318f1896d6961fe0dd11a86c88
+  upstream_path: tensorrt_llm/executor/result.py
+- local_path: source-snapshot/tensorrt_llm/serve/harmony_adapter.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 37c1458bcc23d5bef45ff0821a59cef7710d4a1fce762768fb8f1a5aa8c004a3
+  upstream_path: tensorrt_llm/serve/harmony_adapter.py
+- local_path: source-snapshot/tensorrt_llm/serve/openai_server.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e1fc936d743ccd058d98cbbef1c8f83cff5a2f843337e9469445c3e54b2c7bba
+  upstream_path: tensorrt_llm/serve/openai_server.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 13b3b3b509c1b2d7ea5f288bd284613ed0ff7e011b0326506f90ae24725d47e2

@@ -1,0 +1,27 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13945
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 8c9dac1a5be692756c6a1479f8f503aeff1b4e52
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13945
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: fdb0f47af12423b9a9932839829195795f06a15ca8083cebbff742b334e29f5c
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 03f4e77ffa7ca190fbbd057e9bf8b79562de75de11210134973dfab088948536
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_launcher.inl
+  role: upstream-file
+  mode: verbatim
+  sha256: 798178a07aeb3d75d4bb5747bf676d935d23f1307578ebc0bf354a1ca47e3240
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/launchers/moe_gemm_tma_ws_launcher.inl
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: dfe181c0c090feadf7281932fff76673cc1f252001c3ebefac23e656044a0c29

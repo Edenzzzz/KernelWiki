@@ -1,0 +1,47 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/98
+upstream_repo: Dao-AILab/quack
+upstream_sha: c5b5909f21f0975d3b106a48818916ce5d755463
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-98
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8825a93b11f7732e472df526ec47d5bbcd99448773ba349871987f935fd75e1a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a09df0e22de901bcd74b68ffe4119046d693681ae44dfb2c97bb1d84b8327b21
+- local_path: source-snapshot/quack/activation.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 35ba404151a8299e0f908e829919986c016468377a0093326df8d60868a2ae5d
+  upstream_path: quack/activation.py
+- local_path: source-snapshot/quack/copy_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c7c9fd64467d668a0a87319ec81fc0e632241be63e21c6f3acc0e03343c95d1e
+  upstream_path: quack/copy_utils.py
+- local_path: source-snapshot/quack/rounding.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 87ebb1e65ae2a9f93a3a266e0b7e175ca88dfb0ba65b501aee67866aca29dbb5
+  upstream_path: quack/rounding.py
+- local_path: source-snapshot/quack/tensormap_manager.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f618cb27e1b2bf5ed07c4e383daf34f1cb6101c64dc490b1a5b286ffb2e81025
+  upstream_path: quack/tensormap_manager.py
+- local_path: source-snapshot/quack/utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 620035d17c44c2f43a21389423890629bf6b1624ac051318114849bdcf7bb65a
+  upstream_path: quack/utils.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: e414f4da0cb9af3b8145a403b9dedd573fe49af91fd0a2fc135ad2289d944f20

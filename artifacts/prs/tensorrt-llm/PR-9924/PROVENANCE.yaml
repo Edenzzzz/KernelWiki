@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9924
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 89221f1ddff07bb27a91be849ed581b3ff5becda
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9924
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: b18dcaf71a384542e25eab10a11adc378960a24da715a692b87bb9dd5189f8b8
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 636f41df27dcf757b725229e20ae2f14851da9d3862d237f1ca690cc5d4a1e9a
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/helixKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 66399efe7e081d564edd2e322801b6774b48b37ed17e39e37df347542f635ea7
+  upstream_path: cpp/tensorrt_llm/kernels/helixKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/helixKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: ba3c33221e37085f2c34e1fa7280f6b90eb70c46659c9917a6602dd9bd7a39db
+  upstream_path: cpp/tensorrt_llm/kernels/helixKernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/helixPostProcessOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 607d3fc583d1bd18f810d35cc571d3be438dd9e5cd048def9eaac168927a808e
+  upstream_path: cpp/tensorrt_llm/thop/helixPostProcessOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c94c87763247f695ad670d01281e8a2e35cbc72a7a899d29d60e99893a0a97e0
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_helix_postprocess.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 42c521feffadf7bf536aab3ef82dd4bc86bd12a6b2ba46a099d0802bb34d0329
+  upstream_path: tests/unittest/_torch/thop/parallel/test_helix_postprocess.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 499738072103343be627dcda6a9e827a93add504a23ef515bfb44337d57e0d75

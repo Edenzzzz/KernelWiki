@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13837
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 0204e26f2ada1454091be3cfe1f58ad97cfffe22
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13837
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 403e0d7be5ae899a6cdaaedeeb206f03a084d8ba7c3440407297d77233bc51ee
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 17bde3fdc1fbb815e56ec9c32cdc4c079acf1bdb6455fab13f654e6f35593489
+- local_path: source-snapshot/tests/integration/defs/examples/serve/test_configs/Nemotron3_Nano_Omni_30B_NVFP4.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 8632e4744ce24102fc20e3b96812b1fce3064ec03d4f7ce1ecdd38bc24517aa4
+  upstream_path: tests/integration/defs/examples/serve/test_configs/Nemotron3_Nano_Omni_30B_NVFP4.yml
+- local_path: source-snapshot/tests/integration/defs/examples/serve/test_configs/Nemotron3_Super_120B_NVFP4.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 7fbd0e694b95aee8097b29c5154f2dc3bc5d75b9f83fa2cee7693bedcb63815a
+  upstream_path: tests/integration/defs/examples/serve/test_configs/Nemotron3_Super_120B_NVFP4.yml
+- local_path: source-snapshot/tests/integration/defs/examples/serve/test_serve.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fe6a7d30dfef8d7267dc8b625b379dc08526a278f998b64a7676f87bc6422313
+  upstream_path: tests/integration/defs/examples/serve/test_serve.py
+- local_path: source-snapshot/tests/integration/defs/perf/pytorch_model_config.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c6d200e9c69fe337dff47076491d21b1e4e7bea844ea921229c377934a6763b6
+  upstream_path: tests/integration/defs/perf/pytorch_model_config.py
+- local_path: source-snapshot/tests/integration/defs/perf/test_perf.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 59d269334a131bc202cb476119a9f0276f70f8b1a017a1f8395b342c0788bd1b
+  upstream_path: tests/integration/defs/perf/test_perf.py
+- local_path: source-snapshot/tests/integration/test_lists/qa/llm_spark_core.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: aa73ad3737ed03d30206ecf7c0ec5f7e11c58040f6e55aff0a5ffea5b3bdabc1
+  upstream_path: tests/integration/test_lists/qa/llm_spark_core.txt
+- local_path: source-snapshot/tests/integration/test_lists/qa/llm_spark_func.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 5b9b23ecafe52292582eab8b1329ed133ffee7d435a89e899111339d680d544b
+  upstream_path: tests/integration/test_lists/qa/llm_spark_func.yml
+- local_path: source-snapshot/tests/integration/test_lists/qa/llm_spark_perf.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 1b025ad3bd01e702c31d3ae467f9d39d6268f2e081af3941ed39ae9dedcde9e8
+  upstream_path: tests/integration/test_lists/qa/llm_spark_perf.yml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 279af947043942731a98c3017aeb135e180c8781fa0b74de9bb43f0b93a83ac2

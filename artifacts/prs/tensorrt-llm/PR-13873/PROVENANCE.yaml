@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13873
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: a3ab325b7e22ffe7e958038627b93a5d23d7da25
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13873
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9f8ac579ae4cf9fe77f2d70e0b1f31d4fcd6f7a7793ce96788cc295f3f0c922b
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 5a727b78850f108ebbf97fa321834b4494636442acf3460fdb3a621f3d0377bf
+- local_path: source-snapshot/docs/source/models/visual-generation.md
+  role: upstream-file
+  mode: verbatim
+  sha256: 33ae8078d803461788451a792638af0558597371d52da038382eab252002de6f
+  upstream_path: docs/source/models/visual-generation.md
+- local_path: source-snapshot/examples/visual_gen/configs/wan2.2-t2v-fp4-1gpu.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 6a0cae6891a4cc90dc02e17764177a67de5e07ea76b234f5693259316481a2aa
+  upstream_path: examples/visual_gen/configs/wan2.2-t2v-fp4-1gpu.yaml
+- local_path: source-snapshot/examples/visual_gen/configs/wan2.2-t2v-fp4-4gpu.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 3c75b52ce3c0e36426327c8e864a75df34fbdff7730338d03af8256dc44090e5
+  upstream_path: examples/visual_gen/configs/wan2.2-t2v-fp4-4gpu.yaml
+- local_path: source-snapshot/examples/visual_gen/configs/wan2.2-t2v-fp8-8gpu.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 1bf57bbe31306a65d4f032c8aa3f02b9d712e2c4a15330f637a828b1e1bb2fea
+  upstream_path: examples/visual_gen/configs/wan2.2-t2v-fp8-8gpu.yaml
+- local_path: source-snapshot/examples/visual_gen/visual_gen_wan_i2v.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2d64af05aceacf217c4e4369cc7587583471afd09a402cb7c3477636b7effa51
+  upstream_path: examples/visual_gen/visual_gen_wan_i2v.py
+- local_path: source-snapshot/examples/visual_gen/visual_gen_wan_t2v.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e3ef048b69dee4e3414f879d5dbf8379cf13cc455d01797ed861630a51be215a
+  upstream_path: examples/visual_gen/visual_gen_wan_t2v.py
+- local_path: source-snapshot/tensorrt_llm/_torch/visual_gen/config.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 17f94626d65c115415a6a993525a8f84605c1792a9c0a958e7c91ebe3984b0ca
+  upstream_path: tensorrt_llm/_torch/visual_gen/config.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 550ca9eaa668db55456484f52ac706bd421c2b574deb9d5555560ef97b0138ff

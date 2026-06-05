@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9852
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 1c8ff8b1274b36948b2db3918834cf5803adbadd
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9852
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 92c5b2b4fef8c17a7cd48d925880783c0929fbc8d72eaddd6bf249db4bf70ee6
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2d12513f60bb957f38cfeab6dcee1f3e4d2b5723351b3e1079e480319f76d5bf
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedQKNormRopeKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 1659d877dbcc4d95125bcb321910dd963fab0c660e1477042bfd820748a69fb3
+  upstream_path: cpp/tensorrt_llm/kernels/fusedQKNormRopeKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedQKNormRopeKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: b82760558e959a98ee43a146a217829197a1740f67d1770d0dd5fbddfa201468
+  upstream_path: cpp/tensorrt_llm/kernels/fusedQKNormRopeKernel.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fusedQKNormRopeOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 7200203f703db83fd766e9d5c8e8caaa0b858e0f6cbc2a97a789565586f1632c
+  upstream_path: cpp/tensorrt_llm/thop/fusedQKNormRopeOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_auto.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 23c81bdf1c018211fa473dd5b10cb91fa3da2c6cce6e1407794d637fa321d35b
+  upstream_path: tensorrt_llm/_torch/models/modeling_auto.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_glm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b8aa145d8382f836f744806eebf7be0e44baca6b6a0a81f911aa91d302a6e00f
+  upstream_path: tensorrt_llm/_torch/models/modeling_glm.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_speculative.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ed1f2d3ca3050e0265c8a23fb80391d5431086e2ade54f28ab9f48228e041fe1
+  upstream_path: tensorrt_llm/_torch/models/modeling_speculative.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/qk_norm_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0556c97df4692d54a983d905f926debfd1b068175ee36bf52203413bec0be8fe
+  upstream_path: tensorrt_llm/_torch/modules/qk_norm_attention.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/references/gsm8k.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 03e3a84202e1f6e36ee447d02509d2806f2c0e93412e138483746caae846dcc8
+  upstream_path: tests/integration/defs/accuracy/references/gsm8k.yaml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 3d35a1169b8b1ff60faba4a8973978ae970f5d18c1310f4c49dfe8ee9ad92506

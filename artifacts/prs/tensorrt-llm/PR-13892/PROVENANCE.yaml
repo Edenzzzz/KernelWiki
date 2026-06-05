@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13892
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: ba5418f7d9ee1a28fafc817f8423be4df9a573ce
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13892
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 5758393507379dd61607a2f6d4bd0ea05ae4dcc80eb0d37f855b175f10471fb5
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 3efeb1905d2347c865e1e4a3a404d10d6c287d94fdb44b8a654a9f73e6408a50
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mhcKernels/fused_tf32_pmap_gemm.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 616ac19f8fbb243e1578123a0629b44c2856c90a70fca8a3fca14795c60d1c35
+  upstream_path: cpp/tensorrt_llm/kernels/mhcKernels/fused_tf32_pmap_gemm.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mhcKernels/mhcFusedHcKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 0635dfde8bc229bf6fc50e163dcd16a5bdc30e4c28891ae6f94328eb809d1d7d
+  upstream_path: cpp/tensorrt_llm/kernels/mhcKernels/mhcFusedHcKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mhcKernels/mhcKernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 5c6d7b79db23e1a40ec9f9ee8f9af28b255601b9826a022426a3d0527e181469
+  upstream_path: cpp/tensorrt_llm/kernels/mhcKernels/mhcKernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mhcKernels/mhcKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 61bae7cd3e3342ccaedf03f8c402e3d6a86ae615259acefb7241536eb40ab5b8
+  upstream_path: cpp/tensorrt_llm/kernels/mhcKernels/mhcKernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mhcKernels/mhc_fused_fma.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: ff0aad78742d65dbb067c64103c0d2ea7e476fe627b21028cc9ebfb99a811585
+  upstream_path: cpp/tensorrt_llm/kernels/mhcKernels/mhc_fused_fma.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/mhcOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 6e9c1d5ffcbca699dc673aef1a596921112912eb0302ae55a6bae1269b5c8f0e
+  upstream_path: cpp/tensorrt_llm/thop/mhcOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c42f125e4ad6cd585e64f9c2777f254501957ab3eb3180a3f8ace41613ea0dda
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv4.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mhc/hyper_connection.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f980e1eac7c8a5610ac433d239d982e03604dd2e2ddbe334d7a81cfa662cd2d3
+  upstream_path: tensorrt_llm/_torch/modules/mhc/hyper_connection.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 145dbbc62e8938666f9b8548448d2041eae8bf5ad25456d4b22b55b8cbc8f5c7

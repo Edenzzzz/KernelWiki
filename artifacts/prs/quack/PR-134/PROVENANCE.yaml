@@ -1,0 +1,27 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/134
+upstream_repo: Dao-AILab/quack
+upstream_sha: 67311704d6782c50476d3ffecb68d7e0836c24cc
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-134
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: e641cd07f02602475862ff264ae953b7ad8b94bc7f8f42951db586c193250e8a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: c59ca1af6b9b3537051fa38371710b7a0d69281ecf2eee86c8ca5f7bd20b9c1c
+- local_path: source-snapshot/quack/trace.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d1dcf812193e6da705f492bd842c0037cb522cd469cf9ea5cc2ba22db5de932e
+  upstream_path: quack/trace.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 09d8abd2f1b1a38d908a1ec8a85ecf1b49da25515456df510c8c5571266f0305

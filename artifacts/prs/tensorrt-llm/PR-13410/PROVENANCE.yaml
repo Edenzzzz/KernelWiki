@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13410
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 37dd13f1a34245d11d22913cb8a261fdacce5df1
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13410
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8ff3749b471aff1c831994330e8067d3dd102312d62766cde6f9e0849161bf67
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 9809ecf9345972ec6e0dd36302881c2106fdf5c3b11505710b42f628e5fb1b77
+- local_path: source-snapshot/cpp/tensorrt_llm/common/attentionOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 79cd9bb450abd873505b4bbff4593013f3f498456f48ad1d732875390e0c56f9
+  upstream_path: cpp/tensorrt_llm/common/attentionOp.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/common/attentionOp.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6f6b036b5f5d5aad0d2bee42d4ea505e8d43081e1a21479229404d3732394af3
+  upstream_path: cpp/tensorrt_llm/common/attentionOp.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fused_multihead_attention_common.h
+  role: upstream-file
+  mode: verbatim
+  sha256: acc088c10d15ba523b47e52c50f936352b4167bb0e166871c19a906a2437fe61
+  upstream_path: cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fused_multihead_attention_common.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fmhaDispatcher.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 4cb7a2bc2ecc12bb527102fc82d977f3ab29bcc88bcf3bdde8e51c823eda5caf
+  upstream_path: cpp/tensorrt_llm/kernels/fmhaDispatcher.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/fmhaKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 91fa2d75b206e14e6154007074d9575b605685f53ee70ce9fe5e5570e04993de
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/fmhaKernels.h
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 14daeb1d1b1aac5e1f5aaa187c26696728e330623a838e494860db2b6843917f

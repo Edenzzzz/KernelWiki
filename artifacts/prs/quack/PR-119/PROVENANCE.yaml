@@ -1,0 +1,62 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/119
+upstream_repo: Dao-AILab/quack
+upstream_sha: be013640b521632d0a555e5f90f5cf1b2a0211e9
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-119
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: da3adffc9f149c13ec15eed6c9e3c39e7d4b2669c5fd8d1cfc106521a815840c
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: f9fb9da317d1b15c92a0829c87fa8bb6a409c8db69dcd757c3186cc46b865f20
+- local_path: source-snapshot/.pre-commit-config.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: be4c7cdce7efaea073b6e3cb53e3fe5fa919836c3af938378b9207798504a56d
+  upstream_path: .pre-commit-config.yaml
+- local_path: source-snapshot/AGENTS.md
+  role: upstream-file
+  mode: verbatim
+  sha256: 4d630c61fedee2186e319b624989844bc8fbb12ed3d523c6edc5e445a219997e
+  upstream_path: AGENTS.md
+- local_path: source-snapshot/benchmarks/benchmark_cross_entropy.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7779853fdca7efa285f759f029688efa70073487471d7eedb259eb43d4f0c141
+  upstream_path: benchmarks/benchmark_cross_entropy.py
+- local_path: source-snapshot/benchmarks/benchmark_gemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f16d216065b828dbd1f04837a0fab52051e1b4cfbc4e67c3afc6f0c4a8e048f7
+  upstream_path: benchmarks/benchmark_gemm.py
+- local_path: source-snapshot/benchmarks/benchmark_layernorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b217fdde272ca1b2d9407f0ae9e41d75ba16480e0a2ec70691d28b08a08a2702
+  upstream_path: benchmarks/benchmark_layernorm.py
+- local_path: source-snapshot/benchmarks/benchmark_rmsnorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: cb70f2a9ebc2c37e9db8a47d8fdfa91ebf7957bb087a6208a939d4cc36875e0d
+  upstream_path: benchmarks/benchmark_rmsnorm.py
+- local_path: source-snapshot/benchmarks/benchmark_softmax.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1c4f158ebe385548f36287f9f484e9beb84bacbc2e63874b47f9ad8d49dc4e0a
+  upstream_path: benchmarks/benchmark_softmax.py
+- local_path: source-snapshot/benchmarks/benchmark_topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: eb708171f4249c31ab150f162de5a31b1dbbe5ec7a46a525549702837c42854a
+  upstream_path: benchmarks/benchmark_topk.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 19dd327d60dcf1c7fff45e4483f336d98179a3e9566577a89449538df8a1c03f

@@ -1,0 +1,27 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/66
+upstream_repo: Dao-AILab/quack
+upstream_sha: a25a3574dc3a955bae2c4f1da3e46c899148292a
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-66
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 63a687d4c8d1d38f9db3b95a48c08eb3c6fa90142fcc62697ef3eb6e132439f8
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: d2570ac018bc493de450b1c806b59f98f301db75e775680810fe914de99a6a3d
+- local_path: source-snapshot/quack/sort/bitonic_sort.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fb85661c69a7a912da545f88acd85b26a34425ccfe1494f91aecd259315e21f2
+  upstream_path: quack/sort/bitonic_sort.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 4bf6270f8d53e84bcd93e78052ed1ca7ecf8ac4b4e60545967cebde603b5d598

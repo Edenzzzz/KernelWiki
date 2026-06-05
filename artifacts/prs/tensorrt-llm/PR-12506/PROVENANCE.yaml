@@ -1,0 +1,37 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12506
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 82933dc7b85045b547cae3f62cd35e2e0e28b4f0
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12506
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: eddb235c32803e27de0a73c5a41772b1507c290ed0352a4907f1147f20f8a9bc
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 7e92079025f1069cc5ef06911ae006ba6e4036faa91642741f3ceff566e3e9f2
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/filtered_top_k_decode_varlen.py
+  role: upstream-file
+  mode: verbatim
+  sha256: dd0d3b66d95ae63e7a42cd3cbde56586b82f97bca68b02966e8e44ca75c1fdb8
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/filtered_top_k_decode_varlen.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d5acb49f25974799c23b329306c312b685e80dac61a286a9281caaee8cb19ce6
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk_cluster.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3dd192452eb11edaa21913c87bca195d4a121be83a1f91a139db07372c18715e
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk_cluster.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: a89c9262e3bd2d0494c58194578bae756fb495fc801e53097e877360fa0b3d77

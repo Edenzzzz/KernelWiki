@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13103
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: a2a3a7429edb0596778fd127c4fe7448e70d44c8
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13103
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: d7e2136df894a7666a5b8d9980f2b3720e9b591240ea8944ea1e1245a74f7f9d
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: f85d843ca226fd7df207830b651654e2900d963584a980773fbe148f382e71ec
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/causalConv1d/causalConv1d.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 8c31ce1bc4e6137b530728f02d4052f0117c0fbba1d64ede8f9b9864aa266470
+  upstream_path: cpp/tensorrt_llm/kernels/causalConv1d/causalConv1d.cu
+- local_path: source-snapshot/tests/unittest/_torch/modeling/test_modeling_nemotron_h.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e5d9136014290b0b2077d70da711cdbb1e39fe55bf94b2daf69240b262a28568
+  upstream_path: tests/unittest/_torch/modeling/test_modeling_nemotron_h.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: b11f2e3d33e4e49cdc5a985b7f3e4ee3652f1c7deb0d633a3fcd53f4f2324ae2

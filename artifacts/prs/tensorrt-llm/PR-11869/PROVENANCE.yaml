@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11869
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 1c5fef3f86d73b56c5813c3986ff88a41d841636
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11869
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 797a6ed730102f8323eef40ad57ff1daf07ab8589a9d436e85aada5c3119e0b8
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: ab9018d30edbc7d72885771df1adb49c6784311ddbb61b19c6c81279812a9bc9
+- local_path: source-snapshot/cpp/include/tensorrt_llm/common/cudaUtils.h
+  role: upstream-file
+  mode: verbatim
+  sha256: dfbb6893cad0d3fbc04b7c9d650a2b701f0f2b2b95af337295c05e158b00be1c
+  upstream_path: cpp/include/tensorrt_llm/common/cudaUtils.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 8c89e116b6f520cf736c434ed9ddbc23e39ddeaf1673663f0e0cbabeae56309e
+  upstream_path: cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: c568d88a22e56425d88985216bfdb871e722d6119cb663d8828dd4235a00db47
+  upstream_path: cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedQKNormRopeKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 75612c29dc0aad109fe8ece2b3663003480978ae9289bb63da55b192a9f002ae
+  upstream_path: cpp/tensorrt_llm/kernels/fusedQKNormRopeKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 61c4eddf9eb653c53c1aa14026dc6bc8d0c4133e8c7860c92a4d7bafcf1d55a2
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fusedDiTQKNormRopeOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: a5445b0d2d0b14b949cf0021706cd0f61f68b263d75a1ac99452c6700f076c5a
+  upstream_path: cpp/tensorrt_llm/thop/fusedDiTQKNormRopeOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/compilation/utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 06338f40d0fbca82cec116c584fd0a1cda23cbe83c2941000caaf25ef73214af
+  upstream_path: tensorrt_llm/_torch/compilation/utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/visual_gen/models/flux/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2c7d51e3816563329f501cfbca1f13b2a653b5a9c5f13bafdedb24602dae8d82
+  upstream_path: tensorrt_llm/_torch/visual_gen/models/flux/__init__.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 0e294583294199374edbd82cb08056a259372d28c08fea5de63799e511896d4a

@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13453
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 5b8d147d53fa96f20243c1ebb5a867482dfb0e0d
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13453
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: e36bbf9358becfd2ba187194a0a44f08f7fd3998a5a9462adbbfb65d20a64de5
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 09767aade9635620f6401dcba5e49d13b2bb58b2e398d2dff261db06b998dd2a
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/causal_conv1d_triton.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2060378596b61ff5c44ebb514ca73f2979f9f975dd2719706c6b8fed825bf257
+  upstream_path: tensorrt_llm/_torch/modules/mamba/causal_conv1d_triton.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/mamba2_mixer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f668f6f04397ad1bc067e2403327264818da007e6e51835d1a52608bdba759c5
+  upstream_path: tensorrt_llm/_torch/modules/mamba/mamba2_mixer.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/replay_selective_state_update.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 02857c4c8c117393af236b38739935fa3ef0ce64a3f30e543b66e79394300b92
+  upstream_path: tensorrt_llm/_torch/modules/mamba/replay_selective_state_update.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mamba/selective_state_update.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 94d01761c4eb62eb04e48779445324d9876a0e3df4d552354c00a40399ac571c
+  upstream_path: tensorrt_llm/_torch/modules/mamba/selective_state_update.py
+- local_path: source-snapshot/tensorrt_llm/_torch/pyexecutor/_util.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e9f564f2992a035782a6b2f709334476ee12ecd27ec6a5f617ea7c0e4b49b788
+  upstream_path: tensorrt_llm/_torch/pyexecutor/_util.py
+- local_path: source-snapshot/tensorrt_llm/_torch/pyexecutor/mamba_cache_manager.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 48120341f9fb3ad63ec2682d8a2eef1b0adb9bc4b1bc808f6d67d105ef02688a
+  upstream_path: tensorrt_llm/_torch/pyexecutor/mamba_cache_manager.py
+- local_path: source-snapshot/tests/unittest/_torch/modules/mamba/benchmark_replay_selective_state_update.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 820d7e4ad53448f53870f46ba7ac10c0a909b0ce2cc6a29d025daa9df040d600
+  upstream_path: tests/unittest/_torch/modules/mamba/benchmark_replay_selective_state_update.py
+- local_path: source-snapshot/tests/unittest/_torch/modules/mamba/test_replay_selective_state_update.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3ac664052130e38184c546b99da1f24073eeb30d2add300e5a57faae5656bff3
+  upstream_path: tests/unittest/_torch/modules/mamba/test_replay_selective_state_update.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 2cde166729470cfaafdc35c23f71a5c383837e1acfabef3e8fc77939dd37816f

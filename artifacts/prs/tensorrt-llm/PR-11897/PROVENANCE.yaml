@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11897
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: e895e3abf6a85cbabb62e4a1eebb4f28e7acf595
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11897
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c08b7cce98d70e472d8d816c76f0d75ff592ac0ae66ff0d2a53c198523a71d19
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 790094a84743f62ce40634efb58d04f97a88e7b332a3bba9527016c2c83e2d4c
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7bfc076c9d768449713a53d3da351f386314848a51e75baac98c711154b76c2f
+  upstream_path: tensorrt_llm/_torch/custom_ops/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d664447e74448f9ba3cec7df013174d408f9e002bd119740fc44dda78b83b738
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/dense_blockscaled_gemm_swiglu_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 07e34aff68ee0965584988bacff0ed26481fe7f7797897e5b69b776c9480f576
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/dense_blockscaled_gemm_swiglu_fusion.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/fused_moe_densegemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: dd7055dc2edc04a23df9cc6476da356b42896a5dc27ca1d62bfef0bf7b119b3b
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/fused_moe_densegemm.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/gated_mlp.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 59b934f948ce0625a9d296a559e04ec0ab9867b45e5172a464367ed41116e0f9
+  upstream_path: tensorrt_llm/_torch/modules/gated_mlp.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/linear.py
+  role: upstream-file
+  mode: verbatim
+  sha256: be18bdb227a977fb61ef765b5886b1f52732a620cf7e0b865935356a5ab19df3
+  upstream_path: tensorrt_llm/_torch/modules/linear.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_pytorch.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4e5cf09e0e4fe3e1227444a1815c8565bfb9b78693fc76ddd515c1efdf1b38af
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_pytorch.py
+- local_path: source-snapshot/tests/integration/test_lists/qa/llm_function_core.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 5e4ad000a132378e513e0c3b2985878b48d576e0abf1a3d3d9f297ebbc2bb9f1
+  upstream_path: tests/integration/test_lists/qa/llm_function_core.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: d1b21980cfc8aa97b6c54ccad20aa7b53a1a43dc393850da73552edffb1ef3bf

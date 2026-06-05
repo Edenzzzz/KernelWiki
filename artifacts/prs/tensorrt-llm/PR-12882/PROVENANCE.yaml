@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12882
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 6401098e97f447c7de67544d867df0757c53670b
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12882
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 3ad30d3d933b297e0106035d032059156df97b4b6da6eca74d1a6b19cf9fe0c0
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 06ebbbe01b458efbeadda868f68680ba9b8f644daf66ed6e38d59dca4b42990b
+- local_path: source-snapshot/tensorrt_llm/_torch/disaggregation/transceiver.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e30209ea82120d510005aeb606a22642168c0801b75d3388e14d1a73d1b4be18
+  upstream_path: tensorrt_llm/_torch/disaggregation/transceiver.py
+- local_path: source-snapshot/tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d5d6ffbf2fd48e167491cc8321543e616dfb885f1f8394963d8fd2abb032394b
+  upstream_path: tensorrt_llm/_torch/pyexecutor/scheduler/scheduler_v2.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_disaggregated_serving.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 64e06a851f230719cba7879c48a619f4b9689a4dccf586724c0c6a82a35517f7
+  upstream_path: tests/integration/defs/accuracy/test_disaggregated_serving.py
+- local_path: source-snapshot/tests/integration/test_lists/qa/llm_function_core.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 6f47e20c97d0214229e2d498fe6adc6a680e3ba16ba868336819c626ec587924
+  upstream_path: tests/integration/test_lists/qa/llm_function_core.txt
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_dgx_b300.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: b15ea92909b917bb0aef7f95bab1e62c968077eed1a25b0103e155f773116b7f
+  upstream_path: tests/integration/test_lists/test-db/l0_dgx_b300.yml
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_dgx_h100.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 391e4dfb9c0c14d768f371f7c18801686841c5fb65ab2d1183af253fe4efc299
+  upstream_path: tests/integration/test_lists/test-db/l0_dgx_h100.yml
+- local_path: source-snapshot/tests/unittest/_torch/executor/test_kv_cache_v2_scheduler.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0dc3dd12e3d241c7fd026256064347c101a380223796a4bab9027e1c13cdb6a0
+  upstream_path: tests/unittest/_torch/executor/test_kv_cache_v2_scheduler.py
+- local_path: source-snapshot/tests/unittest/disaggregated/test_py_cache_transceiver_mp.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9b5b28d07fe4c640d4c20cc8fd3c82f05122b9acec1ab697b30af5f1ba33060f
+  upstream_path: tests/unittest/disaggregated/test_py_cache_transceiver_mp.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: b007edf548ed5ffb64bcadf973d2cebed5a0647231e592b7a29fc49de7ce18b6

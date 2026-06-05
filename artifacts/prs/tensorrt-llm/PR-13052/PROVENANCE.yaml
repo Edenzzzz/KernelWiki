@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13052
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 24fc023e1010a801ce0af148cb7873d400bc8c2a
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13052
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c71d97b0f8164a6ae80a87a3922c5d2af4ff593a3e6a4f0113c5c95fe89429cc
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 56d0d818ae54233f5026a6e5d8e11df37d63cf2cbbb3ab118c2802fa6944e87d
+- local_path: source-snapshot/benchmarks/bench_fused_dit_cross_head_qk_norm_rope.py
+  role: upstream-file
+  mode: verbatim
+  sha256: afa5a71b3fa0ea6d06d9617d159244169d4ebf1a333ddc3bcfc079b7ecbd936e
+  upstream_path: benchmarks/bench_fused_dit_cross_head_qk_norm_rope.py
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: aff0c87f04c67b4d05d74b0c67b4c52344824272897fce21efe98551c5e1d877
+  upstream_path: cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 68edf5144aba0e1dd597f0065d7c3c4af87c9edcf223551a872b784bd16b0a4c
+  upstream_path: cpp/tensorrt_llm/kernels/fusedDiTQKNormRopeKernel.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fusedDiTQKNormRopeOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 6880e4857b9e10277b6be74421b00d252edce6f3027aa37600808368fba4d60c
+  upstream_path: cpp/tensorrt_llm/thop/fusedDiTQKNormRopeOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/compilation/utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1f1df7a417edf21b557baf29531e261a00adb0f6b4b363cf4851190a30472a47
+  upstream_path: tensorrt_llm/_torch/compilation/utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/visual_gen/models/wan/transformer_wan.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 494554fa493f329e749f9c6ef57f5dc4f9b762f9abcc7e5c39df735bef0a5373
+  upstream_path: tensorrt_llm/_torch/visual_gen/models/wan/transformer_wan.py
+- local_path: source-snapshot/tensorrt_llm/_torch/visual_gen/modules/attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4597ed037a1fa0fe570ca53878e030ccd8ddd390c963d26883beb7ae9d924f16
+  upstream_path: tensorrt_llm/_torch/visual_gen/modules/attention.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel_hw_agnostic/test_fused_dit_qk_norm_rope.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 30347d4e5198cd685b3c88a0600e55a651335b50c0091003dc167f605c1234fa
+  upstream_path: tests/unittest/_torch/thop/parallel_hw_agnostic/test_fused_dit_qk_norm_rope.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: c7d330be659fe7e16b936901f87f377d34a448fbc8414271fd45862b1b40a07e

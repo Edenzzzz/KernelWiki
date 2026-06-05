@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10226
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 008591eadcabc632c09fa62afd612d0c4bf6cf66
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10226
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c34a15ce82996e59f268c5a2f72a26b0713d93dd66a5a519ca0e819be4e0c685
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 5379af5472d36794009cff8e6e2097f80452982bcca591910eac180a552564e3
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 36ae259ca0a6cc98a8b15e1c8849e28dc79d413f8a3fde0d384fb4734568240a
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tests/unittest/_torch/attention/sparse/test_dsa_indexer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a859da27d05d6761f4b286ea76a0ed4890ffdfa7e4b00e43246779b43427da07
+  upstream_path: tests/unittest/_torch/attention/sparse/test_dsa_indexer.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 23c175cd3ed6d5bed683c8435a87feceb5ce33baddad4c2a1bb0bc38c651c3eb

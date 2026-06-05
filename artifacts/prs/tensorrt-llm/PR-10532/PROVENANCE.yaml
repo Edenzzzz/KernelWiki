@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10532
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 2113f896878f3155f282a0502a8ced556441fc44
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10532
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c6c47d68637e512ab821c170a2586c2cb6ae80cfca76e82ca001db359538dcb7
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: f9b363a25147577839c3d4c9c7bd9c6c65af0cec2257bb64c1e6ddcacae4f570
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6eda61c9995f67958bee123166da90c4a51b760d40f0e78d58715454e2fd07cb
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.h
+- local_path: source-snapshot/tensorrt_llm/_torch/models/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 79960b508b9af8f9dd7ae6905f5b485ece94fe6fd89c73b4068e3c6135c2cb41
+  upstream_path: tensorrt_llm/_torch/models/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_minimaxm2.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e954bce7815192956c30c0220950caea4784eb75baf7074918ccc88018ac9e09
+  upstream_path: tensorrt_llm/_torch/models/modeling_minimaxm2.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: afd295c8a3ce83063557bc46787509c72db9a57389ee37763468bf6a38d8a1a1
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/routing.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 929223fc2f7747ed8a68f40766421f717b4c46a59ee61ba7b3027bef6f35669f
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/routing.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/references/gsm8k.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 97bf9843d96f9f630e1e5c91177577efea3b54d77cdcbfe02f601d162a16c6b3
+  upstream_path: tests/integration/defs/accuracy/references/gsm8k.yaml
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_pytorch.py
+  role: upstream-file
+  mode: verbatim
+  sha256: dfbe4879c796be956c423ca88364fa45b1d762fa04588305c4709ce016b2a16f
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_pytorch.py
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_dgx_b200.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 1de098df4f64783931e84a66f6cf4c483f670af76e28d095783fef13a3d72e1e
+  upstream_path: tests/integration/test_lists/test-db/l0_dgx_b200.yml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 0d6d4dd4e13a0b5c92b8392ee81910d84008ea5b964915c31256d360712249df

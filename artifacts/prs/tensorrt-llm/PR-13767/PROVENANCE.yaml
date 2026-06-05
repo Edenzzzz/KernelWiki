@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13767
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 865c8b6b33c08383e0f04f6dd472bec5432709fe
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13767
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: af475cbdc5c36108cb4d2b6d65d3841e9451025a0905e84b87c8c9c03f49809d
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 00145c6c5286c0a0968ce741abd88ed82f376a8981f67bfcc879972b5e0e55d4
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 31dfb90e4ed5217afc3b1c325dd5d942c46a68f9aa2691ce4a06b752891a19c0
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6d0da16cc56d2a4909c77afb5ee899d045e6b98d07520254cc30f9427fbed52a
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/DevKernel.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 616c0951ca7e90540498ed5b225f9374a798285e5e8cd76cb8d1ba2ec163c3e9
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.h
+  role: upstream-file
+  mode: verbatim
+  sha256: f5fc39ec2b28b3798421084bb631156518aa1cbcabb8cd1fa6f250fc48bdec48
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/blockScaleMoe/runner.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fp8BlockScaleMoe.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: f8d57e26601c290c5b1b33c0e6794099c819edbcfe69287da0fd5f042d9e2aab
+  upstream_path: cpp/tensorrt_llm/thop/fp8BlockScaleMoe.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/trtllm_gen_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 37bc8647f0176d0a0ab20c260b110ea2fba50ab8eb398f794b2197933d5882b3
+  upstream_path: tensorrt_llm/_torch/custom_ops/trtllm_gen_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3ee79b9176b8cafbd2797d2f5ce1887255d0ee5b25915e8aa1d6245f8321d971
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv4.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/configurable_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: cf368e94e7a7f32eb2a32642a070f73a25d5b67313c887ae7f52f93a1cc40a7c
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/configurable_moe.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 1ff8b917017b7c10dee4389f135fe59e4d904ba88a0515fd730fef7b8d489425

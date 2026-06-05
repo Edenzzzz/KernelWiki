@@ -1,0 +1,37 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/14054
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 0e0c1ca1ebe1150265a33c542c6d296db330e50d
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-14054
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: ec4a6b164f7dc440c4394a39e7100ef5f09a58ac095df960aa74b657ecbcdad8
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a051f5c426c97d6f9805bb8b2f1953251c8ab8cb243f181b887f6cd6d68611c9
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/fused_moe_triton.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d8075707b797656deb123143845251ff2b96cc4d35c599800581e17231dd21ae
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/fused_moe_triton.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_pytorch.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5a07f5b99157fbe45f530aab7e031b370f3563add994d88b535030014f0886cc
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_pytorch.py
+- local_path: source-snapshot/tests/integration/test_lists/waives.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: bdbc496c4cb2faa4654898e096a73a9b3e67a7812bd0195503e7231f71df126b
+  upstream_path: tests/integration/test_lists/waives.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 5edc4bd72b70d83b0d82a16ceb9e547c33191a442b8cb9365a200a934dd7f70d

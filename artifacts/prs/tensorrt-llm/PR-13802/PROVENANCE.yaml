@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13802
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 5f2f2fbe2bcb0f51e92c1cfc188e4da9fb3a9677
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13802
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 51ff8d0e9fd20a56043c1e481335d04341761efff86f9581bb1f193d379987c6
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a63b038c633b98a6f25b7afc850f244ab16aaedda020cc7363b721c8b711ec52
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1285fef78c0c877996637edb7aad8db4ece605c2e68c57dc7729136b1a98b1bd
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tests/integration/defs/accuracy/test_llm_api_pytorch.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8e4a61f5d4397a4c2ad119a2055719e890f0f9f3e4350f50ca64c57d601eda34
+  upstream_path: tests/integration/defs/accuracy/test_llm_api_pytorch.py
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_dgx_b300_ds.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: 4952013a157a39303ea22dbd88454deba3c43cba4e6b8bd5ac716b741ed7da57
+  upstream_path: tests/integration/test_lists/test-db/l0_dgx_b300_ds.yml
+- local_path: source-snapshot/tests/unittest/_torch/attention/sparse/dsa/test_dsa_indexer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4c18185b3512f4f0cefd672ed2d8193bab176056c850ef6f650612be4fc2b00c
+  upstream_path: tests/unittest/_torch/attention/sparse/dsa/test_dsa_indexer.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 186aec555567fe15499455d51bae14f5e8f5508d763489d2701dda5b8daae3db

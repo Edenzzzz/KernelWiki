@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13570
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 3f92685565562982d01e9bb1e16997a81c332898
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13570
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: f67b0d97ae748b846c2f11c5062c89d9f02f48f9aa1ad6bf2ec2a2943deb20ae
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: d59e87f2caf80c5c3b854021e52fdd8bea1b8c41ac95af07e38ffabd8d4a6b63
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/attentionOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 062d98d4f92e52d4a4024b19142c5fc3ca1495b9c5f6254a569c6ac6c3fa6090
+  upstream_path: cpp/tensorrt_llm/thop/attentionOp.cpp
+- local_path: source-snapshot/examples/visual_gen/visual_gen_flux.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9d30f1223652ae30526e56b651c674f2f7e112ec0625e263ea9b8e386883d3bc
+  upstream_path: examples/visual_gen/visual_gen_flux.py
+- local_path: source-snapshot/examples/visual_gen/visual_gen_ltx2.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 03c8580324cb75aba2f5ae9c3d2e8e4f8e0e81cc6edb7c7460f072038a999395
+  upstream_path: examples/visual_gen/visual_gen_ltx2.py
+- local_path: source-snapshot/examples/visual_gen/visual_gen_wan_i2v.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d5fd15257521923db0e21c4cc0960ff4b56f32bff9475909224dd3843a7c31f3
+  upstream_path: examples/visual_gen/visual_gen_wan_i2v.py
+- local_path: source-snapshot/examples/visual_gen/visual_gen_wan_t2v.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 54421b4fe628b728645ac49b2e4dd3e9ca39233268005f8b18bcf1597c129ba6
+  upstream_path: examples/visual_gen/visual_gen_wan_t2v.py
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/trtllm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a23bb4e560f860b82b9b9a99813c21330d76a89d697510043d87b306e2945fe7
+  upstream_path: tensorrt_llm/_torch/attention_backend/trtllm.py
+- local_path: source-snapshot/tensorrt_llm/_torch/visual_gen/attention_backend/parallel.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 749590d3c3a1333faf9357b20e10e6eab162ce3e49e1c0f79bd2d8b4665906af
+  upstream_path: tensorrt_llm/_torch/visual_gen/attention_backend/parallel.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 1ed748b02c0240d99eb818d9b5e95e38fad89817c456fbe37f37378b660e21f7

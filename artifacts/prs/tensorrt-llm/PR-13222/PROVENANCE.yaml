@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13222
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 161b49f16f06dc5a813a02cfcf00ee951d7c4b44
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13222
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: ee6d7fd161711bf93a401951177ea1a6c7e46cb7ade24af6d8572fb49c782235
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: d35737ef10cb7833c17d83763da6d5a03882efffee6a1de63a739c716be093d4
+- local_path: source-snapshot/cpp/tensorrt_llm/common/attentionOp.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 948edaff01331c3c11c377fdd2847b99aeac7765f1ee784dc3c6f828ba6bca1f
+  upstream_path: cpp/tensorrt_llm/common/attentionOp.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fmhaRunner.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: f61ab29fd7460e0b63eaa2f06c1293d3a8a4a9737e6273ecd65e035b3b0d2aee
+  upstream_path: cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fmhaRunner.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fused_multihead_attention_common.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 1b3794b52e6075f2737e0c08f4b24abb3a9fd02ce186212f4f7338c4a1dd3e0a
+  upstream_path: cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fused_multihead_attention_common.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/attentionOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 5746af6915283563ed9dfd97274b66b52b80eb95558fe1566a765f617ffd12ef
+  upstream_path: cpp/tensorrt_llm/thop/attentionOp.cpp
+- local_path: source-snapshot/examples/auto_deploy/create_standalone_package.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3e036e97b71ebe2c92c78e575cf846fc461e2dca57df8a7362c938949b920d83
+  upstream_path: examples/auto_deploy/create_standalone_package.py
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/deepseek-r1.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 3916b5bf402f1d0b1a21e1a3b9db834cf7c6883cd60f5a2b0fb89be774c3b662
+  upstream_path: examples/auto_deploy/model_registry/configs/deepseek-r1.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3f6e5ca779fb982b92099a61f375341779a16f17a646969c30dbe1db4b7573b9
+  upstream_path: tensorrt_llm/_torch/auto_deploy/compile/piecewise_utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/config/default.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 321fa516dfbed685ffa9cf21c0dae17fe130218769f5710d6b0cf3d0897c256c
+  upstream_path: tensorrt_llm/_torch/auto_deploy/config/default.yaml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 407ef78dc0b95d76657f1a33f3003ac52bc480f0ba0210605c37f5027cf7771a

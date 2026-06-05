@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13901
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 15c6a7766aa791454d0f57582bf46cb3de7ee369
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13901
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9b3b9535a8873b12ba16413dd2632f4cc6676cf9ae434a8f8e5b84aa49eca52d
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 64ce04385b1d25b21ff913ad4b4b44d90a4413c07bca061ad304a2f54902692f
+- local_path: source-snapshot/docs/source/deployment-guide/deployment-guide-for-glm-5-on-trtllm.md
+  role: upstream-file
+  mode: verbatim
+  sha256: 0bfb82a130261e7477623830dc39c0f02fae4481d5cfe48481a4af50d9e57897
+  upstream_path: docs/source/deployment-guide/deployment-guide-for-glm-5-on-trtllm.md
+- local_path: source-snapshot/tensorrt_llm/bench/benchmark/low_latency.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6125bac45ddeb09701eeb6857ce74a9b2662f4059a3aa3b82ede27568967e4d2
+  upstream_path: tensorrt_llm/bench/benchmark/low_latency.py
+- local_path: source-snapshot/tensorrt_llm/bench/benchmark/throughput.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4be98ba04f28d0432512ed7a3177a0793f8beda7d89990c21c2e64c7c25274f3
+  upstream_path: tensorrt_llm/bench/benchmark/throughput.py
+- local_path: source-snapshot/tensorrt_llm/bench/utils/data.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2ec38f3781ddd624d06945c9a9f3fcb0d8a715ce010b2564d159e420d24ae000
+  upstream_path: tensorrt_llm/bench/utils/data.py
+- local_path: source-snapshot/tensorrt_llm/llmapi/llm_args.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 083b322eb6e83cdf70cef32413b77e3babcb9125aa6e4ce8496d4c3c829aab11
+  upstream_path: tensorrt_llm/llmapi/llm_args.py
+- local_path: source-snapshot/tensorrt_llm/serve/scripts/benchmark_serving.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a4e8ce8fa9b844fda015138351310de752aaf7cc25964268522c4ee8a6394e75
+  upstream_path: tensorrt_llm/serve/scripts/benchmark_serving.py
+- local_path: source-snapshot/tensorrt_llm/tokenizer/glm_moe_dsa/__init__.py.ERROR.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: b49805e42d21e97b78d5e079b7aa3a8c122f3f5fd56bb669088bb95e25d00fab
+  upstream_path: tensorrt_llm/tokenizer/glm_moe_dsa/__init__.py.ERROR.txt
+- local_path: source-snapshot/tensorrt_llm/tokenizer/glm_moe_dsa/tokenizer.py.ERROR.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 0e8be3e6fc45888f65c1e20dfcd837144beca9d868e05e321a9524204c0e4b96
+  upstream_path: tensorrt_llm/tokenizer/glm_moe_dsa/tokenizer.py.ERROR.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: cf27ebadd977ca011fd2144423f41df574659cca2833e806019ad843fa683d79

@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9618
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 2c72df0937f0136ca6d848669ad2de3303450bb8
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9618
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 5fe0500b9b40d254f84a42d274aba78f17c26d7ed006854daa48d7716d0d96fd
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 8079bece7fbdd0664d7d1521abf11374b786cded4564c31a91ebfcb6ed3953ee
+- local_path: source-snapshot/.pre-commit-config.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: f4eba299354eb715299295738e6220cb2ef35781306a28658239b14b5c8fc3b7
+  upstream_path: .pre-commit-config.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 500ced8ef851967263863b0a10f3d552695f1da631f55aa1dea98168bc20745e
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_gather_grouped_gemm_swiglu_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f7bbc68f7548ded0e96c3e9e48ac378cc4d865dc7b565030d04a01fffdff8b49
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_gather_grouped_gemm_swiglu_fusion.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/custom_pipeline.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8219aff65870233d51f7c0ef181648dd762a86b5a42e8708adda14c1623d0b40
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/custom_pipeline.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/fused_moe_cute_dsl.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0aaefba34d4be8676247f2c80d5d204a30d23e597635b03fbadaac996a8f6d0d
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/fused_moe_cute_dsl.py
+- local_path: source-snapshot/tensorrt_llm/_torch/utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7a09ee6fbd14bbc01fb97ed8d251e3aa032961a55d7ed994ca46bebe256e7d2d
+  upstream_path: tensorrt_llm/_torch/utils.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_cute_dsl_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 141e442c4aea03d30d54891d18e08c1a1a4ed95bba2d16136c21a838f75d2133
+  upstream_path: tests/unittest/_torch/thop/parallel/test_cute_dsl_moe.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: ab6e75072c51669cc59031b2c8d934b91a7c702b7abab75c2d6d75c380fd222f

@@ -1,0 +1,27 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/20
+upstream_repo: Dao-AILab/quack
+upstream_sha: 475b054d512a232ea9852d803fc8a73ef5d8f5b0
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-20
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8e1463db07c78902fbecf373ff8e122f7ab57fd417a303fa8baa68d714253e11
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 9d3568d4ca07dc69fb36310f4ca40114a6d0bc20ae937afa36b808e839aa81e6
+- local_path: source-snapshot/quack/cross_entropy.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 558480776f069ad9cca0a4302eba2bbf2483b497d1868a9577e69e339d859ac2
+  upstream_path: quack/cross_entropy.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: a5bcdf197f582ac975697839bd5b5094ebee4880543e46fd2cef62285d0df713

@@ -1,0 +1,27 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/31
+upstream_repo: Dao-AILab/quack
+upstream_sha: cb5af028eff8d46ca263173bac8990710a4e76d2
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-31
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9f4c41b3bfeebd842a96763c8d847e32e8a5f23f58f879cd1207b9874b8007cd
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: e4686dda09720207f10f94febd1b20a319bc832291fded433c2eab66b066e479
+- local_path: source-snapshot/quack/tile_scheduler.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ad22582984dea8d5e5ab491fd57a8da965009d3ed209a371ecd49279bab48ad3
+  upstream_path: quack/tile_scheduler.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 72e9a744243ef353303debe0e27c0e63be75cc30d1ccabf987b72a19c461019f

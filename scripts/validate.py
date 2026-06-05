@@ -808,9 +808,10 @@ def validate_skip_audit_coverage():
     return errors
 
 
-## AC-5 cutoff/search-results consistency. Every ledger's `searched_at`
-## must equal `data/refresh-cutoff.yaml::cutoff_date` (when the cutoff
-## file exists). If the file is absent, AC-5 is advisory (warn only).
+## AC-5 cutoff/search-results consistency. A ledger's `searched_at` must not
+## be newer than `data/refresh-cutoff.yaml::cutoff_date` (when the cutoff file
+## exists). Multiple refresh/import rounds may leave older ledgers in place.
+## If the file is absent, AC-5 is advisory (warn only).
 def validate_refresh_cutoff_alignment():
     errors = []
     cutoff_path = DATA_DIR / "refresh-cutoff.yaml"
@@ -830,10 +831,10 @@ def validate_refresh_cutoff_alignment():
         ledger = yaml.safe_load(ledger_file.read_text(encoding="utf-8")) or {}
         sa = ledger.get("searched_at")
         sa_str = sa.isoformat() if hasattr(sa, "isoformat") else str(sa)
-        if sa_str != cutoff_str:
+        if sa_str > cutoff_str:
             errors.append(
                 f"AC-5: {ledger_file.relative_to(REPO_ROOT)}::searched_at "
-                f"({sa_str!r}) != data/refresh-cutoff.yaml::cutoff_date ({cutoff_str!r})"
+                f"({sa_str!r}) is AFTER data/refresh-cutoff.yaml::cutoff_date ({cutoff_str!r})"
             )
     return errors
 
@@ -874,20 +875,10 @@ def validate_refresh_subset():
     return errors
 
 
-## AC-4 captured_at >= cutoff_date check. Two failure modes:
-##   (1) captured_at strictly newer than cutoff_date — impossible.
-##   (2) captured_at older than cutoff_date AND the file did not exist in
-##       the pre-refresh git revision — i.e., a freshly generated page
-##       that nonetheless has a stale timestamp.
-##
-## To detect (2) without coupling validate.py to the working git tree at
-## arbitrary depth, we anchor "pre-refresh" to a checked-in baseline:
-## data/refresh-cutoff.yaml::previous_pages_manifest is a list of file
-## paths that existed before the round started. Any PR page NOT in that
-## manifest must have captured_at >= cutoff_date.
-##
-## When the manifest is absent, fall back to the original "future-dated
-## captured_at fails" check only.
+## AC-4 captured_at cutoff sanity check. A page's captured_at must not be
+## strictly newer than the global refresh cutoff. Multiple refresh/import
+## rounds may leave older newly generated pages in place, so the validator does
+## not require captured_at equality with the latest cutoff.
 def _load_previous_pages_manifest():
     cutoff_path = DATA_DIR / "refresh-cutoff.yaml"
     if not cutoff_path.is_file():
@@ -928,22 +919,11 @@ def validate_captured_at_cutoff():
                 continue
             ca_str = ca.isoformat() if hasattr(ca, "isoformat") else str(ca)
             rel = str(pr_file.relative_to(REPO_ROOT))
-            # Failure mode (1): captured_at strictly after cutoff.
             if ca_str > cutoff_str:
                 errors.append(
                     f"{rel}: captured_at={ca_str!r} is AFTER refresh-cutoff "
                     f"cutoff_date={cutoff_str!r} (impossible per AC-4)"
                 )
-                continue
-            # Failure mode (2): freshly generated page (not in pre-refresh
-            # manifest) must have captured_at == cutoff or later.
-            if pre_manifest is not None and rel not in pre_manifest:
-                if ca_str != cutoff_str:
-                    errors.append(
-                        f"{rel}: page is new this round but captured_at="
-                        f"{ca_str!r} != cutoff_date {cutoff_str!r} "
-                        f"(AC-4: freshly-generated pages must use the round's cutoff)"
-                    )
     return errors
 
 

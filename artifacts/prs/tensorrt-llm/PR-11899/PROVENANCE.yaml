@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11899
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 3d3f4febf8b1e3e917a0b1ed092695ccce1adbf1
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11899
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: e32d19aa06ffe748b9007b64d40b69f1c5789689bd89b383e5a900aa0a26b4f1
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 11fbd0a32ad87e69f362f97614efc180da71e1bb5fb23c99d1c69f11560cc270
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedCatFp8.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: f020fffeb49648aeadf341afe02e2df07599a30c756579796f232b08647e8e70
+  upstream_path: cpp/tensorrt_llm/kernels/fusedCatFp8.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedCatFp8.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6bd252934f88340f52714013068bcc9de5d7d52a7325d7c9f621ca74de8fe029
+  upstream_path: cpp/tensorrt_llm/kernels/fusedCatFp8.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 5af8a29d7ad919bba6d7c5f17348435f453faef75db51ac8a5919e8433f78d7c
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fusedCatFp8Op.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 0c003320a0f5a3ef47d44fc86bb1ca9b3696a8242bf16b62e86c38065621e3f1
+  upstream_path: cpp/tensorrt_llm/thop/fusedCatFp8Op.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a5874d95c4e2a44b7feeee7e3d128f290b0f856deda4c2df3250362d37f49af7
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fc9cc9264311f7d14e78132a69cc169e0101bbfbb1ca2c5f8e30b50131f7f683
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/serial/test_fused_cat_fp8.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 16ab803639838ecbe3d5661f933bea3d015307b82892025e610e4432f4e3c7b6
+  upstream_path: tests/unittest/_torch/thop/serial/test_fused_cat_fp8.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: a823ddb239c97d160949ed470c00d84c2acb277f2eb1193affee7210a476800b

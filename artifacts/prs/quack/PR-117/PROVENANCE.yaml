@@ -1,0 +1,62 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/117
+upstream_repo: Dao-AILab/quack
+upstream_sha: 82b51016afc147e65217e136e928aca8e1f81e12
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-117
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: f4e1498a25ac65537753f360a78ac1e7a3bbf1a23cd1479c4afe2a3a5cde9e0a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 7ba3d3d56a8557af418ceaab58d699747542b2b8d1f218646e2dce9b4f1725f0
+- local_path: source-snapshot/quack/gemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bf9130181d505bc52225bf33222b84f3c2fce3a20e2f3cc4d22d89a35975ff00
+  upstream_path: quack/gemm.py
+- local_path: source-snapshot/quack/gemm_act.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 624bab5d92be1a9c99be961c92c168f2ebcc8bb07d3a086562106b65fbbcda2b
+  upstream_path: quack/gemm_act.py
+- local_path: source-snapshot/quack/gemm_dact.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6b788110bddf900bf3e5dfaf4756e38659b3bbd1492e7ddcd8c85fce67905902
+  upstream_path: quack/gemm_dact.py
+- local_path: source-snapshot/quack/gemm_interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5806ecb985b4e7ef5d01be96bbd19977dac60caee97a5351ddedcaccc40b6d3c
+  upstream_path: quack/gemm_interface.py
+- local_path: source-snapshot/quack/gemm_norm_act.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4fba886a5bb18e4164f502d4a672198013b5c7cc6f01354dd38ada61b34509f0
+  upstream_path: quack/gemm_norm_act.py
+- local_path: source-snapshot/quack/gemm_sm100.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f79861f7bc1b48ee59289475464a3de6911853989b975604fac13e4948573349
+  upstream_path: quack/gemm_sm100.py
+- local_path: source-snapshot/quack/gemm_sq_reduce.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d0491af143d6f89604ac7e1e6b0f60c1d15da55095fdaf66a1bd14145adbbb86
+  upstream_path: quack/gemm_sq_reduce.py
+- local_path: source-snapshot/quack/gemm_symmetric.py
+  role: upstream-file
+  mode: verbatim
+  sha256: eabb6e2df8ca789078b9562ad7ac53a0aedbe27391560f34b9171566ac03a39c
+  upstream_path: quack/gemm_symmetric.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 947549b9440c06622ec922c4be94229e07d74f390e2e5c8a19bbd65c4d5f4c92

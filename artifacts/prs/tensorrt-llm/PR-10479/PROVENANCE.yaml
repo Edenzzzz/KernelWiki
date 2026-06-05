@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10479
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: e4c5a29883071d4bf9422e3acaa1dfcb2e2e6dfc
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10479
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 6989e0bb28418a19953aab26718f693570963c582bdfba101018d20360181fe5
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: deb01ea5e8d4b63ed4b04d97f091146206bad6dbeecf0551097b96cf1559aa35
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a7a4eb5ab13f707a3c0e9299751b23b95ea5578f56289b0c8226fddf26af8f01
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bc674ff7c3da3a710deb2424b0842cfbf6031e9a8d971e7acf76cf2bff667df1
+  upstream_path: tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/moe_as_dense_gemm/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 25cece97cd4e6c54ccc85247d015b4c10fcc8bc9d884f8d68423262c31ec1a02
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/moe_as_dense_gemm/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/moe_as_dense_gemm/fc1.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2772556c5f5df55590f6149a59b252bd716fee8b52bdc6c70e1bf85445972b45
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/moe_as_dense_gemm/fc1.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/moe_as_dense_gemm/fc2.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d94b4fbd878f6c019cd61608f4f1e26d5689c0968dd0880ccef4a256232a7085
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/moe_as_dense_gemm/fc2.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/configurable_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 803aea51ab6bb24512481ef431e1574653a73f39d0f5d2473e877ef33c44e531
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/configurable_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d66f0cf2801253fd9fe436dd0f5a114b6b6d29a807b47a82d98f94d647480ea0
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/create_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/fused_moe_densegemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d3036825fccdd5ec08d54166fd5e077d5cbc44582e19ac4f1fcb9a572a49be12
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/fused_moe_densegemm.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: d83017b34a227ee10ac60d61457634e93080e52bfb6cd770664fdccce7ce6eb4

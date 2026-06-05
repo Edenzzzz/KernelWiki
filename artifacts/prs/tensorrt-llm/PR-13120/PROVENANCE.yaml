@@ -1,0 +1,27 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13120
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 8a0286ef9adb974b07ce72f7d1b7b91bb8b1a2a6
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13120
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: de9c55d05d700105f43d56c17f71f4dd1e687f8c2b9a8047834a0a4b4e4298a5
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: c6ea157a34562a9a448448c07db573441d0ce149d76e1ff6fab2f333dfeaea0c
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fused_multihead_attention_v2.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: ff52b8695f8c51a2d468a59fd8113af3252e6015c04a95b16b617c23ea98a6cc
+  upstream_path: cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fused_multihead_attention_v2.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: e01177478513f44d4b87c90a9a7d4c6e593c469f120a0b6c4d6f84051b548766

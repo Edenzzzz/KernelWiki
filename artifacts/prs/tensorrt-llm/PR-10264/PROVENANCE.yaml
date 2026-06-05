@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10264
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 4bb57fab6988483cba5cc8e67d8162f1578125c6
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10264
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: a2b3e17d441ac0cc403f1404ff624da5a58568dfb9fecc174f81def5ac1a25f8
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: c7b36d18986bc970a51f4b9925f3f70bca1180e2585dc6101c02686ef73557b3
+- local_path: source-snapshot/cpp/kernels/xqa/defines.h
+  role: upstream-file
+  mode: verbatim
+  sha256: fbd5e98e2b76394949965cf6aa37a36a1bb2dde9c03a98233204434203290d64
+  upstream_path: cpp/kernels/xqa/defines.h
+- local_path: source-snapshot/cpp/kernels/xqa/gmma.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 0ff7da69b7c155883211ffd39957942041c4acae19b833358f3db5cbce92eae7
+  upstream_path: cpp/kernels/xqa/gmma.cuh
+- local_path: source-snapshot/cpp/kernels/xqa/mha.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 1ef605e49d5426a3f02e36f3a259bc30b8cd1b8b343588bef0da2d5285a6d881
+  upstream_path: cpp/kernels/xqa/mha.cu
+- local_path: source-snapshot/cpp/kernels/xqa/mha.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 494650a48bbea9fd3c880d6041f432795f2f754a05bf85616e9fd9112769bf4d
+  upstream_path: cpp/kernels/xqa/mha.h
+- local_path: source-snapshot/cpp/kernels/xqa/mha_sm90.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 201d5157b147ef54c32762d565c1af7a8c94f468802203ac3700268d0cd5ab3c
+  upstream_path: cpp/kernels/xqa/mha_sm90.cu
+- local_path: source-snapshot/cpp/kernels/xqa/mha_stdheaders.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 4da2fec68e2e7b8d0676208c4e26edc2d38ba156b42550a023f5281fdb9d45f5
+  upstream_path: cpp/kernels/xqa/mha_stdheaders.cuh
+- local_path: source-snapshot/cpp/kernels/xqa/test/refAttention.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: d7acc10e2e752988c5406af8fa68d819ee6fc1c2537ced84f51944d954df0ab6
+  upstream_path: cpp/kernels/xqa/test/refAttention.cpp
+- local_path: source-snapshot/cpp/kernels/xqa/test/refAttention.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 7fcdcdd540d6a8a11ee39f2ea21381506cfdbab6a2aa3ff631967e9f807223ba
+  upstream_path: cpp/kernels/xqa/test/refAttention.h
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: b79dad14b5d991967c3a2211fd6338b386a5159b46341ac5df492c8728a92335

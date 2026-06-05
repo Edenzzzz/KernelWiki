@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13454
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 1061554da3b355019bb5280ff2f648be7b83cfc8
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13454
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 26a67535c32a3751bf0543f980b7e7df8b11f65102abf0a988f957918fb81d81
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: c0200cf6f463faf03d764c599289f8cc7da036e775407b13ab85652bcd66c5ac
+- local_path: source-snapshot/examples/auto_deploy/create_standalone_package.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9017f0dc40de0d26764fb2e2335f3cfe99f494534d19e5212bc758fc9f89a41b
+  upstream_path: examples/auto_deploy/create_standalone_package.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/fuse_rope_into_trtllm_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b77ff0754bfa43cc6ccf603b7c251209a2957f4755488385486810c31920a4c6
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/fuse_rope_into_trtllm_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/rope.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bcdd53dcbaa2bace972386411dd09ba4fc2e182d500dfdff350444aa02b713d4
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/rope.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_gemm_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6071144a07fbf001169ea553d9682a60ab07809f5c00f318987611dcf14131d2
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_gemm_fusion.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_gemm_fusion_trtllm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4734b3243e0508e47f5f2d0b73f1f688342d83dc949a4b762cfc2c92eb1d6485
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_gemm_fusion_trtllm.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 7bf6d86a40eadb749dc60f68d11cba3132553c78d044d0747561e54ff6fd5fb6

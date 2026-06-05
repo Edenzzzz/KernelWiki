@@ -1,0 +1,32 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/53
+upstream_repo: Dao-AILab/quack
+upstream_sha: 85532b242e8da79147393ad3ad7a7819abe77561
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-53
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9a7f3daea0cc15c5575e6409384fea70d7fcdd66a8f0eee568cd7eba6c55c941
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 72730770f9f13ff273ae349ae45e8b56fbbabff537578ba777c21028da81edd2
+- local_path: source-snapshot/quack/rmsnorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 822ea9d70ee5dd4d76f23c9f2413ddd0b16eb752f75933f29ecd0acf19c3e47c
+  upstream_path: quack/rmsnorm.py
+- local_path: source-snapshot/tests/test_rmsnorm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3c93110aa148b172730098e10c8dc16344b010cf64359203fae87be73a23c2f2
+  upstream_path: tests/test_rmsnorm.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 010db008fad1f4e437580e060b8b25b7fa7e51137b2192eed636805657d874fa

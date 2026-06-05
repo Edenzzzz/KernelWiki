@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11652
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 8fd20254fda658147c1b37eb9480d22f07156e1b
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11652
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 2754c01f0920a212b1c62785a1863fb0d1e69e7315fe62a5fb83742045367129
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 41ce3445ff6466ae2446cd1baa498e32ff507e8ee8e89ab6d7097caf4651aa6f
+- local_path: source-snapshot/examples/auto_deploy/super_v3.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: e704df8035144fc30801ae6f66d7e6e2af060709c169a3ca4615c4e79321538a
+  upstream_path: examples/auto_deploy/super_v3.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/config/default.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 4693d714c6bf591f9b80bb36f55b7c5b19575f1710d1bda22f788c55926245ad
+  upstream_path: tensorrt_llm/_torch/auto_deploy/config/default.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/trtllm_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9dc2df219b2bcc03698daa2b84ef51835ab7ba80f1ea2f9c401652c379358133
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/trtllm_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/fused_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0c8b437406129764147627823df3c6c96c5727c485d27964a1a5bb812ab1d73e
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/fused_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/multi_stream_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 25bdf6755af6977f28baa739eeb61caed8ab59e8500b77e952a1bbc1d6ec43eb
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/multi_stream_moe.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/custom_ops/moe/test_trtllm_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8195c1e4f3848b7f81398cd92856e94dab254641445a487f3cc65f92ddccd6ee
+  upstream_path: tests/unittest/auto_deploy/singlegpu/custom_ops/moe/test_trtllm_moe.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_moe_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 34070701e4936f39fd0bf9bddba783e318d423b3d9004f8c5fc5db5618dedc2d
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_moe_fusion.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_trtllm_gen_diag.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 463218978a5c547f18b65d89aa2b68653dfed6fcf9c52731842d34b9e24a41e6
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_trtllm_gen_diag.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: f75d9300a20b01e731faba2862e17d456cc9a833853cbae68891d5c0a5156e91

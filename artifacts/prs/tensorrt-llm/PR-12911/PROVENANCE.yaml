@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12911
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 9ef200d7bca897b1e5e3e50a2c977adfb3ddafa3
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12911
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 736b9b28e3eb8982b1fb93bd91448d833a1269795c7dda130f92259cc54aef49
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 31f8a5b7798f9c0e88c4922e36bd814ac660b9e840af85ac49ea031ed5606aa1
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/flashinfer.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b4b70d545891270852630a5208787b64bbffb68ad48e60786ed87fc70fb8417f
+  upstream_path: tensorrt_llm/_torch/attention_backend/flashinfer.py
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7938b73ead42c318cf0a52f626a0f6b53ac1bac9d6f45c74e91494ddfb7da3c0
+  upstream_path: tensorrt_llm/_torch/attention_backend/interface.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_multimodal_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 472d0db43a64997f956484c728d1c4787ee0d87dfdf663bab05477ce8748c841
+  upstream_path: tensorrt_llm/_torch/models/modeling_multimodal_utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_nemotron_nano.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4486cd3619fea8377e070e3625b3b9637d210f41d4108d2b99f0ac3e912d3c58
+  upstream_path: tensorrt_llm/_torch/models/modeling_nemotron_nano.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_radio.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c4efb84ed84e114315a6c3517d6eacd40ba1078dcb0fad832da9e56cdd31b5d4
+  upstream_path: tensorrt_llm/_torch/models/modeling_radio.py
+- local_path: source-snapshot/tests/unittest/_torch/attention/test_flashinfer_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9a6090b8eabe125d06ee748a7ff72880d9a83b46204078c486ed00e1dcf83863
+  upstream_path: tests/unittest/_torch/attention/test_flashinfer_attention.py
+- local_path: source-snapshot/tests/unittest/_torch/modeling/test_modeling_nemotron_nano_v2_vl.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c30a9b8a3b0eff10c9fe1cb1c27bc3faac0aa67a2400a80ccc79aef325d9dfd5
+  upstream_path: tests/unittest/_torch/modeling/test_modeling_nemotron_nano_v2_vl.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: c0aaf59620c3f0b089131806f72eccfeb2d01feb0e4a37df84b99e791dd8a5bc

@@ -1,0 +1,42 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/36
+upstream_repo: Dao-AILab/quack
+upstream_sha: 2331b653ec6ca2d7f3be2688ecac0ddd795356c7
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-36
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: c0c8592619e7a3bbb04d042955a5add69e3b0f9d03abf3b74c759479f5c52de7
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 77162918b9f636d02f0709aeabecbeb59232d7f06e8dbc48eb1387b01469f209
+- local_path: source-snapshot/benchmarks/benchmark_gemm_sm90.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f2d9613625d00b8d8fe7bbf5949c19d8f9bd55f5753eebcfd3dc852e4ed5c65d
+  upstream_path: benchmarks/benchmark_gemm_sm90.py
+- local_path: source-snapshot/quack/gemm_interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 14b07e962c142f0f1157df7ec6c4e85e9c10509dbd9c8af08ab8850e16becb40
+  upstream_path: quack/gemm_interface.py
+- local_path: source-snapshot/quack/varlen_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5ba93c25af4c511d528e9392161432a262e6a210cecd8be70ab4a6f5b8876709
+  upstream_path: quack/varlen_utils.py
+- local_path: source-snapshot/tests/test_gemm_interface.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 99e6d1e31450a664eb7f1e98b4c039e32aa404f7f6a5b0f8a7362ac5258d8e9f
+  upstream_path: tests/test_gemm_interface.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: eb7e149f72c868332ff2025289f758b3548a2d3d3b8270c5afae63f979d7f7eb

@@ -1,0 +1,27 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10339
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 1d1c8a8eee2fcd32b4028933f750b53f5762aba7
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10339
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: e0e5cec4301f7b00b17b5f89dfcbe3c180d8f25e3afcd3b2bf6b5a8a2f28fadf
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 7ecdb87f9e223959766ba08f7d9b1e39cc941710c1399d75d97d1b1acf76e0ee
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b12c43215aca00c042ba9417a3241113d8b6ded98932e77a6b7fb469984f18b9
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 803058b1887deb1ebbe5673cfd5102fb144483ef79252dfb56e563ad9d00aaf4

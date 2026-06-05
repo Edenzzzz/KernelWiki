@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9729
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: dc5db6deaa703eb3edf033b284888244e1421e90
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9729
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 17858ce503c4d4a8a578a85ead70fb765ee1e28eed4031d71ad2e84d508e03c2
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 09292ad579b33f20622f57a236d6da8018518a1f24dbc240c96b87c0f414e079
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/allreduce_gemm/allreduce_gemm_impl_sm100.h
+  role: upstream-file
+  mode: verbatim
+  sha256: a91d69afa47c11a3f2354dba91532b6ab0c68410b65f616e95917f2c2d9e162a
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/allreduce_gemm/allreduce_gemm_impl_sm100.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/allreduce_gemm/allreduce_gemm_runner.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: c019fab4bdc90fe20a542915a8ca707c8203e9c06b5834e87d734701497d7152
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/allreduce_gemm/allreduce_gemm_runner.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: a33a86ee33cc59cffad262cc2ef5cf4f06ee6f14373c92cb5bbd7a8900d44ebf
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fusedGemmAllreduceOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 2b5bdc6d8e13a078d964c578ba240a19db9a4ef89287d6dec4792e9e0bc41518
+  upstream_path: cpp/tensorrt_llm/thop/fusedGemmAllreduceOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0bfb1dee39d04185604ba1ca1d25c3680f73ce6619e46e37a3e147388450064d
+  upstream_path: tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_llama.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0584603ad519196d98dbacd03ebbb47a3a2a625fe133e612ff61df7eea9371fc
+  upstream_path: tensorrt_llm/_torch/models/modeling_llama.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/linear.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 40d954b4499b0492b7fb029df254a002336ef25ee494feec61f11e8e612945b1
+  upstream_path: tensorrt_llm/_torch/modules/linear.py
+- local_path: source-snapshot/tests/unittest/_torch/multi_gpu/test_linear.py
+  role: upstream-file
+  mode: verbatim
+  sha256: cffce2ad13ccb9f8e1b2b6d6c8ebc381af22d6b2ad39413fcbb38682ed528466
+  upstream_path: tests/unittest/_torch/multi_gpu/test_linear.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: be389cf0ea5b55b1432cae30f60b4582a49f1e15765cd1345ecae5a7ef9f8a09

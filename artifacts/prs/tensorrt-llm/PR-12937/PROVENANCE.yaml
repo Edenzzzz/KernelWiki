@@ -1,0 +1,63 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12937
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: c518f62db4bbc511131af4ce2e63b3b2808f5620
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12937
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8e76b28de705a3f3e50a40000ea1751296c4cccc2d7014eae70fb6eaa4696ce9
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: e23d8d7655724b0b625a04af6071ad5bd0868cee4ac0ba4961a658b17a066129
+  size_cap_truncated: true
+- local_path: source-snapshot/cpp/tensorrt_llm/common/attentionOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 5e6538207fb9b1953d299bb35555429c7ca458e45414085129e49b2cdd8368f1
+  upstream_path: cpp/tensorrt_llm/common/attentionOp.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/common/attentionOp.h
+  role: upstream-file
+  mode: verbatim
+  sha256: d7d1d38e2f016f7cb972a4cde95d32bf7f22164e83453d5b1fee3f58b1ac219b
+  upstream_path: cpp/tensorrt_llm/common/attentionOp.h
+- local_path: source-snapshot/cpp/tensorrt_llm/common/sageQuant.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: e288b80d432998cc57fe42bd4384d94f88ab1b3e856d63c12b0dad41e6ac12e2
+  upstream_path: cpp/tensorrt_llm/common/sageQuant.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/common/sageQuant.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 2256d4a67d412097e07a534df43bbff749ba5bbf6f27b17e3e965589c05c79c4
+  upstream_path: cpp/tensorrt_llm/common/sageQuant.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fmhaDispatcher.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 3b3f7dd53c1705e1a03da1e9207d5ed55998e9071891998c5a712d60e71d427d
+  upstream_path: cpp/tensorrt_llm/kernels/fmhaDispatcher.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/multiHeadAttentionCommon.h
+  role: upstream-file
+  mode: verbatim
+  sha256: d46259411cc158e3b2609bfed764b460d4f543ca90d8350ac74f24947188bb0d
+  upstream_path: cpp/tensorrt_llm/kernels/multiHeadAttentionCommon.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: b76174852a2e59e28df0c4a9eaee4c4a5217efd03ad0264874244133a296e75f
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128StaticContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: b316d4a19c15c4c89d382a18fa7331bc31de4adbca96b2ab05d322a3b7c842fe
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128StaticContext_cubin.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 2bc64cf5b8674b0cdacf2aa47b98a3675552b7df7cb8d8b81bf5667b618eff34

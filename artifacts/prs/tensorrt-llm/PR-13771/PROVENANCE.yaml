@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13771
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 70927b2bb4c346908736b120cc39c0ad2bae4a59
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13771
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 07af408fcf0d11c7cde7e609af03ba388926e2d09817c970c960cd03e8bb7f98
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 1cb25f56257b62437ee55988cf6c38da869bef594aecb92667462d34fe0f88c7
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mhcKernels/mhcFusedHcKernel.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 17183e427fb434c6898e739064554fa30557568dd358ac8e2bbe7da5087c677b
+  upstream_path: cpp/tensorrt_llm/kernels/mhcKernels/mhcFusedHcKernel.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mhcKernels/mhcKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: fe8d8b17d13a2644cf97317d174ce6153e853e88f40a14fc99e68e38697c1b61
+  upstream_path: cpp/tensorrt_llm/kernels/mhcKernels/mhcKernels.h
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/mhc/mhc_cuda.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 93af987591aebb71dc2e7b7a2d31c5814cdd631da0ad8d83bf3567fb17b2528e
+  upstream_path: tensorrt_llm/_torch/modules/mhc/mhc_cuda.py
+- local_path: source-snapshot/tests/unittest/_torch/modules/test_mhc.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0d74227ee7578308f4ea3569947cba4e30de823d30da1017b64ff3aebb836a90
+  upstream_path: tests/unittest/_torch/modules/test_mhc.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 59cd78dc0d3f61f98bf46e96a05ce9536974be490b1dc1c59af9286aebb987c3

@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12427
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 63fcfa3f10ff27370d34603e07bb81a07cdf9d03
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12427
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: b5d798534258599469220423c39d34189df07993e3db164b033215dd61036b3a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 50f481354257c92ed575f862d598316ab9be18f44ebe754a4a4235d71540452b
+- local_path: source-snapshot/requirements.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: c57bd93efba3ada25662e41a7fd091b55e05b6481d168ac125f47da86b5a11e8
+  upstream_path: requirements.txt
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/config/default.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: f1a182706477b86d0eb4ef9c6763bafbdc30d906dfc73327fbf9893d917ba997
+  upstream_path: tensorrt_llm/_torch/auto_deploy/config/default.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/mlir/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bf99b897bdbcaab53c877e5f23242d4b0ee5ead00bc63c7d34d2d6a6f68bb2e5
+  upstream_path: tensorrt_llm/_torch/auto_deploy/mlir/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/mlir/agent_learnings.md
+  role: upstream-file
+  mode: verbatim
+  sha256: a6ceec10c266f2c11bbfe4a441bca4a38093e0d00fadd181dd8e8d96cc8b71c9
+  upstream_path: tensorrt_llm/_torch/auto_deploy/mlir/agent_learnings.md
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/mlir/codegen/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e72858f11185e31e981af1b6b0825bdc6e34a08a997860bafb73864473aab5b6
+  upstream_path: tensorrt_llm/_torch/auto_deploy/mlir/codegen/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/mlir/codegen/kernel_cache.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ff8ae55de4c6cd85414c877c67a56967d8b188fd8eed5ec3647795042e8d3ad2
+  upstream_path: tensorrt_llm/_torch/auto_deploy/mlir/codegen/kernel_cache.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/mlir/codegen/triton_emitter.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 68aabc84f8c0878995a9adae12291ab322cfac5749d222aee10d27873337c326
+  upstream_path: tensorrt_llm/_torch/auto_deploy/mlir/codegen/triton_emitter.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 4a8b6c7e6003f7e1b0948062553883216574a869dd111af77142d0c67c61ac7a

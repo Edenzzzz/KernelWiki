@@ -1,0 +1,37 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/14074
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 459224a7bed4b219844d15e711c5f75daeaf5e73
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-14074
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8a65bfa0a7007ecea8e6d63624ef07caa0e074fc8a8ae5d442dab7e2ffd8909d
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: fd69867bcdc39d6c730b12eb96ae0bbcb3b2372fb51fc527eb3bd108fb68dd49
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8f70d45e8cbe3ed072a0c7359df7bf7aaf867352cbbad18d9ed76ed11f5c2f38
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv4.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/routing.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9e7059c7a48feb96b318622ba74f973e88f575219338aaa8c9cd16e34d4c8b25
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/routing.py
+- local_path: source-snapshot/tests/unittest/_torch/modules/test_moe_routing.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8323adc579c7835c5032baafb162a4100d5dc5d58406cdf4dde56f17bb489432
+  upstream_path: tests/unittest/_torch/modules/test_moe_routing.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: c58946a1e317a3281ca7d0c4593b1e8a26472c46a554705270b996c037cbfa2f

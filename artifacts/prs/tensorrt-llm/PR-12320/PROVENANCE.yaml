@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12320
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 18d1db755d48ad6a69ff30eb03756749d07a4e18
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12320
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8f5ef0ec3cd66b986ee15c5c36cb7e01b3b024560f239017ea77223f9a69e69b
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a4a90ee16d21464041363c246ef1c8b75c27202f74202ac3ec069ca5c778b91a
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/include/moe_kernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: e8663498284d93f22c10cbde36f9d6f893c49a67ca1dbe8a403c79b750e00672
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/include/moe_kernels.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_kernels.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 328c0e4eb8ee25270ee0c44806bc6745674fe386ee6dc5a807f6a31de3fdfc1c
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/moe_gemm/moe_kernels.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/moeOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: b1e06f7e1b8498c23b86dd91b10655b14ef34cf4349bdfc5e89d854a521db569
+  upstream_path: cpp/tensorrt_llm/thop/moeOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a051cb67c8a947854f4a9910679533d239dc54653c346e99e29a2bf250856a47
+  upstream_path: tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/model_config.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8770851ba88a6cc8914034deab038c8f6c2550e2b2c44524ef138db9fb9b0352
+  upstream_path: tensorrt_llm/_torch/model_config.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/checkpoints/hf/qwen3_next_weight_mapper.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8423c977d325b4c1f954112029efb28bf9b0e3bf996d223cbab0b67c3b757d5f
+  upstream_path: tensorrt_llm/_torch/models/checkpoints/hf/qwen3_next_weight_mapper.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/checkpoints/hf/weight_mapper.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0c2155357a09009456b09671c389407acd58a0066a5219cc3d91c378b6ddd722
+  upstream_path: tensorrt_llm/_torch/models/checkpoints/hf/weight_mapper.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5ee90d637eb9fe48f41dab185e2cd7566c6cbca9acbabb7e0bea54a18f2a13e0
+  upstream_path: tensorrt_llm/_torch/modules/attention.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 0e1b4491a40d81c9a33ea5b7d2f8b68595c7da46565a3252d1d0e7340890c18f

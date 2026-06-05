@@ -1,0 +1,52 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13117
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: f65767db27e4c75ba7d087e59a19fa9bf8204719
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13117
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 81e2d51509d3b037e47802c6120c7e03d69ee4e8bc37ae590915ca90a04c28a3
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 13e3c1e153fa9bbb4842703acb1f7d80982adc874233dc00172113ac4e272371
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/arcquantFP4.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 372a046145e98356bce6e0d54deb0915b53cfe9423fb2287c016ea446881cfa6
+  upstream_path: cpp/tensorrt_llm/kernels/arcquantFP4.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/arcquantFP4.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 15c36027a4afa37917f837827e1aea8b529ddf97b5b125cd33baed3b5a2d8255
+  upstream_path: cpp/tensorrt_llm/kernels/arcquantFP4.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fp4Quantize.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 2161fd59703fda5b6eb0970a03cea12437183046c79e8c248ae786fc40cb11e3
+  upstream_path: cpp/tensorrt_llm/thop/fp4Quantize.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fp4Quantize.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 4fa66453b81911526f60b73010492c5b6a29148ed0054f2b4348a366679332fd
+  upstream_path: cpp/tensorrt_llm/thop/fp4Quantize.h
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d50d33516ed34a763df65abddb2c3189a685634aa911170cda81dc2c8c703b1f
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_arcquant_fp4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 120d70bcd6004b1487f5112b85319596b569be5f15ec22594d6eb65cb9b2d136
+  upstream_path: tests/unittest/_torch/thop/parallel/test_arcquant_fp4.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 12cff5025d72ed0b0ce94a22c895956cc25883b4ce335cdf9573a657184227a9

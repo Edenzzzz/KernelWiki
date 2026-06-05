@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12507
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 826f4eb326845b8aeb84aa6fcb08713e518431e4
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12507
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 8573c3088f2169073718ce039a761782792c14c3e96d5f74bc3e0ed7c9a4d8d2
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 22e70f1f1b48c5fbb4c8ff116633c123c5d9f94ae456521234075e9da68b9044
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/llama3_1_8b.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: a67250766629e09b4776fc7dcf76ba1e638a94fc7dc023bfd5d933c6afa4006e
+  upstream_path: examples/auto_deploy/model_registry/configs/llama3_1_8b.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/config/default.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: d20fcfc74f9e13d0b95714371e899e224fbd896ab5df0ffa00fa595a9919e62c
+  upstream_path: tensorrt_llm/_torch/auto_deploy/config/default.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/trtllm_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a4145f1fc56c0dcbcb59c26d685486837c1b31523c52fee634ea13ab6385ba3a
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/trtllm_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/linear/silu_mul.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1876616ba3b606eb4ae8cc21c409043d111e27c0e9dd9480308d60db3ab4d46a
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/linear/silu_mul.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/fuse_rope_into_trtllm_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8f4fe4054074f3b50baa2704a0c1bdc5258d3f7a109dc22c10eeb8a52aaf3fde
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/fuse_rope_into_trtllm_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/fuse_silu_mul.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2636e1bc464bd8c01ff0fb1d384f78f6eca8e02d4617383d5eb0c621d23fcf98
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/fuse_silu_mul.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_fuse_silu_mul.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 02ed007e86dcd2ef1019dc0343964e989d53aeb41cb699884a8471b6fe9553e4
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_fuse_silu_mul.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_fuse_trtllm_attention_quant_fp8.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2288a20970b3fd8e35e73012095eb1fe09e387c8b15b9781c89b064f835d0657
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_fuse_trtllm_attention_quant_fp8.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 8221cfd154145deee8fb2c7a491f77f0f5abc7b5596c9f0ff349c138a0e17461

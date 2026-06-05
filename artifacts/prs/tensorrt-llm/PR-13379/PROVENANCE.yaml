@@ -1,0 +1,63 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13379
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: c1c4e8d371af225c64f8a2d6539545159c4326fa
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13379
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 13b7ae1d18de42763b00b31771d72c23a59eba1916f54bbb936de404336e4009
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 87289865640a4ed07eb1089335e1700adc7debef7c9fc6722741a631428e5f68
+  size_cap_truncated: true
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 4aac88b81b0bec9f6770ff59ff88cee340ee8ed9d5bd2d8a789f9490f706b4de
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128StaticContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: bdd2dc303f11312102ea3a899a63fe29c54d0b7a7f45c0fe479933e4822c81da
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvCausalP32VarSeqQ128Kv128StaticContext_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 2b6e62cb66856625331998859c48373d8b066a40bc69e83ec40b0b4abd7428be
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: ae16a4fec26bd780c09f8e431abfd969a119d4689b5cd8edb15d2845dfd2ed2c
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvCgaVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 805298bb9660b3fadd22da3b0f34ee3ab5d16c4fdd5f20c4beab15b7c954d354
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ16Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 5ca9011d5f6e80aee00b0859ae00b710e9258682c54a16df9028d620a3d777a7
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32MultiCtasKvVarSeqQ8Kv128StaticSwapsAbForGen_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 004a58886a8fb781fc1ce157cca7a4d09d4614cf5384fda41552120ca0c5db5c
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32VarSeqQ128Kv128PersistentContext_cubin.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32VarSeqQ128Kv128StaticContext_cubin.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 0e2f4074864201a82fe45ed8630ef96ffd05832c9e341ee68ac47f1576e85146
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/cubin/FmhaSm100aKernel_QE4m3KvE2m1OE4m3H128PagedKvDenseP32VarSeqQ128Kv128StaticContext_cubin.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 86863a7d94186c5c707b21684f0ad1a694ea8cff963e2d7fadbc932df1587b7d

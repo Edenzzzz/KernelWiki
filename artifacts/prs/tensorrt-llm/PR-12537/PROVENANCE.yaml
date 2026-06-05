@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12537
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 33c9959b7832e931b6eafa954ff7a49a22d14daf
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12537
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 5de3f9a032f7d7c96b657ed4a77d66960003b4027807e81739c3f5fd62f29568
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: bfa4e8736af27b0a041487bb623027dddb5ab4cad00e3574e25ae9efdfdc456b
+- local_path: source-snapshot/cpp/tensorrt_llm/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 76a6bfb8095e50ed9b3266a27f20947705e38699add88e1c8d9cc86a37fa3062
+  upstream_path: cpp/tensorrt_llm/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 9d7dd2fe30588559b931ab33fdf5bf861e84af2771b2c616420fd2af8ed3eb10
+  upstream_path: cpp/tensorrt_llm/kernels/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: de5ccfb45ad9e410e9d86a4f2ff7f90c950d79845908ae6e96dab0df366edff4
+  upstream_path: cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCache.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 7dabcd7f06135810186fd477e3d820c1222dd1e4a4c976e4937894a85efcddf9
+  upstream_path: cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCache.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCache.h
+  role: upstream-file
+  mode: verbatim
+  sha256: d24561775afc8d16277bd852ec3b211dfeebe9d93128e45856bdd43de402efdb
+  upstream_path: cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCache.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCacheKernel.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 4f7b17b8825842174d8e9631440faf26940ea0724eef2f40488e881ae7ea812b
+  upstream_path: cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCacheKernel.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCacheVec16.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: b3f7819af18d788362905bc59bd50bd0ff9bfddfb5e4f3e7bdd45e5f002c1864
+  upstream_path: cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCacheVec16.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCacheVec4.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 1a5eb3274b819d475ba8f986107dc53265da491dfd11e493a3619e44bf56c520
+  upstream_path: cpp/tensorrt_llm/kernels/mamba2MTPSSMCache/mamba2MTPSSMCacheVec4.cu
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 2435d8bf40e892fce6924ff6c417d684ff4f1d3c0aef1c01abe01813a67ddbf2

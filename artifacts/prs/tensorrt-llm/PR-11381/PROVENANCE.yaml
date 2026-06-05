@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11381
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 8870554d9170293c522fe5afd6d75263b348967a
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11381
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 2891100747adb5feb38aa8d94a3a1e29b1e82245a272fbcdfad0ab9b9e46c3a0
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 9c8e1a3dc3f15f321318027f84ce45503f61aadd9ffceb08a3d236d4151e443e
+- local_path: source-snapshot/cpp/kernels/fmha_v2/setup.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a2e822f45e2807c8df49d544845fcdb0136035c2b87309604df2347a784faf54
+  upstream_path: cpp/kernels/fmha_v2/setup.py
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fmhaRunner.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: f777a5dcf95625cbb1178c8fbd6c575ddc90ab65fdbb4eed4489d33552a430f8
+  upstream_path: cpp/tensorrt_llm/kernels/contextFusedMultiHeadAttention/fmhaRunner.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 7eb271475c504d892041225739fc271029a93573dadf93898311b699e1794d52

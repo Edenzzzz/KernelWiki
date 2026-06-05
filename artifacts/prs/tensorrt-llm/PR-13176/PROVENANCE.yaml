@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13176
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: ad6a92cedc0c5ab882f4e52e6f202e7b0133f319
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13176
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: fcb43873564da90e48a4a0a0bd83c4e83af6b2834e2476a15f64e6119feb9a60
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 3bf5574d2d24fc0b21ceebeed444df873c02921696cf8e53a825bc500a4a4777
+- local_path: source-snapshot/tests/integration/defs/perf/test_perf_sanity.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f7abac5a74d297fd54321e89045f072ec69fff4a3f61c8804645636ec8ed1964
+  upstream_path: tests/integration/defs/perf/test_perf_sanity.py
+- local_path: source-snapshot/tests/integration/test_lists/waives.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 3f3c9bc959f2982b654e83a187a53ced99b75144c13756ad3dcbe65102eb067e
+  upstream_path: tests/integration/test_lists/waives.txt
+- local_path: source-snapshot/tests/scripts/perf-sanity/aggregated/deepseek_r1_fp4_v2_2_nodes_grace_blackwell.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: b31f23656b8a4f5c4a1bf68a7488836b2e7ff97faa9efddc04fe48e735863563
+  upstream_path: tests/scripts/perf-sanity/aggregated/deepseek_r1_fp4_v2_2_nodes_grace_blackwell.yaml
+- local_path: source-snapshot/tests/scripts/perf-sanity/aggregated/deepseek_r1_fp4_v2_blackwell.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: b71132a9e033523827565ff46f637e06ef1d4e71a5fdeb4301299a3d34d71ee7
+  upstream_path: tests/scripts/perf-sanity/aggregated/deepseek_r1_fp4_v2_blackwell.yaml
+- local_path: source-snapshot/tests/scripts/perf-sanity/aggregated/deepseek_r1_fp4_v2_grace_blackwell.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 528bb84dc7eb18049c27e21194bde7e4344557affffb3e717910cf00dcfe1ff7
+  upstream_path: tests/scripts/perf-sanity/aggregated/deepseek_r1_fp4_v2_grace_blackwell.yaml
+- local_path: source-snapshot/tests/scripts/perf-sanity/aggregated/deepseek_v32_fp4_blackwell.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 9c187ce2eab117bd009e08bc85bcafbd9859a560ba0e27e88e12d37d3d1cff8e
+  upstream_path: tests/scripts/perf-sanity/aggregated/deepseek_v32_fp4_blackwell.yaml
+- local_path: source-snapshot/tests/scripts/perf-sanity/aggregated/deepseek_v32_fp4_grace_blackwell.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: f2ed0e1c32baa12c0ae04f0d6c179e321eccd15bda24675de692d0e65ca0b010
+  upstream_path: tests/scripts/perf-sanity/aggregated/deepseek_v32_fp4_grace_blackwell.yaml
+- local_path: source-snapshot/tests/scripts/perf-sanity/aggregated/gb300_deepseek_r1_fp4_v2_2_nodes_grace_blackwell.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: a3c6df779870de462c1a5dd877150e3548f23d6482585dc56fe0b667ae742d0c
+  upstream_path: tests/scripts/perf-sanity/aggregated/gb300_deepseek_r1_fp4_v2_2_nodes_grace_blackwell.yaml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: d45246e9d5be43791d12f58c7b3f0aa7878e7ce84c91e9315f98845f63f475d7

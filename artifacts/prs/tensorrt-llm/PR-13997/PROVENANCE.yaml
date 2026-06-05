@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13997
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 341c7254b28110bbea47fe124b326ab978cc6e47
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13997
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: bf67a609fcb194528ae07c3ab9c796ba30bece382ba590aa2e0e87ec3be1212a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: dae2367121e3bc714b14e99ac8efb3474d4a9c5768ee37fe0bf5ffeeafb9b0d1
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/super_v3.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 7c065bba8b65c24c9b95ea3fd1e38bb098bca6bc0938f53e04535c98d4b4c5d8
+  upstream_path: examples/auto_deploy/model_registry/configs/super_v3.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/trtllm_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 829d6f9a6487defef4efbd344ecbc1413e4afe3666591c16e7f8b56ff6967b54
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/fused_moe/trtllm_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/fused_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 645fa863be70539d346c0a7ee3330ebcd90e28e339100ac131aa1c6a073e0932
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/fused_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/transform/library/multi_stream_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0d664e36b662898fa03e6350ce1a52b28985ab9f935aa5a9e9a0285bffa37591
+  upstream_path: tensorrt_llm/_torch/auto_deploy/transform/library/multi_stream_moe.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/transformations/library/test_moe_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5abc57636699bb93c11af38845b05db384f6c03257cdc2c7f40b2b281d390e06
+  upstream_path: tests/unittest/auto_deploy/singlegpu/transformations/library/test_moe_fusion.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 796679e5f838098046349f98900e534c70bdd37976c760778be3d539d79e3dde

@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11273
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 66f64d0a9ba3ec19362fb220238dd3ebbfac8568
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11273
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: a4080c4535da90dce35abb6d1b791cffc59ecad96f5a3931a25bf263bd73c026
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a0a452cb4159942e02ff621cb6d83a7cae6ddf2bccfe4c90ce012490a31f9c4b
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/causalConv1d/causalConv1d.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 1663c8afe4fba7f1f79cb3efd636176aae063400edacd8920e17caa0e17cd5ba
+  upstream_path: cpp/tensorrt_llm/kernels/causalConv1d/causalConv1d.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedActivationQuant.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 799238e5aed5f358e2f57ccb87c09f0d7190f17a2533d61adec130649fddd203
+  upstream_path: cpp/tensorrt_llm/kernels/fusedActivationQuant.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedActivationQuant.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 3c4fed0c28aebdddcd5f0c69c6347ceb673abda1691cc650dcdfa411d7c14ea0
+  upstream_path: cpp/tensorrt_llm/kernels/fusedActivationQuant.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/layernorm_param.h
+  role: upstream-file
+  mode: verbatim
+  sha256: c28e8eb3f3f2a4424e781e2bd96cc00ee3dc49345dfd9272fb6b72aac43a1a15
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/layernorm_param.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/low_latency_layernorm.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: 7c29bafc88fc2ef70ac462841546103369d0f326bb6fd4cec595982857cf96df
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/low_latency_layernorm.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.cuh
+  role: upstream-file
+  mode: verbatim
+  sha256: a247e466bd07eeeb6f2efd50313783dc7721656146098a84f8e955b5c0a5dad2
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.cuh
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 13ef2a82c19a80ff3532b0c3f6c8dd1f87d5ed7b8ccb9e7e3282c4c075f17a88
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm_fp4_traits.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 39a3bb2ffa702a15686a350a5bbeac006f4a1da85fbb74759da91539f4704236
+  upstream_path: cpp/tensorrt_llm/kernels/fusedLayernormKernels/ws_layernorm_fp4_traits.cu
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 8d5441ae0bbd2d36fe21b7a39981bda7d4bb751719a423ac6ec5e6dca3c2d7d4

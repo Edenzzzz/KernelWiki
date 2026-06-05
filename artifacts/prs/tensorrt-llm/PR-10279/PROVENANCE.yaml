@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10279
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: cdb17f34def7430fef90e4d7fd480b8d9c2ce866
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10279
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 472919d23d72db0b8f8afa409e696704cc0f824a48bacd24d961a135cb859217
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: e24646a22d453201f6372b2c890c655b3006e5f0de931527b10a463104e58803
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4768e037998ae06b12ef5598becfc393a585eb5b9e03408fd5eb9aebe19be46d
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/fused_moe_cute_dsl.py
+  role: upstream-file
+  mode: verbatim
+  sha256: dd9fa8ec4f48830a0cf3ea55f6714723d7c0d30fe5acca8d2d61c1cc3b42ebb4
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/fused_moe_cute_dsl.py
+- local_path: source-snapshot/tensorrt_llm/tools/layer_wise_benchmarks/runner.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 359d2eea9d12161e1a88ecd8eb274eead077fa1d43307344b6dbbe0c0f7fe4b9
+  upstream_path: tensorrt_llm/tools/layer_wise_benchmarks/runner.py
+- local_path: source-snapshot/tests/scripts/cute_dsl_kernels/moe_workload_generator.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c26d1cc89d173753c7cfdf8a6fd2211766cb1b3931eab56a315be0704a3c173c
+  upstream_path: tests/scripts/cute_dsl_kernels/moe_workload_generator.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_cute_dsl_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0cae0c3586d708e4a7319347054f406911858104050bb2f417a221c211963667
+  upstream_path: tests/unittest/_torch/thop/parallel/test_cute_dsl_moe.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 2b1ba8112a3f9cf3d02c67ac55a001a726139db1723e7eb8e7a0ccf49b982edb

@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12664
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: f253181517c6fad0f315e2e8d13535bf3ad2d286
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12664
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 5aa1a971b8839201a112e99a5d952057e9aaff6c200253ba5a906f5e8d2aab9f
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: fb7be6165ccca4f10e831fcbeb469490eaf5ff2c4dbdf77ae2c4193e23ad5fdf
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/mistral_small_4_119b.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: c96b6285e6de46a44294804767582afdc3208d907f9076224191dc98ede3f66a
+  upstream_path: examples/auto_deploy/model_registry/configs/mistral_small_4_119b.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/mla/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4ef4481ceea7848d1b2fac28eb6dcb9e0282e32cb360910145da34538b5217ff
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/mla/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/mla/torch_backend_mla.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 86512b7d2e9322ce169b5e04ad47f67b5dcff82c1d439eea2a1d79bf99e5f8f4
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/mla/torch_backend_mla.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/mla/triton_mla.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 1f4ccb13be0c16ecbb00ae65984310fa5969ca2653df501813c7a9c189252703
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/mla/triton_mla.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/custom_ops/mla/test_triton_mla_op.py
+  role: upstream-file
+  mode: verbatim
+  sha256: f581c6c2c06f52c2b5034865381b11a9306a36b37a8e2866dfb5a93a57e4d226
+  upstream_path: tests/unittest/auto_deploy/singlegpu/custom_ops/mla/test_triton_mla_op.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 025378b5b8cef9f5ae371049a56c1b2a9174d199240461a27a1c55125a0f5792

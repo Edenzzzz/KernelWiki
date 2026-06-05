@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/4867
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: bba771d52a55eba8bbae94710587a843681f2e33
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-4867
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9adc4b9227a369638f84bf9bdd678be743501c4231008298db9650b42db57c41
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 32af546f4ffecbc3ff4d71f7c2258d92989c3d05608f5ff476f3131f24b7a80e
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_bf16.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: cbb6143e2d39240ef1290020e76a19e53e37f875ba14baad63622427b31c5ee2
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_bf16.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_fp16.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: fe7519c0e53ba9460ecfb4ab350c1a704ad9ea0e3dab4f32338e58de33b3515e
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_fp16.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_fp32.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 91bf48ed25d35ae808e577cd19c3a12ebdd9879676a3e5453695f938a0f821e0
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_fp32.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_template.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 74cad4658be557ad716b2b1b44852be66b6f0a1391fb67d51ceaf11176b42f9f
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/fp4_gemm_template.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/mxfp8_mxfp4_gemm_template_sm100.h
+  role: upstream-file
+  mode: verbatim
+  sha256: e3770b5587a223429979cda5db1baa98c64e36fe629dc756434c5266c6913dfa
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/mxfp8_mxfp4_gemm_template_sm100.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/nvfp4_nvfp4_gemm_template_sm100.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 1939b9051b03fc3738fead59a9d8cdeb14615d6342b2113a33dda882cdbc6a51
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/nvfp4_nvfp4_gemm_template_sm100.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/nvfp4_nvfp4_gemm_template_sm120.h
+  role: upstream-file
+  mode: verbatim
+  sha256: f63797afeb5ad8e0ad2a541bb198de82b94412d2270c5bdcb6402191c44909d9
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp4_gemm/nvfp4_nvfp4_gemm_template_sm120.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/include/fp4_gemm.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 6743ff270abf2d180079c30380b51282919a2784cb7bf77d5215c1c12b0e6f21
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/include/fp4_gemm.h
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 2c3d14d04dba87aea2ff3c2b9ef34a361c28f4a50aef2c59c1479e733ea3c04f

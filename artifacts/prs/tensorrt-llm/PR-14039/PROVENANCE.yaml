@@ -1,0 +1,37 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/14039
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 21314f83ad81f02ecd98d17642ca67d022b594b2
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-14039
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 0f9ec81bf0893babe63de9669f0dbdc8bcc0a6a60ddb7b21af4c19e5f790ee08
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: bf696b98a33015206c9996d5ba8833713a4b17272b2f46d7ec7977fb96b8904d
+- local_path: source-snapshot/tests/integration/defs/perf/test_perf_sanity.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 78b950d5ad8bf26e34abbac92ce9a8f214eaed81a0cb94a077a7fd49f6fac903
+  upstream_path: tests/integration/defs/perf/test_perf_sanity.py
+- local_path: source-snapshot/tests/integration/test_lists/test-db/l0_h100.yml
+  role: upstream-file
+  mode: verbatim
+  sha256: cda56cbd576f51f92c5c0a80ac40386d4096cefe747f3e7ef510b28a8a58b910
+  upstream_path: tests/integration/test_lists/test-db/l0_h100.yml
+- local_path: source-snapshot/tests/scripts/perf-sanity/aggregated/llama3_1_8b_fp8_ad_hopper.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 8994ea6b06cdd5552768a0c24ef7ed7a6bb87fc0ff296828cc710bb00266e697
+  upstream_path: tests/scripts/perf-sanity/aggregated/llama3_1_8b_fp8_ad_hopper.yaml
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 742faea59528dd722b1964fbbadc4aadb063dd817c5de5847867e47fab7133b6

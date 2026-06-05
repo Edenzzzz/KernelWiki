@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12866
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 986cff1a2f7c0b0f5dce0d23bf84968b73e43e6e
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12866
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 110cd36939591f5cda511e35741394bf29a60802a6e23349dfdf58de63985a44
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 78904b2aa388b9415151512560af62ccb9fe21a3ed9b195111a59b40a5a2723c
+- local_path: source-snapshot/docs/source/models/supported-models.md
+  role: upstream-file
+  mode: verbatim
+  sha256: 2126dd51f6517f5d8af496c959cbdb2905cad6dade148f2d8ad451d118922586
+  upstream_path: docs/source/models/supported-models.md
+- local_path: source-snapshot/examples/auto_deploy/model_registry/configs/gemma4_dense.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: 2a08f472c6c4a9076c20b39d6499860a7642cb2b34edcc2e74d3a6ce962acae4
+  upstream_path: examples/auto_deploy/model_registry/configs/gemma4_dense.yaml
+- local_path: source-snapshot/examples/auto_deploy/model_registry/models.yaml
+  role: upstream-file
+  mode: verbatim
+  sha256: eadf35ba0a847a3a601c646670d1fb88ddb61e33f195ac63a88a37b9817a1c39
+  upstream_path: examples/auto_deploy/model_registry/models.yaml
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_paged_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 79efbb2934d59893908c667e126fb86f129b28f95f159cdc47567e1cb189dd05
+  upstream_path: tensorrt_llm/_torch/auto_deploy/custom_ops/attention/triton_paged_attention.py
+- local_path: source-snapshot/tensorrt_llm/_torch/auto_deploy/models/quant_config_reader.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 50abf0ef97aa77cdf9a7161a756e4b41fa63cb7bcf533d220ab5930b96d11963
+  upstream_path: tensorrt_llm/_torch/auto_deploy/models/quant_config_reader.py
+- local_path: source-snapshot/tests/unittest/_torch/auto_deploy/unit/singlegpu/models/test_gemma4_modeling.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 610a7e111960ef3a6f251691af5aff48f54fb52b235a4a1bf1b52bcf9416ba46
+  upstream_path: tests/unittest/_torch/auto_deploy/unit/singlegpu/models/test_gemma4_modeling.py
+- local_path: source-snapshot/tests/unittest/auto_deploy/singlegpu/custom_ops/attention/test_triton_paged_attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 0ccf8799c8f85614efdcef6c11c0ceccfc83f12b71bbf41ad53078aba4a0dc65
+  upstream_path: tests/unittest/auto_deploy/singlegpu/custom_ops/attention/test_triton_paged_attention.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: dc5d3685211b8264509d354835482966fd27892f5361fc83df7f78411aadf627

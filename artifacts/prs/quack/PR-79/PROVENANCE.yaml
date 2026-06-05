@@ -1,0 +1,37 @@
+origin_url: https://github.com/Dao-AILab/quack/pull/79
+upstream_repo: Dao-AILab/quack
+upstream_sha: 3a2b5c6c7093196f5c257c67d24bb9a1fa012993
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-quack-79
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 256680339dfcd1199dad6500626a3bebd052c1a0585ee4fa0954e11263a7c2a2
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: cee8ae681c183cd9235a451cbc43dd99dfc423a061f188a10dc32d74e7bc1ad6
+- local_path: source-snapshot/quack/tile_scheduler.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c20db83a5e7fbede5d15c84e60657c3198f38aca3136df100289bd882c63ae16
+  upstream_path: quack/tile_scheduler.py
+- local_path: source-snapshot/tests/test_gemm_symmetric.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9c2022832aa7bedce163cf95551bc18c6e878a9c798f761be930c470c4466ef1
+  upstream_path: tests/test_gemm_symmetric.py
+- local_path: source-snapshot/tests/test_symmetric_gemm.py.ERROR.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 0f344382d6599b59963035536fca7865ac2025a873fa774fb03bf4891effea31
+  upstream_path: tests/test_symmetric_gemm.py.ERROR.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: cd1933b03ec389df590e98fe5d46f8cd610a21cb38a7ddc3fbfa6f15492897f6

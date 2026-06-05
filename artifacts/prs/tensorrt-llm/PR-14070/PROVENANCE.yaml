@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/14070
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 4485466da88d0be6bfdc3a239656fe466fcdfd0b
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-14070
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 54e0202b723749dd05ea3b15d9a419381eeabf4bc7c9c4f8de2887b0a24786aa
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: e593638236edb70316d67be34bc62ce2eb7be3b67a25d8e24a1a5f0ac6caad14
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/allreduceOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 88da999bbe9a2b00dc95975116e91f370f9eea659a2bdc3c1d58856d82d1972b
+  upstream_path: cpp/tensorrt_llm/thop/allreduceOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_mnnvl_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 80480edcba62eee51b6b3321787295baa54a596293001462636ffab1831b08c1
+  upstream_path: tensorrt_llm/_mnnvl_utils.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: aca8380726393c6dc1a6d54c702db31b31c75ee95c55b1aad01ea82871d4f32d

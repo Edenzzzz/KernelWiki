@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13064
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: f179e625915e50d2a3c26bbce3b6ec573379956d
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13064
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: e4afdebf25f06e45ceba5359f5881fe2b9d4f43669708c59f12e4afa03082643
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 5a6d9a481a9b740a682dcc1d4cc3b169613f3b9867f19c2d81cacb947aa8fde6
+- local_path: source-snapshot/ATTRIBUTIONS-Python.md.SKIPPED.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: ca1211efe4d727531bd16fabd8ae667d69c284c5324ccf151e3bb29d4549e7f3
+  upstream_path: ATTRIBUTIONS-Python.md.SKIPPED.txt
+- local_path: source-snapshot/constraints.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: bf8fd4172698f19a96a26890e47fd8c4a9e63b326c27fe37f68f345d4d13df34
+  upstream_path: constraints.txt
+- local_path: source-snapshot/jenkins/L0_Test.groovy
+  role: upstream-file
+  mode: verbatim
+  sha256: 2f66a01dcb42d26bdf648d8b6f3865e0808e26d5dce38dcf10c7ee98cc1e0497
+  upstream_path: jenkins/L0_Test.groovy
+- local_path: source-snapshot/requirements.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: e4681cc9407e882025b62f7ee15fecbc5b5cdb84a005d186549319f7700c72bd
+  upstream_path: requirements.txt
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_gather_grouped_gemm_swiglu_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b13335ee9c6a76ae5a061c6d4997a165b585b25b01153c5a1a675b6357c49146
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_gather_grouped_gemm_swiglu_fusion.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 61ad7920c5471f2b0d5e68f84e519d156ebad530e885c2527c53f972a4e98c6f
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 59ba63e3396dbc821d5dab8dc3f757a9faa30d6784a288d38dcc1892f0587281
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/blockscaled_contiguous_grouped_gemm_finalize_fusion.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/custom_pipeline.py
+  role: upstream-file
+  mode: verbatim
+  sha256: e9af4c22ef85410b91d9561b8d99847693e578e1cfd58e130c58d23fffaea10e
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/custom_pipeline.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 304f3f44f3ee069bbbcb357b182122651fc9d369c4dfae1c35693e2c5f3500f3

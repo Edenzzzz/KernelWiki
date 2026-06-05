@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13268
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 68c962ace98c39dd19cd09672498eac8b4799732
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13268
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 4e06a9904f24dd3c36fd579dca272074c2999b3573b47b1e9e8a6c77d6726da2
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 2b6e02cb7b841b5aea4e6102bda789c5b9e1d3ca7d746a26c32b943cf50e5c0f
+- local_path: source-snapshot/tensorrt_llm/bench/benchmark/utils/general.py
+  role: upstream-file
+  mode: verbatim
+  sha256: a2798f69715727d8e6d0fb87f520068e7018c1855dcde13f6a5d221249e29a46
+  upstream_path: tensorrt_llm/bench/benchmark/utils/general.py
+- local_path: source-snapshot/tensorrt_llm/bench/build/build.py
+  role: upstream-file
+  mode: verbatim
+  sha256: b82c957ae60a897d8dba2b42a18a3dca51db15353c2262865a1b237f2b3b5dc4
+  upstream_path: tensorrt_llm/bench/build/build.py
+- local_path: source-snapshot/tensorrt_llm/bench/build/dataclasses.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3201046d6b59c26781dcce1c50f432289b0401fc84b70bc017e742cbc89d59bd
+  upstream_path: tensorrt_llm/bench/build/dataclasses.py
+- local_path: source-snapshot/tensorrt_llm/bench/build/tuning.py
+  role: upstream-file
+  mode: verbatim
+  sha256: bf3c82895beffd6b1246d3fb5adca63e8c98a8db07db4fcc48ffd1d90e0a6947
+  upstream_path: tensorrt_llm/bench/build/tuning.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 24e10d10d5426a539566e0966734ac721e7fece0006769bd802d821f5d37dca8

@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13340
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 102e6be3abf8da94fc314a07f8f6fee40f0cf616
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13340
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: df6e4af7585eed655957bb0dd71ba5b23a521d1e6572262e76074502d1d19e19
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 7bec6612c63b3d02a20324118b8a47df64439fa8639408a30bc78c5f888583a5
+- local_path: source-snapshot/3rdparty/fetch_content.json
+  role: upstream-file
+  mode: verbatim
+  sha256: 52d4ee31a34b00ac67ced36bc91b985d7546485761aa14eb90956c0b91811a1d
+  upstream_path: 3rdparty/fetch_content.json
+- local_path: source-snapshot/cpp/include/tensorrt_llm/batch_manager/kvCacheManager.h
+  role: upstream-file
+  mode: verbatim
+  sha256: dd4707f8166cf47b22095aceb1a96644a92cbaef3985dc9e17ef0e93f3eb833a
+  upstream_path: cpp/include/tensorrt_llm/batch_manager/kvCacheManager.h
+- local_path: source-snapshot/cpp/include/tensorrt_llm/executor/dataTransceiverState.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 036a83f6013d9eb5fc8adff6155efa968b41bc8375e0db35473054b28db8e7da
+  upstream_path: cpp/include/tensorrt_llm/executor/dataTransceiverState.h
+- local_path: source-snapshot/cpp/tensorrt_llm/batch_manager/cacheTransceiver.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 22ffac7c632341c421394d0e1c04d87fe33bcb04ab8f4158afbc7182df54c31d
+  upstream_path: cpp/tensorrt_llm/batch_manager/cacheTransceiver.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/batch_manager/kvCacheManager.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: b6d2fd7090c90915f423129ce1e0af64a5c5d8b3baffab9d0178ad0b10114c5e
+  upstream_path: cpp/tensorrt_llm/batch_manager/kvCacheManager.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/deep_gemm/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: afc3cbabd8881802fce7c9ed8b1a0dd13afbe55e5f2068655fee38d05346b901
+  upstream_path: cpp/tensorrt_llm/deep_gemm/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/executor/cache_transmission/cacheSplitConcat.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: a87070cbd96206db955bde32dd413de43d5433408291cd4caaf474d7148b7960
+  upstream_path: cpp/tensorrt_llm/executor/cache_transmission/cacheSplitConcat.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/executor/serialization.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 2fd8db322930fe9d61851b8ac211daae47ec41bbe3fbd49e8b11307feee4bde3
+  upstream_path: cpp/tensorrt_llm/executor/serialization.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 81e04a5a4957f7b6faa9323c002b4e240737a2adc0cf8813fe83b58bc2518a3b

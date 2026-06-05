@@ -1,0 +1,42 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12354
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 5c73f6cf3bbc026d8e20213f6f17a4d3839d67b0
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12354
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 9b6ecdbfff5d18680a8b320370e5f3196f92803c800926f537b5a6678915a894
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 7a03c257ee969a6fc10b433121a9da099f03c5c51d54ebabe2dc7ca8979e1ff6
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ce737931ad2fc02dff4f41149fe0421a58a37ad913a0d42678eebec0687e7e4d
+  upstream_path: tensorrt_llm/_torch/custom_ops/cute_dsl_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 2c2da219f2053f49c10710a084b5ea8ba49289bc8f65acaa5164b9c40c54f053
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk.py
+- local_path: source-snapshot/tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk_cluster.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 5dc76b2eacd12b738c10cdc3706aaefe3834ccafc97389490e1ecf54da02cb0d
+  upstream_path: tensorrt_llm/_torch/cute_dsl_kernels/blackwell/top_k/single_pass_multi_cta_radix_topk_cluster.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_indexer_topk.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 23835abab63a86cfc222b5349f1d66ad63f79a727286e7a2f894e74dfc5f5d0f
+  upstream_path: tests/unittest/_torch/thop/parallel/test_indexer_topk.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 620af300f20b9f93b888a9fee99c30d93a93b893ac28ff46ff295627f6350c90

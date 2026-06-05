@@ -1,0 +1,27 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13541
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 6f13f2b32240fa576071357fe2f525ea12b444f5
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13541
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: d740d77e47dc1272533fa9157292daf58e4503a60f3f729923bda835510930f9
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 9b3bb8db111ac3400aaf9c513e3ec85d2dbaa9be84f66ba087e74664d6b8b24d
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/fmhaKernels.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 7680b65ef93ee3513a56233501cc9dfa4e29437487f07dc34c70fd67aca01399
+  upstream_path: cpp/tensorrt_llm/kernels/trtllmGenKernels/fmha/fmhaKernels.h
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 6038e554dcff1f425266630f2bdffb091725fdfe50efa372133b8c592023b9bf

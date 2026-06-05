@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/11589
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 08422a704ed7931c77246b54a819c95ab513daa7
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-11589
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: fe1f58a2b565ce473a4d995b2741b9a665fd0d5e2ed556b3344a4f2d043460cc
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 27d6e30d72c0fdd05e2b2fbec812d6e45babef83ff5c6335fb088e15e299ebe5
+- local_path: source-snapshot/cpp/tensorrt_llm/nanobind/thop/bindings.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 9370ee2d9ed7d816511c8cda61a2e74e62948d420695529e6d9e65a92158b5e6
+  upstream_path: cpp/tensorrt_llm/nanobind/thop/bindings.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: c350bed24086f75043bda7c3259fec323dcdf7b2ef3616a0a7e65490eb2f3ec6
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/allocateOutput.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: e3c92f0f734e9fa93fa985d60916ec12cce0edc18192449bcac729d40622f908
+  upstream_path: cpp/tensorrt_llm/thop/allocateOutput.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/allreduceOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: e5ebd680dad21cd1de49525fe82dc10035f737aff2f5d8c278e4020d1334c49a
+  upstream_path: cpp/tensorrt_llm/thop/allreduceOp.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cublasFp4ScaledMM.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 230e430d7f60b400261e02006144dc83f8383887d54f120275ec5b329b0f29d1
+  upstream_path: cpp/tensorrt_llm/thop/cublasFp4ScaledMM.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cublasScaledMM.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: a45c4b3ebe3adae67016abb77f3dc1808c6dd54a096a72610ab7d559cf812fec
+  upstream_path: cpp/tensorrt_llm/thop/cublasScaledMM.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cublasScaledMM.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 586f75bfc5c68b959ae494507bd3ecb045863bb6793d4c18c64d6931965349e1
+  upstream_path: cpp/tensorrt_llm/thop/cublasScaledMM.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cudaNvfp4MM.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: a69860325030fcd7e466f59cfcc045fa9d4ee358aaf4e107a9839e48fe502aa2
+  upstream_path: cpp/tensorrt_llm/thop/cudaNvfp4MM.cpp
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 511bf279fc808aeab5d932dbc2f40b1f7cc3cf161c85b91586307e8bfdbd1432

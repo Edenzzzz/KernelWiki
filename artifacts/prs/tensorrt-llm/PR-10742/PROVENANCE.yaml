@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/10742
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: a6e3ff4719459cc20d85d6dc14b3d5352be5051b
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-10742
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 57ab6b3c52e422039693c0b00a26ca5d54aeaab3e5f77cb1b946601247753076
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: f881ec05be66730b9482dbe2aa091b59d6c061a61ce33aabefd62a78424a3b65
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/logitsBitmask.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: d9ebaa0e6b1ee3f1b187bef811c5d083cb4f89547d102c68a99e8fdef01306ac
+  upstream_path: cpp/tensorrt_llm/kernels/logitsBitmask.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/logitsBitmask.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 72286ec525dbf1ea24eb6e993a2b7b64034c272f550f4a1d3b0dd96939398c2e
+  upstream_path: cpp/tensorrt_llm/kernels/logitsBitmask.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/logitsBitmaskOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 7e7ab1b564b25bee19169534189eb9cd77cd99d55d6748428f023f6d09e8b03d
+  upstream_path: cpp/tensorrt_llm/thop/logitsBitmaskOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/pyexecutor/guided_decoder.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 54db6ee86e38874211bd9632678999fa6984444e145d2c46be77974c2b2ba6ed
+  upstream_path: tensorrt_llm/_torch/pyexecutor/guided_decoder.py
+- local_path: source-snapshot/tensorrt_llm/_torch/pyexecutor/py_executor_creator.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 8fca2772b1be6fb793e6ab7b2a67e8377b489dc9394acfc6cc819dc1970e1b1a
+  upstream_path: tensorrt_llm/_torch/pyexecutor/py_executor_creator.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: e81a8a4e99bea40b0af13139bf29fac53be0512f84737179ee1f0181bfd7ce8d

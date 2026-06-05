@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13628
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 861be2625b41343142d91a2e12cdad3e71ddcca0
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13628
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: ae49c98e6c21664847304168c583938afbb1bd79def18a5f891f6467b50380da
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 317dd07149ba42271ee922de6d67e0540d09a5ff587ec9cb798e03f8e4a1e2d3
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_quant_packed.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 9fc4cf1551c2e1e7d3ce965b1ea0703ce3dca5a9409ca47cf733d426c55c5bcf
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_quant_packed.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_quant_packed.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 91d0426273fffbe045c646cbfe89d8c1f85b56c207cbcd9bd654356d933cf01d
+  upstream_path: cpp/tensorrt_llm/kernels/cutlass_kernels/fp8_blockscale_gemm/fp8_blockscale_quant_packed.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/fp8Quantize.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: f90de09b054b140fd735a1a4988c69a71c345b1483854ad20a44982f7c70fdce
+  upstream_path: cpp/tensorrt_llm/thop/fp8Quantize.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: de175a251d96bf05f892163d2fec92ac57a3ed5693dd46241de1dfa27ca3cb90
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 587c95433c0fba87d9a4bf66589ba04eb421e7db65f0b1e689b31d8b021a5539
+  upstream_path: tensorrt_llm/_torch/custom_ops/torch_custom_ops.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 1e07b2649163a60c7b98429aa391a0b63c65e85cf257f1ea0f5d6a276ffd5d23

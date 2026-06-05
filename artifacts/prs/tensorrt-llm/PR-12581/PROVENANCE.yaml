@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/12581
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 66f6b07de0243d15bc1ad212e70c84058e74bb2c
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-12581
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 18b75f6cbb27e774a21d9ba9b4753159f24416b8f19abde3258d3c71942f591a
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: ff1742448444d23da07d7afad5ec81dbf439d679f36238283bdbcbca0e69f2f4
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/IndexerKCacheGather.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 9a433b1f78755fe40050a938878ff53f38fd2e80fb8555b12e766a5a035c32df
+  upstream_path: cpp/tensorrt_llm/kernels/IndexerKCacheGather.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/convertReqIndexToGlobal.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: 937053a0283e1579435a6634214afded29fd42dcf5bbea963a9b1fd20a36bc89
+  upstream_path: cpp/tensorrt_llm/kernels/convertReqIndexToGlobal.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/convertReqIndexToGlobal.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 301919bda325dd91d5dfa1893406f44457ad8539ac8e0f96423c6a101a15f50a
+  upstream_path: cpp/tensorrt_llm/kernels/convertReqIndexToGlobal.h
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/indexerKCacheGather.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: deab1c1021e1ae7e6088ee51598712247e809506be82d655a6e23cd795fa68a4
+  upstream_path: cpp/tensorrt_llm/kernels/indexerKCacheGather.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 20b2c15778d6e3ac3e0fd0ebef60ac8d702305028669e126f2a8929b2a56eccf
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/IndexerKCacheGatherOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 09706ea03bd64db08f82637c52cd60d054ecc855c9b514bda07210843601f50e
+  upstream_path: cpp/tensorrt_llm/thop/IndexerKCacheGatherOp.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/convertReqIndexToGlobalOp.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: aa8f915edd8d8f11540e974f790bb777b4404783a4334415a995f5498b10aa8b
+  upstream_path: cpp/tensorrt_llm/thop/convertReqIndexToGlobalOp.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 9fdb46d642198c75eba7efde91cfdc5fb8fc082433d8c931096de77fc612141c
+  upstream_path: tensorrt_llm/_torch/attention_backend/sparse/dsa.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: bf1c96b537d829016ac6398112aabe049e8552caf6a3457def99c1364d6be59d

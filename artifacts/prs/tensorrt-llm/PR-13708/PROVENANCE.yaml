@@ -1,0 +1,32 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13708
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 1efd5b74989451f1024d153bc56ae4ef1706eaee
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13708
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 97c82645551bae3a39ed397212df9f3e6b692985e6a1c9d69666871a363bd4cf
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 46f5d94c318956e3cb38ea47b09142f61d3fe518c089135038ef42461e82027e
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/fused_moe_triton.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3d6cc270b8c22a331123414129227c1bb4e211a39f1f9048c8706a08522e9852
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/fused_moe_triton.py
+- local_path: source-snapshot/tests/integration/test_lists/waives.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 54b9aee412f1e13d58fd9c1ee6cedceba6a012e5731fdfb6fb3a4328e4bc3313
+  upstream_path: tests/integration/test_lists/waives.txt
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 9dd8b36c30bf30dac1e0e5cefe1a37cfd946f53c9949ef3b13e6ccd3029c396a

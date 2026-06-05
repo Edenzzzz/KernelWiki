@@ -1,0 +1,47 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/13938
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 6997a88ee8d93f01d9fa7485b63f6bec07003ae5
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-13938
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 1c837616156dcfb2e5102c642356295fabd3c58c969fbddaf6dc42dc573f9601
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: a124297c02f57a6b0dbd2e1cc55df350a3434258e104d9fd88da36beec549edb
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 237a1115f181bd39527e663ac83c9c5af4abd95a77cd1bc09d10c5fa4fb53044
+  upstream_path: tensorrt_llm/_torch/custom_ops/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/triton_fused_inv_rope_fp8_quant.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 82dd8ac72072d653f389adc667131716e6af3b6ef610d5168fbdfd5413f8b8f5
+  upstream_path: tensorrt_llm/_torch/custom_ops/triton_fused_inv_rope_fp8_quant.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv4.py
+  role: upstream-file
+  mode: verbatim
+  sha256: fef17cc75fcda3fa6b6676768fcab7950b80cc4cbd26bbd85e395ab7bcd8daf6
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv4.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/attention.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3d30e4d242ec00b414603febdaaa9c8dcb1e26b7e5668ca435bf3747ea57bc6b
+  upstream_path: tensorrt_llm/_torch/modules/attention.py
+- local_path: source-snapshot/tests/unittest/_torch/custom_ops/test_fused_inv_rope_fp8_quant.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 7513adcd4f2e9f50b2aaf5c7fe131551a37a6cf0f800fefe479cde0f96978f4b
+  upstream_path: tests/unittest/_torch/custom_ops/test_fused_inv_rope_fp8_quant.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 176c436067706d21b2d2ae016507b52a6d52fd55668fb8dbe6bbd2477084654e

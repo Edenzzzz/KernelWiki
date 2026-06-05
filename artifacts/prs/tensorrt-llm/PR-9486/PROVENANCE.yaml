@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/9486
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 17666b97464e771f3af5d5f8718288b32bece729
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-9486
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: dc3f8fa5f0d8ba1b799ab07578c7bbb188a676a96ffeca60a5e7ac1a09fda2cc
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 80f2b301e8ab5cd6616d9415fee074516183b03d30c19fa14b8323dd8c1e55ca
+- local_path: source-snapshot/tensorrt_llm/_torch/model_config.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 6f9d5d3afa7a957475ce0b63a1e43fc937d3648622d4e26eb73b4339eff0024f
+  upstream_path: tensorrt_llm/_torch/model_config.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_deepseekv3.py
+  role: upstream-file
+  mode: verbatim
+  sha256: ef3a3c54b8d0f5b19158dcc80e82ef6ced88b89110e41062fc223007a2fc9238
+  upstream_path: tensorrt_llm/_torch/models/modeling_deepseekv3.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_gpt_oss.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 60564f74b955bb7d5f272fb7832079ca9213fae8779c679657c33c59724f3055
+  upstream_path: tensorrt_llm/_torch/models/modeling_gpt_oss.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_hunyuan_moe.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 32ad6f1b4142398a39c418983871fdbf5666498a0461d4f99e89c8ff6543fdff
+  upstream_path: tensorrt_llm/_torch/models/modeling_hunyuan_moe.py
+- local_path: source-snapshot/tensorrt_llm/_torch/models/modeling_utils.py
+  role: upstream-file
+  mode: verbatim
+  sha256: d2430d3cb70923b2df7dca827de03ca5016fdfa5c3086fd6b6213e233c505fed
+  upstream_path: tensorrt_llm/_torch/models/modeling_utils.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/communication/__init__.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 4ce7a04bd0b754d8f570dd26854f7612cb91f5f967666c4c7788a093741a3d30
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/communication/__init__.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/communication/allgather_reducescatter.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 80e3f5a7cfc63c5def54f9462323ff9c744285e1e908e6b98286af342f06f6f4
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/communication/allgather_reducescatter.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/fused_moe/communication/base.py
+  role: upstream-file
+  mode: verbatim
+  sha256: c5901801836f894d0f055af9cbe09804b5f58b06c1f8c70828dc1b10eba8eb25
+  upstream_path: tensorrt_llm/_torch/modules/fused_moe/communication/base.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: f8e1e6192b708e4d5be37e93bc4cbbbe4c4548c6cb4261de07557299d211db35

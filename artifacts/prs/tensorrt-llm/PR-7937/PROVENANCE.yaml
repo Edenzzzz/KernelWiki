@@ -1,0 +1,62 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/7937
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: 15e86da5521b24d35b321411b83f3171932bd1a2
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-7937
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 06e53fd0dc47ab77c76ecedf532336cc1c0307590a716f13a1f5334bf7cda742
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: f263991f22fef68d4bcbc13da30d29a024dcf7f5ff9d306b72d21d6a1d209dfe
+- local_path: source-snapshot/cpp/include/tensorrt_llm/common/cudaUtils.h
+  role: upstream-file
+  mode: verbatim
+  sha256: c6adff1a658efbd1d980055b396b5909e8ce0635b0a709d460729a8862e25182
+  upstream_path: cpp/include/tensorrt_llm/common/cudaUtils.h
+- local_path: source-snapshot/cpp/kernels/fmha_v2/fmha_test.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 02676b7a74568fb755981b91ce01072a558d9caaab2508d1c9f28e83c2f40d0d
+  upstream_path: cpp/kernels/fmha_v2/fmha_test.py
+- local_path: source-snapshot/cpp/kernels/fmha_v2/src/fmha/fragment.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 40429ab5f2e5f779c1c3acbbe86bc115c1f78cca620f98b59092c68669d1718d
+  upstream_path: cpp/kernels/fmha_v2/src/fmha/fragment.h
+- local_path: source-snapshot/cpp/kernels/fmha_v2/src/fused_multihead_flash_attention_kernel_noloop.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 5fd1e8fa7662afb38c17888395f5a2772974dc24d5f2487736035d834ea4fa79
+  upstream_path: cpp/kernels/fmha_v2/src/fused_multihead_flash_attention_kernel_noloop.h
+- local_path: source-snapshot/cpp/kernels/fmha_v2/src/fused_multihead_flash_attention_kernel_noloop_tiled.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 83f95ec84c072246855a704e5661aa282c821ce834ca4b525a1871c03778c08c
+  upstream_path: cpp/kernels/fmha_v2/src/fused_multihead_flash_attention_kernel_noloop_tiled.h
+- local_path: source-snapshot/cpp/tensorrt_llm/common/cublasMMWrapper.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 5f490d6fc68b79ac2824df61c4eef5e390344b888d08d1a22479ac99fd26527d
+  upstream_path: cpp/tensorrt_llm/common/cublasMMWrapper.cpp
+- local_path: source-snapshot/cpp/tensorrt_llm/common/cublasMMWrapper.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 5ce1e04146892f677da93d20f273a0d66813a50cca5e1ce2dc7637aed84d190c
+  upstream_path: cpp/tensorrt_llm/common/cublasMMWrapper.h
+- local_path: source-snapshot/cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm_configs.h
+  role: upstream-file
+  mode: verbatim
+  sha256: e2be8ddf92a66c635bbdf8e84c596d7ddd4b8773ba0ff94413ee6caa9df73339
+  upstream_path: cpp/tensorrt_llm/cutlass_extensions/include/cutlass_extensions/gemm_configs.h
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 837b252b8ffe25af698c57624c45c8b6eb8b542acb1af83cb7ae28f5ccd0d8df

@@ -1,0 +1,57 @@
+origin_url: https://github.com/NVIDIA/TensorRT-LLM/pull/8620
+upstream_repo: NVIDIA/TensorRT-LLM
+upstream_sha: c8a1abde7eaa121cd53b0f55d57b251a4f8903a4
+license: inherits-from-upstream
+retrieved_at: '2026-05-16'
+asset_mode: verbatim
+size_cap_truncated: true
+generated_by: ../kernel-pilot PR source import
+source_pr_id: pr-tensorrt-llm-8620
+files:
+- local_path: ORIGIN.yaml
+  role: approach-notes
+  mode: verbatim
+  sha256: 155698b9b708106fbea6cf53617458ad842706ab9c42c2229294d7b9aa2f4dff
+- local_path: review.diff
+  role: pr-diff
+  mode: upstream-patch
+  sha256: 487950905d4e0c971883a7593eb5b905b76c36c483d2f8a34f4a46bc3b83e2bb
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/weightOnlyBatchedGemv/cudaCoreGemmNVFP4.cu
+  role: upstream-file
+  mode: verbatim
+  sha256: b83a7b9f69914e59aeebca8e573b598292063add6186bd4de22fc0fc6985e899
+  upstream_path: cpp/tensorrt_llm/kernels/weightOnlyBatchedGemv/cudaCoreGemmNVFP4.cu
+- local_path: source-snapshot/cpp/tensorrt_llm/kernels/weightOnlyBatchedGemv/cudaCoreGemmNVFP4.h
+  role: upstream-file
+  mode: verbatim
+  sha256: 97608f24a8b2683a3afc234cd068c2d8e064bcbb79a6eba399c377ff5d34172b
+  upstream_path: cpp/tensorrt_llm/kernels/weightOnlyBatchedGemv/cudaCoreGemmNVFP4.h
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/CMakeLists.txt
+  role: upstream-file
+  mode: verbatim
+  sha256: 90cb2369d68ecd80f07aee3c9930f18dbc8ced1fecfc584b78d6cfa7ff97ddaa
+  upstream_path: cpp/tensorrt_llm/thop/CMakeLists.txt
+- local_path: source-snapshot/cpp/tensorrt_llm/thop/cudaNvfp4MM.cpp
+  role: upstream-file
+  mode: verbatim
+  sha256: 35799ca284e899406d5a62333f94885d3deb71748628493a1f7e9778cf61589d
+  upstream_path: cpp/tensorrt_llm/thop/cudaNvfp4MM.cpp
+- local_path: source-snapshot/tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 3c4d9bb0c2d42102e4d9b9c843005721327a76928786b16b496b5d2592d8bd05
+  upstream_path: tensorrt_llm/_torch/custom_ops/cpp_custom_ops.py
+- local_path: source-snapshot/tensorrt_llm/_torch/modules/linear.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 85973fe1821768a686bcbc054db3f1b7870024aec4da131feeadfe531905a67d
+  upstream_path: tensorrt_llm/_torch/modules/linear.py
+- local_path: source-snapshot/tests/unittest/_torch/thop/parallel/test_fp4_linear.py
+  role: upstream-file
+  mode: verbatim
+  sha256: 24154575aad6381313bfe47aad6eed9df7baa0e73c4b09cbef4bc406517de906
+  upstream_path: tests/unittest/_torch/thop/parallel/test_fp4_linear.py
+- local_path: upstream.json
+  role: approach-notes
+  mode: verbatim
+  sha256: 1d4ea6bdfef1c5730fd1e8580a28cb17922debff1a1d975531b5422e8e606217
